@@ -6,6 +6,7 @@ __pycache__/
 build/venv/
 build/build/
 build/dist/
+build/tools/
 build/cfc_check.js
 build/cfc_selftest_result.json
 build/gh_tree.json
