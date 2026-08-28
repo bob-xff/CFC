@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# PyInstaller 构建产物（venv 和中间目录不提交）
+build/venv/
+build/build/
+build/dist/
+build/cfc_check.js
+build/cfc_selftest_result.json
+build/gh_tree.json
+build/gh_names.txt
+build/logos_js.txt
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
