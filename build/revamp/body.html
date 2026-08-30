@@ -1,0 +1,223 @@
+<!-- Splash Screen -->
+<div id="splash-screen" class="active">
+  <img class="splash-logo" id="splash-logo" alt="CFC" src="">
+  <div class="splash-line"></div>
+  <div class="splash-meta"><span>CFC FOOTBALL CAREER</span><span class="dot"></span><span>中国足球生涯 V2.1.0</span></div>
+</div>
+<!-- Start Screen -->
+<div id="start-screen" class="screen">
+  <div class="start-top">
+    <div class="start-brand"><img class="mark" id="brand-mark" alt="" src="">CFC FOOTBALL CAREER</div>
+    <span class="start-version" data-version="1">V2.1.0 · 2026赛季版</span>
+  </div>
+  <img class="start-logo" id="start-logo" alt="CFC 标志" src="">
+  <div class="start-overline">FOOTBALL CAREER SIMULATOR</div>
+  <h1 class="start-title">足球职业生涯模拟器</h1>
+  <p class="start-subtitle">从16岁青训到世界之巅，一条史无前例的中国巨星之路</p>
+  <p class="start-desc">2026赛季起步：U17梯队出道，经历U19/U21预备队、中超一线队、留洋欧洲、国家队——赶上一个真实的世界杯周期（2027亚洲杯 · 2028奥运会 · 2030世界杯 · 2034世界杯）。全部队友、教练、名宿、解说均为真实人物，你的每个选择都算数。</p>
+  <div class="start-actions">
+    <button class="start-btn primary" onclick="showScreen('create-screen')"><span class="btn-icon" data-icon="plus"></span>新游戏</button>
+    <button class="start-btn" onclick="showLoadScreen(false)"><span class="btn-icon" data-icon="folder"></span>读取存档</button>
+    <button class="start-btn" onclick="showManageSaves()"><span class="btn-icon" data-icon="trash"></span>管理存档</button>
+    <button class="start-btn" onclick="toggleTheme()"><span class="btn-icon" data-icon="star"></span><span data-theme-label="1">切换浅色主题</span></button>
+  </div>
+  <div class="start-tags">
+    <span class="start-tag">七章剧情 · 零重复</span>
+    <span class="start-tag">真实赛历周期</span>
+    <span class="start-tag">真实球员/教练/名宿</span>
+    <span class="start-tag">潜力加速成长</span>
+  </div>
+  <div class="start-accent"></div>
+</div>
+<!-- Load Screen -->
+<div id="load-screen" class="screen">
+  <div class="screen-header">
+    <div class="overline">SAVE / LOAD</div>
+    <h2>读取存档</h2>
+    <p>选择一个存档槽继续你的职业生涯</p>
+  </div>
+  <div id="save-slots-container"></div>
+  <button class="back-btn" onclick="showScreen('start-screen')"><span class="btn-icon" data-icon="back"></span>返回</button>
+</div>
+<!-- Create Player Screen -->
+<div id="create-screen" class="screen">
+  <div class="screen-header">
+    <div class="overline">NEW CAREER · 2026</div>
+    <h2>创建你的球员</h2>
+    <p>16岁，加入U17梯队，开启足球人生</p>
+  </div>
+  <div class="create-form">
+    <div class="form-group">
+      <label>球员姓名</label>
+      <input type="text" id="player-name" placeholder="输入你的姓名" maxlength="10">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>身高 (cm)</label>
+        <input type="number" id="player-height" value="175" min="155" max="200">
+      </div>
+      <div class="form-group">
+        <label>体重 (kg)</label>
+        <input type="number" id="player-weight" value="68" min="45" max="100">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>场上位置</label>
+      <div class="position-grid">
+        <div class="pos-btn" data-pos="ST" onclick="selectPosition(this)">ST<small>前锋</small></div>
+        <div class="pos-btn" data-pos="LW" onclick="selectPosition(this)">LW<small>左边锋</small></div>
+        <div class="pos-btn" data-pos="RW" onclick="selectPosition(this)">RW<small>右边锋</small></div>
+        <div class="pos-btn" data-pos="CAM" onclick="selectPosition(this)">CAM<small>前腰</small></div>
+        <div class="pos-btn" data-pos="CM" onclick="selectPosition(this)">CM<small>中前卫</small></div>
+        <div class="pos-btn" data-pos="CDM" onclick="selectPosition(this)">CDM<small>后腰</small></div>
+        <div class="pos-btn" data-pos="LB" onclick="selectPosition(this)">LB<small>左后卫</small></div>
+        <div class="pos-btn" data-pos="RB" onclick="selectPosition(this)">RB<small>右后卫</small></div>
+        <div class="pos-btn" data-pos="CB" onclick="selectPosition(this)">CB<small>中后卫</small></div>
+        <div class="pos-btn" data-pos="GK" onclick="selectPosition(this)">GK<small>门将</small></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>惯用脚</label>
+        <select id="player-foot">
+          <option value="right">右脚</option>
+          <option value="left">左脚</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>家乡地区</label>
+        <select id="player-region">
+          <option value="北京">北京</option><option value="上海">上海</option>
+          <option value="广东">广东</option><option value="山东">山东</option>
+          <option value="辽宁">辽宁</option><option value="四川">四川</option>
+          <option value="湖北">湖北</option><option value="江苏">江苏</option>
+          <option value="浙江">浙江</option><option value="天津">天津</option>
+          <option value="重庆">重庆</option><option value="吉林">吉林</option>
+          <option value="河南">河南</option><option value="云南">云南</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+      <label>花式星级</label>
+      <div class="star-rating" id="skill-rating" data-type="skill">
+          <span class="star active" data-val="1"></span>
+          <span class="star active" data-val="2"></span>
+          <span class="star active" data-val="3"></span>
+          <span class="star" data-val="4"></span>
+          <span class="star" data-val="5"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>逆足星级</label>
+        <div class="star-rating" id="weakfoot-rating" data-type="weakfoot">
+          <span class="star active" data-val="1"></span>
+          <span class="star active" data-val="2"></span>
+          <span class="star active" data-val="3"></span>
+          <span class="star" data-val="4"></span>
+          <span class="star" data-val="5"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>青训俱乐部（2026中超联赛真实名单）</label>
+      <select id="player-academy"></select>
+      <div class="form-note">豪门青训起薪更高、队内竞争更激烈；选择与你家乡同城的俱乐部，还会有专属的家乡剧情。</div>
+    </div>
+    <button class="create-btn" onclick="createPlayer()">开始职业生涯</button>
+  </div>
+  <button class="back-btn" onclick="showScreen('start-screen')"><span class="btn-icon" data-icon="back"></span>返回</button>
+</div>
+<!-- Game Screen -->
+<div id="game-screen" class="screen">
+  <div class="app-header">
+    <div class="hdr-left">
+      <span id="hdr-crest-wrap" class="hdr-crests"></span>
+      <div class="hdr-club">
+        <div class="hdr-line1"><span class="header-name" id="hdr-name">球员</span><span class="header-stage" id="hdr-stage"></span></div>
+        <div class="header-team" id="hdr-team">球队</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <span class="chip"><span class="chip-label">赛季</span><b id="hdr-season-chip">S1 · 2026</b></span>
+      <span class="chip"><span class="chip-label">年龄</span><b id="hdr-age">16</b></span>
+      <span class="chip volt"><span class="chip-label">总评</span><b id="hdr-ovr">50</b></span>
+      <span class="chip"><span class="chip-label">身价</span><b id="hdr-value">€0</b></span>
+      <button class="save-icon-btn" onclick="toggleGameMenu()"><span class="btn-icon" data-icon="menu" style="margin:0"></span>菜单</button>
+    </div>
+  </div>
+  <nav class="rail">
+    <button class="rail-btn active" data-view="story" onclick="switchView('story')"><span data-icon="home"></span>剧情</button>
+    <button class="rail-btn" data-view="growth" onclick="switchView('growth')"><span data-icon="trend"></span>成长</button>
+    <button class="rail-btn" data-view="stats" onclick="switchView('stats')"><span data-icon="chart"></span>数据</button>
+    <button class="rail-btn" data-view="honors" onclick="switchView('honors')"><span data-icon="trophy"></span>荣誉</button>
+    <button class="rail-btn" data-view="log" onclick="switchView('log')"><span data-icon="clock"></span>履历</button>
+    <div class="rail-spacer"></div>
+    <div class="rail-season">赛季<b id="rail-season-val">S1</b><span id="rail-season-age">16岁 · 2026</span></div>
+  </nav>
+  <main class="stage" id="stage">
+    <section class="view active" id="view-story"></section>
+    <section class="view" id="view-growth"></section>
+    <section class="view" id="view-stats"></section>
+    <section class="view" id="view-honors"></section>
+    <section class="view" id="view-log"></section>
+  </main>
+</div>
+<!-- Game Menu Overlay -->
+<div class="game-menu-overlay" id="game-menu-overlay">
+  <div class="game-menu">
+    <div class="game-menu-title">游戏菜单</div>
+    <div class="game-menu-sub" id="menu-sub-info">赛季 · 球员</div>
+    <div class="game-menu-sub" id="menu-version" style="margin-top:-8px;opacity:.7">CFC V2.1.0</div>
+    <button class="menu-btn primary" onclick="menuSave()"><span class="btn-icon" data-icon="save"></span>保存游戏</button>
+    <button class="menu-btn" onclick="menuSaveAndExit()"><span class="btn-icon" data-icon="save-exit"></span>保存并退出到存档页</button>
+    <button class="menu-btn" onclick="menuLoad()"><span class="btn-icon" data-icon="folder"></span>读取存档</button>
+    <button class="menu-btn" onclick="menuManageSaves()"><span class="btn-icon" data-icon="trash"></span>管理存档</button>
+    <button class="menu-btn" onclick="toggleTheme()"><span class="btn-icon" data-icon="star"></span><span data-theme-label="1">切换浅色主题</span></button>
+    <button class="menu-btn" onclick="toggleGameMenu()"><span class="btn-icon" data-icon="back"></span>返回游戏</button>
+    <button class="menu-btn danger" onclick="confirmExitGame()"><span class="btn-icon" data-icon="logout"></span>退出到主菜单</button>
+    <button class="menu-btn danger" onclick="menuQuitApp()"><span class="btn-icon" data-icon="power"></span>退出游戏</button>
+  </div>
+</div>
+<!-- Confirm Dialog -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box" id="confirm-box">
+    <h3 id="confirm-title">确认操作</h3>
+    <p id="confirm-message">确定要执行此操作吗？</p>
+    <div class="confirm-btns">
+      <button class="confirm-btn no" onclick="closeConfirm()">取消</button>
+      <button class="confirm-btn yes" id="confirm-yes-btn">确认</button>
+    </div>
+  </div>
+</div>
+<!-- Season Summary Modal -->
+<div class="modal-overlay" id="summary-modal">
+  <div class="modal-content" id="summary-content"></div>
+</div>
+<!-- Retirement Screen -->
+<div id="retire-screen" class="screen">
+  <div class="screen-header">
+    <div class="overline">CAREER DECISION</div>
+    <h2 id="retire-title">职业生涯的十字路口</h2>
+    <p id="retire-subtitle">你已经40岁了，是时候做出决定了</p>
+  </div>
+  <div class="retire-options" id="retire-options">
+    <div class="retire-option" onclick="chooseRetire('retire')">
+      <div class="retire-icon"><span data-icon="flag"></span></div>
+      <div class="retire-title">挂靴退役</div>
+      <div class="retire-desc">结束球员生涯，回顾你的传奇旅程</div>
+    </div>
+    <div class="retire-option" onclick="chooseRetire('coach')">
+      <div class="retire-icon"><span data-icon="clipboard"></span></div>
+      <div class="retire-title">转战教练</div>
+      <div class="retire-desc">拿起教鞭，开启执教生涯</div>
+    </div>
+    <div class="retire-option" id="retire-continue" onclick="chooseRetire('continue')">
+      <div class="retire-icon"><span data-icon="football"></span></div>
+      <div class="retire-title">继续征战</div>
+      <div class="retire-desc">老骥伏枥，继续球员生涯</div>
+    </div>
+  </div>
+  <div id="retire-extra"></div>
+  <button class="back-btn" id="retire-back" style="display:none" onclick="backToGame()"><span class="btn-icon" data-icon="back"></span>返回游戏</button>
+</div>
