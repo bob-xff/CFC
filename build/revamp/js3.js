@@ -91,35 +91,16 @@ function seasonSnapshot(){
     reds:pr.reds
   };
 }
-// ============ 章节制剧情引擎 ============
-const CHAPTERS=[
-  {id:1,name:'青训星火',desc:'16岁，你走进了U17梯队。这里是千军万马的独木桥，也是所有巨星梦开始的地方。'},
-  {id:2,name:'破土而出',desc:'U19、U21的对抗升级了，租借、跳级、一线队大名单——职业世界的大门正在打开。'},
-  {id:3,name:'立足中超',desc:'一线队的替补席到主力位置，杯赛、亚冠与国家队的召唤接踵而至。'},
-  {id:4,name:'留洋风云',desc:'跨越八千公里，语言、饮食、战术、孤寂——在欧洲站稳脚跟是另一场修行。'},
-  {id:5,name:'国家使命',desc:'2027亚洲杯、2028奥运会、2030世界杯周期——整个中国在等你扛旗。'},
-  {id:6,name:'亚洲之巅',desc:'亚洲足球先生、亚冠冠军、打破武磊的中超纪录——你已是这片大陆的顶级存在。'},
-  {id:7,name:'世界之巅',desc:'金球奖名单首次出现中国人的名字。这条从中国青训走出的路，正在改写历史。'}
-];
+// ============ 剧情引擎（无固定章节：事件随生涯状态与玩家选择动态触发） ============
 function storyCtx(){
   const p=game.player;
   return{
     year:seasonYear(p),
-    chapter:CHAPTERS[game.story.chapter-1]||CHAPTERS[0],
     coach:coachLine(p.team),
     city:clubCity(p.team),
     lang:LEAGUE_LANG[p.league]?LEAGUE_LANG[p.league].lang:'普通话',
     ntCoach:NT_COACH
   };
-}
-function chapterForState(p){
-  if(p.ovr>=86&&isEuropeLeague(p))return 7;
-  if(p.ovr>=80||(p.flags.asian_poy))return 6;
-  if(p.flags.nationalMember)return 5;
-  if(isEuropeLeague(p))return 4;
-  if(p.careerStage==='first_team'||p.careerStage==='starter'||p.careerStage==='core'||p.careerStage==='legend')return 3;
-  if(p.careerStage==='u19'||p.careerStage==='u21')return 2;
-  return 1;
 }
 function isStoryUsed(id){return game.story.usedStoryIds.includes(id)}
 function markStoryUsed(id){if(!isStoryUsed(id))game.story.usedStoryIds.push(id)}
@@ -132,8 +113,6 @@ function pendingStoryEvents(){
     // 日历事件（cal_*，亚洲杯/奥运/世预赛/世界杯）只由 pickCalendarEvents 按真实年份触发，
     // 禁止混入章节剧情池，否则会出现"2030年踢2034世预赛"的年份错乱
     if(ev.id.indexOf('cal_')===0)continue;
-    // 章节事件：当前章之前的章节事件仍可触发（防止章节跳升导致剧情永久错过）
-    if(ev.chapter&&ev.chapter>game.story.chapter)continue;
     if(ev.minAge&&p.age<ev.minAge)continue;
     if(ev.maxAge&&p.age>ev.maxAge)continue;
     if(ev.condition&&!ev.condition(p,ctx))continue;

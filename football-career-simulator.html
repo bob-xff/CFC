@@ -35,7 +35,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased;transition:background-color .3s ease,color .3s ease}
 body::before{content:'';position:fixed;inset:0;z-index:-1;background:
   radial-gradient(1000px 480px at 85% -10%,rgba(184,245,53,.07),transparent 60%),
   radial-gradient(900px 420px at -10% 110%,rgba(76,195,255,.06),transparent 60%),var(--bg)}
@@ -196,16 +196,12 @@ button{font-family:inherit;cursor:pointer}
 .view-head h2{font-size:1.45rem;font-weight:800;letter-spacing:.03em}
 .view-head .sub{color:var(--text-dim);font-size:.8rem;letter-spacing:.08em}
 /* 章节横幅 */
-.chapter-banner{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(120deg,rgba(184,245,53,.14),rgba(76,195,255,.07) 45%,rgba(13,17,25,0) 75%),var(--surface);padding:26px 30px;margin-bottom:22px;overflow:hidden}
-.chapter-banner::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,53,.14),transparent 65%)}
-.chapter-tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--volt);font-weight:800;margin-bottom:8px}
-.chapter-tag .dot{width:5px;height:5px;background:var(--volt);border-radius:50%}
-.chapter-banner h3{font-size:1.5rem;font-weight:800;letter-spacing:.03em;margin-bottom:6px}
-.chapter-banner p{color:var(--text-2);font-size:.88rem;line-height:1.7;max-width:640px}
-.chapter-progress{display:flex;gap:6px;margin-top:14px;align-items:center;flex-wrap:wrap}
-.chapter-node{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--text-dim);padding:4px 11px;border:1px solid var(--border);border-radius:16px;background:var(--bg-deep);white-space:nowrap}
-.chapter-node.done{color:var(--volt);border-color:rgba(184,245,53,.4)}
-.chapter-node.current{color:#0c1503;background:var(--volt);border-color:var(--volt);font-weight:800}
+.season-banner{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(120deg,rgba(184,245,53,.12),rgba(76,195,255,.06) 45%,transparent 75%),var(--surface);padding:24px 30px;margin-bottom:22px;overflow:hidden}
+.season-banner::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,53,.12),transparent 65%)}
+.banner-tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--volt);font-weight:800;margin-bottom:8px}
+.banner-tag .dot{width:5px;height:5px;background:var(--volt);border-radius:50%}
+.season-banner h3{font-size:1.5rem;font-weight:800;letter-spacing:.03em;margin-bottom:6px}
+.season-banner p{color:var(--text-2);font-size:.88rem;line-height:1.7}
 /* 赛季开局横幅 */
 .season-hero{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(160deg,#141c2c,#0d1119 60%),var(--surface);padding:34px 30px 30px;margin-bottom:22px;text-align:center;overflow:hidden}
 .season-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 200px at 50% -40px,rgba(184,245,53,.13),transparent 70%)}
@@ -492,6 +488,10 @@ html[data-theme="light"] .crest,html[data-theme="light"] .crest-sm,html[data-the
 html[data-theme="light"] .toast{background:var(--text);color:var(--bg)}
 html[data-theme="light"] .app-header{background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(244,246,250,.94));border-bottom:1px solid var(--border-strong)}
 html[data-theme="light"] .header-stage{border-color:var(--border-strong)}
+html[data-theme="light"] .modal-overlay{background:rgba(45,58,80,.45)}
+html[data-theme="light"] .game-menu-overlay,
+html[data-theme="light"] .confirm-overlay{background:rgba(45,58,80,.5)}
+html[data-theme="light"] body::before{transition:background .3s ease}
 html[data-theme="light"] .start-btn:not(.primary){background:var(--surface-2)}
 html[data-theme="light"] #start-logo,html[data-theme="light"] #brand-mark{background:#10151d;box-sizing:border-box}
 html[data-theme="light"] #start-logo{border-radius:26px;padding:18px;width:calc(clamp(200px,30vw,300px) + 36px)}
@@ -904,7 +904,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.1.0';
+const GAME_VERSION='V2.1.1';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -1056,7 +1056,7 @@ let activeView='story';
 function newGameState(){
   return{
     saveSlot:null,
-    story:{chapter:1,chapterSeen:{},usedStoryIds:[]},
+    story:{usedStoryIds:[]},
     player:{
       name:'',age:16,height:175,weight:68,position:'ST',preferredFoot:'right',region:'北京',
       skillMoves:3,weakFoot:3,team:'',league:'CSL',contractYears:3,salary:3600,
@@ -1550,16 +1550,17 @@ function potentialBand(pot){
   if(pot>=86)return'亚洲顶级 ★★★★';
   return'国内顶级 ★★★★';
 }
-// ============ 成长引擎（潜力驱动，加速成长） ============
+// ============ 成长引擎（潜力驱动；一般 27~30 岁前后达峰，潜力/选择不同节奏不同） ============
 function seasonOvrGain(p){
   let g;
-  if(p.age<=17)g=9;
-  else if(p.age<=21)g=8;
-  else if(p.age<=24)g=6;
-  else if(p.age<=27)g=3;
-  else if(p.age<=29)g=0;
-  else if(p.age<=31)g=-1;
-  else if(p.age<=34)g=-2;
+  if(p.age<=17)g=6;
+  else if(p.age<=21)g=5;
+  else if(p.age<=24)g=4;
+  else if(p.age<=27)g=2;
+  else if(p.age<=29)g=1;
+  else if(p.age<=31)g=0;
+  else if(p.age<=33)g=-1;
+  else if(p.age<=35)g=-2;
   else g=-3;
   if(p.morale<=3)g-=1;
   if(p.form>=8)g+=1;
@@ -1721,35 +1722,16 @@ function seasonSnapshot(){
     reds:pr.reds
   };
 }
-// ============ 章节制剧情引擎 ============
-const CHAPTERS=[
-  {id:1,name:'青训星火',desc:'16岁，你走进了U17梯队。这里是千军万马的独木桥，也是所有巨星梦开始的地方。'},
-  {id:2,name:'破土而出',desc:'U19、U21的对抗升级了，租借、跳级、一线队大名单——职业世界的大门正在打开。'},
-  {id:3,name:'立足中超',desc:'一线队的替补席到主力位置，杯赛、亚冠与国家队的召唤接踵而至。'},
-  {id:4,name:'留洋风云',desc:'跨越八千公里，语言、饮食、战术、孤寂——在欧洲站稳脚跟是另一场修行。'},
-  {id:5,name:'国家使命',desc:'2027亚洲杯、2028奥运会、2030世界杯周期——整个中国在等你扛旗。'},
-  {id:6,name:'亚洲之巅',desc:'亚洲足球先生、亚冠冠军、打破武磊的中超纪录——你已是这片大陆的顶级存在。'},
-  {id:7,name:'世界之巅',desc:'金球奖名单首次出现中国人的名字。这条从中国青训走出的路，正在改写历史。'}
-];
+// ============ 剧情引擎（无固定章节：事件随生涯状态与玩家选择动态触发） ============
 function storyCtx(){
   const p=game.player;
   return{
     year:seasonYear(p),
-    chapter:CHAPTERS[game.story.chapter-1]||CHAPTERS[0],
     coach:coachLine(p.team),
     city:clubCity(p.team),
     lang:LEAGUE_LANG[p.league]?LEAGUE_LANG[p.league].lang:'普通话',
     ntCoach:NT_COACH
   };
-}
-function chapterForState(p){
-  if(p.ovr>=86&&isEuropeLeague(p))return 7;
-  if(p.ovr>=80||(p.flags.asian_poy))return 6;
-  if(p.flags.nationalMember)return 5;
-  if(isEuropeLeague(p))return 4;
-  if(p.careerStage==='first_team'||p.careerStage==='starter'||p.careerStage==='core'||p.careerStage==='legend')return 3;
-  if(p.careerStage==='u19'||p.careerStage==='u21')return 2;
-  return 1;
 }
 function isStoryUsed(id){return game.story.usedStoryIds.includes(id)}
 function markStoryUsed(id){if(!isStoryUsed(id))game.story.usedStoryIds.push(id)}
@@ -1762,8 +1744,6 @@ function pendingStoryEvents(){
     // 日历事件（cal_*，亚洲杯/奥运/世预赛/世界杯）只由 pickCalendarEvents 按真实年份触发，
     // 禁止混入章节剧情池，否则会出现"2030年踢2034世预赛"的年份错乱
     if(ev.id.indexOf('cal_')===0)continue;
-    // 章节事件：当前章之前的章节事件仍可触发（防止章节跳升导致剧情永久错过）
-    if(ev.chapter&&ev.chapter>game.story.chapter)continue;
     if(ev.minAge&&p.age<ev.minAge)continue;
     if(ev.maxAge&&p.age>ev.maxAge)continue;
     if(ev.condition&&!ev.condition(p,ctx))continue;
@@ -2865,7 +2845,6 @@ function startNewSeason(){
   const g=applyGrowth();
   if(g>0)addLog(p.age+'岁成长期：总评 +'+g+' → '+p.ovr);
   checkNationalTeam();
-  game.story.chapter=chapterForState(p);
   generateSeasonEvents();
   showSeasonStart();
 }
@@ -2875,15 +2854,10 @@ function showSeasonStart(){
   if(!game.season.profile)game.season.profile=generateSeasonProfile();
   const pr=game.season.profile;
   const area=document.getElementById('view-story');
-  const ch=CHAPTERS[Math.min(game.story.chapter,CHAPTERS.length)-1];
-  let html='<div class="chapter-banner">';
-  html+='<div class="chapter-tag"><span class="dot"></span>第'+ch.id+'章 · '+ch.name+' · '+ctx.year+'赛季</div>';
-  html+='<h3>'+p.name+' · '+p.age+'岁 · '+getStageName(p.careerStage)+'</h3>';
-  html+='<p>'+ch.desc+'</p>';
-  html+='<div class="chapter-progress">'+CHAPTERS.map(c=>{
-    const cls=c.id<game.story.chapter?'chapter-node done':c.id===game.story.chapter?'chapter-node current':'chapter-node';
-    return '<span class="'+cls+'">'+c.name+'</span>';
-  }).join('')+'</div>';
+  let html='<div class="season-banner">';
+  html+='<div class="banner-tag"><span class="dot"></span>'+ctx.year+'赛季 · '+getStageName(p.careerStage)+'</div>';
+  html+='<h3>'+p.name+' · '+p.age+'岁</h3>';
+  html+='<p>你的每一条发展路线，都由你自己的选择书写。</p>';
   html+='</div>';
   html+='<div class="season-hero">';
   html+='<h3>'+ctx.year+' 赛季开始</h3>';
@@ -3188,7 +3162,6 @@ function acceptTransfer(idx){
   }
   updateCareerStage();
   p.form=Math.max(3,p.form-1);
-  game.story.chapter=chapterForState(p);
   showTransferResult(offer,true);
 }
 function stayAtClub(){

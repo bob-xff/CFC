@@ -175,7 +175,8 @@ game.player.league = 'CSL'; game.player.ovr = 60; game.player.salary = 90000; ga
 const offersPlain = generateTransferOffers({});
 t('H2 无旗标时不出欧洲报价', offersPlain.every(o => o.league !== 'EREDIVISIE' && o.league !== 'LIGA_PT'));
 const pRecover = newGameState().player;
-pRecover.age = 31; pRecover.potential = 90; pRecover.ovr = 80; pRecover.morale = 7; pRecover.form = 5; pRecover.flags.recovery_pro = true;
+pRecover.age = 33; // 新曲线下 33 岁进入衰退期（-1/年）
+pRecover.potential = 90; pRecover.ovr = 80; pRecover.morale = 7; pRecover.form = 5; pRecover.flags.recovery_pro = true;
 game = newGameState(); game.player = pRecover;
 const gRec = seasonOvrGain(pRecover);
 pRecover.flags.recovery_pro = false;

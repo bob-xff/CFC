@@ -28,7 +28,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased;transition:background-color .3s ease,color .3s ease}
 body::before{content:'';position:fixed;inset:0;z-index:-1;background:
   radial-gradient(1000px 480px at 85% -10%,rgba(184,245,53,.07),transparent 60%),
   radial-gradient(900px 420px at -10% 110%,rgba(76,195,255,.06),transparent 60%),var(--bg)}
@@ -189,16 +189,12 @@ button{font-family:inherit;cursor:pointer}
 .view-head h2{font-size:1.45rem;font-weight:800;letter-spacing:.03em}
 .view-head .sub{color:var(--text-dim);font-size:.8rem;letter-spacing:.08em}
 /* 章节横幅 */
-.chapter-banner{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(120deg,rgba(184,245,53,.14),rgba(76,195,255,.07) 45%,rgba(13,17,25,0) 75%),var(--surface);padding:26px 30px;margin-bottom:22px;overflow:hidden}
-.chapter-banner::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,53,.14),transparent 65%)}
-.chapter-tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--volt);font-weight:800;margin-bottom:8px}
-.chapter-tag .dot{width:5px;height:5px;background:var(--volt);border-radius:50%}
-.chapter-banner h3{font-size:1.5rem;font-weight:800;letter-spacing:.03em;margin-bottom:6px}
-.chapter-banner p{color:var(--text-2);font-size:.88rem;line-height:1.7;max-width:640px}
-.chapter-progress{display:flex;gap:6px;margin-top:14px;align-items:center;flex-wrap:wrap}
-.chapter-node{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--text-dim);padding:4px 11px;border:1px solid var(--border);border-radius:16px;background:var(--bg-deep);white-space:nowrap}
-.chapter-node.done{color:var(--volt);border-color:rgba(184,245,53,.4)}
-.chapter-node.current{color:#0c1503;background:var(--volt);border-color:var(--volt);font-weight:800}
+.season-banner{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(120deg,rgba(184,245,53,.12),rgba(76,195,255,.06) 45%,transparent 75%),var(--surface);padding:24px 30px;margin-bottom:22px;overflow:hidden}
+.season-banner::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,53,.12),transparent 65%)}
+.banner-tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--volt);font-weight:800;margin-bottom:8px}
+.banner-tag .dot{width:5px;height:5px;background:var(--volt);border-radius:50%}
+.season-banner h3{font-size:1.5rem;font-weight:800;letter-spacing:.03em;margin-bottom:6px}
+.season-banner p{color:var(--text-2);font-size:.88rem;line-height:1.7}
 /* 赛季开局横幅 */
 .season-hero{position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-strong);background:linear-gradient(160deg,#141c2c,#0d1119 60%),var(--surface);padding:34px 30px 30px;margin-bottom:22px;text-align:center;overflow:hidden}
 .season-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 200px at 50% -40px,rgba(184,245,53,.13),transparent 70%)}
@@ -485,6 +481,10 @@ html[data-theme="light"] .crest,html[data-theme="light"] .crest-sm,html[data-the
 html[data-theme="light"] .toast{background:var(--text);color:var(--bg)}
 html[data-theme="light"] .app-header{background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(244,246,250,.94));border-bottom:1px solid var(--border-strong)}
 html[data-theme="light"] .header-stage{border-color:var(--border-strong)}
+html[data-theme="light"] .modal-overlay{background:rgba(45,58,80,.45)}
+html[data-theme="light"] .game-menu-overlay,
+html[data-theme="light"] .confirm-overlay{background:rgba(45,58,80,.5)}
+html[data-theme="light"] body::before{transition:background .3s ease}
 html[data-theme="light"] .start-btn:not(.primary){background:var(--surface-2)}
 html[data-theme="light"] #start-logo,html[data-theme="light"] #brand-mark{background:#10151d;box-sizing:border-box}
 html[data-theme="light"] #start-logo{border-radius:26px;padding:18px;width:calc(clamp(200px,30vw,300px) + 36px)}

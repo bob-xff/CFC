@@ -63,7 +63,6 @@ function startNewSeason(){
   const g=applyGrowth();
   if(g>0)addLog(p.age+'岁成长期：总评 +'+g+' → '+p.ovr);
   checkNationalTeam();
-  game.story.chapter=chapterForState(p);
   generateSeasonEvents();
   showSeasonStart();
 }
@@ -73,15 +72,10 @@ function showSeasonStart(){
   if(!game.season.profile)game.season.profile=generateSeasonProfile();
   const pr=game.season.profile;
   const area=document.getElementById('view-story');
-  const ch=CHAPTERS[Math.min(game.story.chapter,CHAPTERS.length)-1];
-  let html='<div class="chapter-banner">';
-  html+='<div class="chapter-tag"><span class="dot"></span>第'+ch.id+'章 · '+ch.name+' · '+ctx.year+'赛季</div>';
-  html+='<h3>'+p.name+' · '+p.age+'岁 · '+getStageName(p.careerStage)+'</h3>';
-  html+='<p>'+ch.desc+'</p>';
-  html+='<div class="chapter-progress">'+CHAPTERS.map(c=>{
-    const cls=c.id<game.story.chapter?'chapter-node done':c.id===game.story.chapter?'chapter-node current':'chapter-node';
-    return '<span class="'+cls+'">'+c.name+'</span>';
-  }).join('')+'</div>';
+  let html='<div class="season-banner">';
+  html+='<div class="banner-tag"><span class="dot"></span>'+ctx.year+'赛季 · '+getStageName(p.careerStage)+'</div>';
+  html+='<h3>'+p.name+' · '+p.age+'岁</h3>';
+  html+='<p>你的每一条发展路线，都由你自己的选择书写。</p>';
   html+='</div>';
   html+='<div class="season-hero">';
   html+='<h3>'+ctx.year+' 赛季开始</h3>';
@@ -386,7 +380,6 @@ function acceptTransfer(idx){
   }
   updateCareerStage();
   p.form=Math.max(3,p.form-1);
-  game.story.chapter=chapterForState(p);
   showTransferResult(offer,true);
 }
 function stayAtClub(){

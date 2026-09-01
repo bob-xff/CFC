@@ -164,7 +164,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.1.0';
+const GAME_VERSION='V2.1.1';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============

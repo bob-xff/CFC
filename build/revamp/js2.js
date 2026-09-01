@@ -9,7 +9,7 @@ let activeView='story';
 function newGameState(){
   return{
     saveSlot:null,
-    story:{chapter:1,chapterSeen:{},usedStoryIds:[]},
+    story:{usedStoryIds:[]},
     player:{
       name:'',age:16,height:175,weight:68,position:'ST',preferredFoot:'right',region:'北京',
       skillMoves:3,weakFoot:3,team:'',league:'CSL',contractYears:3,salary:3600,
@@ -503,16 +503,17 @@ function potentialBand(pot){
   if(pot>=86)return'亚洲顶级 ★★★★';
   return'国内顶级 ★★★★';
 }
-// ============ 成长引擎（潜力驱动，加速成长） ============
+// ============ 成长引擎（潜力驱动；一般 27~30 岁前后达峰，潜力/选择不同节奏不同） ============
 function seasonOvrGain(p){
   let g;
-  if(p.age<=17)g=9;
-  else if(p.age<=21)g=8;
-  else if(p.age<=24)g=6;
-  else if(p.age<=27)g=3;
-  else if(p.age<=29)g=0;
-  else if(p.age<=31)g=-1;
-  else if(p.age<=34)g=-2;
+  if(p.age<=17)g=6;
+  else if(p.age<=21)g=5;
+  else if(p.age<=24)g=4;
+  else if(p.age<=27)g=2;
+  else if(p.age<=29)g=1;
+  else if(p.age<=31)g=0;
+  else if(p.age<=33)g=-1;
+  else if(p.age<=35)g=-2;
   else g=-3;
   if(p.morale<=3)g-=1;
   if(p.form>=8)g+=1;
