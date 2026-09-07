@@ -519,6 +519,8 @@ button:active{transform:scale(.97)}
 #game-screen.active{padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
 #start-screen,#load-screen,#create-screen,#retire-screen{padding-left:calc(20px + env(safe-area-inset-left,0px));padding-right:calc(20px + env(safe-area-inset-right,0px))}
 .modal-overlay,.confirm-overlay,.game-menu-overlay{padding-left:calc(20px + env(safe-area-inset-left,0px));padding-right:calc(20px + env(safe-area-inset-right,0px))}
+/* 手机端组件：桌面端一律隐藏（渲染函数统一输出，靠 CSS 决定形态） */
+.m-seg,.m-catbar,.create-wizard-nav{display:none}
 /* ============ 安卓横屏紧凑布局（手机横屏 ≈ 高度≤540） ============ */
 @media (orientation:landscape) and (max-height:540px){
   body{font-size:13.5px}
@@ -539,6 +541,8 @@ button:active{transform:scale(.97)}
   .crest-lg{width:46px;height:46px}
   .chip{padding:4px 10px;font-size:.72rem;gap:5px}
   .chip b{font-size:.86rem}
+  .chip .chip-label{display:none}
+  .hdr-right{flex-wrap:nowrap;flex:0 0 auto}
   .save-icon-btn{padding:5px 11px;font-size:.74rem}
   /* 舞台与卡片密度 */
   .view{padding:14px 20px 26px}
@@ -559,6 +563,113 @@ button:active{transform:scale(.97)}
   #load-screen,#create-screen,#retire-screen{padding:16px calc(20px + env(safe-area-inset-right,0px)) 20px calc(20px + env(safe-area-inset-left,0px))}
   /* 小按钮触点增大 */
   .slot-action-btn{padding:8px 12px;font-size:.78rem}
+  /* ===== V2.2.1 页内化：单屏布局，整页零滚动 ===== */
+  .stage{display:flex;flex-direction:column;overflow:hidden}
+  .stage>.view{flex:1 1 0;min-height:0;height:auto;max-width:none;width:100%;padding:10px 18px 12px}
+  .stage>.view.active{display:flex;flex-direction:column;overflow:hidden}
+  #view-honors.active,#view-log.active{display:block;overflow-y:auto}
+  .view-head{flex:0 0 auto;margin-bottom:8px}
+  .view-head h2{font-size:1.05rem}
+  /* 页内分段导航 */
+  .m-seg{display:flex;flex:0 0 auto;gap:6px;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}
+  .m-chip{flex:0 0 auto;padding:6px 13px;border-radius:17px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);font-size:.72rem;font-weight:800;letter-spacing:.03em;cursor:pointer}
+  .m-chip.on{background:var(--volt-soft);border-color:rgba(184,245,53,.55);color:var(--volt)}
+  .m-body{flex:1 1 0;min-height:0;overflow-y:auto}
+  /* 成长/数据：摊平桌面双列结构，按段显示（列容器保持 block，勿用 display:contents——headless 渲染有绘制 bug） */
+  .m-body .growth-layout{display:block}
+  .m-body .growth-col{display:block}
+  [data-m]{display:none}
+  [data-m].m-on{display:block}
+  .stat-grid.m-on{display:grid}
+  .m-catbar.m-on{display:flex}
+  .m-catbar{gap:6px;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}
+  .m-catbar .m-chip{padding:5px 11px;font-size:.68rem}
+  /* 剧情页：横幅紧凑 + 叙事区内滚 + 操作按钮固定 */
+  #view-story>.season-banner{flex:0 0 auto;padding:8px 16px;margin-bottom:8px}
+  #view-story>.season-banner h3{font-size:1rem;margin-bottom:2px}
+  #view-story>.season-banner p{display:none}
+  #view-story>.season-banner::after{display:none}
+  #view-story>.season-hero{flex:0 0 auto;max-height:44%;overflow-y:auto;padding:12px 14px;margin-bottom:8px}
+  #view-story>.season-hero h3{font-size:1.05rem;margin-bottom:4px}
+  #view-story>.season-hero::before{display:none}
+  #view-story .season-hero .crest-xxl{width:56px;height:56px;border-radius:12px;padding:3px}
+  #view-story>.event-card{flex:1 1 0;min-height:0;display:flex;flex-direction:column;padding:12px 14px;margin-bottom:0}
+  #view-story>.event-card>.event-narrative{flex:1 1 0;min-height:0;overflow-y:auto}
+  #view-story>.event-card>.event-topline{flex:0 0 auto}
+  #view-story>.event-card>.choices{flex:0 0 auto;max-height:52%;overflow-y:auto}
+  #view-story>.event-card>.continue-btn,#view-story>.event-card>.skip-row{flex:0 0 auto}
+  #view-story>.consequence-box{flex:1 1 0;min-height:0;overflow-y:auto}
+  .choice-btn{padding:9px 12px;font-size:.8rem}
+  .choice-hint{font-size:.7rem}
+  .continue-btn{padding:11px;font-size:.9rem}
+  /* 成长页：晋升链双列紧凑 */
+  /* 成长页：晋升链双列紧凑 */
+  [data-m="ladder"].m-on .ladder-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;align-items:start}
+  [data-m="ladder"].m-on .ladder{margin-top:0!important}
+  .ladder-node{padding:6px 8px}
+  .ladder-sub{display:none}
+  /* 创建页：三步向导 */
+  .wizard-step{display:none}
+  .wizard-step.on{display:block}
+  .create-wizard-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+  .wiz-dots{display:flex;gap:7px}
+  .wiz-dots i{width:8px;height:8px;border-radius:50%;background:var(--border-strong);transition:background .2s}
+  .wiz-dots i.on{background:var(--volt)}
+  .create-wizard-nav .btn-ghost{padding:9px 16px;font-size:.8rem}
+  .create-btn{margin-top:10px;padding:13px}
+  /* 读档页压缩 */
+  #load-screen .screen-header{margin-bottom:10px}
+  #load-screen .screen-header h2{font-size:1.15rem}
+  #load-screen .screen-header p{font-size:.78rem;margin-top:2px}
+  /* 创建页头部再压缩，保证单屏 */
+  #create-screen .screen-header p{display:none}
+  #create-screen .screen-header h2{font-size:1.2rem;margin-top:2px}
+  #create-screen .form-group label{font-size:.78rem}
+  #create-screen input,#create-screen select{padding:9px 12px;font-size:.9rem}
+  /* 菜单兜底内滚 */
+  .game-menu{max-height:92%;overflow-y:auto}
+  /* ===== 开始页单屏化 ===== */
+  .start-desc,.start-tags{display:none}
+  .start-logo{width:min(20vh,80px)}
+  .start-title{font-size:1.3rem;margin-bottom:4px}
+  .start-subtitle{font-size:.78rem;margin-bottom:10px}
+  .start-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:min(520px,100%)}
+  .start-btn{padding:11px 10px;font-size:.85rem}
+  #start-screen{display:none}
+  #start-screen.active{display:flex;flex-direction:column;justify-content:center;gap:0}
+  /* ===== 创建页压缩 ===== */
+  #create-screen .screen-header{margin-bottom:4px}
+  #create-screen .screen-header .overline{margin-bottom:4px}
+  #create-screen .screen-header h2{font-size:1.15rem;margin-top:2px;margin-bottom:4px}
+  #create-screen .form-group{margin-bottom:10px}
+  #create-screen .form-group label{font-size:.78rem}
+  #create-screen input,#create-screen select{padding:9px 12px;font-size:.9rem}
+  .create-form{padding:14px 16px}
+  .form-group{margin-bottom:10px}
+  .form-row{gap:12px}
+  .create-btn{margin-top:5px;padding:10px;font-size:.95rem}
+  .create-wizard-nav{margin-top:8px}
+  /* ===== 剧情页：横幅与顶栏重复→隐藏；首屏横幅压缩 ===== */
+  #view-story>.season-banner{display:none}
+  #view-story>.season-hero{flex:0 1 auto;max-height:46%;padding:10px 12px;margin-bottom:8px}
+  #view-story>.season-hero h3{font-size:1rem;margin-bottom:2px}
+  #view-story .season-meta{display:none}
+  #view-story .season-hero .crest-xxl{width:44px;height:44px;border-radius:10px;padding:2px}
+  #view-story .season-fact{font-size:.68rem}
+  #view-story .cl-club b{font-size:.85rem}
+  #view-story .cl-league-name{font-size:.8rem}
+  #view-story>.season-hero{max-height:40%}
+  #view-story .continue-btn{padding:10px;font-size:.85rem;margin-top:8px}
+  #view-story .skip-row{margin-top:6px}
+  #view-story .skip-row .btn-ghost{padding:8px 12px;font-size:.72rem}
+  #create-screen .back-btn{display:none}
+  .create-form{padding:14px 16px}
+  #load-screen .save-slot{padding:9px 14px;margin-bottom:8px}
+  #load-screen .save-slot-name{font-size:.95rem}
+  #load-screen .save-slot-detail{font-size:.7rem;margin-top:2px}
+  #load-screen .save-slot-ovr{font-size:1.3rem;min-width:44px}
+  #load-screen .slot-crests .crest-sm{width:26px;height:26px;border-radius:7px;padding:2px}
+  #load-screen .slot-crests .crest-xs{width:20px;height:20px;border-radius:5px;padding:1px}
 }
 /* 窄横屏（小屏手机）：进一步收紧顶栏 */
 @media (orientation:landscape) and (max-height:540px) and (max-width:700px){
@@ -618,6 +729,7 @@ button:active{transform:scale(.97)}
     <p>16岁，加入U17梯队，开启足球人生</p>
   </div>
   <div class="create-form">
+    <div class="wizard-step on" data-step="1">
     <div class="form-group">
       <label>球员姓名</label>
       <input type="text" id="player-name" placeholder="输入你的姓名" maxlength="10">
@@ -632,6 +744,8 @@ button:active{transform:scale(.97)}
         <input type="number" id="player-weight" value="68" min="45" max="100">
       </div>
     </div>
+    </div>
+    <div class="wizard-step" data-step="2">
     <div class="form-group">
       <label>场上位置</label>
       <div class="position-grid">
@@ -668,6 +782,8 @@ button:active{transform:scale(.97)}
         </select>
       </div>
     </div>
+    </div>
+    <div class="wizard-step" data-step="3">
     <div class="form-row">
       <div class="form-group">
       <label>花式星级</label>
@@ -694,6 +810,12 @@ button:active{transform:scale(.97)}
       <label>青训俱乐部（2026中超联赛真实名单）</label>
       <select id="player-academy"></select>
       <div class="form-note">豪门青训起薪更高、队内竞争更激烈；选择与你家乡同城的俱乐部，还会有专属的家乡剧情。</div>
+    </div>
+    </div>
+    <div class="create-wizard-nav">
+      <button type="button" class="btn-ghost" id="wiz-prev" onclick="wizGo(-1)">← 上一步</button>
+      <div class="wiz-dots"><i class="on"></i><i></i><i></i></div>
+      <button type="button" class="btn-ghost" id="wiz-next" onclick="wizGo(1)">下一步 →</button>
     </div>
     <button class="create-btn" onclick="createPlayer()">开始职业生涯</button>
   </div>
@@ -964,7 +1086,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.2.0';
+const GAME_VERSION='V2.2.1';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -3706,9 +3828,11 @@ function renderGrowthView(){
   const p=game.player;
   const area=document.getElementById('view-growth');
   let html='<div class="view-head"><h2>球员成长</h2><span class="sub">潜力评价：'+potentialBand(p.potential)+'</span></div>';
-  html+='<div class="growth-layout">';
+  html+='<div class="m-seg"><button class="m-chip on" data-seg="card">球员卡</button><button class="m-chip" data-seg="form">状态</button><button class="m-chip" data-seg="attr">属性</button><button class="m-chip" data-seg="ladder">晋升链</button></div>';
+  html+='<div class="m-body"><div class="growth-layout">';
+  html+='<div class="growth-col">';
   // FUT卡
-  html+='<div>';
+  html+='<div data-m="card" class="m-on">';
   html+='<div class="fut-card">';
   html+='<div class="fut-top">';
   html+='<div class="fut-ovr"><b>'+p.ovr+'</b><span>OVR</span></div>';
@@ -3725,8 +3849,10 @@ function renderGrowthView(){
   html+='<div class="pair"><span class="stars-display" style="color:var(--volt)">'+p.form+'/10</span><small>状态</small></div>';
   html+='</div>';
   html+='</div>';
-  // 梯队晋升链
-  html+='<div class="ladder" style="margin-top:18px">';
+  html+='</div>';
+  // 梯队晋升链 + 国字号阶梯（手机端并入同一分段的内部网格）
+  html+='<div data-m="ladder"><div class="ladder-grid">';
+  html+='<div class="ladder">';
   html+='<h4>梯队晋升链</h4>';
   const idx=ladderIndex(p.careerStage);
   LADDER.forEach((l,i)=>{
@@ -3734,8 +3860,7 @@ function renderGrowthView(){
     html+='<div class="'+cls+'"><span class="ladder-ico">'+l.ico+'</span><span>'+l.name+'</span><span class="ladder-sub">'+l.desc+'</span></div>';
   });
   html+='</div>';
-  // 国字号阶梯
-  html+='<div class="ladder" style="margin-top:18px">';
+  html+='<div class="ladder">';
   html+='<h4>国字号阶梯</h4>';
   const ntSteps=[
     {name:'U17国少队',done:!!p.flags.national_youth},
@@ -3749,20 +3874,26 @@ function renderGrowthView(){
   });
   html+='</div>';
   html+='</div>';
-  // 属性
-  html+='<div>';
-  const snap=seasonSnapshot();
-  html+='<div class="panel"><div class="panel-head"><h4>竞技状态</h4><span class="hint">状态与士气影响赛季数据</span></div>';
+  html+='</div>';
+  html+='</div>';
+  html+='<div class="growth-col">';
+  // 竞技状态（手机端与合同同段）
+  html+='<div class="panel" data-m="form"><div class="panel-head"><h4>竞技状态</h4><span class="hint">状态与士气影响赛季数据</span></div>';
   html+='<div class="meter-label"><span>竞技状态</span><b>'+p.form+'/10</b></div><div class="form-bar"><div class="form-bar-fill" style="width:'+(p.form*10)+'%;background:'+attrColor(40+p.form*6)+'"></div></div>';
   html+='<div class="meter-label" style="margin-top:10px"><span>士气</span><b>'+p.morale+'/10</b></div><div class="morale-bar"><div class="morale-bar-fill" style="width:'+(p.morale*10)+'%;background:'+attrColor(40+p.morale*6)+'"></div></div>';
   html+='</div>';
   const cats=p.isGK?['GK']:['PAC','SHO','PAS','DRI','DEF','PHY'];
-  cats.forEach(cat=>{
+  html+='<div class="m-catbar" data-m="attr">';
+  cats.forEach((cat,i)=>{
+    html+='<button class="m-chip'+(i===0?' on':'')+'" data-cat="'+cat+'">'+ATTR_LABELS[cat]+'</button>';
+  });
+  html+='</div>';
+  cats.forEach((cat,i)=>{
     const attrs=p.attributes[cat]||{};
     let sum=0,count=0;
     ALL_ATTRS[cat].forEach(a=>{sum+=attrs[a]||0;count++});
     const avg=count>0?Math.round(sum/count):0;
-    html+='<div class="panel">';
+    html+='<div class="panel'+(i===0?' m-on':'')+'" data-m="attr" data-cat="'+cat+'">';
     html+='<div class="panel-head"><h4>'+ATTR_LABELS[cat]+'</h4><span style="color:'+attrColor(avg)+';font-weight:800;font-size:1.1rem">'+avg+'</span></div>';
     ALL_ATTRS[cat].forEach(attr=>{
       const val=attrs[attr]||0;
@@ -3774,12 +3905,12 @@ function renderGrowthView(){
     });
     html+='</div>';
   });
-  html+='<div class="panel"><div class="panel-head"><h4>合同</h4></div>';
+  html+='<div class="panel" data-m="form"><div class="panel-head"><h4>合同</h4></div>';
   html+='<div class="attr-row"><span class="attr-name">年薪</span><div style="flex:1"></div><span class="attr-val">'+formatSalary(p.salary)+'</span></div>';
   html+='<div class="attr-row"><span class="attr-name">合同剩余</span><div style="flex:1"></div><span class="attr-val">'+(p.contractYears>0?p.contractYears+'年':'已到期')+'</span></div>';
   html+='</div>';
   html+='</div>';
-  html+='</div>';
+  html+='</div></div></div>';
   area.innerHTML=html;
 }
 function renderStatsView(){
@@ -3787,7 +3918,9 @@ function renderStatsView(){
   const area=document.getElementById('view-stats');
   const snap=seasonSnapshot();
   let html='<div class="view-head"><h2>赛季数据</h2><span class="sub">'+seasonYear(p)+'赛季 · '+p.team+'</span></div>';
-  html+='<div class="stat-grid">';
+  html+='<div class="m-seg"><button class="m-chip on" data-seg="season">本赛季</button><button class="m-chip" data-seg="career">生涯</button></div>';
+  html+='<div class="m-body">';
+  html+='<div class="stat-grid m-on" data-m="season">';
   if(p.isGK){
     html+='<div class="stat-tile hot"><div class="stat-tile-val">'+snap.apps+'</div><div class="stat-tile-label">出场</div></div>';
     html+='<div class="stat-tile"><div class="stat-tile-val">'+snap.cleanSheets+'</div><div class="stat-tile-label">零封</div></div>';
@@ -3807,7 +3940,7 @@ function renderStatsView(){
   }
   html+='</div>';
   // 生涯数据
-  html+='<div class="panel" style="margin-top:20px"><div class="panel-head"><h4>生涯数据</h4><span class="hint">第'+p.season+'赛季</span></div>';
+  html+='<div class="panel" style="margin-top:20px" data-m="career"><div class="panel-head"><h4>生涯数据</h4><span class="hint">第'+p.season+'赛季</span></div>';
   html+='<div class="stat-grid">';
   html+='<div class="stat-tile"><div class="stat-tile-val">'+p.careerAppearances+'</div><div class="stat-tile-label">总出场</div></div>';
   html+='<div class="stat-tile"><div class="stat-tile-val">'+p.careerGoals+'</div><div class="stat-tile-label">总进球</div></div>';
@@ -3819,13 +3952,14 @@ function renderStatsView(){
   // OVR曲线
   if(p.ovrHistory.length>1){
     const maxOvr=Math.max.apply(null,p.ovrHistory.map(h=>h.ovr).concat([90]));
-    html+='<div class="panel" style="margin-top:20px"><div class="panel-head"><h4>总评成长曲线</h4><span class="hint">当前 '+p.ovr+' / 潜力 '+p.potential+'</span></div><div class="trend-list">';
+    html+='<div class="panel" style="margin-top:20px" data-m="career"><div class="panel-head"><h4>总评成长曲线</h4><span class="hint">当前 '+p.ovr+' / 潜力 '+p.potential+'</span></div><div class="trend-list">';
     p.ovrHistory.forEach(h=>{
       const w=Math.round(h.ovr/maxOvr*100);
       html+='<div class="trend-item"><span>'+h.age+'岁</span><div class="trend-bar"><i style="width:'+w+'%"></i></div><b>'+h.ovr+'</b></div>';
     });
     html+='</div></div>';
   }
+  html+='</div>';
   area.innerHTML=html;
 }
 function renderHonorsView(){
@@ -3904,6 +4038,38 @@ function menuQuitApp(){
     if(!window.closed)showToast('浏览器模式下请直接关闭本标签页');
   });
 }
+// ============ MOBILE UI（页内分段/创建向导；桌面端对应元素隐藏，逻辑不触发） ============
+let wizStep=1;
+function wizSet(n){
+  wizStep=Math.max(1,Math.min(3,n));
+  document.querySelectorAll('#create-screen .wizard-step').forEach(s=>s.classList.toggle('on',+s.dataset.step===wizStep));
+  document.querySelectorAll('.wiz-dots i').forEach((d,i)=>d.classList.toggle('on',i<wizStep));
+  const prev=document.getElementById('wiz-prev'),next=document.getElementById('wiz-next');
+  if(prev)prev.style.visibility=wizStep===1?'hidden':'visible';
+  if(next)next.style.visibility=wizStep===3?'hidden':'visible';
+}
+function wizGo(d){
+  if(d>0&&wizStep===1){
+    const name=document.getElementById('player-name').value.trim();
+    if(!name){showToast('请先输入球员姓名');return}
+  }
+  wizSet(wizStep+d);
+}
+document.addEventListener('click',function(e){
+  const seg=e.target.closest('.m-seg .m-chip');
+  if(seg){
+    const view=seg.closest('.view');
+    seg.parentElement.querySelectorAll('.m-chip').forEach(c=>c.classList.toggle('on',c===seg));
+    if(view)view.querySelectorAll('[data-m]:not([data-cat])').forEach(b=>b.classList.toggle('m-on',b.dataset.m===seg.dataset.seg));
+    return;
+  }
+  const cat=e.target.closest('.m-catbar .m-chip');
+  if(cat){
+    const view=cat.closest('.view');
+    cat.parentElement.querySelectorAll('.m-chip').forEach(c=>c.classList.toggle('on',c===cat));
+    if(view)view.querySelectorAll('[data-cat]').forEach(b=>b.classList.toggle('m-on',b.dataset.cat===cat.dataset.cat));
+  }
+});
 // ============ INIT ============
 document.addEventListener('DOMContentLoaded',async function(){
   injectIcons();
