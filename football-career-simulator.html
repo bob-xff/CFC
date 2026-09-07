@@ -506,14 +506,29 @@ html[data-theme="light"] .retire-option,
 html[data-theme="light"] .menu-btn{background:var(--surface);border-color:var(--border)}
 html[data-theme="light"] .chapter-banner{background:linear-gradient(160deg,#ffffff,#f2f5fa)}
 
+/* 联赛积分榜/数据榜（两端通用） */
+.lg-table{display:flex;flex-direction:column;margin-top:6px}
+.lg-row{display:flex;align-items:center;gap:8px;padding:5px 2px;border-bottom:1px solid var(--border);font-size:.8rem}
+.lg-row:last-child{border-bottom:none}
+.lg-pos{flex:0 0 20px;color:var(--text-dim);font-weight:700;font-size:.74rem}
+.lg-team{flex:1;min-width:0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lg-team small{color:var(--text-dim);font-weight:500;margin-left:6px;font-size:.72rem}
+.lg-rec{flex:0 0 auto;color:var(--text-dim);font-size:.7rem;white-space:nowrap}
+.lg-pts{flex:0 0 30px;text-align:right;color:var(--volt);font-weight:800}
+.lg-me{background:var(--volt-soft);border-radius:8px;padding-left:6px;padding-right:6px}
+.lg-sep{text-align:center;color:var(--text-dim);font-size:.7rem;padding:2px 0}
 /* ============ 触屏基础层（安卓 App / 手机浏览器通用） ============ */
 html{-webkit-tap-highlight-color:transparent}
 html,body{touch-action:manipulation;overscroll-behavior:none}
-button{user-select:none;-webkit-user-select:none;transition:transform .08s ease}
-button:active{transform:scale(.97)}
-.choice-btn:active{transform:translateX(4px) scale(.985)}
-.save-slot:active{transform:scale(.985)}
-.pos-btn:active,.retire-option:active{transform:scale(.98)}
+button{user-select:none;-webkit-user-select:none}
+/* 按压反馈仅触屏设备生效（桌面鼠标按下不做缩放） */
+@media(pointer:coarse){
+  button{transition:transform .08s ease}
+  button:active{transform:scale(.97)}
+  .choice-btn:active{transform:translateX(4px) scale(.985)}
+  .save-slot:active{transform:scale(.985)}
+  .pos-btn:active,.retire-option:active{transform:scale(.98)}
+}
 .rail,.app-header,.chip,.save-icon-btn,.game-menu{user-select:none;-webkit-user-select:none}
 /* 安全区：刘海/挖孔侧避让（桌面 env()=0 无影响） */
 #game-screen.active{padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
@@ -521,8 +536,8 @@ button:active{transform:scale(.97)}
 .modal-overlay,.confirm-overlay,.game-menu-overlay{padding-left:calc(20px + env(safe-area-inset-left,0px));padding-right:calc(20px + env(safe-area-inset-right,0px))}
 /* 手机端组件：桌面端一律隐藏（渲染函数统一输出，靠 CSS 决定形态） */
 .m-seg,.m-catbar,.create-wizard-nav{display:none}
-/* ============ 安卓横屏紧凑布局（手机横屏 ≈ 高度≤540） ============ */
-@media (orientation:landscape) and (max-height:540px){
+/* ============ 安卓横屏紧凑布局（手机横屏 ≈ 高度≤540；≤1024 宽防桌面矮窗误入） ============ */
+@media (orientation:landscape) and (max-height:540px) and (max-width:1024px){
   body{font-size:13.5px}
   #game-screen.active{grid-template-columns:62px 1fr;grid-template-rows:auto 1fr;height:100vh;height:100dvh}
   /* 复位 ≤1024 的单列/横向导航（横屏手机保留左侧图标导航） */
@@ -573,7 +588,7 @@ button:active{transform:scale(.97)}
   /* 页内分段导航 */
   .m-seg{display:flex;flex:0 0 auto;gap:6px;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}
   .m-chip{flex:0 0 auto;padding:6px 13px;border-radius:17px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);font-size:.72rem;font-weight:800;letter-spacing:.03em;cursor:pointer}
-  .m-chip.on{background:var(--volt-soft);border-color:rgba(184,245,53,.55);color:var(--volt)}
+  .m-chip.on{background:var(--volt-soft);border-color:var(--volt);color:var(--volt)}
   .m-body{flex:1 1 0;min-height:0;overflow-y:auto}
   /* 成长/数据：摊平桌面双列结构，按段显示（列容器保持 block，勿用 display:contents——headless 渲染有绘制 bug） */
   .m-body .growth-layout{display:block}
@@ -584,12 +599,9 @@ button:active{transform:scale(.97)}
   .m-catbar.m-on{display:flex}
   .m-catbar{gap:6px;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}
   .m-catbar .m-chip{padding:5px 11px;font-size:.68rem}
-  /* 剧情页：横幅紧凑 + 叙事区内滚 + 操作按钮固定 */
-  #view-story>.season-banner{flex:0 0 auto;padding:8px 16px;margin-bottom:8px}
-  #view-story>.season-banner h3{font-size:1rem;margin-bottom:2px}
-  #view-story>.season-banner p{display:none}
-  #view-story>.season-banner::after{display:none}
-  #view-story>.season-hero{flex:0 0 auto;max-height:44%;overflow-y:auto;padding:12px 14px;margin-bottom:8px}
+  /* 剧情页：横幅隐藏（与顶栏信息重复）；首屏横幅压缩；叙事区内滚 + 操作按钮固定 */
+  #view-story>.season-banner{display:none}
+  #view-story>.season-hero{flex:0 1 auto;max-height:40%;overflow-y:auto;padding:10px 12px;margin-bottom:8px}
   #view-story>.season-hero h3{font-size:1.05rem;margin-bottom:4px}
   #view-story>.season-hero::before{display:none}
   #view-story .season-hero .crest-xxl{width:56px;height:56px;border-radius:12px;padding:3px}
@@ -599,8 +611,10 @@ button:active{transform:scale(.97)}
   #view-story>.event-card>.choices{flex:0 0 auto;max-height:52%;overflow-y:auto}
   #view-story>.event-card>.continue-btn,#view-story>.event-card>.skip-row{flex:0 0 auto}
   #view-story>.consequence-box{flex:1 1 0;min-height:0;overflow-y:auto}
-  .choice-btn{padding:9px 12px;font-size:.8rem}
-  .choice-hint{font-size:.7rem}
+  .choice-btn{padding:7px 10px;font-size:.78rem;gap:9px;line-height:1.45}
+  .choice-index{width:22px;height:22px;font-size:.66rem;border-radius:7px;margin-top:0}
+  .choice-hint{font-size:.64rem;margin-top:1px}
+  #view-story>.event-card>.choices{gap:6px}
   .continue-btn{padding:11px;font-size:.9rem}
   /* 成长页：晋升链双列紧凑 */
   /* 成长页：晋升链双列紧凑 */
@@ -628,13 +642,15 @@ button:active{transform:scale(.97)}
   #create-screen input,#create-screen select{padding:9px 12px;font-size:.9rem}
   /* 菜单兜底内滚 */
   .game-menu{max-height:92%;overflow-y:auto}
-  /* ===== 开始页单屏化 ===== */
+  /* ===== 开始页单屏化（logo 缩小、去重复品牌条） ===== */
+  .start-top{display:none}
   .start-desc,.start-tags{display:none}
-  .start-logo{width:min(20vh,80px)}
-  .start-title{font-size:1.3rem;margin-bottom:4px}
-  .start-subtitle{font-size:.78rem;margin-bottom:10px}
-  .start-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:min(520px,100%)}
-  .start-btn{padding:11px 10px;font-size:.85rem}
+  .start-logo{width:min(14vh,56px);margin-bottom:2px}
+  .start-overline{font-size:.56rem;margin-bottom:4px;letter-spacing:.22em}
+  .start-title{font-size:1.1rem;margin-bottom:3px}
+  .start-subtitle{font-size:.72rem;margin-bottom:8px}
+  .start-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:min(520px,100%)}
+  .start-btn{padding:10px 8px;font-size:.8rem}
   #start-screen{display:none}
   #start-screen.active{display:flex;flex-direction:column;justify-content:center;gap:0}
   /* ===== 创建页压缩 ===== */
@@ -649,22 +665,18 @@ button:active{transform:scale(.97)}
   .form-row{gap:12px}
   .create-btn{margin-top:5px;padding:10px;font-size:.95rem}
   .create-wizard-nav{margin-top:8px}
-  /* ===== 剧情页：横幅与顶栏重复→隐藏；首屏横幅压缩 ===== */
-  #view-story>.season-banner{display:none}
-  #view-story>.season-hero{flex:0 1 auto;max-height:46%;padding:10px 12px;margin-bottom:8px}
-  #view-story>.season-hero h3{font-size:1rem;margin-bottom:2px}
+  /* ===== 剧情页：横幅与顶栏重复→隐藏；首屏横幅再压缩 ===== */
   #view-story .season-meta{display:none}
   #view-story .season-hero .crest-xxl{width:44px;height:44px;border-radius:10px;padding:2px}
   #view-story .season-fact{font-size:.68rem}
   #view-story .cl-club b{font-size:.85rem}
   #view-story .cl-league-name{font-size:.8rem}
-  #view-story>.season-hero{max-height:40%}
   #view-story .continue-btn{padding:10px;font-size:.85rem;margin-top:8px}
   #view-story .skip-row{margin-top:6px}
   #view-story .skip-row .btn-ghost{padding:8px 12px;font-size:.72rem}
   #create-screen .back-btn{display:none}
   .create-form{padding:14px 16px}
-  #load-screen .save-slot{padding:9px 14px;margin-bottom:8px}
+  #load-screen .save-slot{padding:9px 84px 9px 14px;margin-bottom:8px}
   #load-screen .save-slot-name{font-size:.95rem}
   #load-screen .save-slot-detail{font-size:.7rem;margin-top:2px}
   #load-screen .save-slot-ovr{font-size:1.3rem;min-width:44px}
@@ -1086,7 +1098,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.2.1';
+const GAME_VERSION='V2.2.2';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -1275,13 +1287,13 @@ function ladderIndex(stage){return LADDER.findIndex(l=>l.key===stage)}
 // ============ ANDROID 原生桥（Capacitor 存在时生效，浏览器版零影响） ============
 const CAP=window.Capacitor&&window.Capacitor.Plugins?window.Capacitor.Plugins:null;
 const CAP_PREFS=CAP&&CAP.Preferences?CAP.Preferences:null;
-function prefsSet(k,v){if(!CAP_PREFS)return;try{CAP_PREFS.set({key:k,value:v})}catch(e){}}
-function prefsRemove(k){if(!CAP_PREFS)return;try{CAP_PREFS.remove({key:k})}catch(e){}}
+function prefsSet(k,v){if(!CAP_PREFS)return;try{const r=CAP_PREFS.set({key:k,value:v});if(r&&r.catch)r.catch(()=>{})}catch(e){}}
+function prefsRemove(k){if(!CAP_PREFS)return;try{const r=CAP_PREFS.remove({key:k});if(r&&r.catch)r.catch(()=>{})}catch(e){}}
 // 首次启动：localStorage 为空而原生 Preferences 有旧数据时恢复（防 WebView 存储被系统清理）
 async function restoreFromNativeStore(){
   if(!CAP_PREFS)return;
   try{
-    const slots=[0,1,2];
+    const slots=[1,2,3];
     for(const s of slots){
       const key='fcs_save_'+s;
       if(!localStorage.getItem(key)){
@@ -1343,7 +1355,14 @@ function manualSave(){
   if(saveGame(game.saveSlot))showToast('已保存到存档 '+game.saveSlot);
   else showToast('存档失败');
 }
-function autoSave(){if(game&&game.saveSlot)saveGame(game.saveSlot)}
+let lastAutoSaveToast=0;
+function autoSave(){
+  if(!game||!game.saveSlot)return;
+  saveGame(game.saveSlot);
+  // 自动保存可见反馈：60 秒节流，避免频繁弹提示
+  const now=Date.now();
+  if(now-lastAutoSaveToast>60000){lastAutoSaveToast=now;showToast('已自动保存')}
+}
 // ============ GAME MENU ============
 function toggleGameMenu(){
   const overlay=document.getElementById('game-menu-overlay');
@@ -1396,9 +1415,14 @@ function confirmExitGame(){
     showToast('已返回主菜单');
   });
 }
-function exitToMainMenu(){
+// 统一清理跨局残留状态（新档/读档/退回主菜单共用）
+function resetSessionState(){
+  currentEvent=null;currentOffers=[];currentWindowInfo=null;coachOptions=[];
   clearViews();
-  game=null;currentEvent=null;currentOffers=[];coachOptions=[];
+}
+function exitToMainMenu(){
+  resetSessionState();
+  game=null;
   showScreen('start-screen');
 }
 function clearViews(){
@@ -1476,6 +1500,7 @@ function showToast(msg){
 }
 // ============ SCREEN MANAGEMENT ============
 function showScreen(id){
+  if(id==='create-screen'&&typeof wizSet==='function')wizSet(1);
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(id);
   if(el)el.classList.add('active');
@@ -1518,8 +1543,8 @@ function showLoadScreen(forSave){
             const data=loadGame(i);
             if(data){
               game=data;
-              currentEvent=null;currentOffers=[];
-              clearViews();
+              resetSessionState();
+              if(game.season&&!game.season.profile){game.season.profile=generateSeasonProfile();saveGame(i);}
               showScreen('game-screen');switchView('story');
             }else{
               showToast('读取失败');
@@ -1628,7 +1653,7 @@ function initStarRatings(){
   });
 }
 function createPlayer(){
-  const name=document.getElementById('player-name').value.trim();
+  const name=document.getElementById('player-name').value.trim().replace(/[`<>{}$]/g,'');
   if(!name){showToast('请输入球员姓名');return}
   if(!selectedPosition){showToast('请选择场上位置');return}
   const height=parseInt(document.getElementById('player-height').value)||175;
@@ -1654,6 +1679,8 @@ function createPlayer(){
   p.valueHistory.push({age:16,value:p.marketValue});
   addLog('16岁加入'+academy+' U17梯队，开启职业生涯');
   game.season={events:[],currentEventIndex:-1,phase:'start',seasonGoals:0,seasonAssists:0,seasonApps:0,teamPosition:0,usedEventIds:[],endProcessed:false,profile:null};
+  // 清理上一局残留（事件卡/转会报价/视图内容），防止新档显示旧档剧情
+  resetSessionState();
   generateSeasonEvents();
   showLoadScreen(true);
 }
@@ -3123,6 +3150,7 @@ function showSeasonStart(){
   html+='<div class="skip-row"><button class="btn-ghost" onclick="skipSeasonRest()"><span class="btn-icon" style="margin:0" data-icon="fast"></span>快进 · 跳过剩余剧情直接结算</button></div>';
   html+='</div>';
   area.innerHTML=html;
+  autoSave();
   document.querySelector('.stage').scrollTop=0;
   updateGameHeader();
   renderRailSeason();
@@ -3188,6 +3216,7 @@ function showEvent(eventId){
   html+='</div>';
   html+='</div>';
   area.innerHTML=html;
+  autoSave();
   document.querySelector('.stage').scrollTop=0;
   currentEvent=event;
   game.season.phase='event';
@@ -3829,6 +3858,12 @@ function renderGrowthView(){
   const area=document.getElementById('view-growth');
   let html='<div class="view-head"><h2>球员成长</h2><span class="sub">潜力评价：'+potentialBand(p.potential)+'</span></div>';
   html+='<div class="m-seg"><button class="m-chip on" data-seg="card">球员卡</button><button class="m-chip" data-seg="form">状态</button><button class="m-chip" data-seg="attr">属性</button><button class="m-chip" data-seg="ladder">晋升链</button></div>';
+  const cats=p.isGK?['GK']:['PAC','SHO','PAS','DRI','DEF','PHY'];
+  html+='<div class="m-catbar" data-m="attr">';
+  cats.forEach((cat,i)=>{
+    html+='<button class="m-chip'+(i===0?' on':'')+'" data-cat="'+cat+'">'+ATTR_LABELS[cat]+'</button>';
+  });
+  html+='</div>';
   html+='<div class="m-body"><div class="growth-layout">';
   html+='<div class="growth-col">';
   // FUT卡
@@ -3882,12 +3917,6 @@ function renderGrowthView(){
   html+='<div class="meter-label"><span>竞技状态</span><b>'+p.form+'/10</b></div><div class="form-bar"><div class="form-bar-fill" style="width:'+(p.form*10)+'%;background:'+attrColor(40+p.form*6)+'"></div></div>';
   html+='<div class="meter-label" style="margin-top:10px"><span>士气</span><b>'+p.morale+'/10</b></div><div class="morale-bar"><div class="morale-bar-fill" style="width:'+(p.morale*10)+'%;background:'+attrColor(40+p.morale*6)+'"></div></div>';
   html+='</div>';
-  const cats=p.isGK?['GK']:['PAC','SHO','PAS','DRI','DEF','PHY'];
-  html+='<div class="m-catbar" data-m="attr">';
-  cats.forEach((cat,i)=>{
-    html+='<button class="m-chip'+(i===0?' on':'')+'" data-cat="'+cat+'">'+ATTR_LABELS[cat]+'</button>';
-  });
-  html+='</div>';
   cats.forEach((cat,i)=>{
     const attrs=p.attributes[cat]||{};
     let sum=0,count=0;
@@ -3913,12 +3942,65 @@ function renderGrowthView(){
   html+='</div></div></div>';
   area.innerHTML=html;
 }
+// ============ 联赛数据（积分榜/数据榜） ============
+// 确定性生成：同一存档同一赛季多次渲染结果一致（种子=赛季+队名），不改动存档结构
+function leagueSeedRand(seed){
+  const x=Math.sin(seed*127.1+311.7)*43758.5453;
+  return x-Math.floor(x);
+}
+function teamSeed(t){
+  let h=0;
+  for(let i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))>>>0;
+  return h;
+}
+function buildLeagueStandings(p,goals,assists){
+  const lg=LEAGUES[p.league];
+  if(!lg||!lg.teams||lg.teams.length<2)return[];
+  const season=p.season;
+  const rounds=(lg.teams.length-1)*2;
+  const rows=lg.teams.map(t=>{
+    const stars=(TEAM_STARS[t]||[]).length;
+    const jit=leagueSeedRand(season*31+teamSeed(t));
+    // 你的进球/助攻带动球队排名
+    const str=t===p.team?stars*2.2+jit*7+Math.min(6,(goals||0)*.5+(assists||0)*.35):stars*2.2+jit*7;
+    return{team:t,str};
+  }).sort((a,b)=>b.str-a.str);
+  const topPts=Math.min(rounds*3-6,58+Math.round(lg.factor*20));
+  return rows.map((r,i)=>{
+    const pts=Math.max(8,Math.round(topPts-i*(topPts-12)/(rows.length-1)+(leagueSeedRand(season*13+i)*2-1)));
+    const w=Math.min(rounds,Math.floor(pts/3));
+    const d=Math.max(0,Math.min(rounds-w,pts-w*3));
+    const l=Math.max(0,rounds-w-d);
+    return{team:r.team,pts,w,d,l,me:r.team===p.team};
+  });
+}
+function buildLeagueBoards(p,goals,assists){
+  const lg=LEAGUES[p.league];
+  const season=p.season;
+  const f=lg.factor;
+  const scorers=[],assisters=[];
+  lg.teams.forEach((t,ti)=>{
+    (TEAM_STARS[t]||[]).slice(0,2).forEach((name,si)=>{
+      const g=Math.round((si===0?15:7)*f*(0.55+leagueSeedRand(season*17+ti*5+si*3)*0.85));
+      const a=Math.round((si===0?8:10)*f*(0.5+leagueSeedRand(season*19+ti*7+si*2)*0.9));
+      if(g>0)scorers.push({name,team:t,g});
+      if(a>0)assisters.push({name,team:t,a});
+    });
+  });
+  if(!p.isGK){
+    scorers.push({name:p.name,team:p.team,g:goals||0,me:true});
+    assisters.push({name:p.name,team:p.team,a:assists||0,me:true});
+  }
+  scorers.sort((a,b)=>b.g-a.g);
+  assisters.sort((a,b)=>b.a-a.a);
+  return{scorers,assisters};
+}
 function renderStatsView(){
   const p=game.player;
   const area=document.getElementById('view-stats');
   const snap=seasonSnapshot();
   let html='<div class="view-head"><h2>赛季数据</h2><span class="sub">'+seasonYear(p)+'赛季 · '+p.team+'</span></div>';
-  html+='<div class="m-seg"><button class="m-chip on" data-seg="season">本赛季</button><button class="m-chip" data-seg="career">生涯</button></div>';
+  html+='<div class="m-seg"><button class="m-chip on" data-seg="season">本赛季</button><button class="m-chip" data-seg="career">生涯</button><button class="m-chip" data-seg="league">联赛</button></div>';
   html+='<div class="m-body">';
   html+='<div class="stat-grid m-on" data-m="season">';
   if(p.isGK){
@@ -3959,6 +4041,42 @@ function renderStatsView(){
     });
     html+='</div></div>';
   }
+  // 联赛段：积分榜 + 射手榜/助攻榜 + 国家队
+  const lg=LEAGUES[p.league];
+  const standings=buildLeagueStandings(p,snap.goals,snap.assists);
+  const boards=buildLeagueBoards(p,snap.goals,snap.assists);
+  html+='<div class="panel" data-m="league"><div class="panel-head"><h4>'+lg.name+' 积分榜</h4><span class="hint">'+seasonYear(p)+'赛季</span></div><div class="lg-table">';
+  let meShown=false;
+  standings.forEach((r,i)=>{
+    if(i>=8&&!r.me)return;
+    if(r.me&&i>=8)html+='<div class="lg-sep">···</div>';
+    html+='<div class="lg-row'+(r.me?' lg-me':'')+'"><span class="lg-pos">'+(i+1)+'</span><span class="lg-team">'+escapeHtml(r.team)+'</span><span class="lg-rec">'+r.w+'胜 '+r.d+'平 '+r.l+'负</span><b class="lg-pts">'+r.pts+'</b></div>';
+  });
+  html+='</div><div class="form-note">榜单按球队实力与你的表现模拟：你的进球助攻会带动球队排名。</div></div>';
+  const boardHTML=(list,key,title)=>{
+    let h='<div class="panel" data-m="league"><div class="panel-head"><h4>'+title+'</h4></div><div class="lg-table">';
+    list.slice(0,8).forEach((s,i)=>{
+      h+='<div class="lg-row'+(s.me?' lg-me':'')+'"><span class="lg-pos">'+(i+1)+'</span><span class="lg-team">'+escapeHtml(s.name)+'<small>'+escapeHtml(s.team)+'</small></span><b class="lg-pts">'+s[key]+'</b></div>';
+    });
+    const meIdx=list.findIndex(s=>s.me);
+    if(meIdx>=8){
+      const s=list[meIdx];
+      h+='<div class="lg-sep">···</div><div class="lg-row lg-me"><span class="lg-pos">'+(meIdx+1)+'</span><span class="lg-team">'+escapeHtml(s.name)+'<small>'+escapeHtml(s.team)+'</small></span><b class="lg-pts">'+s[key]+'</b></div>';
+    }
+    return h+'</div></div>';
+  };
+  html+=boardHTML(boards.scorers,'g','射手榜');
+  html+=boardHTML(boards.assisters,'a','助攻榜');
+  html+='<div class="panel" data-m="league"><div class="panel-head"><h4>国家队</h4><span class="hint">'+(p.flags.nationalMember?'现役国脚':'冲击国字号')+'</span></div>';
+  if(p.flags.nationalMember){
+    html+='<div class="stat-grid" style="margin-top:4px">';
+    html+='<div class="stat-tile"><div class="stat-tile-val">'+(p.internationalCaps||0)+'</div><div class="stat-tile-label">国家队出场</div></div>';
+    html+='<div class="stat-tile hot"><div class="stat-tile-val">'+(p.internationalGoals||0)+'</div><div class="stat-tile-label">国家队进球</div></div>';
+    html+='</div>';
+  }else{
+    html+='<div class="empty-hint">尚未入选国家队。<br>在俱乐部持续高光，国字号征召终会到来。</div>';
+  }
+  html+='</div>';
   html+='</div>';
   area.innerHTML=html;
 }
@@ -4042,6 +4160,8 @@ function menuQuitApp(){
 let wizStep=1;
 function wizSet(n){
   wizStep=Math.max(1,Math.min(3,n));
+  if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+  window.scrollTo(0,0);
   document.querySelectorAll('#create-screen .wizard-step').forEach(s=>s.classList.toggle('on',+s.dataset.step===wizStep));
   document.querySelectorAll('.wiz-dots i').forEach((d,i)=>d.classList.toggle('on',i<wizStep));
   const prev=document.getElementById('wiz-prev'),next=document.getElementById('wiz-next');
@@ -4055,19 +4175,37 @@ function wizGo(d){
   }
   wizSet(wizStep+d);
 }
+// 分段显示统一应用：按当前 .on 的段芯片与子分类芯片计算可见块（含 data-cat 联动）
+function applySegState(view){
+  const segChip=view.querySelector('.m-seg .m-chip.on');
+  const seg=segChip?segChip.dataset.seg:null;
+  if(!seg)return;
+  const onCatChip=view.querySelector('.m-catbar .m-chip.on');
+  view.querySelectorAll('[data-m]').forEach(b=>{
+    let show=b.dataset.m===seg;
+    if(show&&b.dataset.cat)show=!onCatChip||b.dataset.cat===onCatChip.dataset.cat;
+    b.classList.toggle('m-on',show);
+  });
+  const mb=view.querySelector('.m-body');
+  if(mb)mb.scrollTop=0;
+}
 document.addEventListener('click',function(e){
   const seg=e.target.closest('.m-seg .m-chip');
   if(seg){
     const view=seg.closest('.view');
-    seg.parentElement.querySelectorAll('.m-chip').forEach(c=>c.classList.toggle('on',c===seg));
-    if(view)view.querySelectorAll('[data-m]:not([data-cat])').forEach(b=>b.classList.toggle('m-on',b.dataset.m===seg.dataset.seg));
+    if(view){
+      view.querySelectorAll('.m-seg .m-chip').forEach(c=>c.classList.toggle('on',c===seg));
+      applySegState(view);
+    }
     return;
   }
   const cat=e.target.closest('.m-catbar .m-chip');
   if(cat){
     const view=cat.closest('.view');
-    cat.parentElement.querySelectorAll('.m-chip').forEach(c=>c.classList.toggle('on',c===cat));
-    if(view)view.querySelectorAll('[data-cat]').forEach(b=>b.classList.toggle('m-on',b.dataset.cat===cat.dataset.cat));
+    if(view){
+      cat.parentElement.querySelectorAll('.m-chip').forEach(c=>c.classList.toggle('on',c===cat));
+      applySegState(view);
+    }
   }
 });
 // ============ INIT ============
