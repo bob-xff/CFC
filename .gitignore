@@ -8,9 +8,25 @@ build/revamp/_server.log
 __pycache__/
 *.pyc
 
+# Capacitor 安卓工程（mobile/）
+mobile/node_modules/
+mobile/www/
+mobile/assets_opt/
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/local.properties
+mobile/android/app/src/main/assets/
+mobile/android/keystore.properties
+mobile/android/app/*.keystore
+mobile/android/app/*.jks
+*.keystore
+*.jks
+
 # 个人截图（不上传）
 问题图片/
 
 # 系统文件
 Thumbs.db
 .DS_Store
+发布-安卓/

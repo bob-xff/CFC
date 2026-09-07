@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CFC足球生涯（测试版）</string>
+    <string name="title_activity_main">CFC足球生涯（测试版）</string>
+    <string name="package_name">com.cfc.footballsim</string>
+    <string name="custom_url_scheme">com.cfc.footballsim</string>
+</resources>
