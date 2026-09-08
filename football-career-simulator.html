@@ -258,10 +258,10 @@ button{font-family:inherit;cursor:pointer}
 .effect-pos{color:var(--volt)}
 .effect-neg{color:var(--danger)}
 .effect-neutral{color:var(--text-dim)}
-.continue-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;padding:13px 38px;background:linear-gradient(135deg,var(--volt),var(--volt-strong));border:none;border-radius:10px;color:#0c1503;font-size:.98rem;font-weight:800;cursor:pointer;transition:all .18s;letter-spacing:.03em}
+.continue-btn{display:flex;width:max-content;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;padding:13px 38px;background:linear-gradient(135deg,var(--volt),var(--volt-strong));border:none;border-radius:10px;color:#0c1503;font-size:.98rem;font-weight:800;cursor:pointer;transition:all .18s;letter-spacing:.03em}
 @media(hover:hover){.continue-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}}
 .continue-btn .svg-icon{width:16px;height:16px}
-.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:14px auto 0;padding:12px 28px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;color:var(--text-2);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .18s}
+.btn-ghost{display:flex;width:max-content;align-items:center;justify-content:center;gap:8px;margin:14px auto 0;padding:12px 28px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;color:var(--text-2);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .18s}
 @media(hover:hover){.btn-ghost:hover{border-color:var(--volt);color:var(--volt)}}
 .skip-row{display:flex;justify-content:center;margin-top:18px}
 /* ============ 成长视图 ============ */
@@ -412,6 +412,7 @@ button{font-family:inherit;cursor:pointer}
 }
 @media(max-width:640px){
   .start-title{font-size:1.6rem}
+  html[data-theme="light"] #start-logo{width:120px!important;padding:10px;border-radius:18px}
   .start-logo{width:min(68vw,220px)}
   .form-row{grid-template-columns:1fr}
   .position-grid{grid-template-columns:repeat(3,1fr)}
@@ -508,6 +509,10 @@ html[data-theme="light"] .consequence-box,
 html[data-theme="light"] .retire-option,
 html[data-theme="light"] .menu-btn{background:var(--surface);border-color:var(--border)}
 html[data-theme="light"] .chapter-banner{background:linear-gradient(160deg,#ffffff,#f2f5fa)}
+html[data-theme="light"] .m-chip.on,html[data-theme="light"] .lg-pts,html[data-theme="light"] .event-category{color:var(--volt-strong)}
+html[data-theme="light"] .event-category.cat-match{color:#8a5a0d}
+html[data-theme="light"] .menu-grid .menu-btn.primary{background:linear-gradient(135deg,var(--volt),var(--volt-strong));color:#0c1503;border-color:var(--volt-strong)}
+html[data-theme="light"] .menu-grid .menu-btn.primary .btn-icon{color:#0c1503}
 
 /* 联赛积分榜/数据榜（两端通用） */
 .lg-table{display:flex;flex-direction:column;margin-top:6px}
@@ -521,9 +526,10 @@ html[data-theme="light"] .chapter-banner{background:linear-gradient(160deg,#ffff
 .lg-me{background:var(--volt-soft);border-radius:8px;padding-left:6px;padding-right:6px}
 .lg-sep{text-align:center;color:var(--text-dim);font-size:.7rem;padding:2px 0}
 /* 剧情短选项双列（两端通用：类由 JS 按文本长度自动添加） */
-#view-story .choices.choices-2col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#view-story .choices.choices-2col,#retire-extra .choices.choices-2col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 #view-story .choices.choices-2col .choice-btn{padding:10px 12px;font-size:.86rem;gap:10px;line-height:1.5}
 #view-story .choices.choices-2col .choice-index{width:24px;height:24px;font-size:.72rem}
+.event-narrative{letter-spacing:.01em;line-height:1.85}
 /* ============ 触屏基础层（安卓 App / 手机浏览器通用） ============ */
 html{-webkit-tap-highlight-color:transparent}
 html,body{touch-action:manipulation;overscroll-behavior:none}
@@ -535,6 +541,12 @@ button{user-select:none;-webkit-user-select:none}
   .choice-btn:active{transform:translateX(4px) scale(.985)}
   .save-slot:active{transform:scale(.985)}
   .pos-btn:active,.retire-option:active{transform:scale(.98)}
+  .star{width:36px;height:36px}
+  .star .svg-icon{width:24px;height:24px}
+  .star:active{transform:scale(.92)}
+  .slot-action-btn{padding:9px 12px}
+  .m-chip{padding:8px 14px}
+  .m-catbar .m-chip{padding:7px 12px}
 }
 .rail,.app-header,.chip,.save-icon-btn,.game-menu{user-select:none;-webkit-user-select:none}
 /* 安全区：刘海/挖孔侧避让（桌面 env()=0 无影响） */
@@ -578,6 +590,9 @@ button{user-select:none;-webkit-user-select:none}
   .modal-content{padding:20px 22px;max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px)}
   .game-menu-overlay,.confirm-overlay{padding:14px}
   .game-menu{padding:16px}
+  .position-grid{grid-template-columns:repeat(5,1fr)}
+  .retire-options{grid-template-columns:repeat(3,1fr);gap:10px}
+  .retire-option{padding:14px 10px}
   /* 首页/创建/读档/退役横屏适配 */
   #start-screen{padding:16px calc(20px + env(safe-area-inset-right,0px)) 16px calc(20px + env(safe-area-inset-left,0px))}
   .start-logo{width:min(30vh,170px)}
@@ -596,7 +611,9 @@ button{user-select:none;-webkit-user-select:none}
   .m-seg{display:flex;flex:0 0 auto;gap:6px;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}
   .m-chip{flex:0 0 auto;padding:6px 13px;border-radius:17px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);font-size:.72rem;font-weight:800;letter-spacing:.03em;cursor:pointer}
   .m-chip.on{background:var(--volt-soft);border-color:var(--volt);color:var(--volt)}
-  .m-body{flex:1 1 0;min-height:0;overflow-y:auto}
+  .m-body{flex:1 1 0;min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border-strong) transparent}
+  .m-body::-webkit-scrollbar{width:4px}
+  .m-body::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:2px}
   /* 成长/数据：摊平桌面双列结构，按段显示（列容器保持 block，勿用 display:contents——headless 渲染有绘制 bug） */
   .m-body .growth-layout{display:block}
   .m-body .growth-col{display:block}
@@ -612,7 +629,7 @@ button{user-select:none;-webkit-user-select:none}
   #view-story>.season-hero h3{font-size:1.05rem;margin-bottom:4px}
   #view-story>.season-hero::before{display:none}
   #view-story .season-hero .crest-xxl{width:56px;height:56px;border-radius:12px;padding:3px}
-  #view-story>.event-card{flex:1 1 0;min-height:0;display:flex;flex-direction:column;padding:12px 14px;margin-bottom:0}
+  #view-story>.event-card{flex:1 1 0;min-height:0;display:flex;flex-direction:column;overflow:hidden;padding:12px 14px;margin-bottom:0}
   #view-story>.event-card>.event-narrative{flex:1 1 0;min-height:0;overflow-y:auto}
   #view-story>.event-card>.event-topline{flex:0 0 auto}
   #view-story>.event-card>.choices{flex:0 0 auto;max-height:52%;overflow-y:auto}
@@ -620,12 +637,12 @@ button{user-select:none;-webkit-user-select:none}
   #view-story>.consequence-box{flex:1 1 0;min-height:0;overflow-y:auto}
   .choice-btn{padding:7px 10px;font-size:.78rem;gap:9px;line-height:1.45}
   .choice-index{width:22px;height:22px;font-size:.66rem;border-radius:7px;margin-top:0}
-  .choice-hint{font-size:.64rem;margin-top:1px}
+  .choice-hint{font-size:.68rem;margin-top:1px}
   #view-story>.event-card>.choices{gap:6px}
   /* 横屏下双列选项进一步紧凑 */
-  #view-story .choices.choices-2col{gap:6px}
-  #view-story .choices.choices-2col .choice-btn{padding:8px;font-size:.74rem;gap:7px;line-height:1.4}
-  #view-story .choices.choices-2col .choice-index{width:20px;height:20px;font-size:.64rem}
+  .choices.choices-2col{gap:6px}
+  .choices.choices-2col .choice-btn{padding:8px;font-size:.74rem;gap:7px;line-height:1.4}
+  .choices.choices-2col .choice-index{width:20px;height:20px;font-size:.64rem}
   .continue-btn{padding:11px;font-size:.9rem}
   /* 成长页：晋升链双列紧凑 */
   /* 成长页：晋升链双列紧凑 */
@@ -657,6 +674,7 @@ button{user-select:none;-webkit-user-select:none}
   .start-top{display:none}
   .start-desc,.start-tags{display:none}
   .start-logo{width:min(14vh,56px);margin-bottom:2px}
+  html[data-theme="light"] #start-logo{width:min(14vh,56px)!important;padding:6px;border-radius:12px}
   .start-overline{font-size:.56rem;margin-bottom:4px;letter-spacing:.22em}
   .start-title{font-size:1.1rem;margin-bottom:3px}
   .start-subtitle{font-size:.72rem;margin-bottom:8px}
@@ -1111,7 +1129,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.2.3';
+const GAME_VERSION='V2.2.4';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -1368,13 +1386,9 @@ function manualSave(){
   if(saveGame(game.saveSlot))showToast('已保存到存档 '+game.saveSlot);
   else showToast('存档失败');
 }
-let lastAutoSaveToast=0;
 function autoSave(){
   if(!game||!game.saveSlot)return;
-  saveGame(game.saveSlot);
-  // 自动保存可见反馈：60 秒节流，避免频繁弹提示
-  const now=Date.now();
-  if(now-lastAutoSaveToast>60000){lastAutoSaveToast=now;showToast('已自动保存')}
+  saveGame(game.saveSlot);// 静默自动保存
 }
 // ============ GAME MENU ============
 function toggleGameMenu(){
@@ -1558,7 +1572,10 @@ function showLoadScreen(forSave){
               game=data;
               resetSessionState();
               if(game.season&&!game.season.profile){game.season.profile=generateSeasonProfile();saveGame(i);}
+              const cap0=salaryCap(game.player.league,game.player.ovr);
+              if(game.player.salary>cap0*1.5){game.player.salary=cap0;saveGame(i);addLog('薪资数据已按联赛标准自动校准');}
               showScreen('game-screen');switchView('story');
+              updateGameHeader();
             }else{
               showToast('读取失败');
             }
@@ -1812,8 +1829,20 @@ function formatValue(v){
 }
 function formatSalary(v){
   const rmb=Math.round(v*8);
+  if(rmb>=100000000)return (rmb/100000000).toFixed(1)+'亿/年';
   if(rmb>=10000)return (rmb/10000).toFixed(0)+'万/年';
   return rmb+'元/年';
+}
+// 薪资上限：按联赛层级+总评校准，杜绝长线复利导致的薪资爆炸（单位：欧元/年）
+function salaryCap(lk,ovr){
+  if(lk==='CSL')return 375000;
+  if(lk==='CL1')return 125000;
+  const lg=LEAGUES[lk];
+  const tier=lg?lg.tier:3;
+  let cap=tier===1?20000000:tier===2?6000000:2000000;
+  if(lk==='SAU'||lk==='QAT')cap=15000000;
+  const g=Math.max(0.05,Math.min(1,(ovr-58)/40));
+  return Math.round(cap*(0.06+0.94*g));
 }
 function potentialBand(pot){
   if(pot>=95)return'世界级天才 ★★★★★';
@@ -2191,6 +2220,9 @@ function processChoice(choiceIdx){
   }else{
     game.season.lastRiskFail=false;
   }
+  // 位置安全网：门将不累计任何进球数据（剧情文案若越界，数据不污染）
+  if(game.player.isGK&&outcome.goals)outcome={...outcome,goals:0};
+  if(game.player.isGK&&outcome.intlGoals)outcome={...outcome,intlGoals:0};
   const changes=applyEffects(outcome.effects);
   if(outcome.formChange)game.player.form=Math.max(1,Math.min(10,game.player.form+outcome.formChange));
   if(outcome.goals){game.season.seasonGoals+=outcome.goals}
@@ -2257,7 +2289,7 @@ function showConsequenceFromState(){
 // ============ 通用事件池（可复用，冷却5季；文本随人物/地域/时间动态生成） ============
 const GENERIC_EVENTS=[
 // --- 训练 ---
-{ id:'t1',cat:'training',minAge:16,
+{ id:'t1',cat:'training',noGK:true,minAge:16,
   narrative:p=>`夕阳将训练基地染成金红色。大多数队友已经收拾完毕陆续离开，空旷的训练场上只剩下你和几堆足球。\n\n今天的训练课上，${coachLine(p.team)?coachLine(p.team)+'教练组':'教练组'}特意把你叫到一边："${p.name}，你的基本功不错，但想要进入一线队，还需要在某一项上做到极致。趁现在训练场还空着，想加练什么？"\n\n你低头看着脚下的足球，深吸一口气，做出了选择：`,
   choices:[
     {text:'加练射门 — 反复练习禁区内抢点射门',effects:{'SHO.finishing':2,'SHO.positioning':1,'PHY.stamina':-1},consequence:'暮色中你一遍遍练习禁区内射门，脚与球碰撞的闷响回荡在空旷的球场。虽然第二天大腿酸胀，但你的射术有了明显提升。',formChange:1},
@@ -2359,7 +2391,7 @@ const GENERIC_EVENTS=[
     {text:'回撤接应 — 控制节奏消耗时间',effects:{'PAS.shortPassing':2,'PAS.vision':1,'DRI.ballControl':1},consequence:'你选择回撤接应，稳住球权。几次传递配合后，你成功消耗了对方急躁的情绪。最终球队守住了1-0的胜果。',formChange:1},
     {text:'拉边接球 — 拉开宽度再传中',effects:{'PAS.crossing':2,'PAS.longPassing':1,'PAC.acceleration':1},consequence:'你拉到边路接球，吸引了两名防守球员后送出精准传中。队友头球攻门稍稍偏出，但这次进攻的组织得到了教练的点头赞许。',formChange:1}
   ]},
-{ id:'m5',cat:'match',minAge:16,
+{ id:'m5',cat:'match',noGK:true,minAge:16,
   narrative:p=>`训练赛结束后，主教练把你单独叫到了办公室。\n\n"上一场比赛你的跑位有问题，"他指着战术板上的几个标记点，"这几个位置你应该出现在前点而不是后点。你的无球跑动需要改进。"\n\n他递给你一份战术分析报告："回去好好研究，下次训练我要看到改变。另外，你平时是怎么练跑位的？`,
   choices:[
     {text:'认真研究录像 — 每天看2小时',effects:{'SHO.positioning':3,'PAS.vision':1,'DRI.reactions':1},consequence:'你把录像反复看了几十遍，一帧帧分析自己的跑位问题。下次训练课上，你的无球跑动判若两人，教练满意地点了点头。',formChange:1},
@@ -2424,7 +2456,7 @@ const GENERIC_EVENTS=[
     {text:'心理战 — 慢慢摆手套拖延时间',effects:{'DRI.composure':2,'GK.gkPositioning':1,'PHY.aggression':1},consequence:'你不紧不慢地系鞋带、擦手套，任凭主裁判催促。对方射手明显被搞得心浮气躁——射门高出横梁！你用智慧赢下了这场对决。',formChange:1}
   ]},
 { id:'gk3',cat:'match',gkOnly:true,minAge:18,
-  narrative:p=>`伤停补时第4分钟，你们2-1领先。对方最后一攻，角球开出——你的队友冒顶了！\n\n对方高中锋在你面前两米处甩头攻门，皮球直奔球门上角。这是门线技术的终极考验。\n\n千钧一发之际，你的身体比大脑先做出了反应：`,
+  narrative:p=>`伤停补时第4分钟，你们2-1领先。对方最后一攻，角球开出——你的队友冒顶了！\n\n对方高中锋在你面前两米处甩头攻门，皮球带着强烈的弧线直奔球门。这是门线技术的终极考验。\n\n千钧一发之际，你的身体比大脑先做出了反应：`,
   choices:[
     {text:'下地横扑 — 用指尖把球托出横梁',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':2},consequence:'你像弹簧一样侧身横扑，指尖在皮球越过门线的最后一毫米把它托出了横梁！慢镜头回放显示这次扑救的极限程度——解说员喊破了音："世界级扑救！"',formChange:3,risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.diving':1},consequence:'你扑到了球，但力量不足以把它托出横梁——皮球擦着指尖坠入网窝。2-2。你躺在门线上久久没有起身，这次教训会被你记很久。',formChange:-1}},
     {text:'封堵近角 — 赌他顶向近门柱',effects:{'GK.gkPositioning':3,'GK.handling':1,'PHY.strength':1},consequence:'你赌对了！他的头球又急又平，正砸向你封堵的近角——皮球撞在你肩膀上弹出底线！你起身捶着胸脯怒吼，全队都被你点燃了。',formChange:2},
@@ -2435,10 +2467,10 @@ const GENERIC_EVENTS=[
   choices:[
     {text:'两脚出球 — 用脚下技术摆脱逼抢',effects:{'GK.kicking':2,'PAS.shortPassing':2,'DRI.composure':2},consequence:'你一个假动作晃开第一次扑抢，随即用非惯用脚送出一脚精准的斜长传找到边路！由守转攻一气呵成，球迷起立为你鼓掌——"会踢球的门将"名不虚传！',formChange:2,risk:{attr:'GK.kicking',base:.62},fail:{effects:{'GK.kicking':1},consequence:'你的出球稍慢了半拍，对方前锋伸脚一挡——皮球缓缓滚入空门。0-1。你把拳头砸进了手套里。现代门将的宿命：每一次触球都是豪赌。',formChange:-1}},
     {text:'大脚长传找前锋 — 安全第一',effects:{'GK.kicking':2,'PAS.longPassing':1,'PHY.strength':1},consequence:'你观察到了前锋的跑位，一脚又高又远的长传精准落到他的冲刺路线上！虽然进攻没能转化成进球，但你化解了逼抢，队友们纷纷竖起大拇指。',formChange:1},
-    {text:'抱住球 — 犯规也绝不冒险',effects:{'DRI.composure':2,'GK.handling':1},consequence:'你干脆将球抱入怀中，任凭对方前锋在你面前跳脚。对方获得了一个位置极差的前场任意球，你亲自排人墙指挥——最终有惊无险。稳，有时就是最好的选择。',formChange:0}
+    {text:'大脚解围 — 先破坏再重组',effects:{'GK.kicking':1,'DRI.composure':2,'PHY.strength':1},consequence:'你抢在他伸脚之前把球大脚解围出边线，化解了这次险情。虽然球权交还给了对方，但防线借机落位。稳，有时就是最好的选择。',formChange:0}
   ]},
 { id:'gk5',cat:'match',gkOnly:true,minAge:21,
-  narrative:p=>`你是本赛季联赛零封榜的第一名，媒体开始称你为"防线的指挥官"。但今天不同——中后卫搭档的状态糟糕透顶，上半场连续两次失误差点丢球。\n\n中场休息的更衣室里，他低着头一言不发。下半场球队需要他，也需要你。\n\n作为身后的最后一道防线，你看得分最清楚。走进球场前，你决定：`,
+  narrative:p=>`你的名字高居联赛零封榜前列，媒体开始称你为"防线的指挥官"。但今天不同——中后卫搭档的状态糟糕透顶，上半场连续两次失误差点丢球。\n\n中场休息的更衣室里，他低着头一言不发。下半场球队需要他，也需要你。\n\n作为身后的最后一道防线，你看得分最清楚。走进球场前，你决定：`,
   choices:[
     {text:'主动沟通 — 帮他重建信心',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':2},consequence:'你搂着他的肩膀："上半场都过去了，下半场你的身后有我。"下半场他判若两人，你俩联手守住胜果。从此你们成了联赛最好的中卫-门将组合。',formChange:2,flag:'bond_cb'},
     {text:'严厉要求 — 提醒他职业标准',effects:{'PHY.aggression':2,'GK.gkPositioning':1,'DRI.composure':1},consequence:'你毫不留情地指出了他的问题："再这样下去我们两个都要坐板凳。"他红着脸点了点头，下半场打起了十二分精神。有些刺耳的话，才是真正的良药。',formChange:1},
@@ -2450,6 +2482,20 @@ const GENERIC_EVENTS=[
     {text:'用扑救回应 — 门将的回击方式',effects:{'GK.reflexes':3,'DRI.composure':3,'PHY.aggression':1},consequence:'第88分钟，他又一次单刀突进，嘴里还在念叨着什么——你用一记不可思议的侧扑将他的必进之球按在了门线上！全场为你起立！你冲他做了个噤声的手势。这才是门将的回击。',formChange:3,risk:{attr:'GK.reflexes',base:.55},fail:{effects:{'GK.reflexes':1},consequence:'你又丢了一球，1-3。他跑过你身边时耸了耸肩。你把这口气咽进肚子里，在备忘录上写下了今天——德比的账，来年再算。',formChange:-1}},
     {text:'精准长传 — 助队友扳回一城',effects:{'GK.kicking':2,'PAS.longPassing':2,'PAS.vision':1},consequence:'你没有理会他的挑衅，观察许久后果断开出一记世界级手抛球，前锋胸部停球后凌空抽射——2-3！你成为了进攻的发起者，悬念又回来了！',formChange:2,assists:1},
     {text:'冷静指挥 — 先稳住防线再图反击',effects:{'DRI.composure':3,'GK.gkPositioning':1,'PAS.vision':1},consequence:'你深吸一口气，不断指挥防线压上。最后十分钟球队全线围攻，虽然没能扳平，但你的冷静让全队没有崩溃。赛后连对方教练都称赞了你的风度。',formChange:1}
+  ]},
+{ id:'gk8',cat:'cup',gkOnly:true,minAge:16,
+  narrative:p=>{const cup=LEAGUES[p.league]?LEAGUES[p.league].cup:'杯赛';return `${cup}淘汰赛，点球大战。前八轮双方门将各扑出两粒——你已经创造了个人生涯扑点纪录。\n\n第九轮，对方中场主罚。你扑向了他的习惯方向吗？球探报告上他的记录是三罚全中。\n\n全场安静得能听见你的呼吸：`},
+  choices:[
+    {text:'再赌一次 — 相信自己的判断',effects:{'GK.reflexes':3,'GK.handling':2,'DRI.composure':3},consequence:'他射向右下角，你像被磁铁吸过去一样把球扑出！第十轮队友一锤定音，全队从角旗区冲向你——点球大战的英雄，就是你。',formChange:3,risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.reflexes':1},consequence:'他射向了另一侧。皮球入网，下一轮对手罚进，你们出局了。队友们安慰你：扑出两个点球已经足够骄傲。但你记得的，只有那一颗皮球入网的声音。',formChange:-1}},
+    {text:'观察助跑节奏 — 用细节读他',effects:{'GK.gkPositioning':2,'DRI.composure':3,'PAS.vision':1},consequence:'你注意到他助跑最后一步总是放慢——那是改方向的信号。他果然推射反方向，你早有准备侧身将球按在身下！细节，是门将最好的武器。',formChange:2},
+    {text:'干扰战术 — 捡球拖延磨他心态',effects:{'DRI.composure':2,'PHY.aggression':2,'GK.handling':1},consequence:'你慢悠悠把球摆正、又擦了擦手套，主裁两次催促。他明显被搅乱了节奏，射门绵软无力，你轻松扑出！队友一锤定音——心理战的大师。',formChange:2}
+  ]},
+{ id:'gk9',cat:'continental',gkOnly:true,minAge:19,
+  narrative:p=>{const cont=LEAGUES[p.league]?LEAGUES[p.league].continental:'洲际赛事';return `${cont}客场，你的球队必须净胜两球才能晋级。全场你的队友都在压上，身后只剩你一人——对方前锋的速度是全联赛最快的。\n\n第88分钟，比分2-0。对方断球打出极速反击，一记直塞穿透了你所有的队友。这将是决定晋级的最后一扑：`},
+  choices:[
+    {text:'弃门出击 — 在禁区外解决战斗',effects:{'GK.reflexes':2,'GK.diving':1,'DRI.composure':3,'PAS.vision':1},consequence:'你读懂了直塞的线路，在他接球前的一瞬冲出禁区，抢先用身体把球挡出边线！解说员疯了一样喊你的名字——这一扑，价值一个晋级名额！',formChange:3,risk:{attr:'DRI.composure',base:.55},fail:{effects:{'DRI.composure':1},consequence:'你出击慢了半步，他把球一趟从你身边掠过，推射空门。2-1，总比分晋级没被翻盘，但你的冒进差点毁掉一切。赛后你反复回看了二十遍。',formChange:-1}},
+    {text:'沉着回撤 — 守住近角等他犯错',effects:{'GK.positioning':3,'DRI.composure':2,'GK.handling':1},consequence:'你不慌不忙地回撤封堵近角。他仓促间起脚，皮球正中你的怀里！终场哨响，晋级达成——你抱紧皮球跪在地上，队友们从半场跑过来压在你身上。',formChange:2},
+    {text:'大声指挥 — 让回追队友关门',effects:{'PAS.vision':2,'GK.gkPositioning':2,'DRI.composure':1},consequence:'你声嘶力竭地喊着中卫的名字和落位方向，回追的队友心领神会，在禁区内完成了一次教科书级的关门合围！危机解除，你的指挥功不可没。',formChange:1}
   ]},
 // --- 社交 ---
 { id:'s1',cat:'social',minAge:16,
@@ -2495,7 +2541,7 @@ const GENERIC_EVENTS=[
     {text:'合影留念 — 邀请他们赛后聚餐',effects:{'DRI.composure':1,'PAS.vision':1},consequence:'你和大伙合影，比赛结束后还请他们吃了顿便饭。老乡球迷团越来越壮大，你走到哪里都有主场的感觉。',formChange:1},
     {text:'礼貌道谢 — 保持职业距离',effects:{'DRI.composure':2},consequence:'你微笑着感谢了他们的支持，随后专注到了比赛准备上。老球迷们看出了你的职业态度，纷纷点赞："这孩子，靠谱。"',formChange:0}
   ]},
-{ id:'s12',cat:'social',minAge:18,
+{ id:'s12',cat:'social',noGK:true,minAge:18,
   narrative:p=>`一场平局后，你的社交账号私信炸了。\n\n原因是你第70分钟的一次"独"——明明有空当却选择了自己浪射，皮球偏出立柱。球迷分成两派在评论区激烈争吵，有人给你起了一个带讽刺意味的外号，正在全网发酵。\n\n热搜词条挂了两个小时。经纪人建议你回应一下，队里的老将则劝你别看手机：`,
   choices:[
     {text:'发一条诚恳的动态回应',effects:{'DRI.composure':2,'PAS.vision':1},consequence:'你写道："那脚选择确实不好，批评收下了，下次争取更合理。"—真诚的态度让大部分球迷消了气，点赞最高的一条评论是："敢认错，是成大事的苗子。"',formChange:1},
@@ -2544,7 +2590,7 @@ const GENERIC_EVENTS=[
     {text:'接受专访 — 但回避敏感问题',effects:{'DRI.composure':1,'PAS.vision':1},consequence:'你接受了采访但巧妙地回避了敏感问题。专访效果平平，没有引发什么波澜。',formChange:0},
     {text:'婉拒专访',effects:{'DRI.ballControl':1,'PHY.stamina':1},consequence:'你婉拒了专访，选择保持低调。虽然少了一次曝光机会，但也避免了潜在的争议。',formChange:0}
   ]},
-{ id:'c11',cat:'media',minAge:17,
+{ id:'c11',cat:'media',noGK:true,minAge:17,
   narrative:p=>`周末的比赛日，央视直播席上坐着大名鼎鼎的解说${MEDIA_PEOPLE.commentator[0]}。下半场你打入一记精彩的世界波，他的激情解说瞬间刷屏全网。\n\n"这脚射门，这就是中国足球需要的天赋啊！这孩子有前途！"\n\n赛后，#詹俊说看到了中国足球的未来# 冲上了热搜。节目组向你发来邀请——希望你去参加一档足球访谈节目：`,
   choices:[
     {text:'接受邀请 — 让更多孩子认识你',effects:{'DRI.composure':2,'PAS.vision':1},consequence:'访谈节目播出后反响热烈。你讲起了小时候踢球的经历，让无数小球员看到了一条真实可行的路。你的名字开始被全国球迷记住。',formChange:1,flag:'tv_show'},
@@ -2704,7 +2750,7 @@ const GENERIC_EVENTS=[
     {text:'保守站位 — 守住近门柱',effects:{'GK.reflexes':2,'DRI.composure':1},consequence:'你选择保守站位守住近门柱。对方几次角球都被你化解，但球队在下半场被对手用一次远射攻破球门，最终0-1惜败。',formChange:-1}
   ]},
 { id:'g6',cat:'match',minAge:18,condition:p=>p.isGK,
-  narrative:p=>`联赛下半程，球队状态起伏，教练组开始讨论"门将轮换"。你和队内的老门将形成了直接竞争——他能给的是经验，你能给的是反应和出击范围。\n\n这周的训练课，门将教练宣布：周六的联赛首发出售制——"周三周四的训练表现，决定谁上场。"\n\n你知道，这是你抢班夺权的机会：`,
+  narrative:p=>`联赛下半程，球队状态起伏，教练组开始讨论"门将轮换"。你和队内的老门将形成了直接竞争——他能给的是经验，你能给的是反应和出击范围。\n\n这周的训练课，门将教练宣布：周六的联赛首发竞聘制——"周三周四的训练表现，决定谁上场。"\n\n你知道，这是你抢班夺权的机会：`,
   choices:[
     {text:'两天训练全力封堵每一脚射门',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':1},consequence:'你像疯了一样扑出每一个来球，连续两天零封主力组的射手们。周六的首发名单上写下了你的名字——从这一刻起，主力门将的位子是你的了。',formChange:2,flag:'gk_starter'},
     {text:'研究老门将的录像 — 学他的站位',effects:{'GK.gkPositioning':3,'GK.handling':2},consequence:'你把老门将十年的扑救录像翻了个遍，学到了不少站位细节。训练中你的失误越来越少，教练满意地记下了笔记。',formChange:1},
@@ -2778,7 +2824,7 @@ const STORY_EVENTS=[
     {text:'简单出球 — 稳字当先',effects:{'PAS.shortPassing':2,'DRI.composure':1},consequence:'你用简洁的一脚出球度过了首秀，没有失误也没有闪光。教练赛后说："稳，是好事。但记得，你是踢球的天才，不是安全的搬运工。"',formChange:0},
     {text:'紧张过度 — 一次次躲开球权',effects:{'DRI.composure':-1,'PHY.aggression':-1},consequence:'你下意识地避开对抗和球权，最终在第55分钟被换下。回宿舍的路上你把自己骂了个遍——但你知道，首秀的坎，迈过去就没了。',formChange:-1}
   ]},
-{ id:'ch1_youth_derby',once:true,chapter:1,priority:3,minAge:16,
+{ id:'ch1_youth_derby',once:true,noGK:true,chapter:1,priority:3,minAge:16,
   narrative:(p,ctx)=>{const r=rivalOf(p);return r?`U17联赛迎来青年德比——${p.team}U17对阵${r.team}U17（${r.name}的青春版）。\n\n虽然只是梯队比赛，但两家俱乐部的青训营憋了好几年的劲。赛前对方教练放话："我们青训 never 输给${clubCity(p.team)}。"\n\n更衣室里，队长敲着战术板："今天不用多说了吧？"\n\n比赛第65分钟，1-1，你在前场拿球：`:`青年联赛关键战，对手是积分榜身前的直接竞争者。\n\n比赛第65分钟，1-1，你在前场拿球：`},
   choices:[
     {text:'长途奔袭 — 一条龙解决战斗',effects:{'DRI.dribbling':3,'PAC.acceleration':2,'DRI.composure':1},consequence:'你从中场开始加速，连过两人后冷静推射远角！绝杀！青训德比的英雄诞生了。赛后你的名字第一次出现在媒体的青训观察名单上。',formChange:3,goals:1},
@@ -2838,9 +2884,9 @@ const STORY_EVENTS=[
 { id:'gk7_nt_debut',once:true,chapter:2,priority:4,minAge:18,gkOnly:true,condition:p=>p.flags.nationalMember,
   narrative:p=>`国家队大赛首秀，${p.name}代表国足首发出场！赛前发布会，主教练力排众议："我们考察了所有门将，他是状态最好的那个。"\n\n对手是本届赛事身价最高的攻击线。第30分钟到第35分钟，短短五分钟内对方三次轰门——两次世界波，一次单刀。\n\n记分牌还是0-0。你的手套已经湿透，但眼神比任何时候都稳：`,
   choices:[
-    {text:'三连扑 — 用反应说话',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':2},consequence:'世界波被你单掌托出，单刀被你用腿挡下，第三球你直接没收！五分钟三次扑救，解说员的声音都在颤抖："这位门将今天拒绝了比赛剧本！"',formChange:3,risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.diving':1},consequence:'前两次扑救你都做到了，但第三次——那记贴着草皮的远射从你手边溜了进去。0-1。大赛首秀以失误收场，你需要用之后的每一场去洗刷它。',formChange:-1}},
-    {text:'指挥防线 — 用组织化解攻势',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':2},consequence:'你不断呼喊队友站位，三次攻势两次被造越瓦解，唯一一次射门也被你轻松没收。半场结束，转播镜头给到字幕："国足防线的指挥官。"零封，就是门将的首秀满分答卷。',formChange:2},
-    {text:'专注本职 — 少做少错',effects:{'GK.handling':2,'DRI.composure':2,'PHY.stamina':1},consequence:'你把每一次该做的都做到位：接稳、抱紧、快发。没有惊天扑救，也没有失误。赛后评分不算耀眼，但教练拍了拍你："首秀，稳字当头，很好。"',formChange:1}
+    {text:'三连扑 — 用反应说话',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':2},consequence:'世界波被你单掌托出，单刀被你用腿挡下，第三球你直接没收！五分钟三次扑救，解说员的声音都在颤抖："这位门将今天拒绝了比赛剧本！"',formChange:3,caps:1,flag:'gk_nt_debut',risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.diving':1},consequence:'前两次扑救你都做到了，但第三次——那记贴着草皮的远射从你手边溜了进去。0-1。大赛首秀以失误收场，你需要用之后的每一场去洗刷它。',formChange:-1}},
+    {text:'指挥防线 — 用组织化解攻势',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':2},consequence:'你不断呼喊队友落位，三次攻势两次被防线提前合围化解，剩下那记远射也被你稳稳没收。半场结束，转播镜头打出字幕："国足防线的指挥官。"零封，就是门将的首秀满分答卷。',formChange:2,caps:1,flag:'gk_nt_debut'},
+    {text:'专注本职 — 少做少错',effects:{'GK.handling':2,'DRI.composure':2,'PHY.stamina':1},consequence:'你把每一次该做的都做到位：接稳、抱紧、快发。没有惊天扑救，也没有失误。赛后评分不算耀眼，但教练拍了拍你："首秀，稳字当头，很好。"',formChange:1,caps:1,flag:'gk_nt_debut'}
   ]},
 { id:'ch2_first_goal',once:true,chapter:2,priority:5,minAge:17,noGK:true,condition:p=>p.ovr>=57&&(p.careerStage!=='u17'),
   narrative:p=>`足协杯首轮，${p.team}对阵低级别球队，你获得了职业生涯第一次首发！\n\n全队都憋着劲要大胜，机会一次次砸向你脚下。第38分钟，边路传中，皮球越过所有人飞向你——禁区中央，无人盯防，门前五米！\n\n这是你职业生涯最近的进球机会，也可能是最远的——因为全世界都在看着你：`,
@@ -2857,14 +2903,14 @@ const STORY_EVENTS=[
     {text:'让经纪人先审一遍',effects:{'DRI.composure':1,'PAS.vision':1},consequence:'经纪人审完确认没问题，你顺利签字。俱乐部觉得你"挺成熟"。职业世界的第一课：合同即人生，稳一点没坏处。',formChange:0,flag:'pro_contract'}
   ]},
 // ========== 第三章 立足中超 ==========
-{ id:'ch3_starter_run',once:true,chapter:3,priority:2,minAge:19,condition:p=>p.careerStage==='starter'||p.careerStage==='core',
+{ id:'ch3_starter_run',once:true,noGK:true,chapter:3,priority:2,minAge:19,condition:p=>p.careerStage==='starter'||p.careerStage==='core',
   narrative:p=>`连续五场首发，两球一助攻——教练在队会上宣布："${p.name}，从现在起，你就是常规首发。"\n\n主力位置不是荣誉，是责任：每周末的对手研究你，媒体盯着你，替补席上的年轻人等着你失误。\n\n下一轮，球队客场挑战强敌。赛前发布会，记者问${coachLine(p.team)?coachLine(p.team):'主教练'}："连续首发的新人，会不会被针对？"\n\n教练笑了："那要看他让不让别人针对。"\n\n你听懂了——这场比赛，就是你的"转正考试"：`,
   choices:[
     {text:'打进关键球 — 让所有质疑闭嘴',effects:{'SHO.finishing':3,'DRI.composure':2,'SHO.positioning':1},consequence:'第61分钟你用一记刁钻的抢点破门打响了名号。赛后发布会记者们的提问变成了"如何评价${p.name}的表现"。转正考试，满分通过。',formChange:3,goals:1},
     {text:'攻防两端全勤跑 — 用贡献度说话',effects:{'PHY.stamina':3,'DEF.defensiveAwareness':1,'PAS.vision':1},consequence:'你跑出了全场最高的12公里，一次门线解围+一次助攻。数据不耀眼，但教练在更衣室当众说："这才是主力该有的样子。"',formChange:2},
     {text:'被针对了 — 表现挣扎',effects:{'DRI.composure':-1,'PHY.stamina':-1},consequence:'对方派专人贴防你，全场你只有一次射门机会。比赛结束后教练拍拍你："被针对说明你有威胁。下次，学会带动队友解套。"',formChange:-1}
   ]},
-{ id:'ch3_cup_run',once:true,chapter:3,priority:3,minAge:18,condition:p=>!isYouthStage(p),
+{ id:'ch3_cup_run',once:true,noGK:true,chapter:3,priority:3,minAge:18,condition:p=>!isYouthStage(p),
   narrative:p=>`${domesticCupName(p)}四分之一决赛，${p.team}主场迎战联赛争冠对手——这是含金量最高的一场杯赛。\n\n杯赛是一场定胜负的舞台，赢了进四强，输了就回家。更衣室里气氛凝重，${coachLine(p.team)?coachLine(p.team)+'教练布置完战术，最后看着你："禁区前沿那块区域，是你的。放手去打。"':'教练布置完战术，最后看着你："放手去打。"'}\n\n第72分钟，比分0-0。你在禁区弧顶拿球，面前三个人：`,
   choices:[
     {text:'突然远射 — 挂死角',effects:{'SHO.longShots':3,'SHO.shotPower':2,'DRI.composure':2},consequence:'皮球像装了导航一样贴着横梁下沿入网！1-0！全场疯狂！这一球让你一战成名，"远射机器"的外号从今天开始流传。',formChange:3,goals:1,flag:'cup_semifinal_hero',risk:{attr:'SHO.longShots',base:.55},fail:{effects:{'SHO.longShots':1},consequence:'皮球像装了导航一样——飞向了死角的看台！远射高出横梁整整三米。你懊恼地抓了抓头发，对方门将善意地朝你鼓了鼓掌。一战成名，还差一脚准头。',formChange:-1}},
@@ -2885,7 +2931,7 @@ const STORY_EVENTS=[
     {text:'低调入队 — 用训练说话',effects:{'PHY.stamina':2,'PAS.vision':2,'DRI.composure':2},consequence:'你一言不发地投入训练，第一周就赢得了国家队老队员的认可。分组对抗中你的一脚直塞让全场安静了一秒——${ctx.ntCoach}在场边记了一笔。',formChange:2,flag:'nationalMember',caps:1},
     {text:'压力太大 — 训练放不开',effects:{'DRI.composure':-1},consequence:'国家队的强度和 scrutiny 让你一度束手束脚。好在老队长们不断给你减压："小子，国家队也是踢球，不是上刑。"慢慢你放开了。',formChange:0,flag:'nationalMember',caps:1}
   ]},
-{ id:'ch3_nt_debut',once:true,chapter:3,priority:2,minAge:18,condition:p=>p.flags.nationalMember&&p.internationalCaps<6,
+{ id:'ch3_nt_debut',once:true,noGK:true,chapter:3,priority:2,minAge:18,condition:p=>p.flags.nationalMember&&p.internationalCaps<6&&!p.flags.gk_nt_debut,
   narrative:(p,ctx)=>`国家队友谊赛，${ctx.ntCoach}在首发名单上写下了你的名字——国家队生涯首次先发！\n\n开场仪式上，你站在${NT_CAPTAIN}身边，国歌响彻球场的瞬间，你的眼眶湿了。\n\n对手是亚洲二流球队，但在数万主场球迷面前，任何对手都不好打。第30分钟，你获得了国家队生涯第一次射门机会：`,
   choices:[
     {text:'打入国家队处子球！',effects:{'SHO.finishing':3,'DRI.composure':3,'SHO.positioning':1},consequence:'球进了！！你转身狂吼，指向胸前的国旗。队友们扑上来把你压在身下。解说员嘶吼："这一球，他等了一辈子！中国足球的新答案出现了！"',formChange:4,intlGoals:1,caps:1,flag:'nt_debut_goal'},
@@ -3000,14 +3046,14 @@ const STORY_EVENTS=[
     {text:'横传队友 — 集体英雄主义',effects:{'PAS.vision':3,'DRI.composure':3},consequence:'你吸引了门将和后卫，横敲中路——队友空门得手！2-1！中国队晋级八强！你们在角旗区叠罗汉，全中国为这个夜晚不眠。',formChange:4,assists:1,caps:1,flag:'wc_quarter'},
     {text:'越位误判 — 心碎出局',effects:{'DRI.composure':2},consequence:'进球后VAR响起——越位，毫米级！最终点球大战憾负。球员通道里，你们相顾无言。但全世界都看到了：中国队，不一样了。',formChange:0,caps:1}
   ]},
-{ id:'cal_wc_2034',once:true,priority:1,condition:p=>p.flags.wcQualified,
+{ id:'cal_wc_2034',once:true,noGK:true,priority:1,condition:p=>p.flags.wcQualified,
   narrative:(p,ctx)=>`${ctx.year}年，沙特世界杯。这是你的第二次世界杯，也可能是最后一次巅峰期机会。\n\n中国队不再是看客——上届八强的底子，加上你和其他留洋球员的成熟，国际媒体把中国队列为"潜在黑马"第一位。\n\n小组赛末轮，打平即出线。第80分钟，1-1。你带球杀入对方腹地：`,
   choices:[
     {text:'绝杀出线 — 王者之姿',effects:{'SHO.finishing':3,'DRI.dribbling':3,'DRI.composure':3},consequence:'你连续变向后兜射远角得手！2-1！小组第一晋级！看台上的中国球迷区的歌声响彻多哈的夜空。你已经不是四年前那个学生了——你是这支球队的王。',formChange:5,goals:1,intlGoals:1,caps:1,flag:'wc_group_pass'},
     {text:'盘活全局 — 平稳出线',effects:{'PAS.vision':3,'DRI.composure':3},consequence:'你用大师级的控场稳住了比赛，1-1的结果足以出线。四年后，没人再敢小看中国队——因为我们有王。',formChange:3,caps:1,flag:'wc_group_pass'},
     {text:'悲情出局 — 英雄迟暮前夜',effects:{'DRI.composure':2},consequence:'终场前对手远射绝杀，1-2。你的第二次世界杯止步小组赛。回程航班上，你望着窗外的云海：下一个四年，我还在吗？',formChange:-1,caps:1}
   ]},
-{ id:'cal_wc_2034_final',once:true,priority:1,condition:p=>p.flags.wc_group_pass,
+{ id:'cal_wc_2034_final',once:true,noGK:true,priority:1,condition:p=>p.flags.wc_group_pass,
   narrative:(p,ctx)=>`淘汰赛一路过关斩将——16强、8强、半决赛点球大战——中国队杀进了${ctx.year}世界杯决赛！！！\n\n对手是世界排名第一、卫冕冠军。赛前全球媒体标题高度一致：《不可能的决赛》。\n\n更衣室里安静得可怕。${NT_CAPTAIN}（如今已40岁，作为教练组成员随队）最后一个发言："我这辈子，两次站在世界杯的门口。第一次我哭了。今天，我不想再哭第二次。"\n\n决赛第75分钟，1-1。你在禁区前沿拿到球，面对世界上最好的中卫组合：`,
   choices:[
     {text:'挑射 — 世界之巅的最后一击',effects:{'SHO.finishing':3,'DRI.composure':3,'PAS.curve':2},consequence:'你看看门将站位，突然起脚挑射——皮球越过门将指尖，缓缓坠入网窝！！！2-1！！！终场哨响，你是世界杯冠军成员！！！中国足球——世界之巅！！！你的名字，从此刻起写进了这个星球上所有语言的足球词典。',formChange:6,goals:1,intlGoals:1,caps:1,flag:'wc_champion',risk:{attr:'SHO.finishing',base:.55},fail:{effects:{'PAS.curve':1},consequence:'你突然起脚挑射——门将根本没有起跳，稳稳把皮球抱进怀里！决赛最宝贵的一次机会被浪费，你盯着自己的鞋钉，不敢相信这就是结果。',formChange:-1,caps:1}},
@@ -3022,14 +3068,14 @@ const STORY_EVENTS=[
     {text:'双拳难敌四手 — 再次惜败',effects:{'DRI.composure':2,'PHY.stamina':2},consequence:'对手的防守 sacrificed 一切冻结你，补时阶段被打进反超一球，1-2。你又跪在了这片草皮上。两届世预赛，两次差一步。但请记住——四年后，你还有第三次机会。',formChange:-2,caps:1}
   ]},
 // ========== 第六章 亚洲之巅 ==========
-{ id:'ch6_acl_run',once:true,chapter:6,priority:2,minAge:21,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&p.ovr>=72,
+{ id:'ch6_acl_run',once:true,noGK:true,chapter:6,priority:2,minAge:21,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&p.ovr>=72,
   narrative:p=>`${continentalName(p)}淘汰赛，${p.team}一路杀入半决赛。首回合客场0-1告负，次回合主场背水一战。\n\n你已经不是当年那个替补席上的少年——你是这支球队进攻端的第一选择，对方教练赛前点名："防住${p.name}，就赢了一半。"\n\n第70分钟，总比分1-2，你还需要一个进球。禁区前沿，球权在你脚下：`,
   choices:[
     {text:'梅开二度 — 一人扛着球队晋级',effects:{'SHO.finishing':3,'DRI.dribbling':2,'DRI.composure':2},consequence:'第78分钟你远射扳平总比分，第90+3分钟你抢断后卫推射绝杀！3-2总比分晋级决赛！你跪在草皮上，看台的Tifo是你的头像——这一夜属于你。',formChange:4,goals:2,flag:'acl_final',risk:{attr:'SHO.finishing',base:.55},fail:{effects:{'SHO.finishing':1,'PHY.stamina':-1},consequence:'第78分钟你的远射被门将神扑，第90+3分钟的单刀也被出击的门将用身体挡出！2-2，总比分憾平，比赛被拖入加时。你还有时间，但双腿已经开始报警。',formChange:-1}},
     {text:'组织核心 — 全队开花',effects:{'PAS.vision':3,'PAS.shortPassing':2,'DRI.composure':2},consequence:'你上演助攻帽子戏法！3-1，总比分晋级决赛！赛后亚足联官方把"本轮最佳球员"颁给了你。决赛门票，拿到了。',formChange:3,assists:2,flag:'acl_final'},
     {text:'憾负 — 距离决赛一步之遥',effects:{'DRI.composure':2,'PHY.stamina':2},consequence:'对方门将开挂，你四次必进球被扑出。2-2，总比分憾负。回更衣室的路上你一言不发——这个舞台，你还会回来。',formChange:0}
   ]},
-{ id:'ch6_acl_title',once:true,chapter:6,priority:2,condition:p=>p.flags.acl_final&&['CSL','J1','K1','SAU','QAT'].includes(p.league),
+{ id:'ch6_acl_title',once:true,noGK:true,chapter:6,priority:2,condition:p=>p.flags.acl_final&&['CSL','J1','K1','SAU','QAT'].includes(p.league),
   narrative:p=>`${continentalName(p)}决赛！亚洲俱乐部足球的最高领奖台，一步之遥。\n\n决赛对阵西亚豪门。赛前，全国的足球频道都在直播，解说嘉宾阵容豪华。"中国球员作为核心出战亚冠决赛"——上一次出现这个说法，还是上个十年。\n\n第88分钟，1-1。你获得了改变历史的最后一次进攻机会：`,
   choices:[
     {text:'绝杀 — 亚洲之巅！',effects:{'SHO.finishing':3,'DRI.composure':3,'PHY.aggression':2},consequence:'你在两人包夹下强行转身抽射——皮球应声入网！2-1！亚冠冠军！！！你被全队抛向夜空，彩带落在你的肩上。中国球员作为绝对核心捧起亚冠——史无前例！',formChange:5,goals:1,flag:'acl_champion',risk:{attr:'SHO.finishing',base:.6},fail:{effects:{'DRI.composure':1},consequence:'你在两人包夹下强行转身抽射——皮球蹭着横梁飞出！终场哨响，1-1，比赛进入加时。你跪在草皮上大口喘气，亚洲之巅的最后一击，失手了。',formChange:-1}},
@@ -3065,7 +3111,7 @@ const STORY_EVENTS=[
     {text:'第四名 — 与奖杯擦肩',effects:{'DRI.composure':3,'PAS.vision':2},consequence:'第四名——亚洲球员在金球奖的历史最高排名。颁奖嘉宾握着你的手说："你会回来的，带着奖杯。"你微笑点头。欧洲的下一个赛季，已经在你心里排好了片单。',formChange:3,flag:'ballon_top5'},
     {text:'第12名 — 初次登台',effects:{'DRI.composure':2,'PHY.stamina':2},consequence:'第12名——对第一次入围来说已是里程碑。你在后台遇到了儿时偶像，他对你说的那句话你记了一辈子："我看过你的比赛，你比我当年强。"',formChange:2,flag:'ballon_top12'}
   ]},
-{ id:'ch7_ucl_final',once:true,chapter:7,priority:2,minAge:23,condition:p=>isEuropeLeague(p)&&p.ovr>=82,
+{ id:'ch7_ucl_final',once:true,noGK:true,chapter:7,priority:2,minAge:23,condition:p=>isEuropeLeague(p)&&p.ovr>=82,
   narrative:p=>`欧冠决赛！${p.team}一路淘汰豪门杀入决赛，你是本季欧冠的助攻王兼射手榜前三。\n\n决赛对手是另一支超级豪门。全球20亿人观看，赛前发布会上记者们的问题只有一个："中国球员能站上欧洲之巅吗？"\n\n第85分钟，1-1。你获得了决定历史的最后机会——禁区前沿，三名防守人：`,
   choices:[
     {text:'封神一战 — 世界波绝杀',effects:{'SHO.longShots':3,'SHO.finishing':3,'DRI.composure':3},consequence:'你晃开角度，起脚——世界波！！！皮球直挂死角！2-1！欧冠冠军！！！中国球员第一次站在欧洲之巅！你冲向看台，泪飞如雨。这一天，被写进了所有语言的足球史。',formChange:6,goals:1,flag:'ucl_champion',risk:{attr:'SHO.longShots',base:.55},fail:{effects:{'SHO.longShots':1},consequence:'你晃开角度起脚——皮球被人墙挡出！对方顺势打出快速反击，全队回追到抽筋才化解险情。世界波变成了角球，你抹了一把脸上的汗水：还有时间，还有机会。',formChange:-1}},
@@ -3135,7 +3181,7 @@ function updateCareerStage(){
     newSalary=375000;
     if(!p.flags.salaryCapped){p.flags.salaryCapped=true;addLog('中超限薪政策：国内球员顶薪为税前300万人民币/年')}
   }
-  if(p.league==='CL1'&&newSalary>125000)newSalary=125000;
+  if(newSalary>salaryCap(p.league,p.ovr))newSalary=salaryCap(p.league,p.ovr);
   if(newSalary>p.salary||p.careerStage!==oldStage){
     if(newSalary>p.salary)p.salary=newSalary;
   }
@@ -3325,18 +3371,12 @@ function showTransferWindow(opts){
   html+='合同剩余：'+(expired?'已到期':p.contractYears+'年')+'\n';
   html+='当前身价：'+formatValue(p.marketValue)+'\n\n';
   if(offers.length>0){
-    html+='有 '+offers.length+' 家俱乐部向你发出邀请：\n\n';
-    offers.forEach(o=>{
-      html+='▸ '+o.team+'（'+o.leagueName+'）\n';
-      html+='  '+(o.fee>0?'转会费：'+formatValue(o.fee)+' | ':'自由转会 | ')+'年薪：'+formatSalary(o.salary)+' | 合同：'+o.years+'年\n';
-      const st=TEAM_STARS[o.team];
-      if(st&&st.length)html+='  队内核心：'+st.slice(0,2).join('、')+'\n';
-    });
+    html+='有 '+offers.length+' 家俱乐部向你发出邀请——具体条件见下方报价：\n\n';
   }else{
     html+=(expired?'目前没有俱乐部报价。你必须与俱乐部续约，或进入自由市场等待机会。':'目前没有俱乐部主动报价。你可以留在球队，也可以主动让经纪人联系下家。');
   }
   html+='</div>';
-  html+='<div class="choices">';
+  html+='<div class="choices'+(offers.length<=4?' choices-2col':'')+'">';
   offers.forEach((o,i)=>{
     html+='<button class="choice-btn" onclick="acceptTransfer('+i+')">';
     html+='<span class="choice-index">'+(i+1)+'</span>';
@@ -3412,9 +3452,7 @@ function generateTransferOffers(opts){
       if(usedTeams.has(team)){attempts++;continue}
       usedTeams.add(team);
       const fee=opts.force?0:Math.round(p.marketValue*(0.7+Math.random()*0.5));
-      let salary=Math.round(p.salary*(1.0+Math.random()*0.9));
-      if(lk==='CSL'&&salary>375000)salary=375000;
-      if(lk==='CL1'&&salary>125000)salary=125000;
+      let salary=Math.min(Math.round(p.salary*(1.0+Math.random()*0.9)),salaryCap(lk,p.ovr));
       const years=2+Math.floor(Math.random()*3);
       const roles=p.ovr>=78?['核心球员','关键引援','主力球员']:(p.ovr>=68?['主力球员','轮换球员']:['轮换球员','潜力新星']);
       offers.push({team,league:lk,leagueName:league.name,fee,salary,years,role:roles[Math.floor(Math.random()*roles.length)]});
@@ -3428,12 +3466,12 @@ function generateTransferOffers(opts){
     if(cands.length){
       const team=cands[Math.floor(Math.random()*cands.length)];
       usedTeams.add(team);
-      offers.push({team,league:lk,leagueName:league.name,fee:Math.round(p.marketValue*(0.8+Math.random()*0.5)),salary:Math.round(Math.max(p.salary,15000)*(1.1+Math.random()*0.8)),years:2+Math.floor(Math.random()*2),role:p.ovr>=68?'主力球员':'潜力新星'});
+      offers.push({team,league:lk,leagueName:league.name,fee:Math.round(p.marketValue*(0.8+Math.random()*0.5)),salary:Math.min(Math.round(Math.max(p.salary,15000)*(1.1+Math.random()*0.8)),salaryCap(lk,p.ovr)),years:2+Math.floor(Math.random()*2),role:p.ovr>=68?'主力球员':'潜力新星'});
     }
   }
   if(opts.force&&offers.length===0){
     const league=LEAGUES.CL1;
-    offers.push({team:league.teams[Math.floor(Math.random()*league.teams.length)],league:'CL1',leagueName:league.name,fee:0,salary:Math.min(125000,Math.round(p.salary*0.9)),years:2,role:'轮换球员'});
+    offers.push({team:league.teams[Math.floor(Math.random()*league.teams.length)],league:'CL1',leagueName:league.name,fee:0,salary:Math.min(salaryCap('CL1',p.ovr),Math.round(p.salary*0.9)),years:2,role:'轮换球员'});
   }
   return offers;
 }
@@ -3509,9 +3547,7 @@ function renewContract(){
   const p=game.player;
   const expired=p.flags.contractExpired;
   p.contractYears=2+Math.floor(Math.random()*2);
-  let newSalary=Math.round(p.salary*1.15);
-  if(p.league==='CSL'&&newSalary>375000)newSalary=375000;
-  if(p.league==='CL1'&&newSalary>125000)newSalary=125000;
+  let newSalary=Math.min(Math.round(p.salary*1.15),salaryCap(p.league,p.ovr));
   p.salary=newSalary;
   delete p.flags.contractExpired;
   addLog('与'+p.team+'续约，合同'+p.contractYears+'年');
@@ -3814,7 +3850,7 @@ function coachNextSeason(){
   coach.lastEvent=Math.floor(Math.random()*COACH_EVENTS.length);
   const e=COACH_EVENTS[coach.lastEvent];
   let html='<div class="event-card"><div class="event-topline"><span class="event-category cat-training">执教 · '+coach.age+'岁</span><span class="event-meta" style="margin-left:auto">'+COACH_LADDER[coach.teamIdx].name+' · 声望 '+coach.rep+'/100</span></div>';
-  html+='<div class="event-narrative">'+e.text+'</div><div class="choices">';
+  html+='<div class="event-narrative">'+e.text+'</div><div class="choices choices-2col">';
   e.choices.forEach((c,i)=>{
     html+='<button class="choice-btn" onclick="coachChoose('+i+')"><span class="choice-index">'+(i+1)+'</span><span class="choice-body"><div>'+c.t+'</div></span></button>';
   });
@@ -4052,7 +4088,7 @@ function buildLeagueStandings(p,goals,assists){
     return{team:r.team,pts,w,d,l,me:r.team===p.team};
   });
 }
-function buildLeagueBoards(p,goals,assists){
+function buildLeagueBoards(p,goals,assists,cs){
   const lg=LEAGUES[p.league];
   const season=p.season;
   const f=lg.factor;
@@ -4069,9 +4105,18 @@ function buildLeagueBoards(p,goals,assists){
     scorers.push({name:p.name,team:p.team,g:goals||0,me:true});
     assisters.push({name:p.name,team:p.team,a:assists||0,me:true});
   }
+  // 零封榜（门将专属）：各队主力门将由种子生成，玩家按实际零封插入
+  const cleanSheets=[];
+  lg.teams.forEach((t,ti)=>{
+    const stars=TEAM_STARS[t]||[];
+    const gkName=stars[stars.length-1]||t+'门将';
+    if(!p.isGK||t!==p.team)cleanSheets.push({name:gkName,team:t,cs:Math.round((2+leagueSeedRand(season*23+ti*11)*12)*f)});
+  });
+  if(p.isGK)cleanSheets.push({name:p.name,team:p.team,cs:cs||0,me:true});
+  cleanSheets.sort((a,b)=>b.cs-a.cs);
   scorers.sort((a,b)=>b.g-a.g);
   assisters.sort((a,b)=>b.a-a.a);
-  return{scorers,assisters};
+  return{scorers,assisters,cleanSheets};
 }
 function renderStatsView(){
   const p=game.player;
@@ -4122,7 +4167,7 @@ function renderStatsView(){
   // 联赛段：积分榜 + 射手榜/助攻榜 + 国家队
   const lg=LEAGUES[p.league];
   const standings=buildLeagueStandings(p,snap.goals,snap.assists);
-  const boards=buildLeagueBoards(p,snap.goals,snap.assists);
+  const boards=buildLeagueBoards(p,snap.goals,snap.assists,snap.cleanSheets);
   html+='<div class="panel" data-m="league"><div class="panel-head"><h4>'+lg.name+' 积分榜</h4><span class="hint">'+seasonYear(p)+'赛季</span></div><div class="lg-table">';
   let meShown=false;
   standings.forEach((r,i)=>{
@@ -4130,7 +4175,7 @@ function renderStatsView(){
     if(r.me&&i>=8)html+='<div class="lg-sep">···</div>';
     html+='<div class="lg-row'+(r.me?' lg-me':'')+'"><span class="lg-pos">'+(i+1)+'</span><span class="lg-team">'+escapeHtml(r.team)+'</span><span class="lg-rec">'+r.w+'胜 '+r.d+'平 '+r.l+'负</span><b class="lg-pts">'+r.pts+'</b></div>';
   });
-  html+='</div><div class="form-note">榜单按球队实力与你的表现模拟：你的进球助攻会带动球队排名。</div></div>';
+  html+='</div><div class="form-note">'+(p.isGK?'榜单按球队实力与你的零封、稳定发挥模拟：你守住球门，球队排名就会上升。':'榜单按球队实力与你的表现模拟：你的进球助攻会带动球队排名。')+'</div></div>';
   const boardHTML=(list,key,title)=>{
     let h='<div class="panel" data-m="league"><div class="panel-head"><h4>'+title+'</h4></div><div class="lg-table">';
     list.slice(0,8).forEach((s,i)=>{
@@ -4144,12 +4189,12 @@ function renderStatsView(){
     return h+'</div></div>';
   };
   html+=boardHTML(boards.scorers,'g','射手榜');
-  html+=boardHTML(boards.assisters,'a','助攻榜');
+  html+=p.isGK?boardHTML(boards.cleanSheets,'cs','零封榜'):boardHTML(boards.assisters,'a','助攻榜');
   html+='<div class="panel" data-m="league"><div class="panel-head"><h4>国家队</h4><span class="hint">'+(p.flags.nationalMember?'现役国脚':'冲击国字号')+'</span></div>';
   if(p.flags.nationalMember){
     html+='<div class="stat-grid" style="margin-top:4px">';
     html+='<div class="stat-tile"><div class="stat-tile-val">'+(p.internationalCaps||0)+'</div><div class="stat-tile-label">国家队出场</div></div>';
-    html+='<div class="stat-tile hot"><div class="stat-tile-val">'+(p.internationalGoals||0)+'</div><div class="stat-tile-label">国家队进球</div></div>';
+    html+='<div class="stat-tile'+(p.isGK?'':' hot')+'"><div class="stat-tile-val">'+(p.internationalGoals||0)+'</div><div class="stat-tile-label">国家队进球</div></div>';
     html+='</div>';
   }else{
     html+='<div class="empty-hint">尚未入选国家队。<br>在俱乐部持续高光，国字号征召终会到来。</div>';
