@@ -349,6 +349,32 @@ button{font-family:inherit;cursor:pointer}
 /* ============ Retirement ============ */
 #retire-screen{display:none;padding:44px 20px;max-width:820px;margin:0 auto}
 #retire-screen.active{display:block}
+#retire-screen.coach-mode .screen-header,#retire-screen.coach-mode .retire-options{display:none}
+#retire-screen.coach-mode{max-width:1080px}
+.coach-hub{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px}
+.coach-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.coach-badge{background:var(--volt-soft);border:1px solid var(--volt);color:var(--volt);font-weight:800;font-size:.8rem;padding:6px 12px;border-radius:20px;white-space:nowrap}
+.coach-id b{display:block;font-size:1.1rem}
+.coach-id span{color:var(--text-dim);font-size:.8rem}
+.rep-wrap{margin-bottom:6px}
+.rep-bar{height:10px;background:var(--surface-3);border-radius:5px;overflow:hidden}
+.rep-bar-fill{height:100%;background:linear-gradient(90deg,var(--volt),var(--volt-strong));border-radius:5px;transition:width .5s ease}
+.rep-cap{font-size:.78rem;color:var(--text-dim);margin-top:5px}
+.rep-cap b{color:var(--volt)}
+.coach-tactic-sec{margin:14px 0}
+.coach-tactic-sec h4{color:var(--text-dim);font-size:.78rem;letter-spacing:.1em;margin-bottom:8px}
+.tactic-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tactic-chip{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:10px;color:var(--text);cursor:pointer;text-align:left;transition:all .18s}
+.tactic-chip b{display:block;font-size:.84rem;font-weight:800}
+.tactic-chip small{display:block;color:var(--text-dim);font-size:.68rem;margin-top:3px;line-height:1.4}
+.tactic-chip.on{background:var(--volt-soft);border-color:var(--volt);color:var(--volt)}
+.tactic-chip.on small{color:var(--text-2)}
+@media(pointer:coarse){.tactic-chip:active{transform:scale(.97)}}
+@media (orientation:landscape) and (max-height:540px) and (max-width:1024px){
+  .tactic-chips{grid-template-columns:repeat(3,1fr);gap:6px}
+  .tactic-chip{padding:8px}
+  .coach-hub{padding:16px}
+}
 .retire-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:24px 0}
 .retire-option{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 18px;text-align:center;cursor:pointer;transition:all .2s}
 @media(hover:hover){.retire-option:hover{border-color:var(--volt);transform:translateY(-3px)}}
@@ -509,7 +535,9 @@ html[data-theme="light"] .consequence-box,
 html[data-theme="light"] .retire-option,
 html[data-theme="light"] .menu-btn{background:var(--surface);border-color:var(--border)}
 html[data-theme="light"] .chapter-banner{background:linear-gradient(160deg,#ffffff,#f2f5fa)}
-html[data-theme="light"] .m-chip.on,html[data-theme="light"] .lg-pts,html[data-theme="light"] .event-category{color:var(--volt-strong)}
+html[data-theme="light"] .m-chip.on,html[data-theme="light"] .lg-pts,html[data-theme="light"] .event-category,html[data-theme="light"] .coach-badge,html[data-theme="light"] .tactic-chip.on,html[data-theme="light"] .rep-cap b{color:var(--volt-strong)}
+html[data-theme="light"] .stat-tile.hot{border-color:rgba(77,124,15,.45)}
+html[data-theme="light"] .rep-bar{background:linear-gradient(90deg,#4d7c0f,#3f6212)}
 html[data-theme="light"] .event-category.cat-match{color:#8a5a0d}
 html[data-theme="light"] .menu-grid .menu-btn.primary{background:linear-gradient(135deg,var(--volt),var(--volt-strong));color:#0c1503;border-color:var(--volt-strong)}
 html[data-theme="light"] .menu-grid .menu-btn.primary .btn-icon{color:#0c1503}
@@ -591,6 +619,14 @@ button{user-select:none;-webkit-user-select:none}
   .game-menu-overlay,.confirm-overlay{padding:14px}
   .game-menu{padding:16px}
   .position-grid{grid-template-columns:repeat(5,1fr)}
+  #retire-screen.active{display:flex;flex-direction:column}
+  #retire-screen.coach-mode.active{max-width:none;width:100%}
+  #retire-extra{flex:1 1 0;min-height:0;overflow-y:auto;scrollbar-width:thin}
+  #retire-back{flex:0 0 auto}
+  #retire-extra .event-card{padding:12px 14px}
+  #retire-extra .event-narrative{margin-bottom:8px}
+  #retire-extra .continue-btn{margin-top:8px}
+  .coach-hub .stat-grid{grid-template-columns:repeat(5,1fr)}
   .retire-options{grid-template-columns:repeat(3,1fr);gap:10px}
   .retire-option{padding:14px 10px}
   /* 首页/创建/读档/退役横屏适配 */
@@ -1129,7 +1165,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.2.4';
+const GAME_VERSION='V2.2.5';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -1448,6 +1484,8 @@ function resetSessionState(){
   clearViews();
 }
 function exitToMainMenu(){
+  const rs=document.getElementById('retire-screen');
+  if(rs)rs.classList.remove('coach-mode');
   resetSessionState();
   game=null;
   showScreen('start-screen');
@@ -1571,6 +1609,9 @@ function showLoadScreen(forSave){
             if(data){
               game=data;
               resetSessionState();
+              if(data.player&&data.player.retired&&data.coach){
+                showScreen('retire-screen');showCoachMode();return;
+              }
               if(game.season&&!game.season.profile){game.season.profile=generateSeasonProfile();saveGame(i);}
               const cap0=salaryCap(game.player.league,game.player.ovr);
               if(game.player.salary>cap0*1.5){game.player.salary=cap0;saveGame(i);addLog('薪资数据已按联赛标准自动校准');}
@@ -1694,6 +1735,7 @@ function createPlayer(){
   const skillMoves=document.querySelectorAll('#skill-rating .star.active').length;
   const weakFoot=document.querySelectorAll('#weakfoot-rating .star.active').length;
   game=newGameState();
+  game.coach=null;
   const p=game.player;
   p.name=name;p.height=height;p.weight=weight;p.position=selectedPosition;
   p.preferredFoot=foot;p.region=region;p.skillMoves=skillMoves;p.weakFoot=weakFoot;
@@ -2332,7 +2374,7 @@ const GENERIC_EVENTS=[
     {text:'欧洲拉练 — 学习战术理念',effects:{'PAS.vision':2,'PAS.shortPassing':2,'DRI.composure':2,'DRI.reactions':1},consequence:'在海外的两周让你大开眼界。欧洲球队的传球节奏和战术执行力让你深受启发，你的比赛阅读能力显著提升。',formChange:1,flag:'europe_stint'},
     {text:'留在基地自主训练',effects:{'DRI.ballControl':1,'SHO.finishing':1,'PHY.stamina':1,'DRI.composure':1},consequence:'你选择留在俱乐部基地自主训练。虽然没有特别的亮点，但各项能力都有小幅提升，也避免了旅途劳顿。',formChange:0}
   ]},
-{ id:'t7',cat:'training',minAge:20,
+{ id:'t7',cat:'training',noGK:true,minAge:20,
   narrative:p=>`俱乐部引进了一位来自意大利的定位球教练。他的训练方法与众不同——不练射门，而是练"假装射门"的跑位和配合。\n\n"现代足球的定位球，不仅仅是把球踢进球门，"意大利教练用翻译说道，"而是通过精心设计的配合来创造机会。你们要学会思考。"\n\n训练中他给出了几个定位球战术选项让你选择执行：`,
   choices:[
     {text:'学习复杂的战术跑位配合',effects:{'PAS.vision':2,'SHO.positioning':2,'PAS.shortPassing':1,'DRI.reactions':1},consequence:'你认真学习了几套复杂的定位球战术。在接下来的比赛中，你利用这些跑位创造了多次得分机会。意大利教练对你的学习能力赞不绝口。',formChange:1},
@@ -2440,6 +2482,17 @@ const GENERIC_EVENTS=[
     {text:'直接下场 — 遵守战术安排',effects:{'DRI.composure':2,'PHY.stamina':1},consequence:'你和替补你的年轻人击掌，径直走下了场。体能教练在通道口竖起大拇指："这才是职业球员。"赛季漫长，你深知留力的智慧。',formChange:0},
     {text:'把机会让给替补上场的年轻人',effects:{'PAS.vision':2,'DRI.composure':1},consequence:'你放慢脚步，用眼神示意年轻队友去追那个球。他心领神会，完成了一次精彩进攻。赛后他特意感谢你，更衣室的氛围又好了几分。',formChange:0}
   ]},
+{ id:'tgk1',cat:'training',gkOnly:true,minAge:16,
+  narrative:p=>`俱乐部引进了一位来自意大利的定位球防守教练。他的训练方法与众不同——不练扑救，而是练"站位、指挥与人墙博弈"。
+
+"现代足球的定位球防守，不仅仅是反应，"他说道，"而是通过预判和指挥，让对手的战术还没开始就失败。"
+
+他把战术板推到你面前，三种防守体系任选其一深入打磨：`,
+  choices:[
+    {text:'区域联防体系 — 每个人守自己的区',effects:{'GK.gkPositioning':2,'GK.handling':1,'PAS.vision':1},consequence:'你把禁区划成六个区域，用声音把每个队友钉在位置上。赛季进行到一半，你们的定位球失球联赛最少。',formChange:2},
+    {text:'人墙博弈 — 研究每一名主罚者',effects:{'GK.reflexes':2,'DRI.composure':2,'PAS.vision':1},consequence:'你建立了全联赛主罚手的行为档案：习惯角度、助跑节奏、眼神破绽。下次面对点球，你比他自己还了解他。',formChange:2},
+    {text:'出击体系 — 把禁区变成你的领地',effects:{'GK.gkPositioning':1,'DRI.composure':2,'PHY.strength':1},consequence:'你开始像清道夫一样统治禁区，每次传中都提前预判落点将球没收。对手的定位球教练对你的数据摇头叹息。',formChange:1}
+  ]},
 // --- 门将专属 ---
 { id:'gk1',cat:'match',gkOnly:true,minAge:16,
   narrative:p=>{const y=isYouthStage(p);return `${y?'青年联赛':'联赛'}第8轮，${p.team}${y?'青年队':''}主场作战。比赛进行到第78分钟，比分1-1平。\n\n对方前锋刚刚趟过你最后一名后卫，形成单刀！他抬头观察了你的站位，脚弓已经摆好——全场的呼吸都停了。\n\n你压低重心，张开双臂，脑子里闪过这周扑救训练的每一个细节：`},
@@ -2494,7 +2547,7 @@ const GENERIC_EVENTS=[
   narrative:p=>{const cont=LEAGUES[p.league]?LEAGUES[p.league].continental:'洲际赛事';return `${cont}客场，你的球队必须净胜两球才能晋级。全场你的队友都在压上，身后只剩你一人——对方前锋的速度是全联赛最快的。\n\n第88分钟，比分2-0。对方断球打出极速反击，一记直塞穿透了你所有的队友。这将是决定晋级的最后一扑：`},
   choices:[
     {text:'弃门出击 — 在禁区外解决战斗',effects:{'GK.reflexes':2,'GK.diving':1,'DRI.composure':3,'PAS.vision':1},consequence:'你读懂了直塞的线路，在他接球前的一瞬冲出禁区，抢先用身体把球挡出边线！解说员疯了一样喊你的名字——这一扑，价值一个晋级名额！',formChange:3,risk:{attr:'DRI.composure',base:.55},fail:{effects:{'DRI.composure':1},consequence:'你出击慢了半步，他把球一趟从你身边掠过，推射空门。2-1，总比分晋级没被翻盘，但你的冒进差点毁掉一切。赛后你反复回看了二十遍。',formChange:-1}},
-    {text:'沉着回撤 — 守住近角等他犯错',effects:{'GK.positioning':3,'DRI.composure':2,'GK.handling':1},consequence:'你不慌不忙地回撤封堵近角。他仓促间起脚，皮球正中你的怀里！终场哨响，晋级达成——你抱紧皮球跪在地上，队友们从半场跑过来压在你身上。',formChange:2},
+    {text:'沉着回撤 — 守住近角等他犯错',effects:{'GK.gkPositioning':3,'DRI.composure':2,'GK.handling':1},consequence:'你不慌不忙地回撤封堵近角。他仓促间起脚，皮球正中你的怀里！终场哨响，晋级达成——你抱紧皮球跪在地上，队友们从半场跑过来压在你身上。',formChange:2},
     {text:'大声指挥 — 让回追队友关门',effects:{'PAS.vision':2,'GK.gkPositioning':2,'DRI.composure':1},consequence:'你声嘶力竭地喊着中卫的名字和落位方向，回追的队友心领神会，在禁区内完成了一次教科书级的关门合围！危机解除，你的指挥功不可没。',formChange:1}
   ]},
 // --- 社交 ---
@@ -3724,9 +3777,8 @@ function chooseRetire(choice){
     addLog(p.age+'岁正式挂靴退役');
     showCareerSummary();
   }else if(choice==='coach'){
-    p.coaching=true;
+    if(!p.coaching){p.coaching=true;addLog(p.age+'岁退役，转战教练岗位')}
     p.retired=true;
-    addLog(p.age+'岁退役，转战教练岗位');
     showCoachMode();
   }else if(choice==='continue'){
     document.getElementById('retire-extra').innerHTML='<div class="career-summary"><p style="text-align:center;font-size:1rem;line-height:1.8">你决定继续征战！老将的经验和智慧是你最宝贵的财富。新赛季的哨声即将吹响。</p><button class="continue-btn" onclick="continuePlaying()">继续职业生涯 →</button></div>';
@@ -3735,6 +3787,8 @@ function chooseRetire(choice){
   autoSave();
 }
 function continuePlaying(){
+  if(game.player&&game.player.retired){showRetirement();return}
+
   showScreen('game-screen');
   switchView('story');
   game.season={events:[],currentEventIndex:-1,phase:'start',seasonGoals:0,seasonAssists:0,seasonApps:0,teamPosition:0,usedEventIds:[],endProcessed:false,profile:null};
@@ -3815,7 +3869,7 @@ const COACH_EVENTS=[
   {text:'德比大战前夜，核心球员找到你：他想去更大的舞台，希望你放人。',
    choices:[
      {t:'强留 — 德比之后再说',rep:[0,2],out:'他留下来了，德比战拼尽全力。但赛季结束的更衣室里，你们还需要一次长谈。'},
-     {t:'放人 — 成全社会',rep:[-2,3],out:'你放走了他，舆论称赞你的胸怀，球队却实实在在少了顶梁柱。'},
+     {t:'放人 — 成全他的梦想',rep:[-2,3],out:'你放走了他，舆论称赞你的胸怀，球队却实实在在少了顶梁柱。'},
      {t:'加薪续约 — 用诚意留人',rep:[1,3],out:'加薪续约成功。他在德比战中梅开二度，进球后冲到场边拥抱了你。'}]},
   {text:'足协邀请你参加精英教练研修班，为期一个月，会错过部分联赛备战。',
    choices:[
@@ -3828,28 +3882,60 @@ const COACH_EVENTS=[
 ];
 function showCoachMode(){
   const p=game.player;
-  // 执教起点由球员生涯声望（总评+荣誉）决定
-  let idx=0,rep=40;
-  if(p.ovr>=84||p.honors.length>=6){idx=3;rep=55}
-  else if(p.ovr>=76||p.honors.length>=3){idx=2;rep=50}
-  else if(p.ovr>=68||p.honors.length>=1){idx=1;rep=45}
-  coach={age:p.age+1,teamIdx:idx,rep:rep,honors:[],lastEvent:-1,playerName:p.name};
+  if(game.coach){
+    coach=game.coach;
+    if(!coach.stats)coach.stats={w:0,d:0,l:0};
+    if(!coach.titles)coach.titles=0;
+  }else{
+    let idx=0,rep=40;
+    if(p.ovr>=84||p.honors.length>=6){idx=3;rep=55}
+    else if(p.ovr>=76||p.honors.length>=3){idx=2;rep=50}
+    else if(p.ovr>=68||p.honors.length>=1){idx=1;rep=45}
+    coach={age:p.age+1,teamIdx:idx,rep:rep,honors:[],lastEvent:-1,playerName:p.name,startAge:p.age+1,stats:{w:0,d:0,l:0},titles:0};
+    game.coach=coach;
+  }
+  const rs=document.getElementById('retire-screen');
+  if(rs)rs.classList.add('coach-mode');
+  setRetireBack('← 退出到主菜单',exitToMainMenu);
+  coachDashboard();
+  autoSave();
+}
+function coachDashboard(){
   const lad=COACH_LADDER[coach.teamIdx];
+  const st=coach.stats;
+  const seasons=coach.age-(coach.startAge||coach.age);
   const extra=document.getElementById('retire-extra');
-  let html='<div class="career-summary">';
-  html+='<h2 style="color:var(--volt);text-align:center;margin-bottom:14px">执教生涯开始</h2>';
-  html+='<p style="text-align:center;color:var(--text-2);line-height:1.9">'+coach.playerName+'挂靴后拿起了教鞭——'+coach.age+'岁出任<b style="color:var(--text)">'+lad.pos+'</b>，执教'+lad.name+'。<br>执教声望 '+coach.rep+'/100，声望决定你的仕途：带队夺冠、升迁国家队，或黯然下课。</p>';
-  html+='<button class="continue-btn" onclick="coachNextSeason()">开始'+coach.age+'岁赛季 →</button>';
-  html+='<button class="btn-ghost" style="margin-top:12px" onclick="coachSummary()">直接查看执教总结</button>';
+  let html='<div class="coach-hub">';
+  html+='<div class="coach-head"><div class="coach-badge">'+lad.pos+'</div>';
+  html+='<div class="coach-id"><b>'+escapeHtml(coach.playerName)+'</b><span>'+coach.age+'岁 · 执教'+lad.name+'</span></div></div>';
+  html+='<div class="rep-wrap"><div class="rep-bar"><div class="rep-bar-fill" style="width:'+coach.rep+'%"></div></div><div class="rep-cap">执教声望 <b>'+coach.rep+'</b>/100'+(coach.rep>=78?' · 顶级名帅':coach.rep>=55?' · 声名鹊起':coach.rep>=35?' · 站稳脚跟':' · 摇摇欲坠')+'</div></div>';
+  html+='<div class="stat-grid" style="margin-top:14px">';
+  html+='<div class="stat-tile"><div class="stat-tile-val">'+seasons+'</div><div class="stat-tile-label">执教赛季</div></div>';
+  html+='<div class="stat-tile"><div class="stat-tile-val">'+st.w+'</div><div class="stat-tile-label">胜</div></div>';
+  html+='<div class="stat-tile"><div class="stat-tile-val">'+st.d+'</div><div class="stat-tile-label">平</div></div>';
+  html+='<div class="stat-tile"><div class="stat-tile-val">'+st.l+'</div><div class="stat-tile-label">负</div></div>';
+  html+='<div class="stat-tile hot"><div class="stat-tile-val">'+coach.titles+'</div><div class="stat-tile-label">冠军</div></div>';
+  html+='</div>';
+  if(coach.honors.length){
+    html+='<div class="panel" style="margin-top:12px"><div class="panel-head"><h4>执教荣誉</h4></div>';
+    coach.honors.slice(-3).forEach(h=>{html+='<div class="lg-row"><span class="lg-team">'+escapeHtml(h)+'</span></div>'});
+    html+='</div>';
+  }
+  html+='<button class="continue-btn" onclick="coachStartSeason()">开始'+coach.age+'岁赛季 →</button>';
+  html+='<button class="btn-ghost" style="margin-top:10px" onclick="coachSummary()">执教总结</button>';
   html+='</div>';
   extra.innerHTML=html;
-  setRetireBack('← 返回主菜单',exitToMainMenu);
 }
-function coachNextSeason(){
+function coachStartSeason(){
+  const lad=COACH_LADDER[coach.teamIdx];
   coach.age++;
-  coach.lastEvent=Math.floor(Math.random()*COACH_EVENTS.length);
+  coach.seasonStats={w:0,d:0,l:0};
+  let evIdx=Math.floor(Math.random()*COACH_EVENTS.length);
+  if(lad.tier==='国家队'){const clubOnly=[2,3,4];do{evIdx=Math.floor(Math.random()*COACH_EVENTS.length)}while(clubOnly.includes(evIdx));}
+  else{let guard=0;while(evIdx===coach.lastEvent&&guard<6){evIdx=Math.floor(Math.random()*COACH_EVENTS.length);guard++}}
+  coach.lastEvent=evIdx;
   const e=COACH_EVENTS[coach.lastEvent];
-  let html='<div class="event-card"><div class="event-topline"><span class="event-category cat-training">执教 · '+coach.age+'岁</span><span class="event-meta" style="margin-left:auto">'+COACH_LADDER[coach.teamIdx].name+' · 声望 '+coach.rep+'/100</span></div>';
+  let html='<div class="event-card"><div class="event-topline"><span class="event-category cat-training">执教 · '+coach.age+'岁 · 赛季前</span><span class="event-meta" style="margin-left:auto">'+COACH_LADDER[coach.teamIdx].name+' · 声望 '+coach.rep+'/100</span></div>';
   html+='<div class="event-narrative">'+e.text+'</div><div class="choices choices-2col">';
   e.choices.forEach((c,i)=>{
     html+='<button class="choice-btn" onclick="coachChoose('+i+')"><span class="choice-index">'+(i+1)+'</span><span class="choice-body"><div>'+c.t+'</div></span></button>';
@@ -3862,45 +3948,165 @@ function coachChoose(i){
   const c=e.choices[i];
   const d=c.rep[0]+Math.floor(Math.random()*(c.rep[1]-c.rep[0]+1));
   coach.rep=Math.max(0,Math.min(100,coach.rep+d));
+  game.coach=coach;autoSave();
   let html='<div class="consequence-box"><div class="consequence-title">执教 · 决定</div><div class="consequence-text">'+c.out+'</div>';
   html+='<div class="effect-list"><span class="effect-tag '+(d>=0?'effect-pos':'effect-neg')+'">声望 '+(d>=0?'+':'')+d+'（当前 '+coach.rep+'）</span></div>';
+  html+='<button class="continue-btn" onclick="coachTactics()">进入焦点战排兵布阵 →</button></div>';
+  document.getElementById('retire-extra').innerHTML=html;
+}
+// ===== 焦点战：排兵布阵 =====
+const COACH_FMT=[{k:'433',t:'4-3-3 强攻',d:'锋线三人组全力施压，进球多但身后空当也大'},{k:'4231',t:'4-2-3-1 均衡',d:'攻守平衡，控制中场节奏'},{k:'541',t:'5-4-1 铁桶',d:'全员退防，压缩空间打反击'}];
+const COACH_STR=[{k:'press',t:'高位逼抢',d:'在前场就展开争夺，体能消耗巨大'},{k:'counter',t:'防守反击',d:'让出球权，抓住对手身后的空当'},{k:'possess',t:'控球消耗',d:'用传控掌握节奏，磨垮对手'}];
+function coachTactics(){
+  const lad=COACH_LADDER[coach.teamIdx];
+  const isNT=lad.tier==='国家队';
+  const opp=isNT?(coach.rep>=60?'亚洲区头号劲旅':'西亚劲旅'):(coach.teamIdx>=3?'争冠直接竞争对手':coach.teamIdx===2?'积分榜咬得最紧的对手':'联赛同龄梯队');
+  coach.focus={opp:opp,label:isNT?'大赛出线生死战':(coach.teamIdx>=3?'争冠六分大战':'联赛德比大战')};
+  let html='<div class="event-card"><div class="event-topline"><span class="event-category cat-match">焦点战 · '+coach.focus.label+'</span><span class="event-meta" style="margin-left:auto">'+coach.age+'岁 · 声望 '+coach.rep+'</span></div>';
+  html+='<div class="event-narrative">对手：'+opp+'。这场比赛的结果将直接影响你的帅位。\\n\\n赛前最后一课——排出你的首发阵型与比赛策略：</div>';
+  html+='<div class="coach-tactic-sec"><h4>阵型</h4><div class="tactic-chips">';
+  COACH_FMT.forEach((f,i)=>{html+='<button class="tactic-chip'+(i===1?' on':'')+'" data-fmt="'+f.k+'" onclick="coachPick(this,\'fmt\')"><b>'+f.t+'</b><small>'+f.d+'</small></button>'});
+  html+='</div></div><div class="coach-tactic-sec"><h4>比赛策略</h4><div class="tactic-chips">';
+  COACH_STR.forEach((f,i)=>{html+='<button class="tactic-chip'+(i===1?' on':'')+'" data-str="'+f.k+'" onclick="coachPick(this,\'str\')"><b>'+f.t+'</b><small>'+f.d+'</small></button>'});
+  html+='</div></div>';
+  html+='<button class="continue-btn" onclick="coachConfirmTactics()">排兵完毕 · 前往球场 →</button></div>';
+  document.getElementById('retire-extra').innerHTML=html;
+}
+function coachPick(el,kind){
+  el.parentElement.querySelectorAll('.tactic-chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+}
+function coachConfirmTactics(){
+  const fmt=document.querySelector('.tactic-chip.on[data-fmt]');
+  const str=document.querySelector('.tactic-chip.on[data-str]');
+  coach.focus.fmt=fmt?fmt.dataset.fmt:'4231';
+  coach.focus.str=str?str.dataset.str:'counter';
+  game.coach=coach;autoSave();
+  coachMatchLive();
+}
+// ===== 焦点战：临场决策与换人 =====
+function coachMatchLive(){
+  const repF=0.45+coach.rep/220;                 // 0.45~0.90
+  const FMT={'433':[1.45,1.2],'4231':[1.05,1.0],'541':[0.7,0.8]};
+  const STR={press:[1.18,1.15],counter:[0.9,0.82],possess:[1.0,0.95]};
+  const oppF=0.62+coach.teamIdx*0.16+(coach.teamIdx===4?0.4:0);
+  const f=FMT[coach.focus.fmt]||FMT['4231'];
+  const st=STR[coach.focus.str]||STR['counter'];
+  const expGf=Math.max(0.2,f[0]*st[0]*repF);
+  const expGa=Math.max(0.2,f[1]*st[1]*oppF*0.92);
+  const gf1=(Math.random()<expGf*0.5?1:0)+(Math.random()<expGf*0.28?1:0);
+  const ga1=(Math.random()<expGa*0.42?1:0)+(Math.random()<expGa*0.16?1:0);
+  coach.live={expGf:expGf,expGa:expGa,gf1:gf1,ga1:ga1};
+  let sit,head;
+  if(gf1>ga1){sit='lead';head='半场 '+gf1+'-'+ga1+' 领先。更衣室通道里，助教问你接下来的安排——对手中场休息一定会变阵反扑。'}
+  else if(gf1===ga1){sit='draw';head='半场 '+gf1+'-'+ga1+'。僵局之下，对手的教练席先动了——他们换上了一名生力军前锋。'}
+  else{sit='trail';head='半场 '+gf1+'-'+ga1+' 落后。球迷还在为你鼓掌，但积分不等人。最后一个换人名额，就是你的筹码。'}
+  const opts={
+    lead:[{t:'对位换人 — 保持场上强度',d:0,out:'换人平稳完成，球队按既定节奏继续控制比赛。'},
+          {t:'换上防守型中场 — 巩固优势',g:-0.35,ga:-0.5,out:'防守型中场锁死了中场走廊，对手的反扑一次次撞在墙上。'},
+          {t:'换上前锋 — 扩大比分',g:0.5,ga:0.55,out:'你选择再进一步，攻防转换提速，比赛进入对攻战。'}],
+    draw:[{t:'换上生力军 — 加强边路突击',g:0.45,ga:0.15,out:'新生力量撕开了对手疲态尽显的边路，机会开始向你这侧倾斜。'},
+          {t:'维持现状 — 等待对手犯错',d:0,out:'你相信球员的阅读能力。胶着的比赛里，谁先犯错谁付出代价。'},
+          {t:'收缩防线 — 先保证不丢球',ga:-0.45,g:-0.3,out:'防线回收，对手的攻势一次次无功而返，但你的球队也失去了进攻的锐度。'}],
+    trail:[{t:'双前锋搏命 — 撤下一名后卫',g:0.6,ga:0.5,out:'最后一张牌打出，禁区里多了一个火力点，也多了一个隐患。'},
+           {t:'针对性换人 — 换上替补奇兵',g:0.35,ga:0.1,out:'替补奇兵登场，对手的防守布置被打乱了。'},
+           {t:'稳定军心 — 战术不动',d:0,out:'你选择相信场上十一人。落后，但阵型不乱——机会会来的。'}]
+  }[sit];
+  coach.live.sit=sit;
+  let html='<div class="event-card"><div class="event-topline"><span class="event-category cat-match">焦点战 · 临场指挥</span><span class="event-meta" style="margin-left:auto">'+coach.focus.opp+'</span></div>';
+  const fmtName=(COACH_FMT.find(f=>f.k===coach.focus.fmt)||{}).t||coach.focus.fmt;
+  const strName=(COACH_STR.find(f=>f.k===coach.focus.str)||{}).t||coach.focus.str;
+  html+='<div class="event-narrative">'+head+'\n\n阵型 '+fmtName+' · 策略 '+strName+' · 你还有最后一个换人名额：</div>';
+  html+='<div class="choices choices-2col">';
+  opts.forEach((o,i)=>{
+    html+='<button class="choice-btn" onclick="coachLiveChoice('+i+')"><span class="choice-index">'+(i+1)+'</span><span class="choice-body"><div>'+o.t+'</div></span></button>';
+  });
+  html+='</div></div>';
+  document.getElementById('retire-extra').innerHTML=html;
+}
+function coachLiveChoice(i){
+  const sit=coach.live.sit;
+  const table={
+    lead:[{d:0},{g:-0.35,ga:-0.5},{g:0.5,ga:0.55}],
+    draw:[{g:0.45,ga:0.15},{d:0},{ga:-0.45,g:-0.3}],
+    trail:[{g:0.6,ga:0.5},{g:0.35,ga:0.1},{d:0}]
+  };
+  const m=table[sit][i];
+  const gf60=coach.live.gf1,ga60=coach.live.ga1;
+  let gf=gf60,ga=ga60;
+  if(m.g>0&&Math.random()<Math.min(0.85,(coach.live.expGf*0.5)*m.g))gf+=1;
+  if(m.g<0&&gf>0&&Math.random()<Math.min(0.6,(coach.live.expGf*0.3)*(-m.g)))gf-=1;
+  if(m.ga>0&&Math.random()<Math.min(0.75,(coach.live.expGa*0.4)*m.ga))ga+=1;
+  if(m.ga<0&&ga>gf60&&Math.random()<Math.min(0.6,(coach.live.expGa*0.35)*(-m.ga)))ga-=1;
+  gf=Math.max(0,Math.min(5,gf));ga=Math.max(0,Math.min(5,ga));
+  const win=gf>ga,draw=gf===ga;
+  const decMap={lead:['对位换人','防守换人','换上前锋'],draw:['边路突击','维持现状','收缩防线'],trail:['双前锋搏命','替补奇兵','稳定军心']};
+  const dec=(decMap[sit]||['临场调整'])[i]||'临场调整';
+  coachMatchResult({gf:gf,ga:ga,win:win,draw:draw,dec:dec,sit:sit});
+}
+function coachMatchResult(res){
+  const lad=COACH_LADDER[coach.teamIdx];
+  coach.stats.w+=res.win?1:0;coach.stats.d+=res.draw?1:0;coach.stats.l+=res.win||res.draw?0:1;
+  if(!coach.seasonStats)coach.seasonStats={w:0,d:0,l:0};
+  coach.seasonStats.w+=res.win?1:0;coach.seasonStats.d+=res.draw?1:0;coach.seasonStats.l+=res.win||res.draw?0:1;
+  let dRep=res.win?3:res.draw?0:-3;
+  if(res.win&&(res.sit==='trail'))dRep+=2;
+  coach.rep=Math.max(0,Math.min(100,coach.rep+dRep));
+  const sitText={lead:'你在领先后',draw:'僵局之中',trail:'落后的绝境里'}[res.sit];
+  const resText=res.win?'终场哨响，'+res.gf+'-'+res.ga+'！'+sitText+'你的'+res.dec+'收到了回报，'+coach.focus.opp+'被斩落马下。':
+                 res.draw?'终场 '+res.gf+'-'+res.ga+'。'+sitText+'你的'+res.dec+'让比赛守在了可控的轨道上。':
+                 '终场 '+res.gf+'-'+res.ga+'。'+sitText+'你的'+res.dec+'没能改写比分——失败会算账的。';
+  let html='<div class="consequence-box"><div class="consequence-title">焦点战 · 终场</div>';
+  html+='<div class="consequence-text">'+coach.focus.label+' vs '+coach.focus.opp+'——'+resText+'</div>';
+  html+='<div class="effect-list"><span class="effect-tag '+(res.win?'effect-pos':res.draw?'effect-pos':'effect-neg')+'">'+res.gf+' - '+res.ga+' · 声望 '+coach.rep+'/100</span></div>';
   html+='<button class="continue-btn" onclick="coachResult()">赛季结算 →</button></div>';
   document.getElementById('retire-extra').innerHTML=html;
 }
 function coachResult(){
   const lad=COACH_LADDER[coach.teamIdx];
+  const st=coach.stats;
+  const pts=st.w*3+st.d;
   let html='<div class="consequence-box"><div class="consequence-title">执教 · 赛季结算</div>';
+  html+='<div class="consequence-text">'+coach.age+'岁赛季收官：焦点战与本季合计 <b style="color:var(--volt)">'+(coach.seasonStats?coach.seasonStats.w:0)+'胜 '+(coach.seasonStats?coach.seasonStats.d:0)+'平 '+(coach.seasonStats?coach.seasonStats.l:0)+'负</b>；生涯总计 '+st.w+'胜 '+st.d+'平 '+st.l+'负（'+pts+' 分）。</div>';
   if(lad.tier==='国家队'){
-    const ok=coach.rep>=65&&Math.random()<0.65;
+    const ok=coach.rep>=60&&Math.random()<0.65;
     coach.rep=Math.max(0,Math.min(100,coach.rep+(ok?6:-4)));
     html+='<div class="consequence-text">'+(ok?'国家队在世预赛关键战打出了血性，球迷重新为你欢呼，足协公开表达支持。':'热身赛与预选赛成绩不佳，舆论开始讨论换帅。你熬过了艰难的一年。')+'</div>';
+    if(!ok&&coach.rep<25&&coach.teamIdx===4){
+      coach.teamIdx=2;coach.rep=42;coach.hot=0;
+      html+='<div class="consequence-text">足协最终按下了换帅按钮。你交出国家队教鞭，沉寂半年后在中超重新出山——这一次，你要证明那些质疑都错了。</div>';
+    }
   }else{
-    const pos=Math.max(1,Math.min(16,17-Math.round(coach.rep/100*13+2+(Math.random()*4-2))));
-    html+='<div class="consequence-text">'+coach.age+'岁赛季：'+lad.name+'名列中超第<b style="color:var(--volt)">'+pos+'</b>位。';
+    const pos=coach.teamIdx>=3?Math.max(1,Math.min(16,17-Math.round(coach.rep/100*16+1)+(Math.random()<0.2?1:0))):Math.max(1,Math.min(16,17-Math.round(coach.rep/100*13+2+(Math.random()*4-2))));
+    html+='<div class="consequence-text">'+lad.name+'名列中超第<b style="color:var(--volt)">'+pos+'</b>位。';
     if(coach.teamIdx>=2&&pos===1){
       coach.honors.push(coach.age+'岁：率队夺得中超冠军');
+      coach.titles++;
       coach.rep=Math.min(100,coach.rep+8);
       html+='你率队夺得中超冠军！名帅之名不胫而走。';
     }else if(coach.teamIdx>=2&&pos<=3){
       coach.rep=Math.min(100,coach.rep+4);
       html+='赛季结束，你的名字出现在年度最佳教练的候选名单上。';
     }
-    if(coach.rep>=78&&coach.teamIdx<4){
+    coach.hot=(coach.rep>=78)?(coach.hot||0)+1:0;
+    if(coach.hot>=2&&coach.teamIdx<4){
       coach.teamIdx++;
-      coach.rep=Math.max(45,coach.rep-15);
-      html+='赛季末，'+COACH_LADDER[coach.teamIdx].name+'向你发出邀约——你接受了'+COACH_LADDER[coach.teamIdx].pos+'的职位。';
+      coach.rep=(coach.teamIdx===4)?Math.max(62,coach.rep-15):Math.max(45,coach.rep-15);
+      coach.hot=0;
+      html+='连续两个赛季的稳定输出让豪门坐不住了——赛季末，'+COACH_LADDER[coach.teamIdx].name+'正式向你发出邀约，你接受了'+COACH_LADDER[coach.teamIdx].pos+'的职位。';
     }else if(coach.rep<20&&coach.teamIdx>0){
       coach.teamIdx=Math.max(0,coach.teamIdx-1);
       coach.rep=35;
       html+='战绩不佳，你黯然离开帅位。沉寂半年后，你从'+COACH_LADDER[coach.teamIdx].name+'重新出发。';
     }
-    html+='</div>';
   }
+  html+='</div>';
   html+='<div class="effect-list"><span class="effect-tag effect-pos">声望 '+coach.rep+'/100 · '+COACH_LADDER[coach.teamIdx].pos+'</span></div>';
-  html+='<button class="continue-btn" onclick="coachNextSeason()">继续执教 →</button>';
-  html+='<button class="btn-ghost" style="margin-top:12px" onclick="coachSummary()">结束执教生涯，查看总结</button></div>';
+  html+='<button class="continue-btn" onclick="coachDashboard()">返回教练指挥台 →</button></div>';
   document.getElementById('retire-extra').innerHTML=html;
+  game.coach=coach;autoSave();
 }
+
 function coachSummary(){
   const lad=COACH_LADDER[coach.teamIdx];
   let html='<div class="career-summary">';
@@ -3910,7 +4116,7 @@ function coachSummary(){
   html+='<div class="career-stat-box"><div class="val">'+coach.age+'</div><div class="lbl">年龄</div></div>';
   html+='<div class="career-stat-box"><div class="val">'+coach.rep+'</div><div class="lbl">最终声望</div></div>';
   html+='<div class="career-stat-box"><div class="val">'+coach.honors.length+'</div><div class="lbl">执教荣誉</div></div>';
-  html+='<div class="career-stat-box"><div class="val" style="font-size:1rem">'+lad.name+'</div><div class="lbl">终点站位</div></div>';
+  html+='<div class="career-stat-box"><div class="val" style="font-size:1rem">'+lad.name+'</div><div class="lbl">执教终点</div></div>';
   html+='</div>';
   if(coach.honors.length){
     html+='<div style="margin-top:14px">'+coach.honors.map(h=>'<div class="trophy-item"><span class="t-ico"><span class="svg-icon">'+ICONS.trophy+'</span></span><span class="t-name">'+escapeHtml(h)+'</span></div>').join('')+'</div>';
