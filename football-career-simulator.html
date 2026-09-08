@@ -367,10 +367,13 @@ button{font-family:inherit;cursor:pointer}
 /* ============ Game Menu ============ */
 .game-menu-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(3,5,8,.88);z-index:250;justify-content:center;align-items:center;padding:20px;backdrop-filter:blur(4px)}
 .game-menu-overlay.active{display:flex;animation:fadeIn .2s ease}
-.game-menu{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:28px;min-width:380px;max-width:92vw;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.game-menu{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:20px;width:min(560px,94vw);box-shadow:0 24px 80px rgba(0,0,0,.6)}
 .game-menu-title{font-size:1.2rem;font-weight:800;color:var(--text);text-align:center;margin-bottom:4px;letter-spacing:.04em}
-.game-menu-sub{font-size:.78rem;color:var(--text-dim);text-align:center;margin-bottom:20px}
-.menu-btn{display:flex;align-items:center;width:100%;padding:14px 16px;margin-bottom:9px;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;color:var(--text);cursor:pointer;transition:all .18s;font-size:.92rem;text-align:left;font-weight:700}
+.game-menu-sub{font-size:.78rem;color:var(--text-dim);text-align:center;margin-bottom:0}
+.menu-btn{display:flex;align-items:center;width:100%;padding:12px 14px;margin-bottom:0;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;color:var(--text);cursor:pointer;transition:all .18s;font-size:.88rem;text-align:left;font-weight:700}
+.menu-btn.danger{color:var(--danger);border-color:rgba(255,91,95,.35)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.menu-grid .span-2{grid-column:1/-1}
 @media(hover:hover){.menu-btn:hover{background:var(--surface-3);border-color:var(--volt);transform:translateX(3px)}}
 @media(hover:hover){.menu-btn.danger:hover{border-color:var(--danger);color:var(--danger)}}
 .menu-btn.primary{background:linear-gradient(135deg,var(--volt),var(--volt-strong));color:#0c1503;border-color:var(--volt)}
@@ -517,6 +520,10 @@ html[data-theme="light"] .chapter-banner{background:linear-gradient(160deg,#ffff
 .lg-pts{flex:0 0 30px;text-align:right;color:var(--volt);font-weight:800}
 .lg-me{background:var(--volt-soft);border-radius:8px;padding-left:6px;padding-right:6px}
 .lg-sep{text-align:center;color:var(--text-dim);font-size:.7rem;padding:2px 0}
+/* 剧情短选项双列（两端通用：类由 JS 按文本长度自动添加） */
+#view-story .choices.choices-2col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#view-story .choices.choices-2col .choice-btn{padding:10px 12px;font-size:.86rem;gap:10px;line-height:1.5}
+#view-story .choices.choices-2col .choice-index{width:24px;height:24px;font-size:.72rem}
 /* ============ 触屏基础层（安卓 App / 手机浏览器通用） ============ */
 html{-webkit-tap-highlight-color:transparent}
 html,body{touch-action:manipulation;overscroll-behavior:none}
@@ -570,7 +577,7 @@ button{user-select:none;-webkit-user-select:none}
   /* 弹窗在矮屏内的滚动 */
   .modal-content{padding:20px 22px;max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px)}
   .game-menu-overlay,.confirm-overlay{padding:14px}
-  .game-menu{min-width:0;padding:16px}
+  .game-menu{padding:16px}
   /* 首页/创建/读档/退役横屏适配 */
   #start-screen{padding:16px calc(20px + env(safe-area-inset-right,0px)) 16px calc(20px + env(safe-area-inset-left,0px))}
   .start-logo{width:min(30vh,170px)}
@@ -615,6 +622,10 @@ button{user-select:none;-webkit-user-select:none}
   .choice-index{width:22px;height:22px;font-size:.66rem;border-radius:7px;margin-top:0}
   .choice-hint{font-size:.64rem;margin-top:1px}
   #view-story>.event-card>.choices{gap:6px}
+  /* 横屏下双列选项进一步紧凑 */
+  #view-story .choices.choices-2col{gap:6px}
+  #view-story .choices.choices-2col .choice-btn{padding:8px;font-size:.74rem;gap:7px;line-height:1.4}
+  #view-story .choices.choices-2col .choice-index{width:20px;height:20px;font-size:.64rem}
   .continue-btn{padding:11px;font-size:.9rem}
   /* 成长页：晋升链双列紧凑 */
   /* 成长页：晋升链双列紧凑 */
@@ -873,15 +884,17 @@ button{user-select:none;-webkit-user-select:none}
   <div class="game-menu">
     <div class="game-menu-title">游戏菜单</div>
     <div class="game-menu-sub" id="menu-sub-info">赛季 · 球员</div>
-    <div class="game-menu-sub" id="menu-version" style="margin-top:-8px;opacity:.7">CFC V2.1.0</div>
-    <button class="menu-btn primary" onclick="menuSave()"><span class="btn-icon" data-icon="save"></span>保存游戏</button>
-    <button class="menu-btn" onclick="menuSaveAndExit()"><span class="btn-icon" data-icon="save-exit"></span>保存并退出到存档页</button>
-    <button class="menu-btn" onclick="menuLoad()"><span class="btn-icon" data-icon="folder"></span>读取存档</button>
-    <button class="menu-btn" onclick="menuManageSaves()"><span class="btn-icon" data-icon="trash"></span>管理存档</button>
-    <button class="menu-btn" onclick="toggleTheme()"><span class="btn-icon" data-icon="star"></span><span data-theme-label="1">切换浅色主题</span></button>
-    <button class="menu-btn" onclick="toggleGameMenu()"><span class="btn-icon" data-icon="back"></span>返回游戏</button>
-    <button class="menu-btn danger" onclick="confirmExitGame()"><span class="btn-icon" data-icon="logout"></span>退出到主菜单</button>
-    <button class="menu-btn danger" onclick="menuQuitApp()"><span class="btn-icon" data-icon="power"></span>退出游戏</button>
+    <div class="menu-grid">
+      <button class="menu-btn primary span-2" onclick="menuSave()"><span class="btn-icon" data-icon="save"></span>保存游戏</button>
+      <button class="menu-btn" onclick="menuLoad()"><span class="btn-icon" data-icon="folder"></span>读取存档</button>
+      <button class="menu-btn" onclick="menuManageSaves()"><span class="btn-icon" data-icon="trash"></span>管理存档</button>
+      <button class="menu-btn" onclick="toggleGameMenu()"><span class="btn-icon" data-icon="back"></span>返回游戏</button>
+      <button class="menu-btn" onclick="toggleTheme()"><span class="btn-icon" data-icon="star"></span><span data-theme-label="1">切换主题</span></button>
+      <button class="menu-btn span-2" onclick="menuSaveAndExit()"><span class="btn-icon" data-icon="save-exit"></span>保存并退出到存档页</button>
+      <button class="menu-btn danger" onclick="confirmExitGame()"><span class="btn-icon" data-icon="logout"></span>退出到主菜单</button>
+      <button class="menu-btn danger" onclick="menuQuitApp()"><span class="btn-icon" data-icon="power"></span>退出游戏</button>
+    </div>
+    <div class="game-menu-sub" id="menu-version" style="margin:12px 0 0">CFC V2.2.2</div>
   </div>
 </div>
 <!-- Confirm Dialog -->
@@ -1098,7 +1111,7 @@ const TEAM_COACHES={
   '利雅得新月':'因扎吉','迈阿密国际':'马斯切拉诺'
 };
 // 游戏版本号：每次发版更新此处，右上角/加载页/游戏菜单自动同步
-const GAME_VERSION='V2.2.2';
+const GAME_VERSION='V2.2.3';
 const NT_COACH='邵佳一';
 const NT_CAPTAIN='王大雷';
 // ============ 真实名宿 / 媒体 / 同辈新星 ============
@@ -2002,6 +2015,7 @@ function pendingStoryEvents(){
     // 日历事件（cal_*，亚洲杯/奥运/世预赛/世界杯）只由 pickCalendarEvents 按真实年份触发，
     // 禁止混入章节剧情池，否则会出现"2030年踢2034世预赛"的年份错乱
     if(ev.id.indexOf('cal_')===0)continue;
+    if(!posPass(ev,p))continue;
     if(ev.minAge&&p.age<ev.minAge)continue;
     if(ev.maxAge&&p.age>ev.maxAge)continue;
     if(ev.condition&&!ev.condition(p,ctx))continue;
@@ -2037,7 +2051,7 @@ function pickCalendarEvents(){
     const ev=EVENT_BY_ID('cal_wc_'+y);
     if(ev&&!isStoryUsed(ev.id))list.push(ev);
   }
-  return list;
+  return list.filter(ev=>posPass(ev,p));
 }
 // ============ 通用事件选取（一次一季、冷却5季、绝不连季重复） ============
 function getEventById(id){
@@ -2045,9 +2059,17 @@ function getEventById(id){
 }
 function EVENT_BY_ID(id){return getEventById(id)}
 // 触发时校验：事件生成于赛季初，赛季中状态（年龄/联赛/梯队/旗帜）可能已变化
+// 位置门槛：noGK=仅场上球员（进攻/射门类剧情），gkOnly=仅门将
+function posPass(ev,p){
+  if(ev.noGK&&p.isGK)return false;
+  if(ev.gkOnly&&!p.isGK)return false;
+  return true;
+}
 function eventPassesNow(ev){
   if(!ev)return false;
-  const p=game.player;
+  const p=game&&game.player;
+  if(!p)return false;
+  if(!posPass(ev,p))return false;
   if(ev.minAge&&p.age<ev.minAge)return false;
   if(ev.maxAge&&p.age>ev.maxAge)return false;
   if(ev.condition&&!ev.condition(p,storyCtx()))return false;
@@ -2058,6 +2080,7 @@ function getAvailableEvents(){
   const ctx=storyCtx();
   return EVENT_POOL.filter(ev=>{
     if(ev.once)return false;
+    if(!posPass(ev,p))return false;
     if(ev.minAge&&p.age<ev.minAge)return false;
     if(ev.maxAge&&p.age>ev.maxAge)return false;
     if(ev.condition&&!ev.condition(p,ctx))return false;
@@ -2074,6 +2097,7 @@ function pickEvent(category){
     const p=game.player;
     avail=EVENT_POOL.filter(ev=>{
       if(ev.once)return false;
+      if(!posPass(ev,p))return false;
       if(ev.minAge&&p.age<ev.minAge)return false;
       if(ev.maxAge&&p.age>ev.maxAge)return false;
       if(ev.condition&&!ev.condition(p,ctxSafe()))return false;
@@ -2312,7 +2336,7 @@ const GENERIC_EVENTS=[
     {text:'传统拉伸按摩就好',effects:{'PHY.stamina':1,'DRI.composure':1},consequence:'你婉拒了昂贵的新设备，坚持传统拉伸和按摩。恢复效果虽普通，但也够用，省下的精力都放在了场上。',formChange:0}
   ]},
 // --- 比赛 ---
-{ id:'m1',cat:'match',minAge:16,
+{ id:'m1',cat:'match',noGK:true,minAge:16,
   narrative:p=>{const y=isYouthStage(p);return `${y?'青年联赛':'联赛'}第8轮，${p.team}${y?'青年队':''}主场作战。比赛进行到第78分钟，比分1-1平。\n\n你的队友在中场断球后送出一记精准直塞，你反越位成功突入禁区！对方门将出击封堵角度，你面前只有一脚射门的机会——\n\n球迷的呐喊声在耳边轰鸣，你必须在瞬间做出决定：`},
   choices:[
     {text:'推射远角 — 冷静选择角度',effects:{'SHO.finishing':2,'DRI.composure':2,'SHO.positioning':1},consequence:'你瞄准球门右下角，用脚弓推射。皮球贴着草皮滚入网窝！门将鞭长莫及。你冲向角旗区庆祝，看台上传来雷鸣般的欢呼。',formChange:2,goals:1,risk:{attr:'SHO.finishing',base:.68},fail:{effects:{'DRI.composure':1},consequence:'你瞄准球门右下角推射，可惜触球瞬间脚踝稍紧，皮球贴着立柱滑出底线！门将起身拍了拍手套向你示意，看台上一片惋惜的叹息。机会溜走了——下一次，你必须更冷静。',formChange:-1}},
@@ -2320,7 +2344,7 @@ const GENERIC_EVENTS=[
     {text:'过掉门将再射',effects:{'DRI.dribbling':2,'DRI.agility':1,'SHO.finishing':1},consequence:'你一个轻巧的变向晃过出击的门将，面对空门轻松推入。这粒进球展现了你超强的个人能力和冷静的头脑。',formChange:2,goals:1},
     {text:'横传给位置更好的队友',effects:{'PAS.vision':2,'PAS.shortPassing':2,'DRI.composure':1},consequence:'你看到队友在更好的位置，无私地横传。队友轻松推射空门得手！赛后教练称赞了你的团队意识和大局观。',formChange:1,assists:1}
   ]},
-{ id:'m2',cat:'match',minAge:16,
+{ id:'m2',cat:'match',noGK:true,minAge:16,
   narrative:p=>`比赛第85分钟，你们0-1落后。裁判判给${p.team}一个点球！\n\n全场球迷屏住呼吸，队长把球递到你手中："${p.name}，你来罚。年轻人的第一次点球，别让我们失望。"\n\n你把球放在点球点上，退后几步。对方门将正在门线上跳来跳去，试图干扰你。裁判的哨声即将响起——`,
   choices:[
     {text:'大力射中路 — 不给门将反应时间',effects:{'SHO.penalties':2,'SHO.shotPower':1,'DRI.composure':2},consequence:'你选择大力抽射中路！皮球呼啸着飞入球网，门将已经向左侧扑去，完全判断错了方向。绝平！你振臂高呼，队友们疯狂扑向你。',formChange:2,goals:1,risk:{attr:'SHO.penalties',base:.62},fail:{effects:{'DRI.composure':1},consequence:'你大力抽射中路，可惜发力过猛，皮球高出横梁直上看台！全场发出难以置信的惊呼，门将甚至没来得及做出扑救动作。你低着头走回半场——点球，丢了。',formChange:-1}},
@@ -2328,7 +2352,7 @@ const GENERIC_EVENTS=[
     {text:'挑射中路 — 赌门将提前移动',effects:{'SHO.penalties':1,'DRI.composure':1,'SHO.finishing':1},consequence:'你选择大胆的挑射！门将果然提前移动扑向一侧，皮球轻巧地飘入球门中路。这粒进球让全场惊叹不已。',formChange:2,goals:1,risk:{attr:'SHO.penalties',base:.5},fail:{effects:{'DRI.composure':1},consequence:'你想赌门将提前移动，选择了一记轻巧的挑射——但门将根本没有动！他轻松把皮球抱进怀里，还冲你笑了笑。看台的嘘声一浪高过一浪。',formChange:-1}},
     {text:'让队长来罚 — 尊重老队员',effects:{'PAS.shortPassing':1,'DRI.composure':1},consequence:'你把球递给队长："您来吧，您更有经验。"队长拍了拍你的肩膀，稳稳将点球罚进。赛后他说这份信任让他很感动。',formChange:0}
   ]},
-{ id:'m3',cat:'match',minAge:16,
+{ id:'m3',cat:'match',noGK:true,minAge:16,
   narrative:p=>{const r=rivalOf(p);return `${p.team}对阵${r?r.name:'死敌'}的德比大战，球场座无虚席。比赛进行到第60分钟，你们1-0领先。\n\n对方大举压上，后防线留出了大片空当。你的队友在中场拿球，抬头看到了你的跑位——一次完美的反击机会正在酝酿。\n\n对方后卫正在疯狂回追，你必须立刻做出决定：`},
   choices:[
     {text:'高速前插要球 — 用速度撕裂防线',effects:{'PAC.sprintSpeed':2,'PAC.acceleration':1,'SHO.positioning':1},consequence:'你像离弦之箭般冲向对方禁区，队友的直塞球恰到好处。你利用速度甩开后卫，面对门将冷静施射——球进了！德比战锁定胜局！',formChange:2,goals:1,risk:{attr:'PAC.sprintSpeed',base:.62},fail:{effects:{'PAC.sprintSpeed':1},consequence:'你像离弦之箭般冲向对方禁区，但队友的直塞力道稍大，皮球先一步滚出了底线。反击机会白白浪费，你双手抱头跪在草皮上，德比的僵局还在继续。',formChange:-1}},
@@ -2342,14 +2366,14 @@ const GENERIC_EVENTS=[
     {text:'请教队内老将 — 学习经验',effects:{'SHO.positioning':2,'DRI.composure':1,'PAS.vision':1},consequence:'你找到队内经验丰富的老队员请教。他耐心地给你讲解了跑位的诀窍和阅读比赛的方法，让你受益匪浅。',formChange:1},
     {text:'在训练中多加练习跑位',effects:{'SHO.positioning':2,'PHY.stamina':-1},consequence:'你在训练中反复练习跑位，虽然进步比看录像慢一些，但实战中的感觉更加真切。',formChange:0}
   ]},
-{ id:'m7',cat:'match',minAge:21,
+{ id:'m7',cat:'match',noGK:true,minAge:21,
   narrative:p=>`联赛争冠关键战，${p.team}主场迎战联赛领头羊。全场球迷制造着震耳欲聋的氛围。\n\n比赛第75分钟，比分0-0。你拿球时看到对方后防线压得很靠上，身后留下了巨大空当。你的队友正在前插，但你也可以选择自己带球突破。\n\n这是一场可能决定联赛冠军归属的比赛：`,
   choices:[
     {text:'一脚直塞穿透防线',effects:{'PAS.vision':3,'PAS.shortPassing':2,'DRI.composure':2},consequence:'你的直塞球如手术刀般切开了对方防线，队友单刀赴会冷静推射——球进了！全场沸腾！你张开双臂享受球迷的欢呼。',formChange:2,assists:1},
     {text:'自己带球长途奔袭',effects:{'DRI.dribbling':3,'PAC.acceleration':2,'DRI.composure':2,'PHY.stamina':-1},consequence:'你决定自己来！带球从中场一路狂奔，连续变向晃过两名防守球员，面对门将冷静施射——球进了！这是一粒足以载入赛季最佳的进球！',formChange:3,goals:1,risk:{attr:'DRI.dribbling',base:.55},fail:{effects:{'DRI.dribbling':1},consequence:'你决定自己来！但连续的变向消耗了太多时间，第三名防守球员赶在射门瞬间把球铲出边线。看台上一片懊恼的叹息，教练在场边摊开了双手。',formChange:-1}},
     {text:'稳妥回传 — 控制比赛节奏',effects:{'PAS.shortPassing':1,'DRI.composure':1,'DEF.defensiveAwareness':1},consequence:'你选择稳妥回传，保持控球。虽然球迷有些着急，但最终比赛以0-0结束。一分也是一分，争冠形势依然复杂。',formChange:0}
   ]},
-{ id:'m8',cat:'match',minAge:23,
+{ id:'m8',cat:'match',noGK:true,minAge:23,
   narrative:p=>`德比大战，全场气氛剑拔弩张。比赛进行到第80分钟，你们1-2落后。\n\n在一次拼抢中，对方后卫对你犯规后将你拉起来时说了一句挑衅的话："就你这水平也配踢首发？趁早回青训去吧。"\n\n你的血往头顶涌。裁判就在不远处，但没听清对方说了什么。你的拳头不自觉地握紧了——`,
   choices:[
     {text:'用进球回应 — 化愤怒为动力',effects:{'SHO.finishing':2,'DRI.composure':3,'SHO.positioning':1,'PHY.aggression':1},consequence:'你深吸一口气，将怒火压在心底。第88分钟，你在禁区内抢点破门！进球后你跑向那个后卫，指了指记分牌。这才是最好的回应。',formChange:2,goals:1,risk:{attr:'SHO.finishing',base:.6},fail:{effects:{'DRI.composure':1},consequence:'你深吸一口气想用进球回应，但愤怒让动作变了形——射门软绵无力，被门将轻松没收。对方后卫凑过来嘲讽：就这？你攥紧了拳头，却无可奈何。',formChange:-1}},
@@ -2363,26 +2387,69 @@ const GENERIC_EVENTS=[
     {text:'硬碰硬 — 在对抗中成长',effects:{'PHY.strength':2,'PHY.aggression':2,'DRI.balance':1,'DRI.composure':1},consequence:'你决定和他硬碰硬！虽然依然吃亏，但你不退缩的态度感染了全队。几次对抗后你逐渐适应了他的强度，甚至在一次拼抢中把他撞倒了。',formChange:1},
     {text:'寻求队友配合 — 不和他单挑',effects:{'PAS.shortPassing':2,'PAS.vision':2,'DRI.reactions':1},consequence:'你选择多和队友做配合，不和他正面交锋。通过快速的传递和跑位，你成功绕开了他的防守区域，在别处制造了威胁。',formChange:1}
   ]},
-{ id:'m18',cat:'match',minAge:16,
+{ id:'m18',cat:'match',noGK:true,minAge:16,
   narrative:p=>`暴雨如注，${clubCity(p.team)?clubCity(p.team):'主场'}的球场积水已经没过了草皮纹理。这是典型的雨战，皮球在积水中会突然减速或跳起，技术动作大打折扣。\n\n比赛第30分钟，你们0-0僵持。你带球进入对方半场，积水让每一次触球都变得不可预测。看台上的球迷撑着雨伞声嘶力竭：`,
   choices:[
     {text:'少盘带多传递 — 用地面短传打穿',effects:{'PAS.shortPassing':2,'DRI.reactions':2,'PAS.vision':1},consequence:'你果断放弃了个人表演，用一脚脚简洁的地平传球组织进攻。雨战中你们的传控反而打出了威胁，最终凭借一次禁区内混战取胜。',formChange:1},
     {text:'加强远射 — 湿滑球速更快',effects:{'SHO.longShots':2,'SHO.shotPower':2},consequence:'你意识到湿滑的皮球在射门时会加速下沉，果断在禁区外连续起脚。第三次远射，门将脱手，你跟进补射入网！雨战英雄！',formChange:2,goals:1},
     {text:'稳守反击 — 不给对手机会',effects:{'DEF.defensiveAwareness':2,'DRI.composure':2},consequence:'你回撤帮助球队控制局面，用纪律性熬过了恶劣的条件。0-0虽然平淡，但一分拿得踏实。教练赛后表扬了你的战术执行力。',formChange:0}
   ]},
-{ id:'m19',cat:'match',minAge:17,
+{ id:'m19',cat:'match',noGK:true,minAge:17,
   narrative:p=>`面对保级队的铁桶阵，${p.team}控球率高达75%，但比分依然是0-0。对方十一人全部退守禁区，连前锋都回撤到本方半场。\n\n比赛进行到第80分钟，球迷开始焦躁。你在禁区前沿再次拿球，对方的三层防线纹丝不动。这是比拼耐心的时刻：`,
   choices:[
     {text:'突然远射 — 打对方立足未稳',effects:{'SHO.longShots':3,'SHO.shotPower':1,'DRI.composure':1},consequence:'你假装组织，突然起脚远射！皮球穿过人墙缝隙直挂死角！1-0！铁桶阵被一把钥匙打开，全场瞬间沸腾。',formChange:2,goals:1,risk:{attr:'SHO.longShots',base:.5},fail:{effects:{'SHO.longShots':1},consequence:'你假装组织，突然起脚远射！可惜人墙的缝隙比想象中小，皮球结结实实砸在人墙身上弹出，对方趁势打出反击，你的心一下子提到了嗓子眼。',formChange:-1}},
     {text:'肋部直塞 — 用速度打身后',effects:{'PAS.vision':3,'PAS.shortPassing':2},consequence:'你用一记贴地直塞穿透了肋部空当，边锋插上横传，中锋推射破门！1-0！耐心最终换来了回报。',formChange:1,assists:1},
     {text:'尝试个人突破 — 吸引犯规造点',effects:{'DRI.dribbling':3,'DRI.agility':2},consequence:'你在禁区里连续变向，对方后卫伸腿绊倒了你——点球！队友主罚命中，1-0！你用勇敢的突破为球队赢下了关键三分。',formChange:1}
   ]},
-{ id:'m20',cat:'match',minAge:20,
+{ id:'m20',cat:'match',noGK:true,minAge:20,
   narrative:p=>`第75分钟，${p.team}已经3-0领先，比赛失去悬念。教练席传来指令：把你换下保存体力。\n\n你走向边线，全场球迷起立鼓掌。可就在这时，队友在中场断球，一次绝佳的反击机会出现了——球正好传向你的方向。换人的牌子已经举起，你还有最后几秒钟：`,
   choices:[
     {text:'完成这次进攻再下场',effects:{'DRI.composure':2,'SHO.positioning':1,'PAS.vision':1},consequence:'你快速处理球，送出一脚妙传帮助队友再入一球！4-0！你才走下场，全场都在喊你的名字。教练哭笑不得："算你机灵。"',formChange:1,assists:1},
     {text:'直接下场 — 遵守战术安排',effects:{'DRI.composure':2,'PHY.stamina':1},consequence:'你和替补你的年轻人击掌，径直走下了场。体能教练在通道口竖起大拇指："这才是职业球员。"赛季漫长，你深知留力的智慧。',formChange:0},
     {text:'把机会让给替补上场的年轻人',effects:{'PAS.vision':2,'DRI.composure':1},consequence:'你放慢脚步，用眼神示意年轻队友去追那个球。他心领神会，完成了一次精彩进攻。赛后他特意感谢你，更衣室的氛围又好了几分。',formChange:0}
+  ]},
+// --- 门将专属 ---
+{ id:'gk1',cat:'match',gkOnly:true,minAge:16,
+  narrative:p=>{const y=isYouthStage(p);return `${y?'青年联赛':'联赛'}第8轮，${p.team}${y?'青年队':''}主场作战。比赛进行到第78分钟，比分1-1平。\n\n对方前锋刚刚趟过你最后一名后卫，形成单刀！他抬头观察了你的站位，脚弓已经摆好——全场的呼吸都停了。\n\n你压低重心，张开双臂，脑子里闪过这周扑救训练的每一个细节：`},
+  choices:[
+    {text:'主动出击 — 压缩射门角度',effects:{'GK.reflexes':2,'DRI.composure':2,'GK.gkPositioning':1},consequence:'你在他起脚瞬间果断出击，用整个身体封住了近角！皮球结结实实砸在你胸口弹出底线！看台为这次神扑炸开了锅，队友纷纷跑过来拍你的手套。',formChange:2,risk:{attr:'GK.reflexes',base:.66},fail:{effects:{'DRI.composure':1},consequence:'你出击的时机稍慢了半拍，对方轻巧地把你晃过，推射空门得手。2-1。你跪在草皮上捶了一下地面——下次，必须更快。',formChange:-1}},
+    {text:'稳守门线 — 赌他射偏',effects:{'GK.gkPositioning':2,'DRI.composure':2,'GK.handling':1},consequence:'你死死站在门线上不动如山。对方果然紧张了，射门又正又软，你轻松将球没收！稳重的选择赢得了教练的掌声。',formChange:1},
+    {text:'心理战 — 张开双臂大声施压',effects:{'GK.gkPositioning':1,'DRI.composure':2,'PHY.aggression':1},consequence:'你拼命挥舞双臂大吼，对方前锋明显被你搅乱了节奏，射门软绵无力，你侧身将球扑住！扑住球的那一刻，你冲他吼了一声："没了！"',formChange:2}
+  ]},
+{ id:'gk2',cat:'match',gkOnly:true,minAge:16,
+  narrative:p=>`比赛第85分钟，你们1-0领先。裁判的手指向了点球点——对方获得点球！\n\n对方头号射手抱起皮球，冲你露出笑容："门将，站好，别乱动。"\n\n你走向门线，一边拍着手套一边回忆球探报告：他习惯射右下角，但压力下喜欢改中路。队友们在背后为你筑起人墙的影子。你只有一次机会——`,
+  choices:[
+    {text:'赌右下角 — 相信球探报告',effects:{'GK.reflexes':2,'GK.handling':2,'DRI.composure':1},consequence:'他助跑、摆腿——你提前飞身扑向右下角！皮球正正撞进你的手套里！你把球死死抱在胸前翻滚一圈，起身怒吼！零封保住了！',formChange:3,risk:{attr:'GK.reflexes',base:.55},fail:{effects:{'GK.reflexes':1},consequence:'你飞向右下角，他却把球推向了相反的方向。1-1，你的判断输了。你趴在草皮上看着球网颤动，把草屑狠狠拍掉——球探报告，也有不准的时候。',formChange:-1}},
+    {text:'原地不动 — 赌他压力下打中路',effects:{'DRI.composure':3,'GK.gkPositioning':2},consequence:'你一动不动，像钉在门线上一样。他果然因为怕射偏选择了最"安全"的中路——正正踢进你张开的怀里！全场哗然！你抱着球对他做了个"请"的手势。',formChange:2},
+    {text:'心理战 — 慢慢摆手套拖延时间',effects:{'DRI.composure':2,'GK.gkPositioning':1,'PHY.aggression':1},consequence:'你不紧不慢地系鞋带、擦手套，任凭主裁判催促。对方射手明显被搞得心浮气躁——射门高出横梁！你用智慧赢下了这场对决。',formChange:1}
+  ]},
+{ id:'gk3',cat:'match',gkOnly:true,minAge:18,
+  narrative:p=>`伤停补时第4分钟，你们2-1领先。对方最后一攻，角球开出——你的队友冒顶了！\n\n对方高中锋在你面前两米处甩头攻门，皮球直奔球门上角。这是门线技术的终极考验。\n\n千钧一发之际，你的身体比大脑先做出了反应：`,
+  choices:[
+    {text:'下地横扑 — 用指尖把球托出横梁',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':2},consequence:'你像弹簧一样侧身横扑，指尖在皮球越过门线的最后一毫米把它托出了横梁！慢镜头回放显示这次扑救的极限程度——解说员喊破了音："世界级扑救！"',formChange:3,risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.diving':1},consequence:'你扑到了球，但力量不足以把它托出横梁——皮球擦着指尖坠入网窝。2-2。你躺在门线上久久没有起身，这次教训会被你记很久。',formChange:-1}},
+    {text:'封堵近角 — 赌他顶向近门柱',effects:{'GK.gkPositioning':3,'GK.handling':1,'PHY.strength':1},consequence:'你赌对了！他的头球又急又平，正砸向你封堵的近角——皮球撞在你肩膀上弹出底线！你起身捶着胸脯怒吼，全队都被你点燃了。',formChange:2},
+    {text:'信任队友补防 — 守住位置',effects:{'GK.gkPositioning':1,'DRI.composure':2,'PAS.vision':1},consequence:'你没有贸然出击，而是牢牢守住身位并大声提醒队友落位。中卫及时回门线解围！团队协作化解了危机，教练赛后特别称赞了你的冷静。',formChange:1}
+  ]},
+{ id:'gk4',cat:'match',gkOnly:true,minAge:20,
+  narrative:p=>`新任主帅带来了激进的"后场出球"体系：门将必须参与传控，从后场组织进攻。今天的对手是全联赛逼抢最凶的球队——对方的三叉戟从开场第一秒就疯抢你。\n\n比赛第15分钟，你接到中卫回传，对方前锋已经扑到眼前，传球线路全部被封死。看台上的球迷已经开始紧张。\n\n教练在场边做了个"冷静"的手势。球在你脚下，时间仿佛慢了下来：`,
+  choices:[
+    {text:'两脚出球 — 用脚下技术摆脱逼抢',effects:{'GK.kicking':2,'PAS.shortPassing':2,'DRI.composure':2},consequence:'你一个假动作晃开第一次扑抢，随即用非惯用脚送出一脚精准的斜长传找到边路！由守转攻一气呵成，球迷起立为你鼓掌——"会踢球的门将"名不虚传！',formChange:2,risk:{attr:'GK.kicking',base:.62},fail:{effects:{'GK.kicking':1},consequence:'你的出球稍慢了半拍，对方前锋伸脚一挡——皮球缓缓滚入空门。0-1。你把拳头砸进了手套里。现代门将的宿命：每一次触球都是豪赌。',formChange:-1}},
+    {text:'大脚长传找前锋 — 安全第一',effects:{'GK.kicking':2,'PAS.longPassing':1,'PHY.strength':1},consequence:'你观察到了前锋的跑位，一脚又高又远的长传精准落到他的冲刺路线上！虽然进攻没能转化成进球，但你化解了逼抢，队友们纷纷竖起大拇指。',formChange:1},
+    {text:'抱住球 — 犯规也绝不冒险',effects:{'DRI.composure':2,'GK.handling':1},consequence:'你干脆将球抱入怀中，任凭对方前锋在你面前跳脚。对方获得了一个位置极差的前场任意球，你亲自排人墙指挥——最终有惊无险。稳，有时就是最好的选择。',formChange:0}
+  ]},
+{ id:'gk5',cat:'match',gkOnly:true,minAge:21,
+  narrative:p=>`你是本赛季联赛零封榜的第一名，媒体开始称你为"防线的指挥官"。但今天不同——中后卫搭档的状态糟糕透顶，上半场连续两次失误差点丢球。\n\n中场休息的更衣室里，他低着头一言不发。下半场球队需要他，也需要你。\n\n作为身后的最后一道防线，你看得分最清楚。走进球场前，你决定：`,
+  choices:[
+    {text:'主动沟通 — 帮他重建信心',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':2},consequence:'你搂着他的肩膀："上半场都过去了，下半场你的身后有我。"下半场他判若两人，你俩联手守住胜果。从此你们成了联赛最好的中卫-门将组合。',formChange:2,flag:'bond_cb'},
+    {text:'严厉要求 — 提醒他职业标准',effects:{'PHY.aggression':2,'GK.gkPositioning':1,'DRI.composure':1},consequence:'你毫不留情地指出了他的问题："再这样下去我们两个都要坐板凳。"他红着脸点了点头，下半场打起了十二分精神。有些刺耳的话，才是真正的良药。',formChange:1},
+    {text:'用行动带节奏 — 多呼应少指责',effects:{'DRI.composure':2,'GK.handling':1,'PAS.vision':1},consequence:'下半场你不断呼喊、击掌、鼓掌，用自己的稳定感染着他。他慢慢找回了状态，你们零封了对手。有时候，身先士卒胜过千言万语。',formChange:1}
+  ]},
+{ id:'gk6',cat:'match',gkOnly:true,minAge:23,
+  narrative:p=>`德比大战，全场气氛剑拔弩张。比赛进行到第80分钟，你们1-2落后。\n\n对方前锋单刀破门后跑向你，拍着你的肩膀说："今天你形同虚设啊，门将。"\n\n你的血往头顶涌。比赛还剩十分钟，对方还有反击机会。你的拳头不自觉地握紧了——门将以牙还牙的方式只有一种：`,
+  choices:[
+    {text:'用扑救回应 — 门将的回击方式',effects:{'GK.reflexes':3,'DRI.composure':3,'PHY.aggression':1},consequence:'第88分钟，他又一次单刀突进，嘴里还在念叨着什么——你用一记不可思议的侧扑将他的必进之球按在了门线上！全场为你起立！你冲他做了个噤声的手势。这才是门将的回击。',formChange:3,risk:{attr:'GK.reflexes',base:.55},fail:{effects:{'GK.reflexes':1},consequence:'你又丢了一球，1-3。他跑过你身边时耸了耸肩。你把这口气咽进肚子里，在备忘录上写下了今天——德比的账，来年再算。',formChange:-1}},
+    {text:'精准长传 — 助队友扳回一城',effects:{'GK.kicking':2,'PAS.longPassing':2,'PAS.vision':1},consequence:'你没有理会他的挑衅，观察许久后果断开出一记世界级手抛球，前锋胸部停球后凌空抽射——2-3！你成为了进攻的发起者，悬念又回来了！',formChange:2,assists:1},
+    {text:'冷静指挥 — 先稳住防线再图反击',effects:{'DRI.composure':3,'GK.gkPositioning':1,'PAS.vision':1},consequence:'你深吸一口气，不断指挥防线压上。最后十分钟球队全线围攻，虽然没能扳平，但你的冷静让全队没有崩溃。赛后连对方教练都称赞了你的风度。',formChange:1}
   ]},
 // --- 社交 ---
 { id:'s1',cat:'social',minAge:16,
@@ -2643,14 +2710,14 @@ const GENERIC_EVENTS=[
     {text:'研究老门将的录像 — 学他的站位',effects:{'GK.gkPositioning':3,'GK.handling':2},consequence:'你把老门将十年的扑救录像翻了个遍，学到了不少站位细节。训练中你的失误越来越少，教练满意地记下了笔记。',formChange:1},
     {text:'向老门将请教 — 以退为进',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':1},consequence:'你主动请老门将吃饭，虚心求教。他被你的诚意打动，把毕生绝学倾囊相授。他甚至向教练建议："这小子，值得扶正。"',formChange:1}
   ]},
-{ id:'m4',cat:'cup',minAge:17,condition:p=>isChinaLeague(p)&&p.ovr>=52&&!isYouthStage(p),
+{ id:'m4',cat:'cup',noGK:true,minAge:17,condition:p=>isChinaLeague(p)&&p.ovr>=52&&!isYouthStage(p),
   narrative:p=>`${domesticCupName(p)}十六强赛，${p.team}客场挑战顶级联赛劲旅。你已经入选了一线队大名单，坐在替补席上。\n\n下半场第65分钟，球队0-2落后，${coachLine(p.team)?coachLine(p.team)+'教练':'主教练'}转头看向你："${p.name}，去热身，5分钟后上场。"\n\n你的心跳骤然加速。这是你第一次在正式比赛中为一线队出场。你脱下训练服走向热身区，教练走过来交代战术：`,
   choices:[
     {text:'主动请缨 — "教练，让我去进攻！"',effects:{'SHO.finishing':1,'DRI.composure':2,'PHY.aggression':1},consequence:'你眼中充满渴望地请战。教练被你的斗志打动："好，上去给我拼命跑！"你踏上球场的那一刻，感觉整个世界都不一样了。',formChange:2},
     {text:'认真听从教练战术安排',effects:{'PAS.shortPassing':1,'DRI.reactions':1,'DEF.defensiveAwareness':1},consequence:'你仔细聆听教练的战术安排，记住每一个细节。上场后你严格执行战术纪律，虽然紧张但表现稳健，几次处理球都很合理。',formChange:1},
     {text:'紧张得说不出话 — 默默上场',effects:{'DRI.ballControl':1,'DRI.composure':-1},consequence:'你紧张得手心冒汗，上场后几次触球都有些僵硬。不过随着比赛进行，你逐渐找到了节奏。第一次一线队杯赛出场，虽然不完美但意义非凡。',formChange:0}
   ]},
-{ id:'m6',cat:'continental',minAge:19,condition:p=>p.league==='CSL'&&!isYouthStage(p),
+{ id:'m6',cat:'continental',noGK:true,minAge:19,condition:p=>p.league==='CSL'&&!isYouthStage(p),
   narrative:p=>`${continentalName(p)}小组赛，${p.team}客场挑战日本J联赛冠军。比赛进行到第92分钟，比分2-2。\n\n你们获得了一个前场任意球，距离球门约28米。这个位置不太好直接射门，但也不是完全没有可能。\n\n队内的任意球主罚手走到你身边："${p.name}，你来还是我来？这个位置你有信心吗？"全场日本球迷正在制造震耳欲聋的噪音：`,
   choices:[
     {text:'自己主罚 — 弧线球绕过人墙',effects:{'PAS.curve':2,'PAS.freeKickAccuracy':3,'SHO.shotPower':1,'DRI.composure':2},consequence:'你深吸一口气，助跑、摆腿、触球——皮球划出一道完美的弧线，越过人墙，擦着门柱飞入球网！绝杀！你疯狂奔向角旗区，队友们如潮水般涌来！',formChange:3,goals:1},
@@ -2664,28 +2731,28 @@ const GENERIC_EVENTS=[
     {text:'后点包抄抢射',effects:{'SHO.positioning':2,'SHO.finishing':2,'PAC.acceleration':1,'DRI.reactions':1},consequence:'你快速移动到后点，抢在防守球员之前凌空抽射！球打在门柱上弹了出去——差之毫厘！全场发出遗憾的叹息。',formChange:0},
     {text:'扯动防守 — 为队友创造空间',effects:{'PAS.vision':2,'SHO.positioning':1,'DRI.composure':1},consequence:'你主动扯动防守球员，为队友创造了空当。队友头球攻门被门将扑出。虽然没有直接得分，但你的跑位价值被教练看在眼里。',formChange:1}
   ]},
-{ id:'m14',cat:'cup',minAge:18,condition:p=>!isYouthStage(p),
+{ id:'m14',cat:'cup',noGK:true,minAge:18,condition:p=>!isYouthStage(p),
   narrative:p=>`${domesticCupName(p)}十六强战，${p.team}客场对阵一支低级别联赛黑马。对手全场摆出铁桶阵，誓要拖入点球大战。\n\n比赛第88分钟，比分仍是0-0。你在禁区边缘接球，身前是三名防守球员。${coachLine(p.team)?coachLine(p.team)+'教练在场边大喊让你控制节奏':'教练在场边大喊让你控制节奏'}，但你知道——这是最后的机会。\n\n你抬头看了看球门，余光扫到队友的跑位：`,
   choices:[
     {text:'强行内切射门 — 用个人能力打破僵局',effects:{'SHO.finishing':2,'DRI.dribbling':2,'DRI.composure':1},consequence:'你连续两个变向晃开防守，在禁区线上果断起脚！皮球贴着草皮钻入死角！1-0！全场客队球迷瞬间安静，随队远征的你方球迷在看台上炸开了锅。',formChange:2,goals:1,risk:{attr:'DRI.dribbling',base:.58},fail:{effects:{'DRI.agility':1},consequence:'你连续两个变向试图晃开防守，但铁桶阵前空间太小，皮球被第三名后卫断下，对方顺势打出快速反击！好在回防及时没有丢球，教练在场边吼着让你冷静。',formChange:-1}},
     {text:'分边传中 — 信任队友抢点',effects:{'PAS.crossing':2,'PAS.vision':1,'DRI.composure':1},consequence:'你把球分到边路，队友下底传中，高中锋头球破门！1-0！这个进球是团队配合的成果，赛后教练特意表扬了你冷静的判断。',formChange:1,assists:1},
     {text:'回传控制 — 踢加时更稳妥',effects:{'PAS.shortPassing':1,'DRI.composure':2},consequence:'你选择回传稳住节奏，把比赛拖入加时。加时赛中你体能充沛，最终在第110分钟助攻队友绝杀晋级。',formChange:0}
   ]},
-{ id:'m15',cat:'cup',minAge:20,condition:p=>!isYouthStage(p)&&p.ovr>=62,
+{ id:'m15',cat:'cup',noGK:true,minAge:20,condition:p=>!isYouthStage(p)&&p.ovr>=62,
   narrative:p=>`${domesticCupName(p)}决赛！通往冠军的最后90分钟。全场座无虚席，对手是联赛豪门，赛前普遍不看好你们。\n\n上半场0-0，对方控球率高达70%。中场休息时，主教练拍着战术板："他们看不起我们，那就让他们付出代价！下半场所有人向前！"\n\n下半场第60分钟，你们获得了一次快速反击的机会，你持球推进到对方禁区前沿：`,
   choices:[
     {text:'爆射近角 — 一锤定音',effects:{'SHO.shotPower':2,'SHO.finishing':2,'DRI.composure':2},consequence:p=>'你抡起右脚爆射近角！皮球炮弹般入网，门将毫无反应！这是决定冠军归属的进球！你脱下球衣疯狂庆祝，队友们把你扑倒在地。最终你们1-0捧起'+domesticCupName(p)+'冠军！',formChange:3,goals:1,flag:'cup_winner',risk:{attr:'SHO.shotPower',base:.58},fail:{effects:{'SHO.shotPower':1},consequence:'你抡起右脚爆射近角！可惜发力时支撑脚一滑，皮球高出横梁飞入看台。全场整齐地发出一声长叹——决赛最好的机会就这样溜走，你跪在地上久久没有起身。',formChange:-1}},
     {text:'假射真传 — 做给后插上队友',effects:{'PAS.vision':2,'PAS.shortPassing':2,'DRI.composure':1},consequence:'你做出射门动作骗过防守，脚腕一抖把球做给后插上的队友，他推射远角破门！1-0！你收获决赛助攻，和队友一起捧起冠军奖杯。',formChange:3,assists:1,flag:'cup_winner'},
     {text:'追求稳妥 — 打加时',effects:{'DRI.composure':2,'PHY.stamina':1},consequence:'你选择稳妥控制球权。比赛进入加时，第116分钟对手体能下降，你抓住机会助攻队友绝杀夺冠。捧杯时刻，你热泪盈眶。',formChange:2,flag:'cup_winner'}
   ]},
-{ id:'m16',cat:'continental',minAge:19,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&!isYouthStage(p),
+{ id:'m16',cat:'continental',noGK:true,minAge:19,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&!isYouthStage(p),
   narrative:p=>`${continentalName(p)}小组赛，${p.team}主场迎战西亚劲旅。赛前新闻发布会上，对方主帅说："${LEAGUES[p.league].country}球队在亚冠的成绩一直不理想，我实在想不出他们怎么赢我们。"\n\n这番话传遍了更衣室。队长把手机摔在桌上："兄弟们，今天不为别的，就为争这口气！"\n\n比赛第70分钟，比分1-1。你在禁区外拿球，对方中卫扑了上来：`,
   choices:[
     {text:'过掉中卫直接打门',effects:{'DRI.dribbling':3,'DRI.agility':2,'SHO.finishing':1},consequence:'你一个油炸丸子过掉中卫，顺势推射远角！皮球绕过门将滚入网窝！2-1！你指着看台上的客场球迷怒吼，这场比赛成为亚冠历史上值得铭记的一夜。',formChange:3,goals:1,flag:'acl_hero',risk:{attr:'DRI.dribbling',base:.6},fail:{effects:{'DRI.agility':1},consequence:'你尝试用油炸丸子过掉中卫，但对方没有吃晃——皮球被断，对方直接发起快速反击！你拼命回追，好在队友补位化解。洲际赛场，容错率就是这么低。',formChange:-1}},
     {text:'和队友做二过一配合',effects:{'PAS.shortPassing':2,'PAS.vision':2,'DRI.reactions':1},consequence:'你和队友打出精妙二过一，突入禁区后被对方后卫放倒——点球！你亲自主罚命中，2-1拿下关键三分。',formChange:2,goals:1,flag:'acl_hero'},
     {text:'稳住节奏 — 客场拿到平局也不亏',effects:{'DRI.composure':2,'DEF.defensiveAwareness':1},consequence:'你选择控制节奏，最终1-1战平。客场带走一分虽然可以接受，但你也记住了对方主帅那番傲慢的话——回到主场一定要赢回来。',formChange:0}
   ]},
-{ id:'m17',cat:'continental',minAge:21,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&!isYouthStage(p),
+{ id:'m17',cat:'continental',noGK:true,minAge:21,condition:p=>['CSL','J1','K1','SAU','QAT'].includes(p.league)&&!isYouthStage(p),
   narrative:p=>`${continentalName(p)}淘汰赛，${p.team}首回合客场1-3落败，回到主场背水一战。\n\n赛前，球迷们在看台打出了巨大的Tifo："绝地反击！"整个体育场气氛近乎沸腾。\n\n比赛第75分钟，你们已经2-0领先，总比分3-3，只需要再进一球就能晋级。你刚刚替补登场，教练在场边喊："${p.name}，上去改变比赛！"`,
   choices:[
     {text:'刚上场就冲击对方防线',effects:{'PAC.sprintSpeed':2,'PAC.acceleration':2,'SHO.positioning':1},consequence:'你上场后连续两次高速冲刺撕开防线。第82分钟，你反越位成功单刀赴会，冷静推射破门！4-3总比分逆转晋级！全场爆发出山呼海啸般的欢呼，你在角旗区滑跪，泪水与汗水混在一起。',formChange:3,goals:1,flag:'acl_reverse',risk:{attr:'PAC.sprintSpeed',base:.6},fail:{effects:{'PAC.sprintSpeed':1},consequence:'你上场后全力冲击防线，可惜身体还没完全热开，第一次加速就被边卫卡住身位，随后的传中也被门将没收。逆转的希望随时间流逝，你喘着粗气告诉自己别慌。',formChange:-1}},
@@ -2768,7 +2835,14 @@ const STORY_EVENTS=[
     {text:'炫一下 — 接球转身过人',effects:{'DRI.dribbling':3,'DRI.agility':2},consequence:'你接球顺势转身，一记克鲁伊夫转身过掉扑抢的前锋！全场"喔——"的一声。虽然后续传球被断，但这个镜头进了当日五佳球。少年，胆子不小！',formChange:2},
     {text:'紧张发抖 — 蜷在边路不敢接球',effects:{'DRI.composure':-1},consequence:'你的双腿像灌了铅，几次跑位都慢了半拍。10分钟很快过去，首秀就在懵懂中结束了。没关系，每个巨星的第一步都走得磕磕绊绊。',formChange:-1}
   ]},
-{ id:'ch2_first_goal',once:true,chapter:2,priority:5,minAge:17,condition:p=>p.ovr>=57&&(p.careerStage!=='u17'),
+{ id:'gk7_nt_debut',once:true,chapter:2,priority:4,minAge:18,gkOnly:true,condition:p=>p.flags.nationalMember,
+  narrative:p=>`国家队大赛首秀，${p.name}代表国足首发出场！赛前发布会，主教练力排众议："我们考察了所有门将，他是状态最好的那个。"\n\n对手是本届赛事身价最高的攻击线。第30分钟到第35分钟，短短五分钟内对方三次轰门——两次世界波，一次单刀。\n\n记分牌还是0-0。你的手套已经湿透，但眼神比任何时候都稳：`,
+  choices:[
+    {text:'三连扑 — 用反应说话',effects:{'GK.reflexes':3,'GK.diving':2,'DRI.composure':2},consequence:'世界波被你单掌托出，单刀被你用腿挡下，第三球你直接没收！五分钟三次扑救，解说员的声音都在颤抖："这位门将今天拒绝了比赛剧本！"',formChange:3,risk:{attr:'GK.reflexes',base:.5},fail:{effects:{'GK.diving':1},consequence:'前两次扑救你都做到了，但第三次——那记贴着草皮的远射从你手边溜了进去。0-1。大赛首秀以失误收场，你需要用之后的每一场去洗刷它。',formChange:-1}},
+    {text:'指挥防线 — 用组织化解攻势',effects:{'GK.gkPositioning':2,'DRI.composure':2,'PAS.vision':2},consequence:'你不断呼喊队友站位，三次攻势两次被造越瓦解，唯一一次射门也被你轻松没收。半场结束，转播镜头给到字幕："国足防线的指挥官。"零封，就是门将的首秀满分答卷。',formChange:2},
+    {text:'专注本职 — 少做少错',effects:{'GK.handling':2,'DRI.composure':2,'PHY.stamina':1},consequence:'你把每一次该做的都做到位：接稳、抱紧、快发。没有惊天扑救，也没有失误。赛后评分不算耀眼，但教练拍了拍你："首秀，稳字当头，很好。"',formChange:1}
+  ]},
+{ id:'ch2_first_goal',once:true,chapter:2,priority:5,minAge:17,noGK:true,condition:p=>p.ovr>=57&&(p.careerStage!=='u17'),
   narrative:p=>`足协杯首轮，${p.team}对阵低级别球队，你获得了职业生涯第一次首发！\n\n全队都憋着劲要大胜，机会一次次砸向你脚下。第38分钟，边路传中，皮球越过所有人飞向你——禁区中央，无人盯防，门前五米！\n\n这是你职业生涯最近的进球机会，也可能是最远的——因为全世界都在看着你：`,
   choices:[
     {text:'一脚定音 — 推射空门',effects:{'SHO.finishing':3,'DRI.composure':2},consequence:'皮球应声入网！你职业生涯的第一球！你狂奔向角旗区，队友们把你扑倒，看台上的横幅突然亮了——上面写着你的名字和"未来可期"。这一夜，你梦到了16岁的自己。',formChange:3,goals:1},
@@ -2876,14 +2950,14 @@ const STORY_EVENTS=[
     {text:'"如果打不上主力，我考虑转会"',effects:{'PHY.aggression':2,'PAC.sprintSpeed':1},consequence:'经纪人开始暗中活动，几家中游球队迅速表达了兴趣。消息传到主教练耳朵里，他反手给了你连续三场首发——"机会给你了，看你的。"',formChange:1}
   ]},
 // ========== 真实赛历事件 ==========
-{ id:'cal_asian_cup',once:true,priority:2,minAge:18,condition:p=>p.flags.nationalMember,
+{ id:'cal_asian_cup',once:true,noGK:true,priority:2,minAge:18,condition:p=>p.flags.nationalMember,
   narrative:(p,ctx)=>`亚洲杯在沙特打响，中国队列入小组第二档。\n\n${ctx.ntCoach}的集训名单里，你是进攻端的常备人选。这是中国足球在低谷后的第一次洲际大赛，全国球迷的关注度拉满。\n\n小组赛第二轮，对阵小组最强对手，赢球基本出线，输了就危险。\n\n第75分钟，0-0。你在前场拿球，全中国都在屏幕前：`,
   choices:[
     {text:'一击致命 — 打入制胜球',effects:{'SHO.finishing':3,'DRI.composure':3,'SHO.positioning':1},consequence:'你突入禁区小角度爆射近角得手！1-0！中国队小组出线！终场哨响时你跪地怒吼，这一球将被反复播放十年。亚洲杯最佳进球候选，就是它。',formChange:4,goals:1,intlGoals:1,caps:1,flag:'asian_cup_hero',risk:{attr:'SHO.finishing',base:.6},fail:{effects:{'SHO.finishing':1},consequence:'你突入禁区小角度爆射——被对方门将用腿挡出！紧接着的补射也被后卫用身体封堵。终场哨响，0-0，出线的悬念留到了最后一轮。你把球衣蒙在头上，久久没有说话。',formChange:-1,caps:1}},
     {text:'助攻队长 — 团队制胜',effects:{'PAS.vision':3,'PAS.shortPassing':2},consequence:p=>`你吸引三人防守后横敲中路，${NT_CAPTAIN}推射破门！1-0出线！老队长抱着你转了三圈："小伙子，国家队需要你这样的大心脏！"`,formChange:3,assists:1,caps:1,flag:'asian_cup_hero'},
     {text:'憾平 — 点球大战惜败',effects:{'DRI.composure':2,'PHY.stamina':2},consequence:'120分钟0-0，点球大战你顶住压力罚进，但队友失手——中国队止步十六强。更衣室里一片沉默，${ctx.ntCoach}挨个拍肩膀："抬起头，两年后世预赛，我们再来。"',formChange:0,caps:1}
   ]},
-{ id:'cal_olympics',once:true,priority:3,condition:p=>p.ovr>=60,
+{ id:'cal_olympics',once:true,noGK:true,priority:3,condition:p=>p.ovr>=60,
   narrative:(p,ctx)=>`洛杉矶奥运会男足抽签出炉——时隔二十年，中国国奥队再次站上奥运舞台！\n\n作为适龄球员里的头号球星，你被国奥队列为超龄方案外的核心 U23 战力。全队平均年龄21岁，你带着"老大哥"的头衔入队。\n\n小组赛首战对阵南美劲旅。奥运会——这个世界最大的舞台——从未有过中国男足的胜利，更别说进球。\n\n第60分钟，0-0，你在反击中拿到球权：`,
   choices:[
     {text:'创造历史 — 打入中国男足奥运首球',effects:{'SHO.finishing':3,'DRI.composure':3,'PAC.sprintSpeed':1},consequence:'你单刀赴会，冷静推射！中国男足奥运会历史上第一粒进球诞生了！全中国刷屏，国际奥委会官网都在播报。赛后你把比赛用球珍重收好——它属于历史。',formChange:4,flag:'olympic_goal',caps:1},
@@ -2912,14 +2986,14 @@ const STORY_EVENTS=[
     {text:'憾平 — 进附加赛',effects:{'DRI.composure':3,'PHY.stamina':2},consequence:'1-1，附加赛。次回合加时赛，中国队凭借你的关键进球绝杀对手，惊险晋级！虽然之路曲折，但结局圆满——世界杯，中国队来了！',formChange:3,goals:1,intlGoals:1,caps:1,flag:'wc_qualified'},
     {text:'命运弄人 — 惜败出局',effects:{'DRI.composure':2,'PHY.aggression':1},consequence:'第93分钟，对手一次反击绝杀。1-2。终场哨响，你跪在草皮上久久不起。四年，又是四年。但你在心里发誓：下一次，不会有下一次的失望。',formChange:-2,caps:1}
   ]},
-{ id:'cal_wc_2030',once:true,priority:1,condition:p=>p.flags.wcQualified,
+{ id:'cal_wc_2030',once:true,noGK:true,priority:1,condition:p=>p.flags.wcQualified,
   narrative:(p,ctx)=>`${ctx.year}年夏天。世界杯小组赛，中国队的更衣室通道口，队友们在互相整理球衣。\n\n你的职业生涯至今所有的一切——青训、梯队、中超、留洋、世预赛——都为了此刻：站上世界杯的赛场。\n\n小组赛首战，对手是欧洲劲旅。解说员念首发名单念到你名字时，中国无数家庭的电视机前爆发了欢呼。\n\n第63分钟，0-0，你拿球突进：`,
   choices:[
     {text:'世界杯首球 — 载入史册',effects:{'SHO.finishing':3,'DRI.composure':3,'SHO.positioning':2},consequence:'你晃开防守，禁区内冷静推射远角——球进了！！！中国男足世界杯历史性进球！你亲吻队徽，泪流满面。解说员哽咽："这一球，几代中国球员的梦。"比赛1-0，中国队世界杯首胜！',formChange:5,goals:1,intlGoals:1,caps:1,flag:'wc_goal',risk:{attr:'SHO.finishing',base:.6},fail:{effects:{'SHO.finishing':1},consequence:'你晃开防守推射远角——门将的手指改变了一切！皮球被他指尖一蹭击中立柱弹出。中国队错失世界杯历史上最好的进球机会，你抱着头望向天空，不甘写满了脸。',formChange:-1,caps:1}},
     {text:'盘活进攻 — 虽败犹荣',effects:{'PAS.vision':3,'DRI.composure':2},consequence:'你的几次盘带撕开对方防线，可惜锋线队友错失良机，0-1惜败。但中国队的面貌让世界眼前一亮——"亚洲新势力"，外媒如此评价。',formChange:2,caps:1,flag:'wc_group_pass'},
     {text:'学习大赛 — 积累经验',effects:{'DRI.reactions':2,'DRI.composure':2},consequence:'世界杯的强度还是让你交了学费，0-2。但你把每一帧画面都刻进脑海——下一届，你不会再是学生。',formChange:1,caps:1}
   ]},
-{ id:'cal_wc_2030_ko',once:true,priority:1,condition:p=>p.flags.wc_group_pass||p.flags.wc_goal,
+{ id:'cal_wc_2030_ko',once:true,noGK:true,priority:1,condition:p=>p.flags.wc_group_pass||p.flags.wc_goal,
   narrative:(p,ctx)=>`世界杯16强淘汰赛。中国队——历史上第二次从世界杯小组出线——对阵南美豪强。\n\n赛前博彩公司一边倒，媒体戏称这是"作业题"。但更衣室里，${NT_CAPTAIN}把队长袖标拍在桌上："作业题？让他们做做我们的题。"\n\n比赛打得难解难分。第90分钟，1-1，你获得单刀球——裁判没有吹越位：`,
   choices:[
     {text:'杀死比赛 — 疯狂之夜',effects:{'SHO.finishing':3,'DRI.composure':3,'PAC.sprintSpeed':2},consequence:'你晃过出击的门将，推射空门！2-1！中国队晋级世界杯八强！！！创造历史的一夜！国内朋友圈被同一句话刷屏："我们见证了历史！"',formChange:5,goals:1,intlGoals:1,caps:1,flag:'wc_quarter'},
@@ -3204,11 +3278,15 @@ function showEvent(eventId){
   html+='</div>';
   const narrative=interpolateEventText(typeof event.narrative==='function'?event.narrative(p,ctx):event.narrative,p,ctx);
   html+='<div class="event-narrative">'+narrative+'</div>';
-  html+='<div class="choices">';
+  // 短选项自动双列：节省纵向空间（移动端一屏可见全部选项）
+  const choiceTexts=event.choices.map(c=>String(typeof c.text==='function'?c.text(p):c.text));
+  const hintsOk=event.choices.every(c=>!c.hint||String(c.hint).length<=12);
+  const twoCol=choiceTexts.length>=2&&choiceTexts.length<=4&&choiceTexts.every(t=>t.length<=16)&&hintsOk;
+  html+='<div class="choices'+(twoCol?' choices-2col':'')+'">';
   event.choices.forEach((choice,i)=>{
     html+='<button class="choice-btn" onclick="processChoice('+i+')">';
     html+='<span class="choice-index">'+(i+1)+'</span>';
-    html+='<span class="choice-body"><div>'+(typeof choice.text==='function'?choice.text(p):choice.text)+'</div>';
+    html+='<span class="choice-body"><div>'+choiceTexts[i]+'</div>';
     if(choice.hint)html+='<div class="choice-hint">'+choice.hint+'</div>';
     html+='</span>';
     html+='</button>';
