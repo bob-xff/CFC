@@ -726,10 +726,12 @@ button{user-select:none;-webkit-user-select:none}
   .chip{padding:3px 8px;font-size:.68rem}
 }
 /* ============ 教练模式（独立视觉体系：深海军蓝 × 琥珀金 / 顶部导航布局） ============ */
-#coach-create-screen.cm-root,#coach-screen.cm-root{
+:root{
   --cm-bg0:#0a1120;--cm-bg1:#0e1a30;--cm-panel:rgba(157,190,255,.055);--cm-panel2:rgba(157,190,255,.09);
   --cm-line:rgba(240,178,62,.20);--cm-line2:rgba(157,190,255,.14);
   --cm-gold:#f0b23e;--cm-gold2:#ffd479;--cm-ink:#eaf0fa;--cm-dim:#8fa1bd;--cm-deep:#070d18;
+}
+#coach-create-screen.cm-root,#coach-screen.cm-root{
   background:radial-gradient(1200px 500px at 50% -140px,rgba(240,178,62,.10),transparent 60%),linear-gradient(180deg,var(--cm-bg1),var(--cm-bg0) 70%);
   color:var(--cm-ink);
 }
@@ -737,7 +739,7 @@ button{user-select:none;-webkit-user-select:none}
 #coach-create-screen.cm-root{display:none}
 #coach-create-screen.cm-root.active{display:flex;align-items:center;justify-content:center;padding:28px 18px;overflow-y:auto}
 /* —— 教练主界面骨架：顶栏 + 横向标签页 + 内容区 —— */
-.cm-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:10px 14px;
+.cm-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:10px 14px;padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));
   background:linear-gradient(180deg,rgba(7,13,24,.96),rgba(7,13,24,.88));border-bottom:1px solid var(--cm-line);backdrop-filter:blur(8px)}
 .cm-top-club{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
 .cm-top-club .crest{width:34px;height:34px;border-radius:9px;flex:none}
@@ -783,7 +785,6 @@ button{user-select:none;-webkit-user-select:none}
 .cm-btn.block{display:flex;width:100%}
 .cm-btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 .cm-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.cm-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .cm-statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .cm-stat{background:var(--cm-panel);border:1px solid var(--cm-line2);border-radius:12px;padding:10px 6px;text-align:center}
 .cm-stat b{display:block;font-size:1.25rem;font-weight:800;color:var(--cm-gold2)}
@@ -791,7 +792,6 @@ button{user-select:none;-webkit-user-select:none}
 .cm-stat.plain b{color:var(--cm-ink)}
 .cm-tag{display:inline-flex;align-items:center;gap:4px;font-size:.66rem;font-weight:800;padding:3px 8px;border-radius:10px;letter-spacing:.05em}
 .cm-tag.gold{background:rgba(240,178,62,.14);color:var(--cm-gold2);border:1px solid var(--cm-line)}
-.cm-tag.good{background:rgba(76,195,138,.13);color:#7fe0b2;border:1px solid rgba(76,195,138,.3)}
 .cm-tag.bad{background:rgba(229,83,75,.13);color:#f2a09b;border:1px solid rgba(229,83,75,.3)}
 .cm-tag.info{background:rgba(91,141,239,.13);color:#9ec1ff;border:1px solid rgba(91,141,239,.3)}
 .cm-tag.mute{background:var(--cm-panel2);color:var(--cm-dim);border:1px solid var(--cm-line2)}
@@ -825,7 +825,7 @@ button{user-select:none;-webkit-user-select:none}
 .cm-form-dots i{width:5px;height:5px;border-radius:50%;background:rgba(157,190,255,.2)}
 .cm-form-dots i.on{background:var(--cm-gold)}
 .cm-row .ops{display:flex;gap:4px;justify-content:flex-end}
-.cm-mini{padding:4px 8px;font-size:.62rem;border-radius:8px;border:1px solid var(--cm-line2);background:transparent;color:var(--cm-dim);cursor:pointer;font-weight:700}
+.cm-mini{padding:6px 9px;font-size:.62rem;border-radius:8px;border:1px solid var(--cm-line2);background:transparent;color:var(--cm-dim);cursor:pointer;font-weight:700}
 .cm-mini.gold{color:var(--cm-gold2);border-color:var(--cm-line)}
 .cm-mini.red{color:#f2a09b;border-color:rgba(229,83,75,.4)}
 /* 战术板球场 */
@@ -855,7 +855,7 @@ button{user-select:none;-webkit-user-select:none}
 .cm-tok.weak .dot{border-color:rgba(229,83,75,.55)}
 .cm-bench{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .cm-bench-p{display:inline-flex;align-items:center;gap:6px;background:var(--cm-panel);border:1px solid var(--cm-line2);border-radius:10px;
-  padding:5px 9px;font-size:.72rem;cursor:pointer}
+  padding:7px 10px;font-size:.72rem;cursor:pointer}
 .cm-bench-p b{color:var(--cm-gold2)}
 .cm-bench-p.sel{border-color:var(--cm-gold);background:rgba(240,178,62,.12)}
 .cm-chiprow{display:flex;flex-wrap:wrap;gap:7px}
@@ -894,7 +894,7 @@ button{user-select:none;-webkit-user-select:none}
 .cm-seg::-webkit-scrollbar{display:none}
 .cm-seg .cm-chip{flex:none;padding:6px 12px;font-size:.72rem}
 /* 比赛 overlay */
-.cm-match-content{width:min(calc(100vw - 40px),620px);max-height:88vh;overflow-y:auto;background:linear-gradient(180deg,#0e1a30,#0a1120);
+.cm-match-content{width:min(calc(100vw - 40px),620px);max-height:88vh;max-height:88dvh;overflow-y:auto;background:linear-gradient(180deg,#0e1a30,#0a1120);
   border:1px solid var(--cm-line);border-radius:18px;padding:18px}
 .cm-score{display:flex;align-items:center;justify-content:center;gap:16px;margin:8px 0 4px}
 .cm-score .side{flex:1;text-align:center;min-width:0}
@@ -925,7 +925,7 @@ button{user-select:none;-webkit-user-select:none}
 .cm-input:focus{border-color:var(--cm-gold)}
 .cm-offer{background:var(--cm-panel);border:1px solid var(--cm-line2);border-radius:15px;padding:15px;margin-bottom:11px;cursor:pointer;
   transition:border-color .15s,transform .15s}
-.cm-offer:hover{border-color:var(--cm-gold);transform:translateY(-2px)}
+@media(hover:hover){.cm-offer:hover{border-color:var(--cm-gold);transform:translateY(-2px)}}
 .cm-offer .hd{display:flex;align-items:center;gap:11px;margin-bottom:10px}
 .cm-offer .hd .crest{width:44px;height:44px;border-radius:11px}
 .cm-offer .hd b{font-size:1.02rem;display:block}
@@ -943,7 +943,9 @@ button{user-select:none;-webkit-user-select:none}
 .cm-menu-card .cm-btn{width:100%;margin-bottom:8px}
 .cm-menu-ver{text-align:center;color:var(--cm-dim);font-size:.64rem;margin-top:8px}
 @media (max-width:700px){
-  .cm-row{grid-template-columns:30px 1fr 36px 40px 44px 58px 40px 74px;font-size:.72rem;padding:7px 8px}
+  .cm-rows{overflow-x:auto}
+  .cm-row{grid-template-columns:28px minmax(96px,1fr) 32px 38px 42px 54px 36px 76px;font-size:.72rem;padding:7px 8px}
+  .cm-row{min-width:340px}
   .cm-statrow{grid-template-columns:repeat(4,1fr);gap:6px}
   .cm-body{padding:12px 10px 90px}
   .cm-score .num{font-size:2rem}
@@ -963,7 +965,7 @@ button{user-select:none;-webkit-user-select:none}
 <div id="splash-screen" class="active">
   <img class="splash-logo" id="splash-logo" alt="CFC" src="">
   <div class="splash-line"></div>
-  <div class="splash-meta"><span>CFC FOOTBALL CAREER</span><span class="dot"></span><span>中国足球生涯 V2.3.0</span></div>
+  <div class="splash-meta"><span>CFC FOOTBALL CAREER</span><span class="dot"></span><span id="splash-version">中国足球生涯 V2.3.0</span></div>
 </div>
 <!-- Start Screen -->
 <div id="start-screen" class="screen">
@@ -1688,6 +1690,7 @@ function getSaveInfo(slot){
 }
 function deleteSave(slot){localStorage.removeItem('fcs_save_'+slot);prefsRemove('fcs_save_'+slot)}
 function manualSave(){
+  if(!game&&cgame){cmMenuSave();return}
   if(!game){showToast('请先开始游戏');return}
   if(!game.saveSlot){showLoadScreen(true);return}
   if(saveGame(game.saveSlot))showToast('已保存到存档 '+game.saveSlot);
@@ -1835,6 +1838,7 @@ function showToast(msg){
 // ============ SCREEN MANAGEMENT ============
 function showScreen(id){
   if(id==='create-screen'&&typeof wizSet==='function')wizSet(1);
+  window.scrollTo(0,0);
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(id);
   if(el)el.classList.add('active');
@@ -1859,9 +1863,9 @@ function showLoadScreen(forSave,mode){
     if(info){
       if(isCoach){
         const unemployed=info.team==='赋闲';
-        const teamForCrest=unemployed?'CSL':info.team;
+        const crestPart=unemployed?monoHTML(' Coach ','crest crest-sm'):crestHTML('team',info.team,'crest crest-sm');
         const lgForCrest=unemployed?'CSL':cmTeamLeague(info.team);
-        slot.innerHTML='<div class="save-slot-info"><div><div class="slot-crests">'+crestHTML('team',teamForCrest,'crest crest-sm')+crestHTML('league',lgForCrest,'crest crest-xs')+'</div><div class="save-slot-name">存档 '+i+' - 教练 '+escapeHtml(info.name)+'</div><div class="save-slot-detail">'+info.year+'赛季 · '+(info.retired?'执教生涯已总结':info.seasons+'个赛季')+' · '+escapeHtml(info.team)+' · 声望 '+info.rep+' · '+info.titles+'冠</div></div><div class="save-slot-ovr">'+info.rep+'<span class="ovr-caption">声望</span></div></div>';
+        slot.innerHTML='<div class="save-slot-info"><div><div class="slot-crests">'+crestPart+crestHTML('league',lgForCrest,'crest crest-xs')+'</div><div class="save-slot-name">存档 '+i+' - 教练 '+escapeHtml(info.name)+'</div><div class="save-slot-detail">'+info.year+'赛季 · '+(info.retired?'执教生涯已总结':info.seasons+'个赛季')+' · '+escapeHtml(info.team)+' · 声望 '+info.rep+' · '+info.titles+'冠</div></div><div class="save-slot-ovr">'+info.rep+'<span class="ovr-caption">声望</span></div></div>';
       }else{
         const leagueName=LEAGUES[info.league]?LEAGUES[info.league].name:info.league;
         slot.innerHTML='<div class="save-slot-info"><div><div class="slot-crests">'+crestHTML('team',info.team,'crest crest-sm')+crestHTML('league',info.league,'crest crest-xs')+'</div><div class="save-slot-name">存档 '+i+' - '+escapeHtml(info.name)+'</div><div class="save-slot-detail">'+seasonYear({season:info.season})+'赛季 · '+info.age+'岁 · '+getStageName(info.careerStage)+' · '+escapeHtml(info.team)+' · '+info.position+' · '+leagueName+'</div></div><div class="save-slot-ovr">'+info.ovr+'<span class="ovr-caption">OVR</span></div></div>';
@@ -3625,7 +3629,7 @@ function showSeasonStart(){
   html+=intros[Math.floor(Math.random()*intros.length)];
   html+='</div>';
   html+='<button class="continue-btn" onclick="nextStep()">开始赛季 →</button>';
-  html+='<div class="skip-row"><button class="btn-ghost" onclick="skipSeasonRest()"><span class="btn-icon" style="margin:0" data-icon="fast"></span>快进 · 跳过剩余剧情直接结算</button></div>';
+  html+='<div class="skip-row"><button class="btn-ghost" onclick="skipSeasonRest()"><span class="btn-icon" style="margin:0">'+ICONS.fast+'</span>快进 · 跳过剩余剧情直接结算</button></div>';
   html+='</div>';
   area.innerHTML=html;
   autoSave();
@@ -4168,6 +4172,8 @@ const CM_STRATEGIES=[
   {k:'possess',name:'控球消耗',desc:'传控掌握节奏，磨垮对手',atk:1.0,def:1.0}
 ];
 const CM_SLOT_ZONE={GK:'def',CB:'def',LB:'def',RB:'def',CDM:'mid',CM:'mid',CAM:'atk',LW:'atk',RW:'atk',ST:'atk'};
+// 4-2-3-1 首发兼容底线（保底补员用：任何阵容至少能排出完整 11 人）
+const CM_XI_FLOOR={GK:1,CB:2,LB:1,RB:1,CDM:2,CM:1,CAM:1,LW:1,RW:1,ST:1};
 const CM_GOAL_WEIGHT={ST:9,LW:6,RW:6,CAM:5,CM:2.6,CDM:1,CB:0.8,LB:0.5,RB:0.5,GK:0.02};
 const CM_POS_REL={CB:['CDM'],CDM:['CM','CB'],CM:['CDM','CAM'],CAM:['CM','LW','RW','ST'],LW:['RW','CAM','ST'],RW:['LW','CAM','ST'],ST:['CAM','LW','RW'],LB:['LW','CB','RB'],RB:['RW','CB','LB'],GK:[]};
 const CM_NT_TEAM='中国国家男子足球队';
@@ -4407,9 +4413,9 @@ function cmGenFixtures(teams){
   const r2=r1.map(rd=>rd.map(m=>({h:m.a,a:m.h})));
   return r1.concat(r2).map(rd=>rd.map(m=>({h:m.h,a:m.a,hg:null,ag:null,done:false})));
 }
-function cmInitTable(lgKey){
+function cmInitTable(lgKey,teams){
   const t={};
-  cmLeagueTeams(lgKey).forEach(tm=>{t[tm]={p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}});
+  (teams||cmLeagueTeams(lgKey)).forEach(tm=>{t[tm]={p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}});
   return t;
 }
 function cmTableRows(table){
@@ -4443,7 +4449,8 @@ function cmSimCupPair(m,neutral){
   const hWin=Math.random()<(sh/Math.max(1,sh+sa));
   m.penH=hWin?cmRandInt(4,5):cmRandInt(2,4);
   m.penA=hWin?cmRandInt(2,4):cmRandInt(4,5);
-  while(m.penH===m.penA){m.penA=cmRandInt(2,5)} // 点球不允许可同分
+  if(hWin){while(m.penA>=m.penH)m.penA=cmRandInt(2,m.penH-1)} // 只压低败方比分，不反转胜负意图
+  else{while(m.penH>=m.penA)m.penH=cmRandInt(2,m.penA-1)}
   }
   cmApplyEvents(res,m.h,m.a);
   cmRecordApps(m.h);cmRecordApps(m.a);
@@ -4543,7 +4550,8 @@ function cmMyRatings(){
   fmt.slots.forEach((slot,i)=>{
     const p=cmPlayerById(club.lineup[i]);
     if(!p)return;
-    const eff=p.ovr+(p.form-5)*0.6-(cmPosFit(p.pos,slot.pos)===1?3:0);
+    const fit=cmPosFit(p.pos,slot.pos);
+    const eff=p.ovr+(p.form-5)*0.6-(fit===2?0:fit===1?3:7); // 错位首发的惩罚必须重于邻近位
     all+=eff;n++;
     const z=CM_SLOT_ZONE[slot.pos];
     if(z==='atk'){atkS+=eff;atkN++}else if(z==='mid'){midS+=eff;midN++}else{defS+=eff;defN++}
@@ -4645,7 +4653,7 @@ function cmTokTap(i){
 }
 function cmBenchTap(bi){
   if(!cgame.club)return;
-  if(cmSelTok>=0){cmBenchToSlot(cmSelTok);return}
+  if(cmSelTok>=0){cmSelBench=bi;cmBenchToSlot(cmSelTok);return} // 「先场上后替补」同样精确换人
   cmSelBench=cmSelBench===bi?-1:bi;
   cmRenderTactics();
 }
@@ -4692,7 +4700,7 @@ function cmNewSeason(){
     year:cgame.world.year,leagueKey:lgKey,
     fixtures:cmGenFixtures(teams),table:cmInitTable(lgKey),
     round:0,totalRounds:totalRounds,
-    winOpen:true,winLabel:'季前转会窗',winDeadline:-1,
+    winOpen:true,winLabel:'季前转会窗',winDeadline:4,
     objective:cmComputeObjective(),
     cup:cmInitCup(totalRounds),
     news:[],eventCd:0,scout:[],offers:[]
@@ -4893,7 +4901,8 @@ function cmCalcDRep(){
   const win=sc.my>sc.opp;
   const oppStr=cmInNT()?m.strength:cmSquadStrength(cmMatch.opp);
   const myStr=cmInNT()?64:cmSquadStrength(cmMatch.myTeam);
-  return cmRepAfterMatch(sc.my,sc.opp,oppStr,myStr,fx.type==='cup'?'cup':'league')*((cmMatch.sit==='trail'&&win)?1.5:1)*(cmMatch.quick?1:1.15);
+  const d=cmRepAfterMatch(sc.my,sc.opp,oppStr,myStr,fx.type==='cup'?'cup':'league')*((cmMatch.sit==='trail'&&win)?1.5:1)*(cmMatch.quick?1:1.15);
+  return Math.round(d*10)/10;
 }
 // 终场确认：记录结果 + 结算本轮其它场次（幂等：仅从 ft 相位进入一次）
 function cmMatchDone(){
@@ -4919,9 +4928,10 @@ function cmMatchDone(){
   const sq=cmSquadOf(cgame.club.team);
   cmEnsureLineup();
   cgame.club.lineup.filter(id=>id!=null).forEach(id=>{const p=cmPlayerById(id);if(p)p.apps++});
+  const oppSq=cmSquadOf(cmMatch.opp);
   cmMatch.h1.concat(cmMatch.h2).forEach(e=>{
-    if(e.team!==cmMatch.myTag)return;
-    const p=e.scorer?sq.find(x=>x.name===e.scorer):null;
+    const roster=e.team===cmMatch.myTag?sq:oppSq;
+    const p=e.scorer?roster.find(x=>x.name===e.scorer):null;
     if(p)p.gs++;
   });
   cgame.club.morale=cmClamp((cgame.club.morale||5)+(win?0.4:draw?0:-0.5),1,10);
@@ -4952,6 +4962,8 @@ function cmMatchDone(){
     }
   }else{
     m.hg=hg;m.ag=ag;m.done=true;
+    cmMatch.donePairs=(cgame.season.cup.pairs||[]).filter(mm=>mm.done); // 战报快照：本阶段已完对阵
+    cgame.season.cup.pending=false; // 本阶段打完即出队，下一阶段由联赛边界重新置位
     cmSimCupStageRest();
   }
   cmMatch.phase='post';
@@ -5041,20 +5053,26 @@ function cmOpenWindow(){
     tried.add(p.id);
     const young=p.age<=23&&p.pot>=p.ovr+8;
     if(!young&&(p.ovr<myBest-6||p.ovr>myBest+7))continue;
-    targets.push({pid:p.id,ask:Math.round(cmValue(p)*(1.15+Math.random()*0.35)),wage:Math.round(p.wage*1.15),nego:0,young:young});
+    const ask=Math.round(cmValue(p)*(1.15+Math.random()*0.35));
+    if(ask>club.budget*2.2)continue; // 球探不推荐完全买不起的目标
+    targets.push({pid:p.id,ask:ask,wage:Math.round(p.wage*1.15),nego:0,young:young});
   }
   s.scout=targets;
+  s.offerRolled={};
   cmRegenOffers();
 }
 function cmRegenOffers(){
   const s=cgame.season,club=cgame.club;
-  s.offers=[];
+  if(!s.offerRolled)s.offerRolled={};
+  s.offers=s.offers||[];
   const buyerPool=cmLeagueTeams(club.leagueKey).concat(cmLeagueTeams(club.leagueKey==='CSL'?'CL1':'CSL')).filter(t=>t!==club.team);
-  cmSquadOf(club.team).filter(p=>p.listed).forEach(p=>{
+  cmSquadOf(club.team).filter(p=>p.listed&&!s.offerRolled[p.id]).forEach(p=>{
+    s.offerRolled[p.id]=true; // 每窗每球员只掷一次，杜绝反复挂牌刷报价
     if(Math.random()<0.55){
       s.offers.push({pid:p.id,from:cmPick(buyerPool),fee:Math.round(cmValue(p)*(0.7+Math.random()*0.45))});
     }
   });
+  s.offers=s.offers.filter(o=>{const q=cmPlayerById(o.pid);return q&&q.listed&&q.team===club.team});
 }
 function cmBuy(pid,nego){
   const s=cgame.season,club=cgame.club;
@@ -5078,6 +5096,7 @@ function cmCompleteSigning(p,fee,wage){
   if(wage>cmWageRoom()){showToast('工资空间不足（需 '+cmFmtWan(wage)+'/年）');return}
   if(cmSquadOf(club.team).length>=26){showToast('一线队已满 26 人，先出售或解约球员');return}
   if(p.team&&cgame.world.squads[p.team]){
+    if(cgame.world.squads[p.team].length<=18){showToast('对方阵容不足 18 人，拒绝放人');return}
     cgame.world.squads[p.team]=cgame.world.squads[p.team].filter(x=>x.id!==p.id);
   }
   p.team=club.team;p.lg=club.leagueKey;p.wage=wage;p.contract=3;p.listed=false;
@@ -5110,12 +5129,17 @@ function cmAcceptOffer(idx){
   const offer=s.offers[idx];if(!offer)return;
   const p=cmPlayerById(offer.pid);
   if(!p){s.offers.splice(idx,1);cmRenderTransfer();return}
+  if(!s.winOpen){showToast('转会窗已关闭');return}
+  if(p.team!==club.team){showToast('该球员已不在队中，报价已失效');s.offers=s.offers.filter(o=>o.pid!==offer.pid);cmRenderTransfer();return}
   const sq=cmSquadOf(club.team);
   if(sq.length<=17){showToast('一线队至少保留 17 人，无法出售');return}
   if(p.pos==='GK'&&sq.filter(x=>x.pos==='GK').length<=2){showToast('至少保留 2 名门将');return}
+  const buyerSq=cgame.world.squads[offer.from];
+  if(buyerSq&&buyerSq.length>=26){showToast(offer.from+' 阵容已满，无法完成交易');return}
   cgame.world.squads[club.team]=cmSquadOf(club.team).filter(x=>x.id!==p.id);
+  cgame.world.freeAgents=cgame.world.freeAgents.filter(x=>x.id!==p.id); // 防陈旧报价把自由球员"卖出"
   p.team=offer.from;p.lg=cmTeamLeague(offer.from);p.listed=false;
-  if(cgame.world.squads[offer.from])cgame.world.squads[offer.from].push(p);
+  if(buyerSq)buyerSq.push(p);
   club.budget+=offer.fee;
   cmAddNews('官方：'+p.name+' 转会'+offer.from+'，转会费 '+cmFmtWan(offer.fee)+'。');
   cmEnsureLineup();
@@ -5142,11 +5166,13 @@ function cmRelease(id){
   const sq=cmSquadOf(club.team);
   if(sq.length<=17){showToast('一线队至少保留 17 人');return}
   if(p.pos==='GK'&&sq.filter(x=>x.pos==='GK').length<=2){showToast('至少保留 2 名门将');return}
-  showConfirm('解约球员','与 '+p.name+'（'+p.ovr+' OVR）解约需支付 '+cmFmtWan(Math.round(p.wage*0.3))+' 赔偿金，确定吗？',function(){
+  showConfirm('解约球员','与 '+p.name+'（'+p.ovr+' OVR）解约需支付 '+cmFmtWan(Math.round(p.wage*0.3))+' 赔偿金'+(club.budget<Math.round(p.wage*0.3)?'（当前预算不足，将转为欠款）':'')+'，确定吗？',function(){
     cgame.world.squads[club.team]=cmSquadOf(club.team).filter(x=>x.id!==id);
     club.budget-=Math.round(p.wage*0.3);
     p.team='';p.lg='FA';p.listed=false;p.contract=0;
     cgame.world.freeAgents.push(p);
+    cgame.season.offers=cgame.season.offers.filter(o=>o.pid!==id); // 解约后陈旧报价作废
+    cmRenderTransfer();
     cmEnsureLineup();
     cmAddNews(p.name+' 与俱乐部协商解约。');
     cAutoSave();cmRenderSquad();cmRenderTop();
@@ -5217,6 +5243,7 @@ function cmYouthPromote(id){
   if(idx<0)return;
   const y=cgame.youth[idx];
   if(cmSquadOf(cgame.club.team).length>=26){showToast('一线队已满 26 人');return}
+  if(cmWageRoom()<30){showToast('工资空间不足（提拔需 '+cmFmtWan(30)+'/年）');return}
   cgame.youth.splice(idx,1);
   cmSquadOf(cgame.club.team).push({id:y.id,name:y.name,pos:y.pos,age:y.age,ovr:y.ovr,pot:y.pot,
     wage:30,contract:3,form:6,gs:0,as:0,apps:0,team:cgame.club.team,lg:cgame.club.leagueKey,nat:y.nat||'CN',listed:false,youth:true});
@@ -5254,7 +5281,7 @@ function cmSeasonEnd(){
   coach.seasons++;
   let verdict,repD=0,failSevere=false;
   if(champion&&!isCL1){verdict='率队夺得联赛冠军！';repD=12}
-  else if(champion&&isCL1){verdict='率队夺得中甲冠军！';repD=7}
+  else if(champion&&isCL1){verdict='率队夺得中甲冠军，冲超成功！';repD=10;promoted=true}
   else if(promoted){verdict='率队冲超成功！';repD=10}
   else if(rank<=Math.max(1,Math.floor(obj.target/2))){verdict='超额完成董事会目标';repD=7}
   else if(rank<=obj.target){verdict='完成董事会目标';repD=3}
@@ -5312,7 +5339,7 @@ function cmGenJobOffers(sacked){
   }
   return offers;
 }
-function cmOfferStay(){cmOffseasonAdvance(null)}
+function cmOfferStay(){if(!cgame.club)return;cmOffseasonAdvance(null)}
 function cmOfferJoin(idx){
   const o=cmMatch.offers[idx];
   if(!o)return;
@@ -5348,6 +5375,10 @@ function cmOffseasonAdvance(offer){
 }
 function cmOffseasonWorld(force){
   if(cgame._offseasonConsumed&&!force)return; // 防重复老化（等待一年后再签约）
+  cmNameSet=new Set(); // 从存量名字重建去重集，避免跨休赛期重名
+  Object.values(cgame.world.squads).forEach(sq=>sq.forEach(p=>cmNameSet.add(p.name)));
+  cgame.world.freeAgents.forEach(p=>cmNameSet.add(p.name));
+  (cgame.youth||[]).forEach(y=>cmNameSet.add(y.name));
   const coach=cgame.coach;
   coach.age++;
   if(coach.rep<40)coach.rep=Math.max(10,coach.rep-1);
@@ -5413,7 +5444,14 @@ function cmOffseasonWorld(force){
       keep.push(p);
     });
     while(keep.length<(isMine?16:18)){ // 我队只补到16人保底（青年队提补），重建由玩家主导
-      const pos=cmPick(CM_SQUAD_TEMPLATE.map(t=>t.pos));
+      const cnt={};keep.forEach(q=>{cnt[q.pos]=(cnt[q.pos]||0)+1});
+      let pos=null;
+      if((cnt.GK||0)<2)pos='GK'; // 位置感知：先保门将
+      else{
+        for(const k in CM_XI_FLOOR){if((cnt[k]||0)<CM_XI_FLOOR[k]){pos=k;break}} // 先保证 4-2-3-1 首发 11 槽兼容
+        if(!pos){for(const t of CM_SQUAD_TEMPLATE){if((cnt[t.pos]||0)<t.n){pos=t.pos;break}}}
+        if(!pos)pos=cmPick(CM_SQUAD_TEMPLATE.map(t=>t.pos));
+      }
       const lgKey=cmTeamLeague(team);
       const base=(CM_TEAM_BASE[team]||58)-cmRandInt(4,9);
       const foreign=Math.random()<(lgKey==='CSL'?0.35:0.15);
@@ -5433,11 +5471,11 @@ function cmOffseasonWorld(force){
     cgame.world.freeAgents.sort((a,b)=>b.ovr-a.ovr);
     cgame.world.freeAgents.length=120;
   }
-  cmNameSet=null;
   if(cgame.youth)cmYouthOffseason();
   if(cgame.club){
     cgame.club.morale=6;
-    const rank=(s0&&s0.table)?cmMyRank():cmStrengthRank(cgame.club.leagueKey,cgame.club.team);
+    const leagueChanged=s0&&cmTeamLeague(cgame.club.team)!==s0.leagueKey; // 升降级年份：上季名次属于另一级别，无参考意义
+    const rank=leagueChanged?cmStrengthRank(cgame.club.leagueKey,cgame.club.team):(s0?cmMyRank():cmStrengthRank(cgame.club.leagueKey,cgame.club.team));
     cgame.club.budget=cmBaseBudget(cgame.club.leagueKey,rank,coach.rep)+Math.round(cgame.club.budget*0.3);
     cgame.club.wageBudget=Math.max(cgame.club.wageBudget,Math.ceil(cmWageTotal(cgame.club.team)*1.25/50)*50); // 工资帽随阵容成长松绑（升降级不再锁死）
   }
@@ -5467,9 +5505,13 @@ function cmNTAvailable(){
 function cmGenNTMatches(year){
   const ms=[];
   const opps=Object.keys(CM_NT_OPP);
+  const used={};
   const pickOpp=(strong)=>{
-    const pool=opps.filter(o=>CM_NT_OPP[o]>=(strong?68:56)&&CM_NT_OPP[o]<=(strong?80:68));
-    return cmPick(pool.length?pool:opps);
+    const pool=opps.filter(o=>!used[o]&&CM_NT_OPP[o]>=(strong?68:56)&&CM_NT_OPP[o]<(strong?81:68));
+    const cands=pool.length?pool:opps.filter(o=>!used[o]);
+    const pick=cmPick(cands.length?cands:opps);
+    used[pick]=true;
+    return pick;
   };
   let obj={targetWins:1,desc:'热身赛练兵（至少1胜）'};
   if(CALENDAR.asianCupYears.includes(year)){
@@ -5746,14 +5788,14 @@ function cmRenderPost(el){
     }
     html+='</table></div>';
   }else{
-    const cup=s.cup;
+    const pairs=cmMatch.donePairs||(s.cup.pairs||[]).filter(m=>m.done);
     html+='<div class="cm-card"><h3>足协杯 · '+fx.stage+'赛果</h3>';
-    (cup.pairs||[]).forEach(m=>{
+    pairs.forEach(m=>{
       if(m.bye){html+='<div class="cm-newsline"><span class="cm-nd">轮空</span><span>'+m.h+'</span></div>';return}
       html+='<div class="cm-newsline"'+((m.h===cgame.club.team||m.a===cgame.club.team)?' style="color:var(--cm-gold2)"':'')+'><span class="cm-nd">'+m.hg+'-'+m.ag+(m.penH?'（点球'+m.penH+'-'+m.penA+'）':'')+'</span><span>'+m.h+' vs '+m.a+'</span></div>';
     });
     html+='</div>';
-    if(cup.winner)html+='<div class="cm-card"><p style="font-size:.86rem;color:var(--cm-gold2)">'+(cup.winner===cgame.club.team?'你率领'+cup.winner+'捧起足协杯！'+cmDynIcon('trophy'):'('+cup.winner+' 夺得本届足协杯)')+'</p></div>';
+    if(s.cup.winner)html+='<div class="cm-card"><p style="font-size:.86rem;color:var(--cm-gold2)">'+(s.cup.winner===cgame.club.team?'你率领'+s.cup.winner+'捧起足协杯！'+cmDynIcon('trophy'):'('+s.cup.winner+' 夺得本届足协杯)')+'</p></div>';
   }
   html+='<button class="cm-btn block" onclick="cmPostClose()">返回教练席</button>';
   el.innerHTML=html;
@@ -5818,7 +5860,10 @@ function cmSwitchTab(name){
   if(name==='transfer'&&cmInNT()){showToast('国家队期间没有转会窗');return}
   if(name==='youth'&&cmInNT()){showToast('国家队期间不管理青训');return}
   cmTab=name;
+  if(name!=='tactics'){cmSelTok=-1;cmSelBench=-1}
   document.querySelectorAll('#cm-tabs .cm-tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===name));
+  const onBtn=[...document.querySelectorAll('#cm-tabs .cm-tab')].find(b=>b.dataset.tab===name);
+  if(onBtn&&onBtn.scrollIntoView)try{onBtn.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})}catch(e){}
   document.querySelectorAll('.cm-view').forEach(v=>v.classList.remove('on'));
   const el=document.getElementById('cmv-'+name);
   if(el)el.classList.add('on');
@@ -5928,7 +5973,7 @@ function cmRenderHomeNT(el){
     html+='<div class="cm-card gold"><h3>周期赛事已全部结束</h3><button class="cm-btn block" style="margin-top:10px" onclick="cmNTVerdict()">周期考核结算</button></div>';
   }
   html+='<div class="cm-card"><h3>周期目标</h3><p style="font-size:.86rem">'+nt.obj.desc+'</p>'+
-    '<div class="cm-statrow" style="margin-top:10px">'+
+    '<div class="cm-statrow" style="margin-top:10px;grid-template-columns:repeat(3,1fr)">'+
     '<div class="cm-stat"><b>'+nt.matches.filter(x=>x.played&&x.hg>x.ag).length+'</b><span>胜场</span></div>'+
     '<div class="cm-stat plain"><b>'+nt.matches.filter(x=>x.played).length+'/'+nt.matches.length+'</b><span>已赛</span></div>'+
     '<div class="cm-stat"><b>'+Math.round(coach.rep)+'</b><span>声望</span></div></div></div>';
@@ -5949,7 +5994,8 @@ function cmRenderSquad(){
   html+='<div class="cm-row head"><span>位</span><span>球员</span><span style="text-align:center">年龄</span><span style="text-align:center">OVR</span><span style="text-align:center">状态</span><span style="text-align:center">年薪</span><span style="text-align:center">合同</span><span class="ops">操作</span></div>';
   sq.forEach(p=>{
     const inXI=starterSet.has(p.id);
-    const dots='<span class="cm-form-dots">'+[1,2,3,4,5,6,7,8,9,10].map(i=>'<i class="'+(i<=Math.round(p.form)?'on':'')+'"></i>').join('')+'</span>';
+    const fv=Math.round(p.form);const fvc=fv>=7?'cm-ovr ovr-hi':fv>=5?'':'cm-ovr ovr-low';
+    const dots='<span class="'+fvc+'" style="font-weight:800">'+fv+'</span>';
     html+='<div class="cm-row'+(inXI?' starter':'')+'">'+
       '<span>'+cmPosTag(p.pos)+'</span>'+
       '<span class="nm">'+escapeHtml(p.name)+(p.listed?' <span class="cm-tag bad">挂牌</span>':'')+(inXI?' <span class="cm-tag gold">首发</span>':'')+(p.youth?' <span class="cm-tag info">青训</span>':'')+'<small>身价 '+cmFmtWan(cmValue(p))+'</small></span>'+
@@ -5967,11 +6013,14 @@ function cmRenderSquad(){
 }
 function cmRenderNTSquad(el){
   const pool=cmSideSquad(CM_NT_TEAM).slice().sort((a,b)=>b.ovr-a.ovr);
+  const gk=pool.filter(p=>p.pos==='GK').sort((a,b)=>b.ovr-a.ovr)[0];
+  const field=pool.filter(p=>p.pos!=='GK').sort((a,b)=>b.ovr-a.ovr).slice(0,10);
+  const xiSet=new Set([gk].concat(field).filter(Boolean).map(p=>p.id));
   let html='<div class="cm-title"><h2>国家队大名单</h2><span>自动挑选最强11人出场</span></div><div class="cm-rows">';
-  pool.forEach((p,i)=>{
+  pool.forEach(p=>{
     html+='<div class="cm-row"><span>'+cmPosTag(p.pos)+'</span><span class="nm">'+escapeHtml(p.name)+'<small>'+p.team+'</small></span>'+
       '<span style="text-align:center">'+p.age+'</span><span class="cm-ovr '+cmOvrClass(p.ovr)+'" style="text-align:center">'+p.ovr+'</span>'+
-      '<span></span><span></span><span></span><span class="ops">'+(i<11?'<span class="cm-tag gold">主力</span>':'')+'</span></div>';
+      '<span></span><span></span><span></span><span class="ops">'+(xiSet.has(p.id)?'<span class="cm-tag gold">主力</span>':'')+'</span></div>';
   });
   html+='</div>';
   el.innerHTML=html;
@@ -6050,7 +6099,7 @@ function cmRenderTransfer(){
     '<div class="cell"><span>转会预算</span><b>'+cmFmtWan(club.budget)+'</b></div>'+
     '<div class="cell sub"><span>工资余量（年薪）</span><b>'+cmFmtWan(Math.max(0,cmWageRoom()))+'</b> <small style="font-size:.6rem;color:var(--cm-dim)">/ 帽 '+cmFmtWan(club.wageBudget)+'</small></div></div>';
   if(!s.winOpen){
-    const next=s.round<Math.floor(s.totalRounds/2)?'季中转会窗将在第'+(Math.floor(s.totalRounds/2)+1)+'轮结束后开启':'下赛季季前窗见';
+    const next=s.round<Math.floor(s.totalRounds/2)?'季中转会窗将在第'+Math.floor(s.totalRounds/2)+'轮结束后开启':'下赛季季前窗见';
     html+='<div class="cm-card"><h3>转会窗已关闭</h3><p style="font-size:.82rem;color:var(--cm-dim);line-height:1.8">'+next+'。<br>你仍可在「阵容」页挂牌球员，窗内会收到报价。</p></div>';
     el.innerHTML=html;return;
   }
@@ -6296,7 +6345,6 @@ function cmEnterGame(){
   }
   if(!cgame.club&&!cgame.nt&&!cgame.coach.retired){
     // 赋闲档兜底：直接进入邀约相位（历史档或异常退出）
-    if(cgame.season&&cmSeasonComplete()){cmSeasonEnd();if(cgame.settlePhase)return}
     cmMatch={phase:'offers',offers:cmGenJobOffers(true)};
     cmOpenMatchOverlay();
     return;
@@ -6337,6 +6385,15 @@ function cmMigrateSave(g){
   if(!Array.isArray(g.youth))g.youth=[];
   if(typeof g.ntQ!=='boolean')g.ntQ=!!g.ntQ;
   if(g.nt&&!g.nt.poolIds&&Array.isArray(g.nt.squadPool))g.nt.poolIds=g.nt.squadPool.map(p=>p&&p.id).filter(x=>x!=null);
+  if(!g.coach)g.coach={name:'教练',age:35,rep:40,honors:[],log:[],titles:0,stats:{w:0,d:0,l:0},seasons:0,fails:0,unemployed:false,retired:false,nt:false};
+  if(!g.coach.stats)g.coach.stats={w:0,d:0,l:0};
+  if(!Array.isArray(g.coach.honors))g.coach.honors=[];
+  if(!Array.isArray(g.coach.log))g.coach.log=[];
+  if(g.season){
+    if(!Array.isArray(g.season.news))g.season.news=[];
+    if(!g.season.objective)g.season.objective={target:8,type:'mid',desc:'稳居上半区（前8）'};
+    if(!g.season.table)g.season.table=cmInitTable(g.season.leagueKey,g.world.leagues?g.world.leagues[g.season.leagueKey]:undefined);
+  }
   return g;
 }
 function cDeleteSave(slot){
@@ -6722,6 +6779,8 @@ function updateVersionLabels(){
   document.querySelectorAll('[data-version]').forEach(el=>{
     el.textContent=GAME_VERSION+' · 2026赛季版';
   });
+  const sv=document.getElementById('splash-version');
+  if(sv)sv.textContent='中国足球生涯 '+GAME_VERSION;
   const mv=document.getElementById('menu-version');
   if(mv)mv.textContent='CFC '+GAME_VERSION;
 }

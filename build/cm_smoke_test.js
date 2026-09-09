@@ -19,7 +19,7 @@ global.document={
   documentElement:{setAttribute(){},getAttribute(){return 'dark'}},
   activeElement:null
 };
-global.window={Capacitor:null};
+global.window={Capacitor:null,scrollTo(){}};
 global.localStorage={_d:{},getItem(k){return this._d[k]||null},setItem(k,v){this._d[k]=v},removeItem(k){delete this._d[k]}};
 global.navigator={userAgent:'smoke'};
 global.location={reload(){global.__reloaded=true}};
@@ -123,6 +123,7 @@ ok(y0.scout===1,'考察一次');
 cmYouthSpec(y0.id);
 ok(y0.spec===true,'特训标记');
 // 提拔
+__cm.cgame.club.wageBudget+=1000;
 const sqb=cmSquadOf('梅州客家').length;
 const yp=__cm.cgame.youth[1];
 cmYouthPromote(yp.id);

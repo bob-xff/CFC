@@ -1,6 +1,6 @@
 {
   "name": "cfc-mobile",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "CFC 足球生涯（测试版） Android 壳工程",
   "dependencies": {
