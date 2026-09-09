@@ -5,6 +5,11 @@
 """
 import io, os, shutil, sys
 
+# ⚠️ 废弃警告（V2.3.0）：本脚本由 V2.1 时代的模块源码(css.css/js1-5.js)组装，
+# 会把主 HTML 就地回退到旧版，丢失 V2.2.x/V2.3.0 的全部工作（含独立教练模式）。
+# 现行开发方式为直接修改 football-career-simulator.html，请勿再运行本脚本。
+sys.exit(" assemble.py 已废弃：直接修改 football-career-simulator.html；此脚本会回退版本，已阻止执行。")
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REV  = os.path.join(ROOT, "build", "revamp")
 ORIG = os.path.join(ROOT, "football-career-simulator.html")

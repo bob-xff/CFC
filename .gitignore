@@ -30,3 +30,6 @@ mobile/android/app/*.jks
 Thumbs.db
 .DS_Store
 发布-安卓/
+
+# ZCode 会话目录
+.zcode/

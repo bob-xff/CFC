@@ -254,24 +254,9 @@ t('R7 主题切换生效（light）', document.documentElement.getAttribute('dat
 toggleTheme();
 t('R7 主题切回（dark）', document.documentElement.getAttribute('data-theme') === 'dark');
 
-// ---- R8：教练生涯模式 ----
-const fakeExtra = { innerHTML: '' };
-document.getElementById = id => (id === 'retire-extra' ? fakeExtra : null);
-game = newGameState();
-game.player.name = '名宿'; game.player.ovr = 86; game.player.age = 40; game.player.honors = ['a', 'b', 'c', 'd', 'e', 'f'];
-showCoachMode();
-t('R8 高声望退役 → 直接出任争冠球队主教练（指挥台）', coach.teamIdx === 3 && fakeExtra.innerHTML.indexOf('coach-hub') >= 0);
-const _rr = Math.random; Math.random = () => 0;
-coachStartSeason();
-const evOk = fakeExtra.innerHTML.indexOf('choice-btn') > 0;
-coachChoose(0);
-const repAfter = coach.rep;
-coachTactics();
-coachConfirmTactics();
-coachLiveChoice(0);
-coachResult();
-Math.random = _rr;
-t('R9 执教赛季流程：事件→抉择→排兵→临场→结算，声望变动且战绩入账', evOk && typeof repAfter === 'number' && coach.stats && (coach.stats.w + coach.stats.d + coach.stats.l) >= 1 && (coach.teamIdx === 4 || coach.teamIdx === 3));
+// ---- R8/R9：旧「退役后教练生涯」已移除 ----
+// V2.3.0 起教练玩法独立为「教练模式」，其冒烟测试见 build/cm_smoke_test.js
+// （覆盖建档邀约/存档/战术板/转会窗/青训/整季循环/结算升降级/国足线/执教总结）。
 
-console.log('\nRESULT: ' + pass + ' passed, ' + fail + ' failed');
+RESULT: ' + pass + ' passed, ' + fail + ' failed');
 process.exit(fail ? 1 : 0);
