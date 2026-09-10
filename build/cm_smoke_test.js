@@ -54,7 +54,18 @@ ok(__cm.cgame.world&&__cm.cgame.world.year===2026,'世界年份 2026');
 ok(__cm.cgame.coach.name==='测试教练','教练姓名');
 ok(__cm.cgame.coach.age===35,'教练 35 岁起步');
 ok(__cm.cgame.club&&__cm.cgame.club.team==='梅州客家','俱乐部 correct');
-ok(Object.keys(__cm.cgame.world.squads).length===32,'32 支球队阵容（28真实+4中乙填充）');
+ok(Object.keys(__cm.cgame.world.squads).length===128,'128 支球队阵容（28真实+4中乙填充+94海外+2亚冠填充）');
+// V2.4.0 世界扩容：海外联赛阵容断言
+const mcSq=cmSquadOf('曼城');
+ok(mcSq.length>=20&&mcSq.length<=24,'曼城阵容人数 '+mcSq.length);
+ok(mcSq.some(p=>p.name==='哈兰德'),'欧洲球星嵌入（哈兰德）');
+ok(mcSq.every(p=>p.lg==='EPL'),'海外球员 lg=EPL');
+const hld=mcSq.find(p=>p.name==='哈兰德');
+ok(hld&&hld.wage>=300,'欧洲豪门球星年薪档 '+((hld&&hld.wage)||0));
+const j1Sq=cmSquadOf('浦和红钻');
+ok(j1Sq.some(p=>p.nat==='JP'),'J1 本土名池生效');
+ok(cmSquadOf('武里南联').length>=18,'亚冠填充队有阵容');
+ok(cmTeamLeague('曼城')==='EPL'&&cmTeamLeague('萨德')==='QAT'&&cmTeamLeague('梅州客家')==='CL1','cmTeamLeague 全联赛识别');
 const mySq=cmSquadOf('梅州客家');
 ok(mySq.length>=20&&mySq.length<=24,'梅州客家阵容人数 '+mySq.length);
 ok(mySq.some(p=>p.name==='罗德里格'),'真实球星嵌入');
@@ -202,14 +213,14 @@ for(let season=0;season<5;season++){
     const fx=cmNextFixtureInfo();
     if(fx.type==='none'){console.log('  [DEBUG] 停滞: season='+(season+2)+' round='+__cm.cgame.season.round+'/'+__cm.cgame.season.totalRounds+' cup='+(__cm.cgame.season.cup?JSON.stringify({stage:__cm.cgame.season.cup.stageIdx,pending:__cm.cgame.season.cup.pending,elim:__cm.cgame.season.cup.eliminated,winner:__cm.cgame.season.cup.winner,pairs:__cm.cgame.season.cup.pairs?__cm.cgame.season.cup.pairs.length:null}):'null'));break}
     cmPlayNext();
-    if(!__cm.cmMatch)break;
+    if(!__cm.cmMatch){break}
     if(__cm.cmMatch.phase==='event')cmEventChoice(1);
-    if(__cm.cmMatch.phase!=='pre')break;
+    if(__cm.cmMatch.phase!=='pre'){break}
     cmQuickSim();
     cmMatchDone();
     cmPostClose();
   }
-  if(!cmSeasonComplete()){ok(false,'第'+(season+2)+'季未完成');break}
+  if(!cmSeasonComplete()){ok(false,'第'+(season+2)+'季未完成');console.log('  [DBG2] 退出时: g2='+g2+' season='+(!!__cm.cgame.season)+' round='+(__cm.cgame.season?__cm.cgame.season.round+'/'+__cm.cgame.season.totalRounds:'-')+' cup='+(__cm.cgame.season&&__cm.cgame.season.cup?JSON.stringify({stage:__cm.cgame.season.cup.stageIdx,pending:__cm.cgame.season.cup.pending,elim:__cm.cgame.season.cup.eliminated,winner:__cm.cgame.season.cup.winner,alive:__cm.cgame.season.cup.alive?__cm.cgame.season.cup.alive.length:0}):'-')+' acl='+(__cm.cgame.season&&__cm.cgame.season.acl?JSON.stringify({stage:__cm.cgame.season.acl.stageIdx,pending:__cm.cgame.season.acl.pending,winner:__cm.cgame.season.acl.winner}):'null')+' ucl='+(__cm.cgame.season&&__cm.cgame.season.ucl?JSON.stringify({stage:__cm.cgame.season.ucl.stageIdx,pending:__cm.cgame.season.ucl.pending,winner:__cm.cgame.season.ucl.winner}):'null'));break}
   cmSeasonEnd();
   cmSettleNext();
   if(__cm.cgame.coach.retired)break;
