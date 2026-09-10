@@ -33,3 +33,6 @@ Thumbs.db
 
 # ZCode 会话目录
 .zcode/
+
+# AI 技能库（本地安装，不入游戏仓库）
+.agents/
