@@ -25,7 +25,7 @@ global.navigator={userAgent:'smoke'};
 global.location={reload(){global.__reloaded=true}};
 global.requestAnimationFrame=f=>f();
 
-const html=fs.readFileSync(path.join(__dirname,'_rv3','_baseline.html'),'utf-8');
+const html=fs.readFileSync(path.join(__dirname,'_baseline.html'),'utf-8');
 const start=html.indexOf('<script>')+8;
 const end=html.lastIndexOf('</script>');
 const js=html.slice(start,end);

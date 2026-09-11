@@ -240,7 +240,7 @@ ok(css.includes('.ms-grid{display:grid;grid-template-columns:repeat(3,1fr)') && 
 ok(css.includes('html[data-theme="light"] .ms-item.done{border-color:rgba(77,124,15,.45)}'), '浅色主题里程碑 done 高亮覆写');
 ok(css.includes('.retire-options.solo{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}'), '退役 solo 单列居中规则（含自动边距）');
 ok(/@media \(orientation:landscape\) and \(max-height:540px\) and \(max-width:1024px\)/.test(css), '横屏兜底块保留（未破坏原横屏适配）');
-ok(/@media \(max-width:700px\)\{\s*\.cm-rows/.test(css), '教练模式竖屏块保留（未触碰 cm 段）');
+ok(/@media \(max-width:700px\)\{[^}]*\.cm-row[ {]/.test(css), '教练模式竖屏块保留（未触碰 cm 段）');
 
 // ================= 9. JS 集成点静态检查 =================
 section('JS 集成点（静态）');

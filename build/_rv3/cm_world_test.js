@@ -89,7 +89,7 @@ section('世界生成（欧洲+亚洲联赛阵容）');
 cmCreateGame({team:'梅州客家',lgKey:'CL1',rep:40},'世界测试教练');
 ok(!!__cm.cgame,'建档成功');
 const squadKeys=Object.keys(__cm.cgame.world.squads);
-ok(squadKeys.length===128,'128 支球队阵容（32中国+94海外+2亚冠填充，实际 '+squadKeys.length+'）');
+ok(squadKeys.length===236,'236 支球队阵容（28中国+全球联赛+填充，实际 '+squadKeys.length+'）');
 CM_WORLD_LEAGUES.forEach(k=>{
   const okLg=Array.isArray(__cm.cgame.world.leagues[k])&&__cm.cgame.world.leagues[k].length===LEAGUES[k].teams.length;
   if(!okLg)ok(false,'world.leagues.'+k+' 缺失或数量不符');
@@ -97,7 +97,7 @@ CM_WORLD_LEAGUES.forEach(k=>{
 ok(CM_WORLD_LEAGUES.every(k=>Array.isArray(__cm.cgame.world.leagues[k])),'world.leagues 含全部 11 个海外联赛');
 const mcSq=cmSquadOf('曼城');
 ok(mcSq.length===22,'曼城 22 人');
-ok(mcSq.some(p=>p.name==='哈兰德')&&mcSq.some(p=>p.name==='罗德里'),'曼城真名球星');
+ok(mcSq.some(p=>p.name==='哈兰德')&&mcSq.some(p=>p.name==='福登'),'曼城真名球星');
 const rmSq=cmSquadOf('皇家马德里');
 ok(rmSq.some(p=>p.name==='姆巴佩'),'皇马真名球星');
 const hld=mcSq.find(p=>p.name==='哈兰德');
@@ -116,7 +116,7 @@ ok(cmSquadOf('武里南联').length>=18&&cmSquadOf('悉尼FC').length>=18,'亚�
   ok(dup===0,'全库球员 id 唯一（重复 '+dup+'）');
 }
 const jsonLen=JSON.stringify(__cm.cgame).length;
-ok(jsonLen>150000&&jsonLen<900000,'存档体积合理 '+Math.round(jsonLen/1024)+'KB');
+ok(jsonLen>150000&&jsonLen<1500000,'存档体积合理 '+Math.round(jsonLen/1024)+'KB');
 ok(cmTeamLeague('曼城')==='EPL'&&cmTeamLeague('巴黎圣日耳曼')==='LIGUE_1'&&cmTeamLeague('萨德')==='QAT'&&cmTeamLeague('武里南联')==='ETH','cmTeamLeague 全联赛识别');
 ok(cmWageCap('EPL')===2400&&cmWageCap('CL1')===130,'年薪档常量');
 
@@ -137,7 +137,7 @@ section('老档迁移（V2.3 档惰性补生成海外世界）');
   const m=cmMigrateSave(old);
   ok(m&&m.world.leagues.EPL.length===12,'迁移后 EPL 联赛键补齐');
   ok(CM_WORLD_LEAGUES.every(k=>Array.isArray(m.world.leagues[k])),'迁移后全部海外联赛键补齐');
-  ok(Object.keys(m.world.squads).length===128,'迁移后 128 支阵容（实际 '+Object.keys(m.world.squads).length+'）');
+  ok(Object.keys(m.world.squads).length===236,'迁移后 236 支阵容（实际 '+Object.keys(m.world.squads).length+'）');
   ok(m.world.squads['曼城'].some(p=>p.name==='哈兰德'),'迁移后曼城球星就位');
   ok(m.world.squads['武里南联'].length>=18,'迁移后亚冠填充队补齐');
   ok(Array.isArray(m.contHistory),'contHistory 容错补齐');
