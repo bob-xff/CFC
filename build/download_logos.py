@@ -42,6 +42,9 @@ LEAGUE_IDS = {
     "EPL": 39, "LALIGA": 140, "SERIE_A": 135, "BUNDESLIGA": 78, "LIGUE_1": 61,
     "EREDIVISIE": 88, "LIGA_PT": 94, "CSL": 169, "J1": 98, "K1": 292,
     "MLS": 253, "BRA": 71, "ARG": 128, "SAU": 307, "QAT": 313,
+    # V2.5.1 全球联赛体系
+    "ENG2": 40, "ESP2": 141, "GER2": 79, "ITA2": 136, "FRA2": 62,
+    "J2": 99, "UAE": 315, "LIGA_MX": 262, "BRA2": 72,
 }
 
 # 非欧洲球队：中文名 -> TheSportsDB 搜索词
@@ -83,6 +86,35 @@ TSDB_SEARCH = {
     # QAT
     "萨德": "Al Sadd", "杜海勒": "Al Duhail", "赖扬": "Al Rayyan", "加拉法": "Al Gharafa",
     "沃克拉": "Al Wakrah", "乌姆沙拉尔": "Umm Salal",
+    # V2.5.1 J2
+    "清水心跳": "Shimizu", "磐田喜悦": "Jubilo", "横滨FC": "Yokohama FC", "长崎成功丸": "V Varen",
+    "冈山绿雉": "Fagiano", "千叶市原": "JEF", "山形山神": "Montedio", "德岛漩涡": "Tokushima",
+    # V2.5.1 UAE 海湾联
+    "艾因": "Al Ain", "沙巴布阿赫利": "Shabab Al Ahli", "华斯尔": "Al Wasl",
+    "沙迦": "Sharjah", "杰济拉": "Al Jazira", "纳斯尔": "Al Nasr",
+    # V2.5.1 墨超
+    "老虎大学": "Tigres", "蒙特雷": "Monterrey", "墨西哥美洲": "Club America", "瓜达拉哈拉": "Chivas",
+    "蓝十字": "Cruz Azul", "托卢卡": "Toluca", "莱昂": "Club Leon", "美洲狮": "Pumas",
+    # V2.5.1 巴乙
+    "戈亚斯": "Goias", "科里蒂巴": "Coritiba", "塞阿拉": "Ceara", "累西腓体育": "Sport Recife",
+    "诺瓦里桑蒂诺": "Novorizontino", "阿瓦伊": "Avai", "维拉诺瓦": "Vila Nova", "沙佩科恩斯": "Chapecoense",
+    # V2.5.1 欧洲二级（GitHub 仓库无次级目录，统一走 TheSportsDB）
+    "利兹联": "Leeds United", "桑德兰": "Sunderland", "南安普顿": "Southampton",
+    "诺维奇": "Norwich City", "西布朗": "West Bromwich", "米德尔斯堡": "Middlesbrough",
+    "考文垂": "Coventry City", "沃特福德": "Watford", "斯托克城": "Stoke City",
+    "布里斯托尔城": "Bristol City", "斯旺西": "Swansea City", "卡迪夫城": "Cardiff City",
+    "拉斯帕尔马斯": "Las Palmas", "莱加内斯": "Leganes", "巴拉多利德": "Valladolid",
+    "阿尔梅里亚": "Almeria", "萨拉戈萨": "Zaragoza", "皇家奥维耶多": "Real Oviedo",
+    "桑坦德竞技": "Racing Santander", "希洪竞技": "Sporting Gijon", "韦斯卡": "Huesca", "格拉纳达": "Granada",
+    "科隆": "Koln", "汉堡": "Hamburger SV", "柏林赫塔": "Hertha", "沙尔克04": "Schalke",
+    "纽伦堡": "Nurnberg", "帕德博恩": "Paderborn", "荷尔斯泰因基尔": "Holstein Kiel",
+    "杜塞尔多夫": "Dusseldorf", "达姆施塔特": "Darmstadt", "不伦瑞克": "Braunschweig",
+    "巴勒莫": "Palermo", "桑普多利亚": "Sampdoria", "恩波利": "Empoli", "斯佩齐亚": "Spezia",
+    "克雷莫纳": "Cremonese", "比萨": "Pisa", "布雷西亚": "Brescia", "巴里": "Bari",
+    "弗罗西诺内": "Frosinone", "科森扎": "Cosenza",
+    "圣埃蒂安": "Saint Etienne", "梅斯": "Metz", "洛里昂": "Lorient", "甘冈": "Guingamp",
+    "特鲁瓦": "Troyes", "亚眠": "Amiens", "卡昂": "Caen", "格勒诺布尔": "Grenoble",
+    "罗德兹": "Rodez", "巴斯蒂亚": "Bastia",
 }
 
 # 欧洲球队：中文名 -> GitHub 仓库内文件名关键词

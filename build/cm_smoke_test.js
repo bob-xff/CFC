@@ -54,7 +54,12 @@ ok(__cm.cgame.world&&__cm.cgame.world.year===2026,'世界年份 2026');
 ok(__cm.cgame.coach.name==='测试教练','教练姓名');
 ok(__cm.cgame.coach.age===35,'教练 35 岁起步');
 ok(__cm.cgame.club&&__cm.cgame.club.team==='梅州客家','俱乐部 correct');
-ok(Object.keys(__cm.cgame.world.squads).length===128,'128 支球队阵容（28真实+4中乙填充+94海外+2亚冠填充）');
+ok(Object.keys(__cm.cgame.world.squads).length===236,'236 支球队阵容（28中国+4中乙填充+202海外+2亚冠填充）');
+// V2.5.1 全球联赛体系断言
+ok(cmSquadOf('利兹联').length>=20&&cmTeamLeague('利兹联')==='ENG2','英冠球队入world（利兹联）');
+ok(cmSquadOf('老虎大学').length>=20&&cmTeamLeague('老虎大学')==='LIGA_MX','墨超球队入world（老虎大学）');
+ok(cmSquadOf('桑托斯').length>=20&&cmTeamLeague('桑托斯')==='BRA','美洲一级入world（桑托斯/巴甲）');
+ok(CM_PROMO_PAIRS.length===8&&CM_PROMO_PAIRS.some(p=>p[0]==='EPL'&&p[1]==='ENG2'),'8组升降级配对');
 // V2.4.0 世界扩容：海外联赛阵容断言
 const mcSq=cmSquadOf('曼城');
 ok(mcSq.length>=20&&mcSq.length<=24,'曼城阵容人数 '+mcSq.length);
@@ -83,6 +88,19 @@ ok(__cm.cgame.club.lineup.every(id=>id!=null),'首发已自动填满');
 const wl=cmSquadOf('上海海港');
 const wu=wl.find(p=>p.name==='武磊');
 ok(wu&&wu.ovr>=78,'武磊 OVR '+ (wu&&wu.ovr));
+ok(wu&&wu.age===34,'武磊真实年龄 34（CM_STAR_AGE）'+ (wu&&wu.age));
+// V2.5.1 经营字段
+ok(__cm.cgame.club&&__cm.cgame.club.fin&&typeof __cm.cgame.club.fin.rev==='number','俱乐部经营字段 fin 已初始化');
+// V2.5.1 阵容页一键互换：替补第一人换上登场
+(function(){
+  const club=__cm.cgame.club;
+  const benchId=club.bench.find(x=>x!=null);
+  if(benchId==null){ok(false,'替补席有球员可测');return}
+  const benchPos=club.lineup.length;
+  cmSwapXI(benchId);
+  ok(club.lineup.includes(benchId),'cmSwapXI 替补换上成功');
+  ok(!club.bench.includes(benchId),'cmSwapXI 原替补离开替补席');
+})();
 
 // ------- 2. 战术板 -------
 section('战术板');
@@ -256,6 +274,14 @@ const sumHTML=cmCareerSummaryHTML();
 ok(sumHTML.indexOf('执教生涯总结')>=0,'总结页生成');
 cmAfterRetire(1);
 ok(__cm.cgame===null,'返回主菜单清空会话');
+
+// ------- 10. V2.5.1 换队经营字段 -------
+__cm.cgame={v:1,mode:'coach',slot:null,world:null,coach:null,club:null,season:null,youth:[],nt:null,ntQ:false,tactics:{formation:'4231',strategy:'counter'}};
+__cm.cgame.coach={name:'测试教练',age:35,rep:40,honors:[],log:[],titles:0,stats:{w:0,d:0,l:0},seasons:0,fails:0,unemployed:false,retired:false,nt:false};
+cmGenWorld(2026);
+cmJoinClub('上海海港','CSL');
+ok(!!(__cm.cgame.club&&__cm.cgame.club.fin),'换队后 fin 立即可用（cmJoinClub 补齐）');
+ok(cmTeamLeague('利兹联')==='ENG2'&&cmLeagueTeams('ENG2').length===12,'英冠 12 队归属正确');
 
 console.log('\n结果: '+passed+' 通过, '+failed+' 失败');
 process.exit(failed?1:0);
