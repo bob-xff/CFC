@@ -36,3 +36,6 @@ Thumbs.db
 
 # AI 技能库（本地安装，不入游戏仓库）
 .agents/
+
+build/_extract_check.js
+build/_logo_run.log
