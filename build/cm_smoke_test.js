@@ -54,40 +54,68 @@ ok(__cm.cgame.world&&__cm.cgame.world.year===2026,'世界年份 2026');
 ok(__cm.cgame.coach.name==='测试教练','教练姓名');
 ok(__cm.cgame.coach.age===35,'教练 35 岁起步');
 ok(__cm.cgame.club&&__cm.cgame.club.team==='梅州客家','俱乐部 correct');
-ok(Object.keys(__cm.cgame.world.squads).length===236,'236 支球队阵容（28中国+4中乙填充+202海外+2亚冠填充）');
+ok(Object.keys(__cm.cgame.world.squads).length===240,'240 支球队阵容（16中超+16中甲+4中乙填充+海外+亚冠填充）');
 // V2.5.1 全球联赛体系断言
 ok(cmSquadOf('利兹联').length>=20&&cmTeamLeague('利兹联')==='ENG2','英冠球队入world（利兹联）');
 ok(cmSquadOf('老虎大学').length>=20&&cmTeamLeague('老虎大学')==='LIGA_MX','墨超球队入world（老虎大学）');
 ok(cmSquadOf('桑托斯').length>=20&&cmTeamLeague('桑托斯')==='BRA','美洲一级入world（桑托斯/巴甲）');
 ok(CM_PROMO_PAIRS.length===8&&CM_PROMO_PAIRS.some(p=>p[0]==='EPL'&&p[1]==='ENG2'),'8组升降级配对');
-// V2.4.0 世界扩容：海外联赛阵容断言
+// V6.6.1 德转真实球员库断言
 const mcSq=cmSquadOf('曼城');
-ok(mcSq.length>=20&&mcSq.length<=24,'曼城阵容人数 '+mcSq.length);
-ok(mcSq.some(p=>p.name==='哈兰德'),'欧洲球星嵌入（哈兰德）');
+ok(mcSq.length>=18&&mcSq.length<=26,'曼城阵容人数 '+mcSq.length);
+ok(mcSq.some(p=>p.name==='埃尔林·哈兰德'),'德转真实球员嵌入（埃尔林·哈兰德）');
 ok(mcSq.every(p=>p.lg==='EPL'),'海外球员 lg=EPL');
-const hld=mcSq.find(p=>p.name==='哈兰德');
-ok(hld&&hld.wage>=300,'欧洲豪门球星年薪档 '+((hld&&hld.wage)||0));
+const hld=mcSq.find(p=>p.name==='埃尔林·哈兰德');
+ok(hld&&hld.mvEur>=150000000,'德转真实身价 ≥€1.5亿 '+(hld&&hld.mvEur));
+ok(hld&&hld.ovr>=93,'身价标定评分 ≥93 '+(hld&&hld.ovr));
+ok(cmOvrClass(hld.ovr)==='fc-gold','金黄卡级');
+ok(cmValue(hld)>=115000,'cmValue 德转身价换算(万) '+cmValue(hld));
+ok(mcSq.some(p=>p.name==='拉扬·谢尔基'),'德转阵容深度（拉扬·谢尔基）');
 const j1Sq=cmSquadOf('浦和红钻');
 ok(j1Sq.some(p=>p.nat==='JP'),'J1 本土名池生效');
 ok(cmSquadOf('武里南联').length>=18,'亚冠填充队有阵容');
 ok(cmTeamLeague('曼城')==='EPL'&&cmTeamLeague('萨德')==='QAT'&&cmTeamLeague('梅州客家')==='CL1','cmTeamLeague 全联赛识别');
 const mySq=cmSquadOf('梅州客家');
 ok(mySq.length>=20&&mySq.length<=24,'梅州客家阵容人数 '+mySq.length);
-ok(mySq.some(p=>p.name==='罗德里格'),'真实球星嵌入');
+ok(mySq.length>=18,'中甲球队真实阵容（梅州 '+mySq.length+' 人）');
+ok(mySq.every(p=>p.mvEur!=null),'梅州全员带身价字段');
+ok(mySq.some(p=>cmOvrClass(p.ovr)==='fc-bronze')&&mySq.some(p=>cmOvrClass(p.ovr)==='fc-grey'),'梅州队棕铜/灰卡分级齐全');
 ok(mySq.filter(p=>p.pos==='GK').length>=2,'门将 ≥2');
-ok(__cm.cgame.season.fixtures.length===22,'中甲 22 轮');
-ok(__cm.cgame.season.fixtures[0].length===6,'每轮 6 场（12队）');
-ok(Object.keys(__cm.cgame.season.table).length===12,'积分榜 12 队');
+ok(__cm.cgame.season.fixtures.length===30,'中甲 30 轮');
+ok(__cm.cgame.season.fixtures[0].length===8,'每轮 8 场（16队）');
+ok(Object.keys(__cm.cgame.season.table).length===16,'积分榜 16 队');
 ok(__cm.cgame.season.winOpen===true,'季前转会窗开启');
 ok(__cm.cgame.youth.length===6,'青训 6 人');
 ok(__cm.cgame.season.scout.length>0,'球探清单已生成');
+ok(__cm.cgame.world.freeAgents.length>=8&&__cm.cgame.world.freeAgents.every(p=>p.mvEur!=null),'自由球员来自德转真实池');
 ok(__cm.cgame.club.lineup&&__cm.cgame.club.lineup.length===11,'首发 11 槽位');
 ok(__cm.cgame.club.lineup.every(id=>id!=null),'首发已自动填满');
 
 // 球星OVR合理性
 const wl=cmSquadOf('上海海港');
 const wu=wl.find(p=>p.name==='武磊');
-ok(wu&&wu.ovr>=78,'武磊 OVR '+ (wu&&wu.ovr));
+ok(wu&&wu.ovr>=62&&wu.ovr<=76,'武磊 OVR 落在中超前锋区间 '+ (wu&&wu.ovr));
+ok(wu&&wu.age===34,'武磊真实年龄 34（CM_STAR_AGE）'+ (wu&&wu.age));
+ok(wl.filter(p=>p.nat==='CN').length>=10,'海港中国籍球员入队（国足池可用）');
+const cntCN=cmLeagueTeams('CSL').concat(cmLeagueTeams('CL1')).reduce((n,t)=>n+cmSquadOf(t).filter(p=>p.nat==='CN').length,0);
+ok(cntCN>=300,'全中国联赛 CN 籍球员 ≥300（实际 '+cntCN+'）');
+// V2.6.1 德转四级卡色：灰 / 棕铜 / 亮银 / 金黄（阈值 60 / 70 / 80）
+ok(cmOvrClass(95)==='fc-gold'&&cmOvrClass(80)==='fc-gold','评分≥80 判为金黄');
+ok(cmOvrClass(79)==='fc-silver'&&cmOvrClass(70)==='fc-silver','评分70~79 判为亮银');
+ok(cmOvrClass(69)==='fc-bronze'&&cmOvrClass(60)==='fc-bronze','评分60~69 判为棕铜');
+ok(cmOvrClass(59)==='fc-grey'&&cmOvrClass(40)==='fc-grey','评分<60 判为灰');
+ok(cmOvrTxt(85)==='fc-txt-gold'&&cmOvrTxt(75)==='fc-txt-silver'&&
+   cmOvrTxt(65)==='fc-txt-bronze'&&cmOvrTxt(55)==='fc-txt-grey','文字色四级映射与卡色一致');
+// 浅色/深色主题等价：四级卡色各有浅色主题覆盖，且覆盖规则数量充足
+['fc-gold','fc-silver','fc-bronze','fc-grey'].forEach(function(c){
+  ok(html.indexOf('.'+c+'{')>=0,'卡色类 .'+c+' 已定义');
+});
+['fc-txt-gold','fc-txt-silver','fc-txt-bronze','fc-txt-grey'].forEach(function(c){
+  ok(html.indexOf('html[data-theme="light"] .'+c+'{')>=0,'浅色主题覆盖 '+c);
+});
+var lightRules=(html.match(/html\[data-theme="light"\]/g)||[]).length;
+ok(lightRules>=50,'浅色主题覆盖规则 ≥50 条（实际 '+lightRules+'）');
+ok(html.indexOf('html[data-theme="light"]{')>=0,'浅色主题 token 覆盖块存在（--cm-* 全套反色）');
 ok(wu&&wu.age===34,'武磊真实年龄 34（CM_STAR_AGE）'+ (wu&&wu.age));
 // V2.5.1 经营字段
 ok(__cm.cgame.club&&__cm.cgame.club.fin&&typeof __cm.cgame.club.fin.rev==='number','俱乐部经营字段 fin 已初始化');
@@ -160,7 +188,7 @@ ok(__cm.cgame.youth.length===5-0+0&&cmSquadOf('梅州客家').length===sqb+1,'�
 ok(__cm.cgame.youth.every(x=>x.id!==yp.id),'青训营移除');
 
 // ------- 5. 完整赛季循环 -------
-section('完整赛季循环（中甲22轮+足协杯）');
+section('完整赛季循环（中甲30轮+足协杯）');
 let guard=0,roundsPlayed=0,quickUsed=0;
 while(!cmSeasonComplete()&&guard++<500){
   const s=__cm.cgame.season;
@@ -195,7 +223,7 @@ ok(__cm.cgame.coach.stats.w+__cm.cgame.coach.stats.d+__cm.cgame.coach.stats.l===
 const tb=__cm.cgame.season.table;
 const tablePts=Object.values(tb).reduce((a,r)=>a+r.pts,0);
 let tSum=0;Object.values(tb).forEach(r=>tSum+=r.p);
-ok(tSum===22*LEAGUES.CL1.teams.length,'积分榜赛程记账一致（Σ场次数='+tSum+'）');
+ok(tSum===30*LEAGUES.CL1.teams.length,'积分榜赛程记账一致（Σ场次数='+tSum+'）');
 ok(tablePts>0,'积分榜有分数');
 // 足协杯应有结果
 ok(__cm.cgame.season.cup.winner!==undefined,'杯赛 winner 字段存在');
@@ -220,7 +248,7 @@ ok(__cm.cgame.coach.seasons===1,'执教赛季 +1');
 ok(__cm.cgame.coach.age===36,'教练年龄 +1');
 ok(Object.values(__cm.cgame.season.table).every(r=>r.p===0),'新赛季积分榜清零');
 ok(__cm.cgame.season.winOpen===true,'新赛季季前窗开启');
-ok(__cm.cgame.season.cup.alive.length===32,'新赛季杯赛重置 32 队');
+ok(__cm.cgame.season.cup.alive.length===36,'新赛季杯赛重置 36 队（中超16+中甲16+中乙填充4，含轮空）');
 
 // ------- 7. 多赛季推进（快进5季，测试下课/升迁/邀约路径） -------
 section('快进5个赛季');

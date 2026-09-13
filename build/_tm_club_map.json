@@ -1,0 +1,1143 @@
+{
+ "曼城": {
+  "tm": "Manchester City",
+  "comp": "GB1",
+  "n": 51,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "利物浦": {
+  "tm": "Liverpool FC",
+  "comp": "GB1",
+  "n": 56,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "阿森纳": {
+  "tm": "Arsenal FC",
+  "comp": "GB1",
+  "n": 49,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "切尔西": {
+  "tm": "Chelsea FC",
+  "comp": "GB1",
+  "n": 61,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "曼联": {
+  "tm": "Manchester United",
+  "comp": "GB1",
+  "n": 47,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "热刺": {
+  "tm": "Tottenham Hotspur",
+  "comp": "GB1",
+  "n": 49,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "纽卡斯尔": {
+  "tm": "Newcastle United",
+  "comp": "GB1",
+  "n": 46,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "阿斯顿维拉": {
+  "tm": "Aston Villa",
+  "comp": "GB1",
+  "n": 49,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "布莱顿": {
+  "tm": "Brighton & Hove Albion",
+  "comp": "GB1",
+  "n": 50,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "西汉姆联": {
+  "tm": "West Ham United",
+  "comp": "GB1",
+  "n": 47,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "埃弗顿": {
+  "tm": "Everton FC",
+  "comp": "GB1",
+  "n": 45,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "富勒姆": {
+  "tm": "Fulham FC",
+  "comp": "GB1",
+  "n": 29,
+  "how": "alias",
+  "lg": "EPL"
+ },
+ "皇家马德里": {
+  "tm": "Real Madrid",
+  "comp": "ES1",
+  "n": 53,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "巴塞罗那": {
+  "tm": "FC Barcelona",
+  "comp": "ES1",
+  "n": 42,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "马德里竞技": {
+  "tm": "Atlético de Madrid",
+  "comp": "ES1",
+  "n": 48,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "塞维利亚": {
+  "tm": "Sevilla FC",
+  "comp": "ES1",
+  "n": 53,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "皇家社会": {
+  "tm": "Real Sociedad",
+  "comp": "ES1",
+  "n": 47,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "比利亚雷亚尔": {
+  "tm": "Villarreal CF",
+  "comp": "ES1",
+  "n": 46,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "皇家贝蒂斯": {
+  "tm": "Real Betis Balompié",
+  "comp": "ES1",
+  "n": 52,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "瓦伦西亚": {
+  "tm": "Valencia CF",
+  "comp": "ES1",
+  "n": 51,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "毕尔巴鄂竞技": {
+  "tm": "Athletic Bilbao",
+  "comp": "ES1",
+  "n": 49,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "赫罗纳": {
+  "tm": "Girona FC",
+  "comp": "ES1",
+  "n": 61,
+  "how": "alias",
+  "lg": "LALIGA"
+ },
+ "国际米兰": {
+  "tm": "Inter Milan",
+  "comp": "IT1",
+  "n": 45,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "尤文图斯": {
+  "tm": "Juventus FC",
+  "comp": "IT1",
+  "n": 50,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "AC米兰": {
+  "tm": "AC Milan",
+  "comp": "IT1",
+  "n": 44,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "那不勒斯": {
+  "tm": "SSC Napoli",
+  "comp": "IT1",
+  "n": 50,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "罗马": {
+  "tm": "Associazione Sportiva Roma",
+  "comp": "IT1",
+  "n": 49,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "拉齐奥": {
+  "tm": "Società Sportiva Lazio S.p.A.",
+  "comp": "IT1",
+  "n": 52,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "亚特兰大": {
+  "tm": "Atalanta BC",
+  "comp": "IT1",
+  "n": 47,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "佛罗伦萨": {
+  "tm": "ACF Fiorentina",
+  "comp": "IT1",
+  "n": 53,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "博洛尼亚": {
+  "tm": "Bologna Football Club 1909",
+  "comp": "IT1",
+  "n": 47,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "都灵": {
+  "tm": "Torino FC",
+  "comp": "IT1",
+  "n": 60,
+  "how": "alias",
+  "lg": "SERIE_A"
+ },
+ "拜仁慕尼黑": {
+  "tm": "Bayern Munich",
+  "comp": "L1",
+  "n": 44,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "多特蒙德": {
+  "tm": "Borussia Dortmund",
+  "comp": "L1",
+  "n": 47,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "RB莱比锡": {
+  "tm": "RB Leipzig",
+  "comp": "L1",
+  "n": 43,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "勒沃库森": {
+  "tm": "Bayer 04 Leverkusen",
+  "comp": "L1",
+  "n": 42,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "法兰克福": {
+  "tm": "Eintracht Frankfurt",
+  "comp": "L1",
+  "n": 46,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "沃尔夫斯堡": {
+  "tm": "VfL Wolfsburg",
+  "comp": "L1",
+  "n": 38,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "门兴格拉德巴赫": {
+  "tm": "Borussia Mönchengladbach",
+  "comp": "L1",
+  "n": 39,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "弗赖堡": {
+  "tm": "SC Freiburg",
+  "comp": "L1",
+  "n": 38,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "斯图加特": {
+  "tm": "VfB Stuttgart",
+  "comp": "L1",
+  "n": 45,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "美因茨": {
+  "tm": "1.FSV Mainz 05",
+  "comp": "L1",
+  "n": 36,
+  "how": "alias",
+  "lg": "BUNDESLIGA"
+ },
+ "巴黎圣日耳曼": {
+  "tm": "Paris Saint-Germain",
+  "comp": "FR1",
+  "n": 42,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "马赛": {
+  "tm": "Olympique Marseille",
+  "comp": "FR1",
+  "n": 62,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "摩纳哥": {
+  "tm": "AS Monaco",
+  "comp": "FR1",
+  "n": 37,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "里昂": {
+  "tm": "Olympique Lyon",
+  "comp": "FR1",
+  "n": 36,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "里尔": {
+  "tm": "LOSC Lille",
+  "comp": "FR1",
+  "n": 54,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "尼斯": {
+  "tm": "OGC Nice",
+  "comp": "FR1",
+  "n": 54,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "雷恩": {
+  "tm": "Stade Rennais FC",
+  "comp": "FR1",
+  "n": 52,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "朗斯": {
+  "tm": "RC Lens",
+  "comp": "FR1",
+  "n": 44,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "斯特拉斯堡": {
+  "tm": "RC Strasbourg Alsace",
+  "comp": "FR1",
+  "n": 53,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "南特": {
+  "tm": "FC Nantes",
+  "comp": "FR1",
+  "n": 43,
+  "how": "alias",
+  "lg": "LIGUE_1"
+ },
+ "阿贾克斯": {
+  "tm": "Ajax Amsterdam",
+  "comp": "NL1",
+  "n": 45,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "PSV埃因霍温": {
+  "tm": "PSV Eindhoven",
+  "comp": "NL1",
+  "n": 39,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "费耶诺德": {
+  "tm": "Feyenoord Rotterdam",
+  "comp": "NL1",
+  "n": 50,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "阿尔克马尔": {
+  "tm": "AZ Alkmaar",
+  "comp": "NL1",
+  "n": 44,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "特温特": {
+  "tm": "FC Twente Enschede",
+  "comp": "NL1",
+  "n": 35,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "乌德勒支": {
+  "tm": "FC Utrecht",
+  "comp": "NL1",
+  "n": 50,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "海伦芬": {
+  "tm": "SC Heerenveen",
+  "comp": "NL1",
+  "n": 48,
+  "how": "alias",
+  "lg": "EREDIVISIE"
+ },
+ "本菲卡": {
+  "tm": "SL Benfica",
+  "comp": "PO1",
+  "n": 35,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "波尔图": {
+  "tm": "FC Porto",
+  "comp": "PO1",
+  "n": 40,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "里斯本竞技": {
+  "tm": "Sporting CP",
+  "comp": "PO1",
+  "n": 52,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "布拉加": {
+  "tm": "SC Braga",
+  "comp": "PO1",
+  "n": 48,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "吉马良斯": {
+  "tm": "Vitória Guimarães SC",
+  "comp": "PO1",
+  "n": 57,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "博阿维斯塔": {
+  "tm": "Boavista FC",
+  "comp": "PO1",
+  "n": 33,
+  "how": "alias",
+  "lg": "LIGA_PT"
+ },
+ "利兹联": {
+  "tm": "Leeds United",
+  "comp": "GB1",
+  "n": 32,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "桑德兰": {
+  "tm": "Sunderland AFC",
+  "comp": "GB1",
+  "n": 39,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "南安普顿": {
+  "tm": "Southampton FC",
+  "comp": "GB1",
+  "n": 26,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "诺维奇": {
+  "tm": "Norwich City",
+  "comp": "GB1",
+  "n": 8,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "西布朗": {
+  "tm": "West Bromwich Albion",
+  "comp": "GB1",
+  "n": 9,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "米德尔斯堡": {
+  "tm": "Middlesbrough FC",
+  "comp": "GB1",
+  "n": 6,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "沃特福德": {
+  "tm": "Watford FC",
+  "comp": "GB1",
+  "n": 9,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "斯托克城": {
+  "tm": "Stoke City",
+  "comp": "GB1",
+  "n": 6,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "斯旺西": {
+  "tm": "Swansea City",
+  "comp": "GB1",
+  "n": 11,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "卡迪夫城": {
+  "tm": "Cardiff City",
+  "comp": "GB1",
+  "n": 5,
+  "how": "alias",
+  "lg": "ENG2"
+ },
+ "拉斯帕尔马斯": {
+  "tm": "UD Las Palmas",
+  "comp": "ES1",
+  "n": 41,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "莱加内斯": {
+  "tm": "CD Leganés",
+  "comp": "ES1",
+  "n": 21,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "巴拉多利德": {
+  "tm": "Real Valladolid CF",
+  "comp": "ES1",
+  "n": 22,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "阿尔梅里亚": {
+  "tm": "UD Almería",
+  "comp": "ES1",
+  "n": 18,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "皇家奥维耶多": {
+  "tm": "Real Oviedo",
+  "comp": "ES1",
+  "n": 38,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "格拉纳达": {
+  "tm": "Granada CF",
+  "comp": "ES1",
+  "n": 22,
+  "how": "alias",
+  "lg": "ESP2"
+ },
+ "科隆": {
+  "tm": "1.FC Köln",
+  "comp": "L1",
+  "n": 38,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "汉堡": {
+  "tm": "Hamburger SV",
+  "comp": "L1",
+  "n": 35,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "柏林赫塔": {
+  "tm": "Hertha BSC",
+  "comp": "L1",
+  "n": 1,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "沙尔克04": {
+  "tm": "FC Schalke 04",
+  "comp": "L1",
+  "n": 1,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "纽伦堡": {
+  "tm": "1.FC Nuremberg",
+  "comp": "L1",
+  "n": 3,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "荷尔斯泰因基尔": {
+  "tm": "Holstein Kiel",
+  "comp": "L1",
+  "n": 21,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "杜塞尔多夫": {
+  "tm": "Fortuna Düsseldorf",
+  "comp": "L1",
+  "n": 5,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "达姆施塔特": {
+  "tm": "SV Darmstadt 98",
+  "comp": "L1",
+  "n": 23,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "不伦瑞克": {
+  "tm": "Eintracht Braunschweig",
+  "comp": "L1",
+  "n": 2,
+  "how": "alias",
+  "lg": "GER2"
+ },
+ "巴勒莫": {
+  "tm": "Palermo FC",
+  "comp": "IT1",
+  "n": 3,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "桑普多利亚": {
+  "tm": "UC Sampdoria",
+  "comp": "IT1",
+  "n": 1,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "恩波利": {
+  "tm": "FC Empoli",
+  "comp": "IT1",
+  "n": 39,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "斯佩齐亚": {
+  "tm": "Spezia Calcio",
+  "comp": "IT1",
+  "n": 2,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "克雷莫纳": {
+  "tm": "US Cremonese",
+  "comp": "IT1",
+  "n": 40,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "比萨": {
+  "tm": "Pisa Sporting Club",
+  "comp": "IT1",
+  "n": 41,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "弗罗西诺内": {
+  "tm": "Frosinone Calcio",
+  "comp": "IT1",
+  "n": 23,
+  "how": "alias",
+  "lg": "ITA2"
+ },
+ "圣埃蒂安": {
+  "tm": "AS Saint-Étienne",
+  "comp": "FR1",
+  "n": 32,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "梅斯": {
+  "tm": "FC Metz",
+  "comp": "FR1",
+  "n": 50,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "洛里昂": {
+  "tm": "FC Lorient",
+  "comp": "FR1",
+  "n": 52,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "甘冈": {
+  "tm": "EA Guingamp",
+  "comp": "FR1",
+  "n": 2,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "特鲁瓦": {
+  "tm": "ESTAC Troyes",
+  "comp": "FR1",
+  "n": 1,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "亚眠": {
+  "tm": "Amiens SC",
+  "comp": "FR1",
+  "n": 2,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "卡昂": {
+  "tm": "SM Caen",
+  "comp": "FR1",
+  "n": 1,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "巴斯蒂亚": {
+  "tm": "SC Bastia",
+  "comp": "FR1",
+  "n": 3,
+  "how": "alias",
+  "lg": "FRA2"
+ },
+ "横滨水手": {
+  "tm": "Yokohama Marinos",
+  "comp": "JAP1",
+  "n": 38,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "川崎前锋": {
+  "tm": "Kawasaki Frontale",
+  "comp": "JAP1",
+  "n": 45,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "浦和红钻": {
+  "tm": "Urawa Red Diamonds",
+  "comp": "JAP1",
+  "n": 37,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "鹿岛鹿角": {
+  "tm": "Kashima Antlers FC",
+  "comp": "JAP1",
+  "n": 34,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "神户胜利船": {
+  "tm": "Rakuten Vissel Kobe",
+  "comp": "JAP1",
+  "n": 44,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "广岛三箭": {
+  "tm": "Sanfrecce Hiroshima",
+  "comp": "JAP1",
+  "n": 35,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "名古屋鲸八": {
+  "tm": "Nagoya Grampus Eight",
+  "comp": "JAP1",
+  "n": 38,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "大阪樱花": {
+  "tm": "Cerezo Osaka",
+  "comp": "JAP1",
+  "n": 40,
+  "how": "alias",
+  "lg": "J1"
+ },
+ "清水心跳": {
+  "tm": "S-Pulse",
+  "comp": "JAP1",
+  "n": 54,
+  "how": "alias",
+  "lg": "J2"
+ },
+ "横滨FC": {
+  "tm": "Yokohama FC",
+  "comp": "JAP1",
+  "n": 41,
+  "how": "alias",
+  "lg": "J2"
+ },
+ "长崎成功丸": {
+  "tm": "V-Varen Nagasaki",
+  "comp": "JAP1",
+  "n": 37,
+  "how": "alias",
+  "lg": "J2"
+ },
+ "冈山绿雉": {
+  "tm": "Fagiano Okayama Sports Club",
+  "comp": "JAP1",
+  "n": 49,
+  "how": "alias",
+  "lg": "J2"
+ },
+ "千叶市原": {
+  "tm": "JEF United",
+  "comp": "JAP1",
+  "n": 37,
+  "how": "alias",
+  "lg": "J2"
+ },
+ "利雅得新月": {
+  "tm": "Al-Hilal Saudi Football Club",
+  "comp": "SA1",
+  "n": 48,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "利雅得胜利": {
+  "tm": "Al-Nassr Football Club",
+  "comp": "SA1",
+  "n": 37,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "吉达联合": {
+  "tm": "Al-Ittihad Football Club",
+  "comp": "SA1",
+  "n": 32,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "吉达国民": {
+  "tm": "Al-Ahli Saudi Football Club",
+  "comp": "SA1",
+  "n": 43,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "利雅得青年人": {
+  "tm": "Al-Shabab Club",
+  "comp": "SA1",
+  "n": 47,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "布赖代合作": {
+  "tm": "Al-Taawoun Football Club",
+  "comp": "SA1",
+  "n": 42,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "达曼协作": {
+  "tm": "Al-Ettifaq Football Club",
+  "comp": "SA1",
+  "n": 36,
+  "how": "alias",
+  "lg": "SAU"
+ },
+ "弗拉门戈": {
+  "tm": "Clube de Regatas do Flamengo",
+  "comp": "BRA1",
+  "n": 59,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "帕尔梅拉斯": {
+  "tm": "Sociedade Esportiva Palmeiras",
+  "comp": "BRA1",
+  "n": 40,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "博塔弗戈": {
+  "tm": "S. A. F. Botafogo",
+  "comp": "BRA1",
+  "n": 69,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "科林蒂安": {
+  "tm": "Sport Club Corinthians Paulista",
+  "comp": "BRA1",
+  "n": 43,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "圣保罗": {
+  "tm": "São Paulo Futebol Clube",
+  "comp": "BRA1",
+  "n": 51,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "米内罗竞技": {
+  "tm": "Clube Atlético Mineiro",
+  "comp": "BRA1",
+  "n": 62,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "格雷米奥": {
+  "tm": "Grêmio Foot-Ball Porto Alegrense",
+  "comp": "BRA1",
+  "n": 50,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "巴西国际": {
+  "tm": "Sport Club Internacional",
+  "comp": "BRA1",
+  "n": 48,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "弗鲁米嫩塞": {
+  "tm": "Fluminense Football Club",
+  "comp": "BRA1",
+  "n": 65,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "桑托斯": {
+  "tm": "Santos Futebol Clube",
+  "comp": "BRA1",
+  "n": 49,
+  "how": "alias",
+  "lg": "BRA"
+ },
+ "科里蒂巴": {
+  "tm": "Coritiba Foot Ball Club",
+  "comp": "BRA1",
+  "n": 33,
+  "how": "alias",
+  "lg": "BRA2"
+ },
+ "塞阿拉": {
+  "tm": "Ceará Sporting Club",
+  "comp": "BRA1",
+  "n": 29,
+  "how": "alias",
+  "lg": "BRA2"
+ },
+ "累西腓体育": {
+  "tm": "Sport Club do Recife",
+  "comp": "BRA1",
+  "n": 50,
+  "how": "alias",
+  "lg": "BRA2"
+ },
+ "沙佩科恩斯": {
+  "tm": "Associação Chapecoense de Futebol",
+  "comp": "BRA1",
+  "n": 38,
+  "how": "alias",
+  "lg": "BRA2"
+ },
+ "博卡青年": {
+  "tm": "Club Atlético Boca Juniors",
+  "comp": "ARG1",
+  "n": 38,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "河床": {
+  "tm": "Club Atlético River Plate",
+  "comp": "ARG1",
+  "n": 45,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "独立": {
+  "tm": "Club Atlético Independiente de Avellaneda",
+  "comp": "ARG1",
+  "n": 35,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "竞技俱乐部": {
+  "tm": "Racing Club Asociación Civil de Avellaneda",
+  "comp": "ARG1",
+  "n": 31,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "圣洛伦索": {
+  "tm": "Club Atlético San Lorenzo de Almagro",
+  "comp": "ARG1",
+  "n": 41,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "纽维尔老男孩": {
+  "tm": "Club Atlético Newell’s Old Boys",
+  "comp": "ARG1",
+  "n": 64,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "萨斯菲尔德": {
+  "tm": "Club Atlético Vélez Sársfield",
+  "comp": "ARG1",
+  "n": 30,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "拉努斯": {
+  "tm": "Club Atlético Lanús",
+  "comp": "ARG1",
+  "n": 46,
+  "how": "alias",
+  "lg": "ARG"
+ },
+ "迈阿密国际": {
+  "tm": "Club Internacional de Fútbol Miami",
+  "comp": "MLS1",
+  "n": 32,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "洛杉矶FC": {
+  "tm": "Los Angeles Football Club",
+  "comp": "MLS1",
+  "n": 30,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "纽约城": {
+  "tm": "New York City Football Club",
+  "comp": "MLS1",
+  "n": 35,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "西雅图海湾人": {
+  "tm": "Seattle Sounders FC",
+  "comp": "MLS1",
+  "n": 34,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "亚特兰大联": {
+  "tm": "Atlanta United Football Club",
+  "comp": "MLS1",
+  "n": 27,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "多伦多FC": {
+  "tm": "Toronto FC",
+  "comp": "MLS1",
+  "n": 29,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "温哥华白帽": {
+  "tm": "Vancouver Whitecaps FC",
+  "comp": "MLS1",
+  "n": 27,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "芝加哥火焰": {
+  "tm": "Chicago Fire Soccer Club",
+  "comp": "MLS1",
+  "n": 37,
+  "how": "alias",
+  "lg": "MLS"
+ },
+ "老虎大学": {
+  "tm": "Tigres UANL",
+  "comp": "MEX1",
+  "n": 40,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "蒙特雷": {
+  "tm": "CF Monterrey",
+  "comp": "MEX1",
+  "n": 44,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "墨西哥美洲": {
+  "tm": "CF América",
+  "comp": "MEX1",
+  "n": 50,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "瓜达拉哈拉": {
+  "tm": "Deportivo Guadalajara",
+  "comp": "MEX1",
+  "n": 36,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "蓝十字": {
+  "tm": "CD Cruz Azul",
+  "comp": "MEX1",
+  "n": 48,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "托卢卡": {
+  "tm": "Deportivo Toluca",
+  "comp": "MEX1",
+  "n": 43,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "莱昂": {
+  "tm": "Club León FC",
+  "comp": "MEX1",
+  "n": 44,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ },
+ "美洲狮": {
+  "tm": "UNAM Pumas",
+  "comp": "MEX1",
+  "n": 43,
+  "how": "alias",
+  "lg": "LIGA_MX"
+ }
+}

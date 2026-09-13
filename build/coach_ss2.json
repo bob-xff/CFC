@@ -1,0 +1,5494 @@
+{
+ "上海海港": {
+  "q": "Shanghai Port",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 41537,
+   "name": "Shanghai Port",
+   "country": "China",
+   "manager": "Kevin Muscat",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 41537,
+    "name": "Shanghai Port",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "上海申花": {
+  "q": "Shanghai Shenhua",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 3373,
+   "name": "Shanghai Shenhua",
+   "country": "China",
+   "manager": "Vladan Milojević",
+   "manager_country": "Serbia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3373,
+    "name": "Shanghai Shenhua",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "山东泰山": {
+  "q": "Shandong Taishan",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 3371,
+   "name": "Shandong Taishan",
+   "country": "China",
+   "manager": "Tian Tang",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3371,
+    "name": "Shandong Taishan",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "北京国安": {
+  "q": "Beijing Guoan",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 3376,
+   "name": "Beijing Guoan",
+   "country": "China",
+   "manager": "Nick Montgomery",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3376,
+    "name": "Beijing Guoan",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "成都蓉城": {
+  "q": "Chengdu Rongcheng",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 221241,
+   "name": "Chengdu Rongcheng",
+   "country": "China",
+   "manager": "John Aloisi",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 221241,
+    "name": "Chengdu Rongcheng",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "天津津门虎": {
+  "q": "Tianjin Jinmen Tiger",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 3367,
+   "name": "Tianjin Jinmen Tiger",
+   "country": "China",
+   "manager": "Yu Genwei",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3367,
+    "name": "Tianjin Jinmen Tiger",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "浙江队": {
+  "q": "Zhejiang",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 34697,
+   "name": "Zhejiang",
+   "country": "China",
+   "manager": "Ross Aloisi",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34697,
+    "name": "Zhejiang",
+    "country": "China"
+   },
+   {
+    "id": 355659,
+    "name": "Zhejiang Hangzhou",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "武汉三镇": {
+  "q": "Wuhan Three Towns",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 295152,
+   "name": "Wuhan Three Towns",
+   "country": "China",
+   "manager": "Ricardo Soares",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 295152,
+    "name": "Wuhan Three Towns",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "河南队": {
+  "q": "Henan",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 34692,
+   "name": "Henan FC",
+   "country": "China",
+   "manager": "Daniel Ramos",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34692,
+    "name": "Henan FC",
+    "country": "China"
+   },
+   {
+    "id": 355661,
+    "name": "Henan Jianye",
+    "country": "China"
+   },
+   {
+    "id": 1222151,
+    "name": "Henan Jianye",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "青岛西海岸": {
+  "q": "Qingdao West Coast",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 369532,
+   "name": "Qingdao West Coast",
+   "country": "China",
+   "manager": "Zhi Zheng",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 369532,
+    "name": "Qingdao West Coast",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "青岛海牛": {
+  "q": "Qingdao Hainiu",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 34695,
+   "name": "Qingdao Hainiu",
+   "country": "China",
+   "manager": "Milan Ristic",
+   "manager_country": "Serbia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34695,
+    "name": "Qingdao Hainiu",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "深圳新鹏城": {
+  "q": "Shenzhen Peng City",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 281331,
+   "name": "Shenzhen Peng City",
+   "country": "China",
+   "manager": "Robbie Neilson",
+   "manager_country": "Scotland",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 281331,
+    "name": "Shenzhen Peng City",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "大连英博": {
+  "q": "Dalian Yingbo",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 474992,
+   "name": "Dalian Yingbo FC",
+   "country": "China",
+   "manager": "Guoxu Li",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 474992,
+    "name": "Dalian Yingbo FC",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "云南玉昆": {
+  "q": "Yunnan Yukun",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 474991,
+   "name": "Yunnan Yukun",
+   "country": "China",
+   "manager": "Jordi Vinyals",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 474991,
+    "name": "Yunnan Yukun",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "辽宁铁人": {
+  "q": "Liaoning",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 221240,
+   "name": "Liaoning Tieren FC",
+   "country": "China",
+   "manager": "Jung Won Seo",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 221240,
+    "name": "Liaoning Tieren FC",
+    "country": "China"
+   },
+   {
+    "id": 1079529,
+    "name": "Liaoning Shenbei Hefeng",
+    "country": "China"
+   },
+   {
+    "id": 41429,
+    "name": "Liaoning Shenyang Hongyun",
+    "country": "China"
+   },
+   {
+    "id": 1228440,
+    "name": "Liaoning Shengjing Xinrui",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "重庆铜梁龙": {
+  "q": "Chongqing Tonglianglong",
+  "lg": "CSL",
+  "want_country": "China",
+  "match": {
+   "id": 474989,
+   "name": "Chongqing Tonglianglong FC",
+   "country": "China",
+   "manager": "Jianye  Liu",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 474989,
+    "name": "Chongqing Tonglianglong FC",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "长春亚泰": {
+  "q": "Changchun Yatai",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 34694,
+   "name": "Changchun Yatai",
+   "country": "China",
+   "manager": "Yan Feng",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34694,
+    "name": "Changchun Yatai",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "梅州客家": {
+  "q": "Meizhou Hakka",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 215186,
+   "name": "Meizhou Hakka",
+   "country": "China",
+   "manager": "Quim",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 215186,
+    "name": "Meizhou Hakka",
+    "country": "China"
+   },
+   {
+    "id": 355662,
+    "name": "Guangdong Meizhou Hakka",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "苏州东吴": {
+  "q": "Suzhou Dongwu",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 164044,
+   "name": "Suzhou Dongwu",
+   "country": "China",
+   "manager": "Guo Hui",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 164044,
+    "name": "Suzhou Dongwu",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "南京城市": {
+  "q": "Nanjing City",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 369494,
+   "name": "Nanjing City",
+   "country": "China",
+   "manager": "Li Yi'nan",
+   "manager_country": null,
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 369494,
+    "name": "Nanjing City",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "佛山南狮": {
+  "q": "Foshan Nanshi",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 508366,
+   "name": "Foshan Nanshi",
+   "country": "China",
+   "manager": "Li Yao",
+   "manager_country": "China",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 508366,
+    "name": "Foshan Nanshi",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "石家庄功夫": {
+  "q": "Shijiazhuang",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 382024,
+   "name": "Shijiazhuang Gongfu",
+   "country": "China",
+   "manager": "Jesus Rodriguez Tato",
+   "manager_country": "Spain",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 66440,
+    "name": "Cangzhou Mighty Lions",
+    "country": "China"
+   },
+   {
+    "id": 382024,
+    "name": "Shijiazhuang Gongfu",
+    "country": "China"
+   },
+   {
+    "id": 1222399,
+    "name": "Shijiazhuang Megason",
+    "country": "China"
+   },
+   {
+    "id": 1092633,
+    "name": "Shijiazhuang Shangcheng",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "无锡吴钩": {
+  "q": "Wuxi Wugou",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 382020,
+   "name": "Wuxi Wugou",
+   "country": "China",
+   "manager": "Bruno Dias",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 382020,
+    "name": "Wuxi Wugou",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "延边龙鼎": {
+  "q": "Yanbian",
+  "lg": "CL1",
+  "want_country": "China",
+  "match": {
+   "id": 382025,
+   "name": "Yanbian Longding",
+   "country": "China",
+   "manager": "Ki-Hyung Lee",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 382025,
+    "name": "Yanbian Longding",
+    "country": "China"
+   },
+   {
+    "id": 41539,
+    "name": "Yanbian Funde",
+    "country": "China"
+   },
+   {
+    "id": 269213,
+    "name": "Yanbian Beiguo",
+    "country": "China"
+   },
+   {
+    "id": 1097449,
+    "name": "Yanbian Sports School",
+    "country": "China"
+   },
+   {
+    "id": 1230749,
+    "name": "Yanbian University",
+    "country": "China"
+   }
+  ],
+  "err": null
+ },
+ "曼城": {
+  "q": "Manchester City",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 17,
+   "name": "Manchester City",
+   "country": "England",
+   "manager": "Enzo Maresca",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 17,
+    "name": "Manchester City",
+    "country": "England"
+   },
+   {
+    "id": 142658,
+    "name": "Manchester City",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "利物浦": {
+  "q": "Liverpool",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 44,
+   "name": "Liverpool FC",
+   "country": "England",
+   "manager": "Andoni Iraola",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 44,
+    "name": "Liverpool FC",
+    "country": "England"
+   },
+   {
+    "id": 66774,
+    "name": "Liverpool FC",
+    "country": "England"
+   },
+   {
+    "id": 6879,
+    "name": "Liverpool UY",
+    "country": "Uruguay"
+   }
+  ],
+  "err": null
+ },
+ "阿森纳": {
+  "q": "Arsenal",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 42,
+   "name": "Arsenal",
+   "country": "England",
+   "manager": "Mikel Arteta",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 42,
+    "name": "Arsenal",
+    "country": "England"
+   },
+   {
+    "id": 26243,
+    "name": "Arsenal",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "切尔西": {
+  "q": "Chelsea",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 38,
+   "name": "Chelsea",
+   "country": "England",
+   "manager": "Xabi Alonso",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 38,
+    "name": "Chelsea",
+    "country": "England"
+   },
+   {
+    "id": 66768,
+    "name": "Chelsea FC",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "曼联": {
+  "q": "Manchester United",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 35,
+   "name": "Manchester United",
+   "country": "England",
+   "manager": "Michael Carrick",
+   "manager_country": "England",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 35,
+    "name": "Manchester United",
+    "country": "England"
+   },
+   {
+    "id": 301455,
+    "name": "Manchester United",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "热刺": {
+  "q": "Tottenham Hotspur",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 33,
+   "name": "Tottenham Hotspur",
+   "country": "England",
+   "manager": "Roberto De Zerbi",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 33,
+    "name": "Tottenham Hotspur",
+    "country": "England"
+   },
+   {
+    "id": 273547,
+    "name": "Tottenham FC",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "纽卡斯尔": {
+  "q": "Newcastle United",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 39,
+   "name": "Newcastle United",
+   "country": "England",
+   "manager": "Matthias Jaissle",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 39,
+    "name": "Newcastle United",
+    "country": "England"
+   },
+   {
+    "id": 2934,
+    "name": "Newcastle Jets",
+    "country": "Australia"
+   },
+   {
+    "id": 371892,
+    "name": "Newcastle United WFC",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "阿斯顿维拉": {
+  "q": "Aston Villa",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 40,
+   "name": "Aston Villa",
+   "country": "England",
+   "manager": "Unai Emery",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 40,
+    "name": "Aston Villa",
+    "country": "England"
+   },
+   {
+    "id": 266375,
+    "name": "Aston Villa",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "布莱顿": {
+  "q": "Brighton & Hove Albion",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 30,
+   "name": "Brighton & Hove Albion",
+   "country": "England",
+   "manager": "Fabian Hurzeler",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 30,
+    "name": "Brighton & Hove Albion",
+    "country": "England"
+   },
+   {
+    "id": 266376,
+    "name": "Brighton",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "西汉姆联": {
+  "q": "West Ham United",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 37,
+   "name": "West Ham United",
+   "country": "England",
+   "manager": "Nuno Espírito Santo",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 37,
+    "name": "West Ham United",
+    "country": "England"
+   },
+   {
+    "id": 297802,
+    "name": "West Ham",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "埃弗顿": {
+  "q": "Everton",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 48,
+   "name": "Everton",
+   "country": "England",
+   "manager": "David Moyes",
+   "manager_country": "Scotland",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 48,
+    "name": "Everton",
+    "country": "England"
+   },
+   {
+    "id": 5032,
+    "name": "Everton de Viña del Mar",
+    "country": "Chile"
+   },
+   {
+    "id": 36704,
+    "name": "Everton",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "富勒姆": {
+  "q": "Fulham",
+  "lg": "EPL",
+  "want_country": "England",
+  "match": {
+   "id": 43,
+   "name": "Fulham",
+   "country": "England",
+   "manager": "Álvaro Arbeloa",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 43,
+    "name": "Fulham",
+    "country": "England"
+   },
+   {
+    "id": 362392,
+    "name": "Fulham United",
+    "country": "Australia"
+   }
+  ],
+  "err": null
+ },
+ "皇家马德里": {
+  "q": "Real Madrid",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2829,
+   "name": "Real Madrid",
+   "country": "Spain",
+   "manager": "José Mourinho",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2829,
+    "name": "Real Madrid",
+    "country": "Spain"
+   },
+   {
+    "id": 305051,
+    "name": "Real Madrid",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "巴塞罗那": {
+  "q": "Barcelona",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2817,
+   "name": "FC Barcelona",
+   "country": "Spain",
+   "manager": "Hans-Dieter Flick",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2817,
+    "name": "FC Barcelona",
+    "country": "Spain"
+   },
+   {
+    "id": 77889,
+    "name": "Fútbol Club Barcelona",
+    "country": "Spain"
+   },
+   {
+    "id": 2814,
+    "name": "Espanyol",
+    "country": "Spain"
+   },
+   {
+    "id": 5250,
+    "name": "Barcelona SC Guayaquil",
+    "country": "Ecuador"
+   }
+  ],
+  "err": null
+ },
+ "马德里竞技": {
+  "q": "Atlético de Madrid",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2836,
+   "name": "Atlético Madrid",
+   "country": "Spain",
+   "manager": "Diego Simeone",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2836,
+    "name": "Atlético Madrid",
+    "country": "Spain"
+   },
+   {
+    "id": 77879,
+    "name": "Club Atlético de Madrid",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "塞维利亚": {
+  "q": "Sevilla",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2833,
+   "name": "Sevilla",
+   "country": "Spain",
+   "manager": "Luis Garcia",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2816,
+    "name": "Real Betis",
+    "country": "Spain"
+   },
+   {
+    "id": 2833,
+    "name": "Sevilla",
+    "country": "Spain"
+   },
+   {
+    "id": 77903,
+    "name": "Sevilla FC",
+    "country": "Spain"
+   },
+   {
+    "id": 7762,
+    "name": "Sevilla Atlético",
+    "country": "Spain"
+   },
+   {
+    "id": 231057,
+    "name": "Real Betis",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "皇家社会": {
+  "q": "Real Sociedad",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2824,
+   "name": "Real Sociedad",
+   "country": "Spain",
+   "manager": "Pellegrino Matarazzo",
+   "manager_country": "USA",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2824,
+    "name": "Real Sociedad",
+    "country": "Spain"
+   },
+   {
+    "id": 77897,
+    "name": "Real Sociedad",
+    "country": "Spain"
+   },
+   {
+    "id": 241845,
+    "name": "Real Sociedad C",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "比利亚雷亚尔": {
+  "q": "Villarreal CF",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2819,
+   "name": "Villarreal",
+   "country": "Spain",
+   "manager": "Iñigo Pérez",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2819,
+    "name": "Villarreal",
+    "country": "Spain"
+   },
+   {
+    "id": 303864,
+    "name": "Villarreal CF",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "皇家贝蒂斯": {
+  "q": "Real Betis Balompié",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2816,
+   "name": "Real Betis",
+   "country": "Spain",
+   "manager": "Manuel Pellegrini",
+   "manager_country": "Chile",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2816,
+    "name": "Real Betis",
+    "country": "Spain"
+   },
+   {
+    "id": 231057,
+    "name": "Real Betis",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "瓦伦西亚": {
+  "q": "Valencia CF",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2828,
+   "name": "Valencia",
+   "country": "Spain",
+   "manager": "Carlos Corberán",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2828,
+    "name": "Valencia",
+    "country": "Spain"
+   },
+   {
+    "id": 77909,
+    "name": "Valencia",
+    "country": "Spain"
+   },
+   {
+    "id": 54123,
+    "name": "Huracán Valencia",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "毕尔巴鄂竞技": {
+  "q": "Athletic Bilbao",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 2825,
+   "name": "Athletic Club",
+   "country": "Spain",
+   "manager": "Edin Terzić",
+   "manager_country": "Germany",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2825,
+    "name": "Athletic Club",
+    "country": "Spain"
+   },
+   {
+    "id": 77877,
+    "name": "Athletic Club",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "赫罗纳": {
+  "q": "Girona",
+  "lg": "LALIGA",
+  "want_country": "Spain",
+  "match": {
+   "id": 24264,
+   "name": "Girona FC",
+   "country": "Spain",
+   "manager": "Quique Álvarez",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 24264,
+    "name": "Girona FC",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "国际米兰": {
+  "q": "Inter Milan",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2697,
+   "name": "Inter",
+   "country": "Italy",
+   "manager": "Cristian Chivu",
+   "manager_country": "Romania",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2697,
+    "name": "Inter",
+    "country": "Italy"
+   },
+   {
+    "id": 325685,
+    "name": "Inter",
+    "country": "Italy"
+   },
+   {
+    "id": 350998,
+    "name": "Inter / Getafe",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "尤文图斯": {
+  "q": "Juventus",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2687,
+   "name": "Juventus",
+   "country": "Italy",
+   "manager": "Luciano Spalletti",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2687,
+    "name": "Juventus",
+    "country": "Italy"
+   },
+   {
+    "id": 269824,
+    "name": "Juventus",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "AC米兰": {
+  "q": "AC Milan",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2692,
+   "name": "AC Milan",
+   "country": "Italy",
+   "manager": "Rúben Amorim",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2692,
+    "name": "AC Milan",
+    "country": "Italy"
+   },
+   {
+    "id": 298858,
+    "name": "Milan",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "那不勒斯": {
+  "q": "SSC Napoli",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2714,
+   "name": "SSC Napoli",
+   "country": "Italy",
+   "manager": "Massimiliano Allegri",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2714,
+    "name": "SSC Napoli",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "罗马": {
+  "q": "Roma",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2702,
+   "name": "AS Roma",
+   "country": "Italy",
+   "manager": "Gian Piero Gasperini",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2702,
+    "name": "AS Roma",
+    "country": "Italy"
+   },
+   {
+    "id": 2699,
+    "name": "Lazio",
+    "country": "Italy"
+   },
+   {
+    "id": 301414,
+    "name": "AS Roma",
+    "country": "Italy"
+   },
+   {
+    "id": 791486,
+    "name": "Roman Steindl",
+    "country": null
+   },
+   {
+    "id": 791360,
+    "name": "Eric Romain",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "拉齐奥": {
+  "q": "Lazio",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2699,
+   "name": "Lazio",
+   "country": "Italy",
+   "manager": "Gennaro Gattuso",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2699,
+    "name": "Lazio",
+    "country": "Italy"
+   },
+   {
+    "id": 389322,
+    "name": "Lazio",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "亚特兰大": {
+  "q": "Atalanta BC",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2686,
+   "name": "Atalanta",
+   "country": "Italy",
+   "manager": "Maurizio Sarri",
+   "manager_country": "Italy",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2686,
+    "name": "Atalanta",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "佛罗伦萨": {
+  "q": "ACF Fiorentina",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2693,
+   "name": "Fiorentina",
+   "country": "Italy",
+   "manager": "Paolo Vanoli",
+   "manager_country": "Italy",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2693,
+    "name": "Fiorentina",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "博洛尼亚": {
+  "q": "Bologna",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2685,
+   "name": "Bologna",
+   "country": "Italy",
+   "manager": "Domenico Tedesco",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2685,
+    "name": "Bologna",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "都灵": {
+  "q": "Torino",
+  "lg": "SERIE_A",
+  "want_country": "Italy",
+  "match": {
+   "id": 2696,
+   "name": "Torino",
+   "country": "Italy",
+   "manager": "Ignazio Abate",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2696,
+    "name": "Torino",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "拜仁慕尼黑": {
+  "q": "Bayern Munich",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": null,
+  "cands": [
+   {
+    "id": 2672,
+    "name": "FC Bayern München",
+    "country": "Germany"
+   },
+   {
+    "id": 5543,
+    "name": "FC Bayern München",
+    "country": "Germany"
+   },
+   {
+    "id": 337493,
+    "name": "FC Bayern Munich Legends",
+    "country": null
+   },
+   {
+    "id": 1100641,
+    "name": "Bayern Munich Pinar FC",
+    "country": "Cuba"
+   }
+  ],
+  "err": null
+ },
+ "多特蒙德": {
+  "q": "Borussia Dortmund",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2673,
+   "name": "Borussia Dortmund",
+   "country": "Germany",
+   "manager": "Niko Kovač",
+   "manager_country": "Croatia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2673,
+    "name": "Borussia Dortmund",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "RB莱比锡": {
+  "q": "RB Leipzig",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 36360,
+   "name": "RB Leipzig",
+   "country": "Germany",
+   "manager": "Martín Demichelis",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 36360,
+    "name": "RB Leipzig",
+    "country": "Germany"
+   },
+   {
+    "id": 322623,
+    "name": "RB Leipzig",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "勒沃库森": {
+  "q": "Bayer 04 Leverkusen",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2681,
+   "name": "Bayer 04 Leverkusen",
+   "country": "Germany",
+   "manager": "Carles Martínez",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2681,
+    "name": "Bayer 04 Leverkusen",
+    "country": "Germany"
+   },
+   {
+    "id": 36623,
+    "name": "Bayer Leverkusen",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "法兰克福": {
+  "q": "Eintracht Frankfurt",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2674,
+   "name": "Eintracht Frankfurt",
+   "country": "Germany",
+   "manager": "Adolf Hütter",
+   "manager_country": "Austria",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2674,
+    "name": "Eintracht Frankfurt",
+    "country": "Germany"
+   },
+   {
+    "id": 108685,
+    "name": "Eintracht Frankfurt",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "沃尔夫斯堡": {
+  "q": "VfL Wolfsburg",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2524,
+   "name": "VfL Wolfsburg",
+   "country": "Germany",
+   "manager": "Tobias Strobl",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2524,
+    "name": "VfL Wolfsburg",
+    "country": "Germany"
+   },
+   {
+    "id": 5556,
+    "name": "VfL Wolfsburg",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "门兴格拉德巴赫": {
+  "q": "Borussia Mönchengladbach",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2527,
+   "name": "Borussia M'gladbach",
+   "country": "Germany",
+   "manager": "Eugen Polanski",
+   "manager_country": "Poland",
+   "score": 0.25
+  },
+  "cands": [
+   {
+    "id": 2527,
+    "name": "Borussia M'gladbach",
+    "country": "Germany"
+   },
+   {
+    "id": 36624,
+    "name": "Borussia M'gladbach",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "弗赖堡": {
+  "q": "SC Freiburg",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2538,
+   "name": "SC Freiburg",
+   "country": "Germany",
+   "manager": "Julian Schuster",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2538,
+    "name": "SC Freiburg",
+    "country": "Germany"
+   },
+   {
+    "id": 5550,
+    "name": "SC Freiburg",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "斯图加特": {
+  "q": "VfB Stuttgart",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2677,
+   "name": "VfB Stuttgart",
+   "country": "Germany",
+   "manager": "Sebastian Hoeneß",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2677,
+    "name": "VfB Stuttgart",
+    "country": "Germany"
+   },
+   {
+    "id": 527815,
+    "name": "VfB Stuttgart",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "美因茨": {
+  "q": "1.FSV Mainz 05",
+  "lg": "BUNDESLIGA",
+  "want_country": "Germany",
+  "match": {
+   "id": 2556,
+   "name": "1. FSV Mainz 05",
+   "country": "Germany",
+   "manager": "Urs Fischer",
+   "manager_country": "Switzerland",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2556,
+    "name": "1. FSV Mainz 05",
+    "country": "Germany"
+   },
+   {
+    "id": 484512,
+    "name": "1. FSV Mainz 05",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "巴黎圣日耳曼": {
+  "q": "Paris Saint-Germain",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1644,
+   "name": "Paris Saint-Germain",
+   "country": "France",
+   "manager": "Luis Enrique",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1644,
+    "name": "Paris Saint-Germain",
+    "country": "France"
+   },
+   {
+    "id": 55505,
+    "name": "Paris Saint-Germain",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "马赛": {
+  "q": "Olympique Marseille",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1641,
+   "name": "Olympique de Marseille",
+   "country": "France",
+   "manager": "Bruno Genesio",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1641,
+    "name": "Olympique de Marseille",
+    "country": "France"
+   },
+   {
+    "id": 231972,
+    "name": "Olympique de Marseille",
+    "country": "France"
+   },
+   {
+    "id": 362117,
+    "name": "Olympique de Marseille 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "摩纳哥": {
+  "q": "AS Monaco",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1653,
+   "name": "AS Monaco",
+   "country": "Monaco",
+   "manager": "Filipe Luís",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1653,
+    "name": "AS Monaco",
+    "country": "Monaco"
+   }
+  ],
+  "err": null
+ },
+ "里昂": {
+  "q": "Olympique Lyon",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1649,
+   "name": "Olympique Lyonnais",
+   "country": "France",
+   "manager": "Paulo Fonseca",
+   "manager_country": "Portugal",
+   "score": 0.333
+  },
+  "cands": [
+   {
+    "id": 1649,
+    "name": "Olympique Lyonnais",
+    "country": "France"
+   },
+   {
+    "id": 26245,
+    "name": "OL Lyonnes",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "里尔": {
+  "q": "LOSC Lille",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1643,
+   "name": "Lille",
+   "country": "France",
+   "manager": "Davide Ancelotti",
+   "manager_country": "Italy",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1643,
+    "name": "Lille",
+    "country": "France"
+   },
+   {
+    "id": 264965,
+    "name": "Lille",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "尼斯": {
+  "q": "OGC Nice",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": null,
+  "cands": [
+   {
+    "id": 1661,
+    "name": "Nice",
+    "country": "France"
+   },
+   {
+    "id": 404740,
+    "name": "OGC Nice",
+    "country": "France"
+   },
+   {
+    "id": 305410,
+    "name": "OGC Nice 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "雷恩": {
+  "q": "Stade Rennais",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1658,
+   "name": "Stade Rennais",
+   "country": "France",
+   "manager": "Franck Haise",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1658,
+    "name": "Stade Rennais",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "朗斯": {
+  "q": "RC Lens",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1648,
+   "name": "RC Lens",
+   "country": "France",
+   "manager": "Dino Toppmoller",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1648,
+    "name": "RC Lens",
+    "country": "France"
+   },
+   {
+    "id": 404737,
+    "name": "RC Lens",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "斯特拉斯堡": {
+  "q": "RC Strasbourg Alsace",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1659,
+   "name": "RC Strasbourg",
+   "country": "France",
+   "manager": "Hugo Oliveira",
+   "manager_country": "Portugal",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1659,
+    "name": "RC Strasbourg",
+    "country": "France"
+   },
+   {
+    "id": 324153,
+    "name": "RC Strasbourg Alsace",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "南特": {
+  "q": "Nantes",
+  "lg": "LIGUE_1",
+  "want_country": "France",
+  "match": {
+   "id": 1647,
+   "name": "Nantes",
+   "country": "France",
+   "manager": "Gregory Poirier",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1647,
+    "name": "Nantes",
+    "country": "France"
+   },
+   {
+    "id": 306173,
+    "name": "Nantes",
+    "country": "France"
+   },
+   {
+    "id": 292587,
+    "name": "Nantes 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "阿贾克斯": {
+  "q": "Ajax Amsterdam",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2953,
+   "name": "AFC Ajax",
+   "country": "Netherlands",
+   "manager": "Michel",
+   "manager_country": "Spain",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2953,
+    "name": "AFC Ajax",
+    "country": "Netherlands"
+   },
+   {
+    "id": 46160,
+    "name": "Jong Ajax",
+    "country": "Netherlands"
+   },
+   {
+    "id": 511245,
+    "name": "Ajax Amsterdam Xi",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "PSV埃因霍温": {
+  "q": "PSV Eindhoven",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2952,
+   "name": "PSV Eindhoven",
+   "country": "Netherlands",
+   "manager": "Peter Bosz",
+   "manager_country": "Netherlands",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2952,
+    "name": "PSV Eindhoven",
+    "country": "Netherlands"
+   },
+   {
+    "id": 46168,
+    "name": "Jong PSV Eindhoven",
+    "country": "Netherlands"
+   },
+   {
+    "id": 178262,
+    "name": "PSV Eindhoven",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "费耶诺德": {
+  "q": "Feyenoord Rotterdam",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2959,
+   "name": "Feyenoord",
+   "country": "Netherlands",
+   "manager": "Giovanni van Bronckhorst",
+   "manager_country": "Netherlands",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2959,
+    "name": "Feyenoord",
+    "country": "Netherlands"
+   },
+   {
+    "id": 388668,
+    "name": "Feyenoord",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "阿尔克马尔": {
+  "q": "AZ Alkmaar",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2950,
+   "name": "AZ Alkmaar",
+   "country": "Netherlands",
+   "manager": "Leeroy Echteld",
+   "manager_country": "Netherlands",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2950,
+    "name": "AZ Alkmaar",
+    "country": "Netherlands"
+   },
+   {
+    "id": 46161,
+    "name": "Jong AZ Alkmaar",
+    "country": "Netherlands"
+   },
+   {
+    "id": 37185,
+    "name": "AZ Alkmaar",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "特温特": {
+  "q": "Twente Enschede",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2955,
+   "name": "FC Twente",
+   "country": "Netherlands",
+   "manager": "John van den Brom",
+   "manager_country": "Netherlands",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2955,
+    "name": "FC Twente",
+    "country": "Netherlands"
+   },
+   {
+    "id": 55511,
+    "name": "FC Twente Vrouwen",
+    "country": "Netherlands"
+   },
+   {
+    "id": 46163,
+    "name": "Jong Twente",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "乌德勒支": {
+  "q": "Utrecht",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2948,
+   "name": "FC Utrecht",
+   "country": "Netherlands",
+   "manager": "Anthony Correia",
+   "manager_country": "Netherlands",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2948,
+    "name": "FC Utrecht",
+    "country": "Netherlands"
+   },
+   {
+    "id": 53067,
+    "name": "Jong FC Utrecht",
+    "country": "Netherlands"
+   },
+   {
+    "id": 485439,
+    "name": "FC Utrecht",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "海伦芬": {
+  "q": "SC Heerenveen",
+  "lg": "EREDIVISIE",
+  "want_country": "Netherlands",
+  "match": {
+   "id": 2964,
+   "name": "SC Heerenveen",
+   "country": "Netherlands",
+   "manager": "Robin Veldman",
+   "manager_country": "Netherlands",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2964,
+    "name": "SC Heerenveen",
+    "country": "Netherlands"
+   },
+   {
+    "id": 178258,
+    "name": "SC Heerenveen",
+    "country": "Netherlands"
+   }
+  ],
+  "err": null
+ },
+ "本菲卡": {
+  "q": "SL Benfica",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": {
+   "id": 3006,
+   "name": "Benfica",
+   "country": "Portugal",
+   "manager": "Marco Silva",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3006,
+    "name": "Benfica",
+    "country": "Portugal"
+   },
+   {
+    "id": 297853,
+    "name": "Benfica",
+    "country": "Portugal"
+   }
+  ],
+  "err": null
+ },
+ "波尔图": {
+  "q": "Porto",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": {
+   "id": 3002,
+   "name": "FC Porto",
+   "country": "Portugal",
+   "manager": "Francesco Farioli",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3002,
+    "name": "FC Porto",
+    "country": "Portugal"
+   },
+   {
+    "id": 5926,
+    "name": "Grêmio",
+    "country": "Brazil"
+   },
+   {
+    "id": 1966,
+    "name": "Internacional",
+    "country": "Brazil"
+   },
+   {
+    "id": 2995,
+    "name": "Boavista",
+    "country": "Portugal"
+   }
+  ],
+  "err": null
+ },
+ "里斯本竞技": {
+  "q": "Sporting CP",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": {
+   "id": 3001,
+   "name": "Sporting CP",
+   "country": "Portugal",
+   "manager": "Rui Borges",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3001,
+    "name": "Sporting CP",
+    "country": "Portugal"
+   },
+   {
+    "id": 262989,
+    "name": "Sporting CP",
+    "country": "Portugal"
+   }
+  ],
+  "err": null
+ },
+ "布拉加": {
+  "q": "SC Braga",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": {
+   "id": 2999,
+   "name": "Sporting Braga",
+   "country": "Portugal",
+   "manager": "Carlos Vicens",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2999,
+    "name": "Sporting Braga",
+    "country": "Portugal"
+   },
+   {
+    "id": 265503,
+    "name": "SC Braga",
+    "country": "Portugal"
+   }
+  ],
+  "err": null
+ },
+ "吉马良斯": {
+  "q": "Vitória Guimarães SC",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": {
+   "id": 3009,
+   "name": "Vitória SC",
+   "country": "Portugal",
+   "manager": "Tiago Margarido",
+   "manager_country": "Portugal",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3009,
+    "name": "Vitória SC",
+    "country": "Portugal"
+   }
+  ],
+  "err": null
+ },
+ "博阿维斯塔": {
+  "q": "Boavista",
+  "lg": "LIGA_PT",
+  "want_country": "Portugal",
+  "match": null,
+  "cands": [
+   {
+    "id": 2995,
+    "name": "Boavista",
+    "country": "Portugal"
+   },
+   {
+    "id": 6977,
+    "name": "Boavista",
+    "country": "Brazil"
+   },
+   {
+    "id": 1121228,
+    "name": "Boavista FC SAD",
+    "country": "Portugal"
+   },
+   {
+    "id": 265505,
+    "name": "Boavista FC",
+    "country": "Portugal"
+   },
+   {
+    "id": 517663,
+    "name": "Boavista da Praia",
+    "country": "Cape Verde"
+   }
+  ],
+  "err": null
+ },
+ "弗拉门戈": {
+  "q": "Clube de Regatas do Flamengo",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "帕尔梅拉斯": {
+  "q": "Sociedade Esportiva Palmeiras",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "博塔弗戈": {
+  "q": "S. A. F. Botafogo",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "科林蒂安": {
+  "q": "Sport Club Corinthians Paulista",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "圣保罗": {
+  "q": "São Paulo Futebol Clube",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "米内罗竞技": {
+  "q": "Clube Atlético Mineiro",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "格雷米奥": {
+  "q": "Grêmio Foot-Ball Porto Alegrense",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "巴西国际": {
+  "q": "Sport Club Internacional",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "弗鲁米嫩塞": {
+  "q": "Fluminense",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": {
+   "id": 1961,
+   "name": "Fluminense",
+   "country": "Brazil",
+   "manager": "Marcão",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1961,
+    "name": "Fluminense",
+    "country": "Brazil"
+   },
+   {
+    "id": 312739,
+    "name": "Fluminense",
+    "country": "Brazil"
+   },
+   {
+    "id": 21963,
+    "name": "Fluminense de Feira",
+    "country": "Brazil"
+   },
+   {
+    "id": 375317,
+    "name": "Fluminense-PI",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "桑托斯": {
+  "q": "Santos Futebol Clube",
+  "lg": "BRA",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "博卡青年": {
+  "q": "Boca Juniors",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "河床": {
+  "q": "River Plate",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": {
+   "id": 3211,
+   "name": "River Plate",
+   "country": "Argentina",
+   "manager": "Leonardo Ponzio",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3211,
+    "name": "River Plate",
+    "country": "Argentina"
+   },
+   {
+    "id": 264858,
+    "name": "River Plate",
+    "country": "Argentina"
+   },
+   {
+    "id": 3237,
+    "name": "River Plate UY",
+    "country": "Uruguay"
+   },
+   {
+    "id": 90970,
+    "name": "River Plate de Asunción",
+    "country": "Paraguay"
+   }
+  ],
+  "err": null
+ },
+ "独立": {
+  "q": "Independiente de Avellaneda",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "竞技俱乐部": {
+  "q": "Racing Club Asociación Civil de Avellaneda",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "圣洛伦索": {
+  "q": "San Lorenzo de Almagro",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": {
+   "id": 3201,
+   "name": "San Lorenzo",
+   "country": "Argentina",
+   "manager": "Ruben Dario Insua",
+   "manager_country": "Argentina",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3201,
+    "name": "San Lorenzo",
+    "country": "Argentina"
+   },
+   {
+    "id": 265452,
+    "name": "San Lorenzo",
+    "country": "Argentina"
+   }
+  ],
+  "err": null
+ },
+ "纽维尔老男孩": {
+  "q": "Newell's Old Boys",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": {
+   "id": 3212,
+   "name": "Newell's Old Boys",
+   "country": "Argentina",
+   "manager": "Frank Kudelka",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3212,
+    "name": "Newell's Old Boys",
+    "country": "Argentina"
+   }
+  ],
+  "err": null
+ },
+ "萨斯菲尔德": {
+  "q": "Vélez Sársfield",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": {
+   "id": 3208,
+   "name": "Vélez Sarsfield",
+   "country": "Argentina",
+   "manager": "Guillermo Schelotto",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3208,
+    "name": "Vélez Sarsfield",
+    "country": "Argentina"
+   }
+  ],
+  "err": null
+ },
+ "拉努斯": {
+  "q": "Lanús",
+  "lg": "ARG",
+  "want_country": "Argentina",
+  "match": {
+   "id": 3218,
+   "name": "CA Lanús",
+   "country": "Argentina",
+   "manager": "Mauricio Pellegrino",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3218,
+    "name": "CA Lanús",
+    "country": "Argentina"
+   },
+   {
+    "id": 298740,
+    "name": "Lanús",
+    "country": "Argentina"
+   }
+  ],
+  "err": null
+ },
+ "迈阿密国际": {
+  "q": "Club Internacional de Fútbol Miami",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "洛杉矶FC": {
+  "q": "Los Angeles",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 274650,
+   "name": "Los Angeles FC",
+   "country": "USA",
+   "manager": "Marc Dos Santos",
+   "manager_country": "Canada",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 274650,
+    "name": "Los Angeles FC",
+    "country": "USA"
+   },
+   {
+    "id": 2513,
+    "name": "LA Galaxy",
+    "country": "USA"
+   }
+  ],
+  "err": null
+ },
+ "纽约城": {
+  "q": "New York City",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 187643,
+   "name": "New York City FC",
+   "country": "USA",
+   "manager": "Pascal Jansen",
+   "manager_country": "Netherlands",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 187643,
+    "name": "New York City FC",
+    "country": "USA"
+   }
+  ],
+  "err": null
+ },
+ "西雅图海湾人": {
+  "q": "Seattle Sounders",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 22009,
+   "name": "Seattle Sounders FC",
+   "country": "USA",
+   "manager": "Brian Schmetzer",
+   "manager_country": "USA",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 22009,
+    "name": "Seattle Sounders FC",
+    "country": "USA"
+   }
+  ],
+  "err": null
+ },
+ "亚特兰大联": {
+  "q": "Atlanta United",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 243211,
+   "name": "Atlanta United",
+   "country": "USA",
+   "manager": "Gerardo Martino",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 243211,
+    "name": "Atlanta United",
+    "country": "USA"
+   },
+   {
+    "id": 277127,
+    "name": "Atlanta United 2",
+    "country": "USA"
+   }
+  ],
+  "err": null
+ },
+ "多伦多FC": {
+  "q": "Toronto",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 7080,
+   "name": "Toronto FC",
+   "country": "Canada",
+   "manager": "Robin Fraser",
+   "manager_country": "USA",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 7080,
+    "name": "Toronto FC",
+    "country": "Canada"
+   },
+   {
+    "id": 309890,
+    "name": "Inter Toronto",
+    "country": "Canada"
+   }
+  ],
+  "err": null
+ },
+ "温哥华白帽": {
+  "q": "Vancouver Whitecaps",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 22010,
+   "name": "Vancouver Whitecaps",
+   "country": "Canada",
+   "manager": "Jesper Sorensen",
+   "manager_country": "Denmark",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 22010,
+    "name": "Vancouver Whitecaps",
+    "country": "Canada"
+   }
+  ],
+  "err": null
+ },
+ "芝加哥火焰": {
+  "q": "Chicago Fire",
+  "lg": "MLS",
+  "want_country": "USA",
+  "match": {
+   "id": 2505,
+   "name": "Chicago Fire",
+   "country": "USA",
+   "manager": "Gregg Berhalter",
+   "manager_country": "USA",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2505,
+    "name": "Chicago Fire",
+    "country": "USA"
+   }
+  ],
+  "err": null
+ },
+ "横滨水手": {
+  "q": "Yokohama Marinos",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3137,
+   "name": "Yokohama F. Marinos",
+   "country": "Japan",
+   "manager": "Steve Corica",
+   "manager_country": "Australia",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3137,
+    "name": "Yokohama F. Marinos",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "川崎前锋": {
+  "q": "Kawasaki Frontale",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 5127,
+   "name": "Kawasaki Frontale",
+   "country": "Japan",
+   "manager": "Shigetoshi Hasebe",
+   "manager_country": "Japan",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 5127,
+    "name": "Kawasaki Frontale",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "浦和红钻": {
+  "q": "Urawa Red Diamonds",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3145,
+   "name": "Urawa Red Diamonds",
+   "country": "Japan",
+   "manager": "Gwi-jae Jo",
+   "manager_country": "South Korea",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3145,
+    "name": "Urawa Red Diamonds",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "鹿岛鹿角": {
+  "q": "Kashima Antlers",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3134,
+   "name": "Kashima Antlers",
+   "country": "Japan",
+   "manager": "Toru Oniki",
+   "manager_country": "Japan",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3134,
+    "name": "Kashima Antlers",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "神户胜利船": {
+  "q": "Rakuten Vissel Kobe",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "广岛三箭": {
+  "q": "Sanfrecce Hiroshima",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3135,
+   "name": "Sanfrecce Hiroshima",
+   "country": "Japan",
+   "manager": "Bartosch Gaul",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3135,
+    "name": "Sanfrecce Hiroshima",
+    "country": "Japan"
+   },
+   {
+    "id": 391854,
+    "name": "Sanfrecce Hiroshima Regina",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "名古屋鲸八": {
+  "q": "Nagoya Grampus Eight",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3136,
+   "name": "Nagoya Grampus",
+   "country": "Japan",
+   "manager": "Mihailo Petrovic",
+   "manager_country": "Austria",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3136,
+    "name": "Nagoya Grampus",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "大阪樱花": {
+  "q": "Cerezo Osaka",
+  "lg": "J1",
+  "want_country": "Japan",
+  "match": {
+   "id": 3141,
+   "name": "Cerezo Osaka",
+   "country": "Japan",
+   "manager": "Pablo Machin",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3141,
+    "name": "Cerezo Osaka",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "蔚山HD": {
+  "q": "Ulsan",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 7653,
+   "name": "Ulsan HD",
+   "country": "South Korea",
+   "manager": "Kim Hyun-Seok",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 7653,
+    "name": "Ulsan HD",
+    "country": "South Korea"
+   },
+   {
+    "id": 346808,
+    "name": "Ulsan Citizen FC",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "全北现代": {
+  "q": "Jeonbuk",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 6908,
+   "name": "Jeonbuk Hyundai Motors",
+   "country": "South Korea",
+   "manager": "Jeong-yong Jung",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 6908,
+    "name": "Jeonbuk Hyundai Motors",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "浦项制铁": {
+  "q": "Pohang",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 7650,
+   "name": "Pohang Steelers",
+   "country": "South Korea",
+   "manager": "Tae-Ha Park",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 7650,
+    "name": "Pohang Steelers",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "首尔FC": {
+  "q": "Seoul",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 7646,
+   "name": "FC Seoul",
+   "country": "South Korea",
+   "manager": "Gi Dong Kim",
+   "manager_country": "South Korea",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 7646,
+    "name": "FC Seoul",
+    "country": "South Korea"
+   },
+   {
+    "id": 189422,
+    "name": "Seoul E-Land FC",
+    "country": "South Korea"
+   },
+   {
+    "id": 191934,
+    "name": "Seoul City WFC",
+    "country": "South Korea"
+   },
+   {
+    "id": 1110075,
+    "name": "Seoul Phoenix FC",
+    "country": "Malaysia"
+   },
+   {
+    "id": 346800,
+    "name": "Seoul Jungang FC",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "水原三星": {
+  "q": "Suwon",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 41261,
+   "name": "Suwon FC",
+   "country": "South Korea",
+   "manager": "Kun-ha Park",
+   "manager_country": "South Korea",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 41261,
+    "name": "Suwon FC",
+    "country": "South Korea"
+   },
+   {
+    "id": 7652,
+    "name": "Suwon Samsung Bluewings",
+    "country": "South Korea"
+   },
+   {
+    "id": 191917,
+    "name": "Suwon WFC",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "大邱FC": {
+  "q": "Daegu",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 7644,
+   "name": "Daegu FC",
+   "country": "South Korea",
+   "manager": "Choi Sung Yong",
+   "manager_country": "Japan",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 7644,
+    "name": "Daegu FC",
+    "country": "South Korea"
+   },
+   {
+    "id": 1171012,
+    "name": "Daegu Science University",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "光州FC": {
+  "q": "Gwangju",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 48912,
+   "name": "Gwangju FC",
+   "country": "South Korea",
+   "manager": "Jeong-Gyu Lee",
+   "manager_country": "South Korea",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 48912,
+    "name": "Gwangju FC",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "仁川联": {
+  "q": "Incheon",
+  "lg": "K1",
+  "want_country": "South Korea",
+  "match": {
+   "id": 7648,
+   "name": "Incheon United",
+   "country": "South Korea",
+   "manager": "Jung-Hwan Yoon",
+   "manager_country": "South Korea",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 7648,
+    "name": "Incheon United",
+    "country": "South Korea"
+   },
+   {
+    "id": 168128,
+    "name": "Incheon Hyundai Steel Red Angels",
+    "country": "South Korea"
+   }
+  ],
+  "err": null
+ },
+ "利雅得新月": {
+  "q": "Al-Hilal Saudi",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "利雅得胜利": {
+  "q": "Al-Nassr",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 23400,
+   "name": "Al-Nassr",
+   "country": "Saudi Arabia",
+   "manager": "Ange Postecoglou",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 23400,
+    "name": "Al-Nassr",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 460722,
+    "name": "Al-Nassr / Al-Hilal",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 551625,
+    "name": "Al-Nassr",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 82259,
+    "name": "Al Nasr S.C.S.C.",
+    "country": "Oman"
+   }
+  ],
+  "err": null
+ },
+ "吉达联合": {
+  "q": "Al-Ittihad",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 34315,
+   "name": "Al-Ittihad",
+   "country": "Saudi Arabia",
+   "manager": "Jens Wissing",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34315,
+    "name": "Al-Ittihad",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 35187,
+    "name": "Al-Ittihad Alexandria",
+    "country": "Egypt"
+   },
+   {
+    "id": 305260,
+    "name": "Al Ittihad SC",
+    "country": "Libya"
+   },
+   {
+    "id": 40652,
+    "name": "Al-Ittihad Ahli of Aleppo SC",
+    "country": "Syria"
+   },
+   {
+    "id": 55705,
+    "name": "Al-Ittihad Kalba",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "吉达国民": {
+  "q": "Al-Ahli Saudi",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 34469,
+   "name": "Al-Ahli",
+   "country": "Saudi Arabia",
+   "manager": "Marino Pušić",
+   "manager_country": "Netherlands",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 34469,
+    "name": "Al-Ahli",
+    "country": "Saudi Arabia"
+   }
+  ],
+  "err": null
+ },
+ "利雅得青年人": {
+  "q": "Al-Shabab Club",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 264111,
+   "name": "Shabab Al-Ahli Dubai",
+   "country": "United Arab Emirates",
+   "manager": "André Jardine",
+   "manager_country": "Brazil",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 264111,
+    "name": "Shabab Al-Ahli Dubai",
+    "country": "United Arab Emirates"
+   },
+   {
+    "id": 40646,
+    "name": "Shabab Al-Ordon",
+    "country": "Jordan"
+   },
+   {
+    "id": 310875,
+    "name": "Shabab Club Al-Ubeidiya",
+    "country": "Palestine"
+   }
+  ],
+  "err": null
+ },
+ "布赖代合作": {
+  "q": "Al-Taawoun",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 56021,
+   "name": "Al-Taawoun",
+   "country": "Saudi Arabia",
+   "manager": "Žarko Lazetić",
+   "manager_country": "Serbia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 56021,
+    "name": "Al-Taawoun",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 458842,
+    "name": "AL Taawoun",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "达曼协作": {
+  "q": "Al-Ettifaq",
+  "lg": "SAU",
+  "want_country": "Saudi Arabia",
+  "match": {
+   "id": 34318,
+   "name": "Al-Ettifaq",
+   "country": "Saudi Arabia",
+   "manager": "Arthur Papas",
+   "manager_country": "Australia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34318,
+    "name": "Al-Ettifaq",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 237402,
+    "name": "Al Ethifaq Club",
+    "country": "Oman"
+   }
+  ],
+  "err": null
+ },
+ "萨德": {
+  "q": "Al Sadd",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 39733,
+   "name": "Al-Sadd",
+   "country": "Qatar",
+   "manager": "Razvan Lucescu",
+   "manager_country": "Romania",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 39733,
+    "name": "Al-Sadd",
+    "country": "Qatar"
+   },
+   {
+    "id": 332932,
+    "name": "Al-Sadd",
+    "country": "Saudi Arabia"
+   }
+  ],
+  "err": null
+ },
+ "杜海勒": {
+  "q": "Al Duhail",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 44441,
+   "name": "Al Duhail",
+   "country": "Qatar",
+   "manager": "Djamel Belmadi",
+   "manager_country": "Algeria",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 44441,
+    "name": "Al Duhail",
+    "country": "Qatar"
+   }
+  ],
+  "err": null
+ },
+ "赖扬": {
+  "q": "Al Rayyan",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 40660,
+   "name": "Al-Rayyan",
+   "country": "Qatar",
+   "manager": "Vicente Moreno",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 40660,
+    "name": "Al-Rayyan",
+    "country": "Qatar"
+   },
+   {
+    "id": 853568,
+    "name": "Al-Rayyan",
+    "country": "Saudi Arabia"
+   }
+  ],
+  "err": null
+ },
+ "加拉法": {
+  "q": "Al Gharafa",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 34312,
+   "name": "Al-Gharafa",
+   "country": "Qatar",
+   "manager": "Pedro Martins",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34312,
+    "name": "Al-Gharafa",
+    "country": "Qatar"
+   }
+  ],
+  "err": null
+ },
+ "沃克拉": {
+  "q": "Al Wakrah",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 44440,
+   "name": "Al-Wakrah",
+   "country": "Qatar",
+   "manager": "Jose Luis Sierra Pando",
+   "manager_country": "Chile",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 44440,
+    "name": "Al-Wakrah",
+    "country": "Qatar"
+   }
+  ],
+  "err": null
+ },
+ "乌姆沙拉尔": {
+  "q": "Umm Salal",
+  "lg": "QAT",
+  "want_country": "Qatar",
+  "match": {
+   "id": 32490,
+   "name": "Umm-Salal SC",
+   "country": "Qatar",
+   "manager": "Damir Čanadi",
+   "manager_country": "Austria",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 32490,
+    "name": "Umm-Salal SC",
+    "country": "Qatar"
+   }
+  ],
+  "err": null
+ },
+ "利兹联": {
+  "q": "Leeds United",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 34,
+   "name": "Leeds United",
+   "country": "England",
+   "manager": "Daniel Farke",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 34,
+    "name": "Leeds United",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "桑德兰": {
+  "q": "Sunderland AFC",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 41,
+   "name": "Sunderland",
+   "country": "England",
+   "manager": "Régis Le Bris",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 41,
+    "name": "Sunderland",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "南安普顿": {
+  "q": "Southampton",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 45,
+   "name": "Southampton",
+   "country": "England",
+   "manager": "Tonda Eckert",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 45,
+    "name": "Southampton",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "诺维奇": {
+  "q": "Norwich City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 263,
+   "name": "Norwich City",
+   "country": "England",
+   "manager": "Philippe Clement",
+   "manager_country": "Belgium",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 263,
+    "name": "Norwich City",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "西布朗": {
+  "q": "West Bromwich Albion",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 8,
+   "name": "West Bromwich Albion",
+   "country": "England",
+   "manager": "James Morrison",
+   "manager_country": "England",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 8,
+    "name": "West Bromwich Albion",
+    "country": "England"
+   },
+   {
+    "id": 335300,
+    "name": "West Bromwich Albion WFC",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "米德尔斯堡": {
+  "q": "Middlesbrough",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 36,
+   "name": "Middlesbrough",
+   "country": "England",
+   "manager": "Kim Hellberg",
+   "manager_country": "Sweden",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 36,
+    "name": "Middlesbrough",
+    "country": "England"
+   },
+   {
+    "id": 307273,
+    "name": "Middlesbrough W.F.C.",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "考文垂": {
+  "q": "Coventry City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 11,
+   "name": "Coventry City",
+   "country": "England",
+   "manager": "Frank Lampard",
+   "manager_country": "England",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 11,
+    "name": "Coventry City",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "沃特福德": {
+  "q": "Watford",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 24,
+   "name": "Watford",
+   "country": "England",
+   "manager": "Alessio Dionisi",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 24,
+    "name": "Watford",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "斯托克城": {
+  "q": "Stoke City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 29,
+   "name": "Stoke City",
+   "country": "England",
+   "manager": "Mark Robins",
+   "manager_country": "England",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 29,
+    "name": "Stoke City",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "布里斯托尔城": {
+  "q": "Bristol City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 58,
+   "name": "Bristol City",
+   "country": "England",
+   "manager": "Michael Skubala",
+   "manager_country": "England",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 58,
+    "name": "Bristol City",
+    "country": "England"
+   },
+   {
+    "id": 55503,
+    "name": "Bristol City WFC",
+    "country": "England"
+   }
+  ],
+  "err": null
+ },
+ "斯旺西": {
+  "q": "Swansea City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 74,
+   "name": "Swansea City",
+   "country": "Wales",
+   "manager": "Vitor Matos",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 74,
+    "name": "Swansea City",
+    "country": "Wales"
+   }
+  ],
+  "err": null
+ },
+ "卡迪夫城": {
+  "q": "Cardiff City",
+  "lg": "ENG2",
+  "want_country": "England",
+  "match": {
+   "id": 61,
+   "name": "Cardiff City",
+   "country": "Wales",
+   "manager": "Brian Barry-Murphy",
+   "manager_country": "Ireland",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 61,
+    "name": "Cardiff City",
+    "country": "Wales"
+   },
+   {
+    "id": 36710,
+    "name": "Cardiff City FC",
+    "country": "Wales"
+   }
+  ],
+  "err": null
+ },
+ "拉斯帕尔马斯": {
+  "q": "UD Las Palmas",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 6577,
+   "name": "UD Las Palmas",
+   "country": "Spain",
+   "manager": "Rubén de la Barrera",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 6577,
+    "name": "UD Las Palmas",
+    "country": "Spain"
+   },
+   {
+    "id": 24369,
+    "name": "Las Palmas Atlético",
+    "country": "Spain"
+   },
+   {
+    "id": 263535,
+    "name": "Las Palmas C",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "莱加内斯": {
+  "q": "CD Leganés",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2845,
+   "name": "Leganés",
+   "country": "Spain",
+   "manager": "Ruben Albes",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2845,
+    "name": "Leganés",
+    "country": "Spain"
+   },
+   {
+    "id": 332263,
+    "name": "CD Leganes",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "巴拉多利德": {
+  "q": "Real Valladolid CF",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2831,
+   "name": "Real Valladolid",
+   "country": "Spain",
+   "manager": "Francisco Escribá Segura",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2831,
+    "name": "Real Valladolid",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "阿尔梅里亚": {
+  "q": "UD Almería",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2858,
+   "name": "Almería",
+   "country": "Spain",
+   "manager": "Garcia Pimienta",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2858,
+    "name": "Almería",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "萨拉戈萨": {
+  "q": "Zaragoza",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2815,
+   "name": "Real Zaragoza",
+   "country": "Spain",
+   "manager": "Ibai Gómez",
+   "manager_country": "Spain",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2815,
+    "name": "Real Zaragoza",
+    "country": "Spain"
+   },
+   {
+    "id": 317628,
+    "name": "RZ Deportivo Aragón",
+    "country": "Spain"
+   },
+   {
+    "id": 77887,
+    "name": "Zaragoza CFF",
+    "country": "Spain"
+   },
+   {
+    "id": 334285,
+    "name": "Gerard Zaragoza Mulet",
+    "country": "Spain"
+   },
+   {
+    "id": 799117,
+    "name": "Real Zaragoza",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "皇家奥维耶多": {
+  "q": "Real Oviedo",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2851,
+   "name": "Real Oviedo",
+   "country": "Spain",
+   "manager": "Julián Calero Fernández",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2851,
+    "name": "Real Oviedo",
+    "country": "Spain"
+   },
+   {
+    "id": 263606,
+    "name": "Real Oviedo Vetusta",
+    "country": "Spain"
+   },
+   {
+    "id": 114821,
+    "name": "Real Oviedo",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "桑坦德竞技": {
+  "q": "Racing Santander",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2835,
+   "name": "Real Racing Club",
+   "country": "Spain",
+   "manager": "José Alberto López",
+   "manager_country": "Spain",
+   "score": 0.333
+  },
+  "cands": [
+   {
+    "id": 2835,
+    "name": "Real Racing Club",
+    "country": "Spain"
+   },
+   {
+    "id": 24356,
+    "name": "Rayo Cantabria",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "希洪竞技": {
+  "q": "Sporting Gijon",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 2852,
+   "name": "Sporting Gijón",
+   "country": "Spain",
+   "manager": "Nicolas Larcamon",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2852,
+    "name": "Sporting Gijón",
+    "country": "Spain"
+   },
+   {
+    "id": 24365,
+    "name": "Sporting Atlético",
+    "country": "Spain"
+   },
+   {
+    "id": 307928,
+    "name": "Sporting Gijón",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "韦斯卡": {
+  "q": "Huesca",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 24265,
+   "name": "Huesca",
+   "country": "Spain",
+   "manager": "Raúl Jardiel",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 24265,
+    "name": "Huesca",
+    "country": "Spain"
+   },
+   {
+    "id": 343328,
+    "name": "Huesca",
+    "country": "Spain"
+   },
+   {
+    "id": 449065,
+    "name": "Internacional Huesca",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "格拉纳达": {
+  "q": "Granada CF",
+  "lg": "ESP2",
+  "want_country": "Spain",
+  "match": {
+   "id": 33779,
+   "name": "Granada",
+   "country": "Spain",
+   "manager": "Pacheta",
+   "manager_country": "Spain",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 33779,
+    "name": "Granada",
+    "country": "Spain"
+   },
+   {
+    "id": 114819,
+    "name": "Granada Club de Fútbol",
+    "country": "Spain"
+   },
+   {
+    "id": 115065,
+    "name": "Recreativo Granada",
+    "country": "Spain"
+   }
+  ],
+  "err": null
+ },
+ "科隆": {
+  "q": "1. Köln",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2671,
+   "name": "1. FC Köln",
+   "country": "Germany",
+   "manager": "René Wagner",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2671,
+    "name": "1. FC Köln",
+    "country": "Germany"
+   },
+   {
+    "id": 229794,
+    "name": "1. FC Köln",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "汉堡": {
+  "q": "Hamburger SV",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2676,
+   "name": "Hamburger SV",
+   "country": "Germany",
+   "manager": "Merlin Polzin",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2676,
+    "name": "Hamburger SV",
+    "country": "Germany"
+   },
+   {
+    "id": 5548,
+    "name": "Hamburger SV",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "柏林赫塔": {
+  "q": "Hertha BSC",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2528,
+   "name": "Hertha BSC",
+   "country": "Germany",
+   "manager": "Stefan Leitl",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2528,
+    "name": "Hertha BSC",
+    "country": "Germany"
+   },
+   {
+    "id": 527820,
+    "name": "Hertha BSC",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "沙尔克04": {
+  "q": "Schalke 04",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2530,
+   "name": "FC Schalke 04",
+   "country": "Germany",
+   "manager": "Miron Muslić",
+   "manager_country": "Austria",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2530,
+    "name": "FC Schalke 04",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "纽伦堡": {
+  "q": "1. Nuremberg",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2523,
+   "name": "1. FC Nürnberg",
+   "country": "Germany",
+   "manager": "Miroslav Klose",
+   "manager_country": "Germany",
+   "score": 0.333
+  },
+  "cands": [
+   {
+    "id": 2523,
+    "name": "1. FC Nürnberg",
+    "country": "Germany"
+   },
+   {
+    "id": 164534,
+    "name": "1. FC Nürnberg",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "帕德博恩": {
+  "q": "Paderborn",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2561,
+   "name": "SC Paderborn 07",
+   "country": "Germany",
+   "manager": "Ralf Kettemann",
+   "manager_country": "Germany",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2561,
+    "name": "SC Paderborn 07",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "荷尔斯泰因基尔": {
+  "q": "Holstein Kiel",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2573,
+   "name": "Holstein Kiel",
+   "country": "Germany",
+   "manager": "Tim Walter",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2573,
+    "name": "Holstein Kiel",
+    "country": "Germany"
+   },
+   {
+    "id": 36634,
+    "name": "Holstein Kiel",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "杜塞尔多夫": {
+  "q": "Fortuna Düsseldorf",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2588,
+   "name": "Fortuna Düsseldorf",
+   "country": "Germany",
+   "manager": "Alexander Ende",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2588,
+    "name": "Fortuna Düsseldorf",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "达姆施塔特": {
+  "q": "SV Darmstadt 98",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2576,
+   "name": "Darmstadt 98",
+   "country": "Germany",
+   "manager": "Florian Kohfeldt",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2576,
+    "name": "Darmstadt 98",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "不伦瑞克": {
+  "q": "Eintracht Braunschweig",
+  "lg": "GER2",
+  "want_country": "Germany",
+  "match": {
+   "id": 2557,
+   "name": "Eintracht Braunschweig",
+   "country": "Germany",
+   "manager": "Lars Kornetka",
+   "manager_country": "Germany",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2557,
+    "name": "Eintracht Braunschweig",
+    "country": "Germany"
+   }
+  ],
+  "err": null
+ },
+ "巴勒莫": {
+  "q": "Palermo",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2715,
+   "name": "Palermo",
+   "country": "Italy",
+   "manager": "Filippo Inzaghi",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2715,
+    "name": "Palermo",
+    "country": "Italy"
+   },
+   {
+    "id": 23485,
+    "name": "Martin Palermo",
+    "country": "Argentina"
+   },
+   {
+    "id": 445334,
+    "name": "Athletic Club Palermo",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "桑普多利亚": {
+  "q": "UC Sampdoria",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2711,
+   "name": "Sampdoria",
+   "country": "Italy",
+   "manager": "Bernardo Corradi",
+   "manager_country": "Italy",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 2711,
+    "name": "Sampdoria",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "恩波利": {
+  "q": "Empoli",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2705,
+   "name": "Empoli",
+   "country": "Italy",
+   "manager": "Guido Pagliuca",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2705,
+    "name": "Empoli",
+    "country": "Italy"
+   },
+   {
+    "id": 269823,
+    "name": "Empoli",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "斯佩齐亚": {
+  "q": "Spezia",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2735,
+   "name": "Spezia",
+   "country": "Italy",
+   "manager": "Marco Turati",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2735,
+    "name": "Spezia",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "克雷莫纳": {
+  "q": "US Cremonese",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2761,
+   "name": "Cremonese",
+   "country": "Italy",
+   "manager": "Fabio Pecchia",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2761,
+    "name": "Cremonese",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "比萨": {
+  "q": "Pisa",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2737,
+   "name": "Pisa",
+   "country": "Italy",
+   "manager": "Paolo Bianco",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2737,
+    "name": "Pisa",
+    "country": "Italy"
+   },
+   {
+    "id": 116312,
+    "name": "FC Iberia 1999",
+    "country": "Georgia"
+   },
+   {
+    "id": 799934,
+    "name": "Fabio Pisacane",
+    "country": "Italy"
+   },
+   {
+    "id": 84407,
+    "name": "Clayton Pisani",
+    "country": "Malta"
+   }
+  ],
+  "err": null
+ },
+ "布雷西亚": {
+  "q": "Brescia",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": null,
+  "cands": [
+   {
+    "id": 2691,
+    "name": "Brescia",
+    "country": "Italy"
+   },
+   {
+    "id": 1110141,
+    "name": "Union Brescia",
+    "country": "Italy"
+   },
+   {
+    "id": 171122,
+    "name": "ACF Brescia",
+    "country": "Italy"
+   },
+   {
+    "id": 414710,
+    "name": "Brescia Clube",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "巴里": {
+  "q": "Bari",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2712,
+   "name": "Bari",
+   "country": "Italy",
+   "manager": "Massimo Rastelli",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2712,
+    "name": "Bari",
+    "country": "Italy"
+   },
+   {
+    "id": 86542,
+    "name": "PS Barito Putera",
+    "country": "Indonesia"
+   },
+   {
+    "id": 804811,
+    "name": "Otto Baric",
+    "country": "Croatia"
+   },
+   {
+    "id": 150625,
+    "name": "Zoran Barisic",
+    "country": "Austria"
+   },
+   {
+    "id": 787690,
+    "name": "Sarper Barıs Saka",
+    "country": "Türkiye"
+   }
+  ],
+  "err": null
+ },
+ "弗罗西诺内": {
+  "q": "Frosinone",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2801,
+   "name": "Frosinone",
+   "country": "Italy",
+   "manager": "Massimiliano Alvini",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2801,
+    "name": "Frosinone",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "科森扎": {
+  "q": "Cosenza",
+  "lg": "ITA2",
+  "want_country": "Italy",
+  "match": {
+   "id": 2716,
+   "name": "Cosenza",
+   "country": "Italy",
+   "manager": "Federico Coppitelli",
+   "manager_country": "Italy",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2716,
+    "name": "Cosenza",
+    "country": "Italy"
+   },
+   {
+    "id": 404111,
+    "name": "Polisportiva Real Cosenza",
+    "country": "Italy"
+   }
+  ],
+  "err": null
+ },
+ "圣埃蒂安": {
+  "q": "AS Saint-Étienne",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1678,
+   "name": "Saint-Étienne",
+   "country": "France",
+   "manager": "Ian Cathro",
+   "manager_country": "Scotland",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1678,
+    "name": "Saint-Étienne",
+    "country": "France"
+   },
+   {
+    "id": 78489,
+    "name": "Saint-Étienne",
+    "country": "France"
+   },
+   {
+    "id": 327772,
+    "name": "AS Saint-Étienne 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "梅斯": {
+  "q": "Metz",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1651,
+   "name": "Metz",
+   "country": "France",
+   "manager": "Luc Holtz",
+   "manager_country": "Luxembourg",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1651,
+    "name": "Metz",
+    "country": "France"
+   },
+   {
+    "id": 168810,
+    "name": "Metz FC",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "洛里昂": {
+  "q": "Lorient",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1656,
+   "name": "Lorient",
+   "country": "France",
+   "manager": "Alexandre Dujeux",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1656,
+    "name": "Lorient",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "甘冈": {
+  "q": "EA Guingamp",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 78501,
+   "name": "EA Guingamp",
+   "country": "France",
+   "manager": "Pierre-Henry Coulon",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1654,
+    "name": "Guingamp",
+    "country": "France"
+   },
+   {
+    "id": 78501,
+    "name": "EA Guingamp",
+    "country": "France"
+   },
+   {
+    "id": 362741,
+    "name": "EA Guingamp",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "特鲁瓦": {
+  "q": "ESTAC Troyes",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1652,
+   "name": "Troyes",
+   "country": "France",
+   "manager": "Stephane Dumont",
+   "manager_country": "France",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1652,
+    "name": "Troyes",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "亚眠": {
+  "q": "Amiens SC",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1676,
+   "name": "Amiens SC",
+   "country": "France",
+   "manager": "Alain Pochat",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1676,
+    "name": "Amiens SC",
+    "country": "France"
+   },
+   {
+    "id": 400421,
+    "name": "Amiens SC 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "卡昂": {
+  "q": "SM Caen",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1667,
+   "name": "Stade Malherbe Caen",
+   "country": "France",
+   "manager": "Gaël Clichy",
+   "manager_country": "France",
+   "score": 0.25
+  },
+  "cands": [
+   {
+    "id": 1667,
+    "name": "Stade Malherbe Caen",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "格勒诺布尔": {
+  "q": "Grenoble",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1671,
+   "name": "Grenoble Foot 38",
+   "country": "France",
+   "manager": "Olivier Frapolli",
+   "manager_country": "France",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1671,
+    "name": "Grenoble Foot 38",
+    "country": "France"
+   },
+   {
+    "id": 309535,
+    "name": "Grenoble Foot 38",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "罗德兹": {
+  "q": "Rodez",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 78487,
+   "name": "Rodez",
+   "country": "France",
+   "manager": "Karima Benameur Taieb",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 6925,
+    "name": "Rodez AF",
+    "country": "France"
+   },
+   {
+    "id": 78487,
+    "name": "Rodez",
+    "country": "France"
+   },
+   {
+    "id": 398297,
+    "name": "Rodez 2",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "巴斯蒂亚": {
+  "q": "SC Bastia",
+  "lg": "FRA2",
+  "want_country": "France",
+  "match": {
+   "id": 1655,
+   "name": "Bastia",
+   "country": "France",
+   "manager": "Laurent Peyrelade",
+   "manager_country": "France",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1655,
+    "name": "Bastia",
+    "country": "France"
+   }
+  ],
+  "err": null
+ },
+ "清水心跳": {
+  "q": "S-Pulse",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 3133,
+   "name": "Shimizu S-Pulse",
+   "country": "Japan",
+   "manager": "Takayuki Yoshida",
+   "manager_country": "Japan",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3133,
+    "name": "Shimizu S-Pulse",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "磐田喜悦": {
+  "q": "Jubilo",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 3132,
+   "name": "Jubilo Iwata",
+   "country": "Japan",
+   "manager": "Tadahiro Akiba",
+   "manager_country": "Japan",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3132,
+    "name": "Jubilo Iwata",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "横滨FC": {
+  "q": "Yokohama",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 7061,
+   "name": "Yokohama FC",
+   "country": "Japan",
+   "manager": "Daisuke Sudo",
+   "manager_country": "Japan",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 3137,
+    "name": "Yokohama F. Marinos",
+    "country": "Japan"
+   },
+   {
+    "id": 7061,
+    "name": "Yokohama FC",
+    "country": "Japan"
+   },
+   {
+    "id": 79911,
+    "name": "Yokohama SCC",
+    "country": "Japan"
+   },
+   {
+    "id": 277166,
+    "name": "Nittaidai FC",
+    "country": "Japan"
+   },
+   {
+    "id": 264381,
+    "name": "Yokohama FC Seagulls",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "长崎成功丸": {
+  "q": "V-Varen Nagasaki",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 38154,
+   "name": "V-Varen Nagasaki",
+   "country": "Japan",
+   "manager": "Takuya Takagi",
+   "manager_country": "Japan",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 38154,
+    "name": "V-Varen Nagasaki",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "冈山绿雉": {
+  "q": "Fagiano Okayama Sports Club",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "千叶市原": {
+  "q": "JEF United",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 3144,
+   "name": "JEF United Chiba",
+   "country": "Japan",
+   "manager": "Yoshiyuki Kobayashi",
+   "manager_country": "Japan",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 3144,
+    "name": "JEF United Chiba",
+    "country": "Japan"
+   },
+   {
+    "id": 216774,
+    "name": "JEF United Ichihara Chiba",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "山形山神": {
+  "q": "Montedio",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": {
+   "id": 21902,
+   "name": "Montedio Yamagata",
+   "country": "Japan",
+   "manager": "Akinobu Yokouchi",
+   "manager_country": "Japan",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 21902,
+    "name": "Montedio Yamagata",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "德岛漩涡": {
+  "q": "Tokushima",
+  "lg": "J2",
+  "want_country": "Japan",
+  "match": null,
+  "cands": [
+   {
+    "id": 21907,
+    "name": "Tokushima Vortis",
+    "country": "Japan"
+   },
+   {
+    "id": 230704,
+    "name": "FC Tokushima",
+    "country": "Japan"
+   },
+   {
+    "id": 400300,
+    "name": "FC Tokushima",
+    "country": "Japan"
+   },
+   {
+    "id": 1043806,
+    "name": "Tokushima Bunri University",
+    "country": "Japan"
+   },
+   {
+    "id": 1232815,
+    "name": "Tokushima Celeste",
+    "country": "Japan"
+   }
+  ],
+  "err": null
+ },
+ "艾因": {
+  "q": "Al Ain",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 37082,
+   "name": "Al-Ain",
+   "country": "United Arab Emirates",
+   "manager": "Vladimir Ivić",
+   "manager_country": "Serbia",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 37082,
+    "name": "Al-Ain",
+    "country": "United Arab Emirates"
+   },
+   {
+    "id": 243794,
+    "name": "Al-Ain",
+    "country": "Saudi Arabia"
+   }
+  ],
+  "err": null
+ },
+ "沙巴布阿赫利": {
+  "q": "Shabab Al Ahli",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 264111,
+   "name": "Shabab Al-Ahli Dubai",
+   "country": "United Arab Emirates",
+   "manager": "André Jardine",
+   "manager_country": "Brazil",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 264111,
+    "name": "Shabab Al-Ahli Dubai",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "华斯尔": {
+  "q": "Al Wasl",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 47674,
+   "name": "Al Wasl",
+   "country": "United Arab Emirates",
+   "manager": "Rui Vitoria",
+   "manager_country": "Portugal",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 47674,
+    "name": "Al Wasl",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "沙迦": {
+  "q": "Sharjah",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 34060,
+   "name": "Al-Sharjah",
+   "country": "United Arab Emirates",
+   "manager": "Jose Morais",
+   "manager_country": "Portugal",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 34060,
+    "name": "Al-Sharjah",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "杰济拉": {
+  "q": "Al Jazira",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 8090,
+   "name": "Al-Jazira",
+   "country": "United Arab Emirates",
+   "manager": "Cosmin Olăroiu",
+   "manager_country": "Romania",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 8090,
+    "name": "Al-Jazira",
+    "country": "United Arab Emirates"
+   },
+   {
+    "id": 54587,
+    "name": "Al-Jazeera Jordan",
+    "country": "Jordan"
+   },
+   {
+    "id": 395548,
+    "name": "Al Jazira Al Hamra",
+    "country": "United Arab Emirates"
+   }
+  ],
+  "err": null
+ },
+ "纳斯尔": {
+  "q": "Al Nasr",
+  "lg": "UAE",
+  "want_country": "United Arab Emirates",
+  "match": {
+   "id": 46332,
+   "name": "Al-Nasr Dubai",
+   "country": "United Arab Emirates",
+   "manager": "Milos Milojevic",
+   "manager_country": "Serbia",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 23400,
+    "name": "Al-Nassr",
+    "country": "Saudi Arabia"
+   },
+   {
+    "id": 46332,
+    "name": "Al-Nasr Dubai",
+    "country": "United Arab Emirates"
+   },
+   {
+    "id": 23401,
+    "name": "Al Nasr SC Kuwait",
+    "country": "Kuwait"
+   },
+   {
+    "id": 305246,
+    "name": "Al Nasr SC Benghazi",
+    "country": "Libya"
+   },
+   {
+    "id": 82259,
+    "name": "Al Nasr S.C.S.C.",
+    "country": "Oman"
+   }
+  ],
+  "err": null
+ },
+ "老虎大学": {
+  "q": "Tigres UANL",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 1940,
+   "name": "Tigres UANL",
+   "country": "Mexico",
+   "manager": "Victor Vucetich",
+   "manager_country": "Mexico",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1940,
+    "name": "Tigres UANL",
+    "country": "Mexico"
+   },
+   {
+    "id": 268554,
+    "name": "Tigres UANL",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "蒙特雷": {
+  "q": "CF Monterrey",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 1932,
+   "name": "CF Monterrey",
+   "country": "Mexico",
+   "manager": "Matías Almeyda",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1932,
+    "name": "CF Monterrey",
+    "country": "Mexico"
+   },
+   {
+    "id": 274540,
+    "name": "Monterrey",
+    "country": "Mexico"
+   },
+   {
+    "id": 282189,
+    "name": "CF Monterrey Rayados",
+    "country": null
+   }
+  ],
+  "err": null
+ },
+ "墨西哥美洲": {
+  "q": "CF América",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 1939,
+   "name": "Club América",
+   "country": "Mexico",
+   "manager": "Guillermo Almada",
+   "manager_country": "Uruguay",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1939,
+    "name": "Club América",
+    "country": "Mexico"
+   },
+   {
+    "id": 261128,
+    "name": "Club América",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "瓜达拉哈拉": {
+  "q": "Deportivo Guadalajara",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "蓝十字": {
+  "q": "CD Cruz Azul",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": null,
+  "cands": [
+   {
+    "id": 1041510,
+    "name": "CD Cruz Azul Lagunas",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "托卢卡": {
+  "q": "Deportivo Toluca",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 1931,
+   "name": "CD Toluca",
+   "country": "Mexico",
+   "manager": "Antonio Mohamed",
+   "manager_country": "Argentina",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1931,
+    "name": "CD Toluca",
+    "country": "Mexico"
+   },
+   {
+    "id": 261026,
+    "name": "Toluca",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "莱昂": {
+  "q": "Club León",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 36534,
+   "name": "Club León",
+   "country": "Mexico",
+   "manager": "Javier Gandolfi",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 36534,
+    "name": "Club León",
+    "country": "Mexico"
+   },
+   {
+    "id": 267470,
+    "name": "Club León",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "美洲狮": {
+  "q": "UNAM Pumas",
+  "lg": "LIGA_MX",
+  "want_country": "Mexico",
+  "match": {
+   "id": 1933,
+   "name": "Pumas UNAM",
+   "country": "Mexico",
+   "manager": "Esteban Solari",
+   "manager_country": "Argentina",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1933,
+    "name": "Pumas UNAM",
+    "country": "Mexico"
+   },
+   {
+    "id": 261000,
+    "name": "Pumas UNAM",
+    "country": "Mexico"
+   }
+  ],
+  "err": null
+ },
+ "戈亚斯": {
+  "q": "Goias",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 1960,
+   "name": "Goiás",
+   "country": "Brazil",
+   "manager": "Mozart Santos",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 1960,
+    "name": "Goiás",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "科里蒂巴": {
+  "q": "Coritiba Foot Ball Club",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ },
+ "塞阿拉": {
+  "q": "Ceará",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 2001,
+   "name": "Ceará",
+   "country": "Brazil",
+   "manager": "Daniel Paulista",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2001,
+    "name": "Ceará",
+    "country": "Brazil"
+   },
+   {
+    "id": 292986,
+    "name": "Ceará",
+    "country": "Brazil"
+   },
+   {
+    "id": 37466,
+    "name": "Caerau Ely FC",
+    "country": "Wales"
+   }
+  ],
+  "err": null
+ },
+ "累西腓体育": {
+  "q": "Sport Club do Recife",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 1959,
+   "name": "Sport Recife",
+   "country": "Brazil",
+   "manager": "Mariano Soso",
+   "manager_country": "Argentina",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 1959,
+    "name": "Sport Recife",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "诺瓦里桑蒂诺": {
+  "q": "Novorizontino",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 135514,
+   "name": "Grêmio Novorizontino",
+   "country": "Brazil",
+   "manager": "Enderson Moreira",
+   "manager_country": "Brazil",
+   "score": 0.75
+  },
+  "cands": [
+   {
+    "id": 135514,
+    "name": "Grêmio Novorizontino",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "阿瓦伊": {
+  "q": "Avai",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 7315,
+   "name": "Avaí",
+   "country": "Brazil",
+   "manager": "Allan Rodrigo Aal",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 7315,
+    "name": "Avaí",
+    "country": "Brazil"
+   },
+   {
+    "id": 248724,
+    "name": "Avaí/Kindermann",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "维拉诺瓦": {
+  "q": "Vila Nova",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": {
+   "id": 2021,
+   "name": "Vila Nova FC",
+   "country": "Brazil",
+   "manager": "Guto Ferreira",
+   "manager_country": "Brazil",
+   "score": 1.0
+  },
+  "cands": [
+   {
+    "id": 2021,
+    "name": "Vila Nova FC",
+    "country": "Brazil"
+   },
+   {
+    "id": 394247,
+    "name": "Vila Nova FC",
+    "country": "Brazil"
+   }
+  ],
+  "err": null
+ },
+ "沙佩科恩斯": {
+  "q": "Associação Chapecoense de Futebol",
+  "lg": "BRA2",
+  "want_country": "Brazil",
+  "match": null,
+  "cands": [],
+  "err": null
+ }
+}

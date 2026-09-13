@@ -25,7 +25,9 @@ global.navigator={userAgent:'smoke'};
 global.location={reload(){global.__reloaded=true}};
 global.requestAnimationFrame=f=>f();
 
-const html=fs.readFileSync(path.join(__dirname,'_baseline.html'),'utf-8');
+// V2.6.1：改为直读主文件。旧快照 _baseline.html 已随仓库精简移除，
+// 且过期快照会让本测试验证旧代码（曾复现已被主文件修复的 const promoted bug）。
+const html=fs.readFileSync(path.join(__dirname,'..','..','football-career-simulator.html'),'utf-8');
 const start=html.indexOf('<script>')+8;
 const end=html.lastIndexOf('</script>');
 const js=html.slice(start,end);
@@ -54,14 +56,16 @@ ok(__cm.cgame.world&&__cm.cgame.world.year===2026,'世界年份 2026');
 ok(__cm.cgame.coach.name==='测试教练','教练姓名');
 ok(__cm.cgame.coach.age===35,'教练 35 岁起步');
 ok(__cm.cgame.club&&__cm.cgame.club.team==='梅州客家','俱乐部 correct');
-ok(Object.keys(__cm.cgame.world.squads).length===32,'32 支球队阵容（28真实+4中乙填充）');
+const expectSquads=LEAGUES.CSL.teams.length+LEAGUES.CL1.teams.length+CM_FILLERS.length
+  +CM_WORLD_LEAGUES.reduce((n,k)=>n+LEAGUES[k].teams.length,0)+CM_CONT_FILLERS.length;
+ok(Object.keys(__cm.cgame.world.squads).length===expectSquads,'全量球队阵容（'+expectSquads+' 支，实际 '+Object.keys(__cm.cgame.world.squads).length+'）');
 const mySq=cmSquadOf('梅州客家');
 ok(mySq.length>=20&&mySq.length<=24,'梅州客家阵容人数 '+mySq.length);
-ok(mySq.some(p=>p.name==='罗德里格'),'真实球星嵌入');
+ok(mySq.some(p=>p.name==='佩勒纳尔'||mySq.some(q=>q.name==='波佩斯库')),'真实球星嵌入');
 ok(mySq.filter(p=>p.pos==='GK').length>=2,'门将 ≥2');
-ok(__cm.cgame.season.fixtures.length===22,'中甲 22 轮');
-ok(__cm.cgame.season.fixtures[0].length===6,'每轮 6 场（12队）');
-ok(Object.keys(__cm.cgame.season.table).length===12,'积分榜 12 队');
+ok(__cm.cgame.season.fixtures.length===30,'中甲 30 轮（16队双循环，实际 '+__cm.cgame.season.fixtures.length+'）');
+ok(__cm.cgame.season.fixtures[0].length===8,'每轮 8 场（16队）');
+ok(Object.keys(__cm.cgame.season.table).length===16,'积分榜 16 队（实际 '+Object.keys(__cm.cgame.season.table).length+'）');
 ok(__cm.cgame.season.winOpen===true,'季前转会窗开启');
 ok(__cm.cgame.youth.length===6,'青训 6 人');
 ok(__cm.cgame.season.scout.length>0,'球探清单已生成');
@@ -71,7 +75,7 @@ ok(__cm.cgame.club.lineup.every(id=>id!=null),'首发已自动填满');
 // 球星OVR合理性
 const wl=cmSquadOf('上海海港');
 const wu=wl.find(p=>p.name==='武磊');
-ok(wu&&wu.ovr>=78,'武磊 OVR '+ (wu&&wu.ovr));
+ok(wu&&wu.ovr>=62&&wu.ovr<=76,'武磊 OVR 62~76（实际 '+(wu&&wu.ovr)+'）');
 
 // ------- 2. 战术板 -------
 section('战术板');
@@ -166,7 +170,7 @@ ok(__cm.cgame.coach.stats.w+__cm.cgame.coach.stats.d+__cm.cgame.coach.stats.l===
 const tb=__cm.cgame.season.table;
 const tablePts=Object.values(tb).reduce((a,r)=>a+r.pts,0);
 let tSum=0;Object.values(tb).forEach(r=>tSum+=r.p);
-ok(tSum===22*LEAGUES.CL1.teams.length,'积分榜赛程记账一致（Σ场次数='+tSum+'）');
+ok(tSum===30*LEAGUES.CL1.teams.length,'积分榜赛程记账一致（Σ场次数='+tSum+'）');
 ok(tablePts>0,'积分榜有分数');
 // 足协杯应有结果
 ok(__cm.cgame.season.cup.winner!==undefined,'杯赛 winner 字段存在');
@@ -191,7 +195,7 @@ ok(__cm.cgame.coach.seasons===1,'执教赛季 +1');
 ok(__cm.cgame.coach.age===36,'教练年龄 +1');
 ok(Object.values(__cm.cgame.season.table).every(r=>r.p===0),'新赛季积分榜清零');
 ok(__cm.cgame.season.winOpen===true,'新赛季季前窗开启');
-ok(__cm.cgame.season.cup.alive.length===32,'新赛季杯赛重置 32 队');
+ok(__cm.cgame.season.cup.alive.length===36,'新赛季杯赛重置 36 队（实际 '+__cm.cgame.season.cup.alive.length+'）');
 
 // ------- 7. 多赛季推进（快进5季，测试下课/升迁/邀约路径） -------
 section('快进5个赛季');

@@ -39,3 +39,22 @@ Thumbs.db
 
 build/_extract_check.js
 build/_logo_run.log
+
+# V6.6.1 仓库精简：二进制发布物与历史快照不入库
+CFC足球职业生涯模拟器.exe
+football-career-simulator.html.*.bak
+build/_rv3/_baseline.html
+mobile/tools/shots_audit/
+build/tm_players.json.gz
+build/tm_clubs.json.gz
+build/_tsdb_cache.json
+build/_tsdb_plan.json
+build/_fotmob_pages.json
+build/_fotmob_league_catalog.json
+build/tm_fotmob_league_ids.json
+
+# V2.6.1：可重新抓取的大体积原始缓存（脚本入 cache，产物不入库）
+build/cfl_players_raw.json
+build/cfl_league_*.json
+build/_tsdb_cache.json
+.workbuddy/

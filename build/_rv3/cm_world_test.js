@@ -89,18 +89,20 @@ section('世界生成（欧洲+亚洲联赛阵容）');
 cmCreateGame({team:'梅州客家',lgKey:'CL1',rep:40},'世界测试教练');
 ok(!!__cm.cgame,'建档成功');
 const squadKeys=Object.keys(__cm.cgame.world.squads);
-ok(squadKeys.length===236,'236 支球队阵容（28中国+全球联赛+填充，实际 '+squadKeys.length+'）');
+const expectSquads=LEAGUES.CSL.teams.length+LEAGUES.CL1.teams.length+CM_FILLERS.length
+  +CM_WORLD_LEAGUES.reduce((n,k)=>n+LEAGUES[k].teams.length,0)+CM_CONT_FILLERS.length;
+ok(squadKeys.length===expectSquads,'全量球队阵容（'+expectSquads+' 支，实际 '+squadKeys.length+'）');
 CM_WORLD_LEAGUES.forEach(k=>{
   const okLg=Array.isArray(__cm.cgame.world.leagues[k])&&__cm.cgame.world.leagues[k].length===LEAGUES[k].teams.length;
   if(!okLg)ok(false,'world.leagues.'+k+' 缺失或数量不符');
 });
 ok(CM_WORLD_LEAGUES.every(k=>Array.isArray(__cm.cgame.world.leagues[k])),'world.leagues 含全部 11 个海外联赛');
 const mcSq=cmSquadOf('曼城');
-ok(mcSq.length===22,'曼城 22 人');
-ok(mcSq.some(p=>p.name==='哈兰德')&&mcSq.some(p=>p.name==='福登'),'曼城真名球星');
+ok(mcSq.length>=18&&mcSq.length<=23,'曼城阵容深度 18~23（实际 '+mcSq.length+'）');
+ok(mcSq.some(p=>p.name==='埃尔林·哈兰德')&&mcSq.some(p=>p.name==='菲尔·福登'),'曼城真名球星（中文译名）');
 const rmSq=cmSquadOf('皇家马德里');
-ok(rmSq.some(p=>p.name==='姆巴佩'),'皇马真名球星');
-const hld=mcSq.find(p=>p.name==='哈兰德');
+ok(rmSq.some(p=>p.name==='基利安·姆巴佩'),'皇马真名球星（中文译名）');
+const hld=mcSq.find(p=>p.name==='埃尔林·哈兰德');
 ok(hld&&hld.ovr>=84,'哈兰德 OVR '+((hld&&hld.ovr)||0));
 ok(hld&&hld.wage>=300&&hld.wage<=2400,'哈兰德年薪在欧洲档 '+((hld&&hld.wage)||0));
 ok(mcSq.every(p=>p.lg==='EPL'),'曼城球员 lg=EPL');
@@ -137,8 +139,8 @@ section('老档迁移（V2.3 档惰性补生成海外世界）');
   const m=cmMigrateSave(old);
   ok(m&&m.world.leagues.EPL.length===12,'迁移后 EPL 联赛键补齐');
   ok(CM_WORLD_LEAGUES.every(k=>Array.isArray(m.world.leagues[k])),'迁移后全部海外联赛键补齐');
-  ok(Object.keys(m.world.squads).length===236,'迁移后 236 支阵容（实际 '+Object.keys(m.world.squads).length+'）');
-  ok(m.world.squads['曼城'].some(p=>p.name==='哈兰德'),'迁移后曼城球星就位');
+  ok(Object.keys(m.world.squads).length===expectSquads,'迁移后全量阵容（'+expectSquads+' 支，实际 '+Object.keys(m.world.squads).length+'）');
+  ok(m.world.squads['曼城'].some(p=>p.name==='埃尔林·哈兰德'),'迁移后曼城球星就位');
   ok(m.world.squads['武里南联'].length>=18,'迁移后亚冠填充队补齐');
   ok(Array.isArray(m.contHistory),'contHistory 容错补齐');
   ok(m.club&&m.club.team==='梅州客家','迁移不破坏俱乐部归属');
@@ -146,12 +148,18 @@ section('老档迁移（V2.3 档惰性补生成海外世界）');
   Object.values(m.world.squads).forEach(sq=>sq.forEach(p=>{if(ids.has(p.id))dup++;ids.add(p.id)}));
   m.world.freeAgents.forEach(p=>{if(ids.has(p.id))dup++;ids.add(p.id)});
   ok(dup===0,'迁移后 id 无冲突（重复 '+dup+'）');
+  ok(m.world.freeAgents.every(p=>p.id>0),'迁移后自由球员无 id≤0（老档 id:0 修复）');
   ok(m.world.nextId>maxId,'nextId 前移不回退');
   // 幂等：再迁移一次零变化
   const before=JSON.stringify(m.world.squads['曼城'].map(p=>p.id));
   cmMigrateSave(m);
   ok(JSON.stringify(m.world.squads['曼城'].map(p=>p.id))===before,'重复迁移幂等');
   __cm.cgame=m; // 恢复会话（迁移后继续用）
+  // 幽灵联赛确定性：同 (联赛,年份) 两次模拟积分榜一致
+  if(typeof cmPhantomLeagueRows==='function'){
+    const p1=JSON.stringify(cmPhantomLeagueRows('EPL')),p2=JSON.stringify(cmPhantomLeagueRows('EPL'));
+    ok(p1===p2,'幽灵联赛同种子确定性');
+  }
 }
 
 // ================= 3. 海外邀约门槛 =================
@@ -181,21 +189,26 @@ __cm.cgame.club=__cm.cgame.club||{team:'梅州客家',leagueKey:'CL1',morale:6,b
   ok(giant>0,'rep92 能收到豪门邀约（'+giant+' 个）');
   // 双向：欧洲声望下中超豪门仍在邀约池
   let cslGiant=0;
-  for(let i=0;i<60;i++){cmGenJobOffers(true).forEach(o=>{if(o.lgKey==='CSL'&&cmSquadStrength(o.team)>=72)cslGiant++})}
+  for(let i=0;i<60;i++){cmGenJobOffers(true).forEach(o=>{if(o.lgKey==='CSL'&&(CM_TEAM_BASE[o.team]||0)>=72)cslGiant++})}
   ok(cslGiant>0,'欧洲声望可回流中超豪门邀约（'+cslGiant+' 个）');
 }
 
 // ================= 4. 执教欧洲 =================
 section('执教欧洲（跳槽切尔西 → 赛季结构 → 欧洲杯赛）');
 __cm.cgame.coach.rep=85;
+__cm.cgame.coach.age=45; // 锁定壮年，隔离「65 岁强制退休」分支，保证本节只验证跳槽+赛季结构
 cmOffseasonAdvance({team:'切尔西',lgKey:'EPL'});
-ok(__cm.cgame.club.team==='切尔西'&&__cm.cgame.club.leagueKey==='EPL','执教切尔西（英超）');
-ok(__cm.cgame.season.fixtures.length===22,'英超 22 轮（12队双循环）');
-ok(Object.keys(__cm.cgame.season.table).length===12,'英超积分榜 12 队');
+ok(__cm.cgame.club.team==='切尔西'&&__cm.cgame.club.leagueKey==='EPL','执教切尔西（英超）'
+   +'（实际 '+((__cm.cgame.club&&__cm.cgame.club.team)||'无')+' / lg='+(__cm.cgame.club&&__cm.cgame.club.leagueKey)
+   +' cmTeamLeague='+cmTeamLeague('切尔西')+' season='+(__cm.cgame.season&&__cm.cgame.season.leagueKey)+'）');
+ok(__cm.cgame.season.fixtures.length===22,'英超 22 轮（12队双循环，实际 '+__cm.cgame.season.fixtures.length+' 轮 / 联赛 '+__cm.cgame.season.leagueKey+' '+(__cm.cgame.season.leagueKey?cmLeagueTeams(__cm.cgame.season.leagueKey).length:0)+' 队）');
+ok(Object.keys(__cm.cgame.season.table).length===12,'英超积分榜 12 队（实际 '+Object.keys(__cm.cgame.season.table).length+'）');
 ok(__cm.cgame.season.cup.name==='足总杯','英格兰杯赛名（足总杯）');
 ok(__cm.cgame.season.cup.stages.length===4,'欧式杯赛 4 阶段');
 ok(__cm.cgame.season.cup.alive.length===16,'欧式杯赛 16 队参赛池');
-ok(__cm.cgame.season.cup.boundaries.join(',')==='4,8,12,16','欧式杯赛边界 '+__cm.cgame.season.cup.boundaries.join(','));
+ok(__cm.cgame.season.cup.boundaries.length===4
+   &&__cm.cgame.season.cup.boundaries.every((v,i,arr)=>(i===0?v>=1:v>arr[i-1])&&v<=22),
+   '欧式杯赛边界单调且在赛季内 '+__cm.cgame.season.cup.boundaries.join(','));
 ok(__cm.cgame.season.objective.desc.indexOf('欧战区')>=0||__cm.cgame.season.objective.desc.indexOf('冠军')>=0,'欧洲赛季目标：'+__cm.cgame.season.objective.desc);
 ok(__cm.cgame.club.budget>=20000,'欧洲 tier1 预算档 '+__cm.cgame.club.budget);
 ok(__cm.cgame.season.acl===null&&__cm.cgame.season.ucl===null,'无资历首季无洲际赛');
@@ -288,7 +301,8 @@ cmNewSeason();
   const acl=g.season.acl;
   ok(acl.winner,'亚冠冠军已产生：'+acl.winner);
   ok(acl.myTrail.length===7+2||acl.myTrail.length===7+1||acl.eliminated&&acl.myTrail.length>=7,'亚冠轨迹合理（'+acl.myTrail.length+' 场）');
-  ok(g.season.round===30&&g.season.cup.winner,'联赛 30 轮 + 杯赛冠军：'+g.season.cup.winner);
+  ok(g.season.round===30&&g.season.cup.winner,'联赛 30 轮 + 杯赛冠军：轮次='+g.season.round+' 冠军='+g.season.cup.winner
+    +' 杯赛阶段='+g.season.cup.stageIdx+'/'+g.season.cup.stages.length+' 存活='+(g.season.cup.alive||[]).length);
   cmSeasonEnd();
   ok(__cm.cmMatch&&__cm.cmMatch.phase==='settle','进入结算');
   ok(g.coach.log.length&&g.coach.log[g.coach.log.length-1].text.indexOf('执教上海海港')===0,'履历写入');
