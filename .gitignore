@@ -63,3 +63,8 @@ build/_tsdb_cache.json
 build/_pyi_work2/
 build/_pyi_spec2/
 build/dist_new/
+
+# PyInstaller 打包中间产物
+build/_pyi_work2/
+build/_pyi_spec2/
+build/dist_new/
