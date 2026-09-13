@@ -1,7 +1,6 @@
 {
  "上海海港": {
   "q": "Shanghai Port",
-  "lg": "CSL",
   "want_country": "China",
   "match": {
    "id": 41537,
@@ -9,7 +8,7 @@
    "country": "China",
    "manager": "Kevin Muscat",
    "manager_country": "Australia",
-   "score": 1.0
+   "score": 12.0
   },
   "cands": [
    {
@@ -22,7 +21,6 @@
  },
  "上海申花": {
   "q": "Shanghai Shenhua",
-  "lg": "CSL",
   "want_country": "China",
   "match": {
    "id": 3373,
@@ -30,7 +28,7 @@
    "country": "China",
    "manager": "Vladan Milojević",
    "manager_country": "Serbia",
-   "score": 1.0
+   "score": 12.0
   },
   "cands": [
    {
@@ -43,7 +41,6 @@
  },
  "山东泰山": {
   "q": "Shandong Taishan",
-  "lg": "CSL",
   "want_country": "China",
   "match": {
    "id": 3371,
@@ -51,7 +48,7 @@
    "country": "China",
    "manager": "Tian Tang",
    "manager_country": "China",
-   "score": 1.0
+   "score": 12.0
   },
   "cands": [
    {
@@ -64,7 +61,6 @@
  },
  "北京国安": {
   "q": "Beijing Guoan",
-  "lg": "CSL",
   "want_country": "China",
   "match": {
    "id": 3376,
@@ -72,7 +68,7 @@
    "country": "China",
    "manager": "Nick Montgomery",
    "manager_country": "Australia",
-   "score": 1.0
+   "score": 12.0
   },
   "cands": [
    {
