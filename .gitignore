@@ -58,3 +58,8 @@ build/cfl_players_raw.json
 build/cfl_league_*.json
 build/_tsdb_cache.json
 .workbuddy/
+
+# PyInstaller 打包中间产物
+build/_pyi_work2/
+build/_pyi_spec2/
+build/dist_new/
